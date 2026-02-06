@@ -93,6 +93,25 @@
 - Next:
   - Day 2（2h）：`CharacterBody2D` 最小移动/跳跃实现。
 
+## 2026-02-06 (agent bootstrap hardening)
+
+- Status: 新会话自动接续机制已加固。
+- Done:
+  - 新增仓库根 `AGENTS.md`，定义“继续任务”时的必读顺序与更新要求。
+  - 新增仓库根 `README.md`，提供 Quick Start 恢复路径。
+  - 更新 `03_sessions/handoff_latest.md`，增加 bootstrap 提示。
+- Next:
+  - 明日按 Day 2（2h）执行 `CharacterBody2D` 移动/跳跃。
+
+## 2026-02-06 (github sync rule added)
+
+- Status: 已固化 GitHub 推送约定，后续可直接说“更新到 github”。
+- Done:
+  - `AGENTS.md` 增加 GitHub 同步约定（origin/master）。
+  - `README.md` 增加默认同步说明。
+- Next:
+  - 明日继续 Day 2（2h）任务。
+
 ## Entry Template
 
 - Date:

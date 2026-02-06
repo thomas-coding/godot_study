@@ -27,3 +27,7 @@ Build minimal playable `Player` with left/right movement + jump using `Character
 ## Suggested first action next session
 
 Start with a Day 2 2-hour runbook and create `Player` scene + movement script before adding extra features.
+
+## Bootstrap Hint for new AI
+
+If user says "continue", follow `AGENTS.md` at repository root first.
