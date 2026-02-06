@@ -1,0 +1,17 @@
+base on 4.6 version
+
+computer os:
+windows 11
+
+web：
+https://godotengine.org/
+
+doc：
+https://docs.godotengine.org/en/stable/
+
+github:
+https://github.com/godotengine/godot
+
+code in this dir base on:
+git clone https://github.com/godotengine/godot -b 4.6-stable
+

@@ -1,0 +1,14 @@
+# Exclude local Godot engine source clone
+godot/
+
+# Exclude Godot editor cache/import artifacts
+**/.godot/
+
+# Exclude build/export outputs
+**/build/
+**/exports/
+**/*.pck
+**/*.exe
+
+# Exclude temporary Office files
+~$*.xlsx
