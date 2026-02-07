@@ -8,7 +8,27 @@
 2. `learning_kb/01_learner/current_state.md`
 3. `learning_kb/02_mentor/knowledge_map.md`
 4. `learning_kb/00_plan/roadmap.md`
-5. `learning_kb/03_sessions/session_protocol.md`
+5. `learning_kb/00_meta/version_registry.md`
+6. `learning_kb/03_sessions/session_protocol.md`
+
+## 1b) 触发词扩展
+
+- 若用户说“学习下godot/学习 Godot/研究 Godot/先学习再教”，把它视为“导师学习会话”，按以下流程执行：
+  1. 读 `learning_kb/02_mentor/knowledge_map.md`
+  2. 读 `learning_kb/02_mentor/learning_backlog.md`
+  3. 基于当前阶段（`learning_kb/00_plan/roadmap.md`）列出本次学习计划（模块 + 产出文件）
+  4. 学习（官方 docs + 源码定位），把结论写入 `learning_kb/02_mentor/` 并标注证据等级
+  5. 更新 `learning_kb/03_sessions/handoff_latest.md`（记录已补齐哪些知识点、下次优先级）
+
+## 1c) 版本升级触发词
+
+- 若用户说“更新知识库到godot X.Y / 升级知识库到 X.Y / 切换到 Godot X.Y”，按以下流程执行：
+  1. 读 `learning_kb/00_meta/version_registry.md`
+  2. 读 `learning_kb/00_meta/version_upgrade_protocol.md`
+  3. 读 `learning_kb/02_mentor/indexes/version_matrix.md`
+  4. 将 `version_registry.md` 的 Active Baseline 更新为目标版本，并标记迁移状态
+  5. 按协议逐项回填 `version_matrix.md` 与导师知识条目的版本适配状态
+  6. 更新 `learning_kb/03_sessions/handoff_latest.md` 记录迁移进度与下一优先级
 
 ## 2) 启动规则
 
@@ -23,6 +43,9 @@
 3. `learning_kb/01_learner/mastery_map.md` / `learning_kb/01_learner/gap_backlog.md`
 4. `learning_kb/02_mentor/docs_digest.md`
 5. `learning_kb/03_sessions/handoff_latest.md`
+6. 若版本基线发生变化，额外更新：
+   - `learning_kb/00_meta/version_registry.md`
+   - `learning_kb/02_mentor/indexes/version_matrix.md`
 
 ## 4) 项目范围约束
 

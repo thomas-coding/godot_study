@@ -1,24 +1,21 @@
-# Knowledge Note Template
+# Module Note Template
 
-Topic:
-
+Module ID:
+Title:
 Status: Verified / Working / Hypothesis
 Version Scope:
 Last Verified:
 Compatibility: unchanged / changed / deprecated / new
 
-Conclusion:
--
-
-Why it matters for current phase:
+Core Conclusion:
 -
 
 Evidence:
-- URL / file path
+- docs URL
+- source path + function
 
-Validation steps:
-1.
-2.
+Teaching Use:
+-
 
-Next follow-up:
+Fast Answer Snippet:
 -

@@ -10,9 +10,22 @@
 2. `learning_kb/01_learner/current_state.md`
 3. `learning_kb/02_mentor/knowledge_map.md`
 4. `learning_kb/00_plan/roadmap.md`
-5. `learning_kb/03_sessions/session_protocol.md`
+5. `learning_kb/00_meta/version_registry.md`
+6. `learning_kb/03_sessions/session_protocol.md`
 
 说明：详细强制规则见仓库根目录 `AGENTS.md`。
+
+## Trigger Phrases
+
+- `继续今天学习` / `继续任务`：进入学习执行模式（按 handoff 接续）。
+- `学习下godot`：进入导师学习模式（先列模块学习计划，再学习并回写知识库）。
+- `更新知识库到godot X.Y`：进入版本迁移模式（切换知识库基线并回填兼容矩阵）。
+
+## Versioned Knowledge Base
+
+- 当前激活版本与迁移历史：`learning_kb/00_meta/version_registry.md`
+- 版本迁移协议：`learning_kb/00_meta/version_upgrade_protocol.md`
+- 导师知识版本兼容矩阵：`learning_kb/02_mentor/indexes/version_matrix.md`
 
 ## Project Layout
 

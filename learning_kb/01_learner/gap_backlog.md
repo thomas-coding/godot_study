@@ -13,6 +13,7 @@
 - Add `Camera2D` follow without jitter
 - Create a minimal gameplay loop (start -> play -> restart)
 - Learn basic collision and hit detection flow
+- Run first real migration rehearsal when target version changes (e.g. 4.6 -> 5.0)
 
 ## P2
 

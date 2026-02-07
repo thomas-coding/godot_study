@@ -1,7 +1,7 @@
-# Knowledge Note Template
+# Knowledge Card Template
 
-Topic:
-
+Card ID:
+Title:
 Status: Verified / Working / Hypothesis
 Version Scope:
 Last Verified:
@@ -10,15 +10,8 @@ Compatibility: unchanged / changed / deprecated / new
 Conclusion:
 -
 
-Why it matters for current phase:
+Evidence:
 -
 
-Evidence:
-- URL / file path
-
-Validation steps:
-1.
-2.
-
-Next follow-up:
+Teaching Use:
 -

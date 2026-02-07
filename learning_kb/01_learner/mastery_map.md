@@ -21,6 +21,8 @@
   - Evidence: `01_learner/daily_reports/2026-02-06.md`
 - Session continuity via KB: `in_progress`
   - Evidence: `01_learner/progress_log.md`
+- Versioned KB governance (`registry/protocol/matrix`): `done`
+  - Evidence: `00_meta/version_registry.md`, `00_meta/version_upgrade_protocol.md`, `02_mentor/indexes/version_matrix.md`
 
 ## English in Technical Context
 

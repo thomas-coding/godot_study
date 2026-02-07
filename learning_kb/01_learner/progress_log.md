@@ -112,6 +112,32 @@
 - Next:
   - 明日继续 Day 2（2h）任务。
 
+## 2026-02-06 (expert mentor architecture)
+
+- Status: 已建立“学习下godot”长期导师学习架构。
+- Done:
+  - `AGENTS.md` 增加触发词流程（学习下godot -> 列计划 -> 学习 -> 回写）。
+  - 新增导师知识模式协议：`02_mentor/expert_study_protocol.md`。
+  - 新增可扩展知识结构：`indexes/ modules/ cards/ qa/`。
+  - 首批源码级模块笔记已落地（M01~M05）与首批知识卡/问答模板（K001~K004, QA001~QA003）。
+  - `handoff_latest.md` 增加“学习下godot”启动提示。
+- Next:
+  - 明日优先 Day 2（2h）实作；若触发“学习下godot”，先进入导师学习模式输出模块计划。
+
+## 2026-02-07 (versioned kb architecture)
+
+- Status: 已完成知识库版本治理架构，支持未来 Godot 5.0+ 迁移。
+- Done:
+  - 新增 `00_meta/version_registry.md`（Active Baseline + 迁移状态 + 时间线）。
+  - 新增 `00_meta/version_upgrade_protocol.md`（触发迁移的标准操作流程）。
+  - 新增 `02_mentor/indexes/version_matrix.md`（模块/卡片/问答版本兼容矩阵）。
+  - 现有 M01~M05、K001~K004、QA001~QA003 已补齐版本字段。
+  - `AGENTS.md` / `README.md` / `session_protocol.md` 已接入版本迁移触发词。
+- Blockers:
+  - 无。
+- Next:
+  - 继续 Day 2 实作；如用户触发升级到 Godot X.Y，按 protocol 执行迁移并回填矩阵。
+
 ## Entry Template
 
 - Date:

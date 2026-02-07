@@ -5,13 +5,21 @@
 ## 文件清单
 
 - `knowledge_map.md`：导师知识全局地图（优先读）。
+- `expert_study_protocol.md`：触发词“学习下godot”对应的学习执行协议。
 - `docs_digest.md`：官方文档阅读摘要（按日期追加）。
 - `godot_core_notes.md`：Godot 核心概念笔记（Scene/Node/Signal/...）。
 - `game_dev_basics.md`：游戏开发基础方法论（循环、状态、反馈、调优）。
 - `steam_release_basics.md`：Steam 发布相关基础知识与检查点。
 - `learning_backlog.md`：导师待学习/待验证主题队列。
+- `indexes/version_matrix.md`：导师知识版本兼容矩阵（按 Godot 版本追踪）。
+- `00_meta/version_registry.md`：当前激活版本与迁移状态。
+- `00_meta/version_upgrade_protocol.md`：版本升级执行协议。
 - `graphics_foundations.md`：图形学基础学习主线（面向实作）。
 - `engine_deep_dive_plan.md`：引擎深入理解路线（源码导向）。
+- `indexes/`：模块/卡片/问答索引入口。
+- `modules/`：模块化深度知识（主题级）。
+- `cards/`：原子知识卡（可快速复用）。
+- `qa/`：高频问题教学模板（可直接答题）。
 
 ## 证据等级
 
@@ -23,3 +31,4 @@
 
 - 教学中优先使用 `Verified` 内容。
 - 若回答涉及 `Working/Hypothesis`，必须显式标注并给验证步骤。
+- 若版本相关问题未在当前 baseline 验证，先查 `version_matrix.md` 再回答。
