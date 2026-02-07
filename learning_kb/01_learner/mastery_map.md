@@ -23,6 +23,8 @@
   - Evidence: `01_learner/progress_log.md`
 - Versioned KB governance (`registry/protocol/matrix`): `done`
   - Evidence: `00_meta/version_registry.md`, `00_meta/version_upgrade_protocol.md`, `02_mentor/indexes/version_matrix.md`
+- Mentor troubleshooting knowledge pack (`QA015` + checklists + quick map): `done`
+  - Evidence: `02_mentor/qa/QA025_fileaccess_resource_missing_in_export.md`, `04_templates/performance_frame_budget_checklist.md`, `04_templates/windows_release_preflight_checklist.md`, `02_mentor/source_quick_answer_map_v1.md`
 
 ## English in Technical Context
 

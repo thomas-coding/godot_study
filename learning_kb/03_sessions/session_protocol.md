@@ -23,15 +23,19 @@
 - Block C (50 min): 动手实现与调试
 - Block D (20 min): 总结与术语卡片沉淀
 
-## 导师学习会话（触发词：学习下godot）
+## 导师学习会话（触发词：学习下godot / 你自己学习 / 你先学习）
 
 - 先输出：本次学习计划（1-2 模块 + 产出文件）
 - 再执行：官方 docs + 源码定位学习
+- 参考导师目标与学习路线：
+  - `02_mentor/mentor_vision_and_self_study_plan.md`
+  - `02_mentor/mentor_progress_dashboard.md`
 - 最后写回：
   - `02_mentor/modules/`
   - `02_mentor/cards/`
   - `02_mentor/qa/`
   - `02_mentor/docs_digest.md`
+  - `02_mentor/mentor_progress_dashboard.md`
   - `03_sessions/handoff_latest.md`
 
 ## 版本迁移会话（触发词：更新知识库到godot X.Y）
@@ -59,5 +63,6 @@
 - `01_learner/current_state.md` 更新
 - `01_learner/mastery_map.md` / `gap_backlog.md` 更新
 - `02_mentor/docs_digest.md` 更新（新增来源或结论）
+- `02_mentor/mentor_progress_dashboard.md` 更新（导师能力百分比）
 - `03_sessions/handoff_latest.md` 更新
 - 若版本迁移发生：`00_meta/version_registry.md` + `02_mentor/indexes/version_matrix.md`

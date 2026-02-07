@@ -138,6 +138,107 @@
 - Next:
   - 继续 Day 2 实作；如用户触发升级到 Godot X.Y，按 protocol 执行迁移并回填矩阵。
 
+## 2026-02-07 (mentor mission sync)
+
+- Status: 已对齐导师长期愿景与自学习计划。
+- Done:
+  - 新增 `02_mentor/mentor_vision_and_self_study_plan.md`（愿景/能力目标/SLA/12周学习路线）。
+  - 触发词扩展到 `你自己学习/你先学习`，并接入 `AGENTS.md` 与 `session_protocol.md`。
+  - 明确默认答题规范：feature 问题多方案对比；源码问题给函数链路与证据。
+- Blockers:
+  - 无。
+- Next:
+  - 继续按 Day 2 主线实作；若触发“你自己学习”，按导师自学习循环执行。
+
+## 2026-02-07 (mentor progress dashboard)
+
+- Status: 导师能力百分比看板已上线，可持续量化追踪。
+- Done:
+  - 新增 `02_mentor/mentor_progress_dashboard.md`（5 维度 + 12 周目标 + 自动更新规则）。
+  - 当前导师总体进度基线设为 `22%`。
+  - 启动与会话协议已接入看板更新要求。
+- Blockers:
+  - 无。
+- Next:
+  - 每次“你自己学习”后按规则刷新分数与周目标进度。
+
+## 2026-02-07 (mentor self-study cycle #1)
+
+- Status: 已执行一次“你自己学习”完整循环（基于 Godot 4.6）。
+- Done:
+  - M05 补齐 Day2 教学清单与常见坑。
+  - QA 从 QA003 扩展到 QA007（新增 QA004~QA007）。
+  - 新增卡片 K005~K007（删除队列时序、delta 来源、velocity 单位坑）。
+  - 新增 `feature_option_playbook.md` 与 Day2 排错模板。
+  - 导师能力看板从 22% 更新到 25%。
+- Blockers:
+  - 无。
+- Next:
+  - 自学习继续冲刺 QA008~QA010，并建立 source quick-answer map v1。
+
+## 2026-02-07 (mentor self-study cycle #2)
+
+- Status: 已完成第二次“你自己学习”循环（Godot 4.6）。
+- Done:
+  - 完成 M06：`Camera2D` 跟随与抖动诊断模块。
+  - QA 扩展到 QA010（新增 QA008~QA010）。
+  - 卡片扩展到 K010（新增 K008~K010）。
+  - 新增 `source_quick_answer_map_v1.md`（10 个高频源码问题映射）。
+  - playbook 扩展到 F005，新增 Camera/Node 生命周期/删除策略方案对比。
+  - 导师能力看板从 25% 更新到 30%。
+- Blockers:
+  - 无。
+- Next:
+  - 继续扩展 quick-answer map 到 20+，playbook 到 F010，并补 D4/D5（性能/发布）资产。
+
+## 2026-02-07 (mentor self-study cycle #3)
+
+- Status: 已完成第三次“你自己学习”循环（Godot 4.6）。
+- Done:
+  - 完成 M07：资源加载与场景实例化（ResourceLoader/PackedScene）。
+  - 完成 M08：性能监视与帧预算基础（Performance/Engine/Time）。
+  - QA 扩展到 QA015（新增 QA011~QA015）。
+  - 卡片扩展到 K016（新增 K011~K016）。
+  - `source_quick_answer_map_v1.md` 从 10 扩展到 20 个高频问题。
+  - `feature_option_playbook.md` 从 F005 扩展到 F010。
+  - 新增 D4/D5 资产：性能排查清单、导出运行时加载清单。
+  - 导师能力看板从 30% 更新到 36%。
+- Blockers:
+  - 无。
+- Next:
+  - 继续扩展 quick-answer map 到 30+，playbook 到 F015，并补性能案例库与发布回归清单。
+
+## 2026-02-07 (mentor self-study cycle #4)
+
+- Status: 已完成第四次“你自己学习”循环（Godot 4.6）。
+- Done:
+  - QA 扩展到 QA020（新增 QA016~QA020）。
+  - 卡片扩展到 K021（新增 K017~K021）。
+  - `source_quick_answer_map_v1.md` 从 20 扩展到 30 个高频问题。
+  - `feature_option_playbook.md` 从 F010 扩展到 F015。
+  - 新增 `performance_casebook_v1.md`（3 个性能案例）。
+  - 新增 `windows_release_preflight_checklist.md`（发布前回归清单）。
+  - 导师能力看板从 36% 更新到 42%。
+- Blockers:
+  - 无。
+- Next:
+  - 继续扩展 quick-answer map 到 40+，playbook 到 F020，补自动化回归规范与发布风险矩阵。
+
+## 2026-02-07 (mentor self-study cycle #5)
+
+- Status: 已完成第五次“你自己学习”循环（Godot 4.6）。
+- Done:
+  - QA 扩展到 QA025（新增 QA021~QA025）。
+  - 卡片扩展到 K026（新增 K022~K026）。
+  - `source_quick_answer_map_v1.md` 从 30 扩展到 40 个高频问题。
+  - `feature_option_playbook.md` 从 F015 扩展到 F020。
+  - 新增 `release_risk_matrix_v1.md` 与 `automated_regression_spec_v1.md`。
+  - 导师能力看板从 42% 更新到 48%。
+- Blockers:
+  - 无。
+- Next:
+  - 继续扩展 quick-answer map 到 50+，playbook 到 F025，并补发布实战样本。
+
 ## Entry Template
 
 - Date:

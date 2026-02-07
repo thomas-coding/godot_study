@@ -9,8 +9,13 @@ Active Baseline: Godot 4.6
 2. `02_mentor/indexes/card_index.md`
 3. `02_mentor/indexes/qa_index.md`
 4. `02_mentor/indexes/version_matrix.md`
-5. `02_mentor/learning_backlog.md`
-6. `02_mentor/docs_digest.md`
+5. `02_mentor/mentor_progress_dashboard.md`
+6. `02_mentor/source_quick_answer_map_v1.md`
+7. `02_mentor/performance_casebook_v1.md`
+8. `02_mentor/release_risk_matrix_v1.md`
+9. `02_mentor/automated_regression_spec_v1.md`
+10. `02_mentor/learning_backlog.md`
+11. `02_mentor/docs_digest.md`
 
 启动时额外读取：`00_meta/version_registry.md`
 
@@ -21,12 +26,20 @@ Active Baseline: Godot 4.6
   - Modules: M01, M02, M03
 
 - Input and Control
-  - Status: `in_progress`
+  - Status: `done` (baseline)
   - Modules: M04
 
 - Character Controller (2D)
-  - Status: `in_progress`
+  - Status: `done` (baseline)
   - Modules: M05
+
+- Resource Pipeline and Instancing
+  - Status: `done` (baseline)
+  - Modules: M07
+
+- Performance and Frame Budget
+  - Status: `done` (baseline)
+  - Modules: M08
 
 - Graphics Fundamentals (2D/3D/math)
   - Status: `planned`
@@ -48,16 +61,26 @@ Active Baseline: Godot 4.6
 - 版本迁移统一通过 `00_meta/version_upgrade_protocol.md` 执行。
 - 兼容状态统一记录在 `02_mentor/indexes/version_matrix.md`。
 
+## Mentor Mission Contract
+
+- 导师愿景与学习计划：`02_mentor/mentor_vision_and_self_study_plan.md`。
+- 导师能力进度看板：`02_mentor/mentor_progress_dashboard.md`。
+- 默认能力要求：
+  - feature 问题至少给 2 个方案并说明优缺点。
+  - 源码问题给函数链路与证据路径。
+  - 结论必须标注可信度等级（Verified/Working/Hypothesis）。
+
 ## Study Trigger Contract
 
-- 当用户说“学习下godot/研究 Godot”时：
+- 当用户说“学习下godot/研究 Godot/你自己学习/你先学习”时：
   1. 先给本次学习计划（模块 + 产出文件）
   2. 再做 docs+source 学习
   3. 回写 `modules/` + `cards/` + `qa/` + `docs_digest.md`
 
 ## Current Priority (next sessions)
 
-1. 完成 M05 并产出 Day 2 教学清单（CharacterBody2D movement/jump）
-2. 补 `_physics_process(delta)` 源码级证据链（MainLoop -> SceneTree -> Node）
-3. 形成可复用教学问答模板（QA001-003 扩充到 QA010）
+1. 建立并扩展 source quick-answer map（v1 已完成 40 问题，下一步补到 50+）
+2. 扩展 feature option playbook（当前 F001~F020，目标 >=25）
+3. 扩展性能与发布链路资产（已完成案例库/回归清单/风险矩阵，下一步补实战数据）
 4. 维护版本兼容矩阵（为未来 5.0 迁移预置状态）
+5. 每次导师自学习后刷新能力看板（当前 48%，目标 52%）

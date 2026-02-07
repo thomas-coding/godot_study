@@ -11,6 +11,11 @@
 ## P1
 
 - Add `Camera2D` follow without jitter
+- Practice Camera2D jitter checklist on real project scene
+- Practice performance frame-budget checklist on current project
+- Practice export runtime resource-loading checklist on a test export build
+- Practice Windows release preflight checklist on first playable build
+- Apply release risk matrix to first playable build and mark top 5 risks
 - Create a minimal gameplay loop (start -> play -> restart)
 - Learn basic collision and hit detection flow
 - Run first real migration rehearsal when target version changes (e.g. 4.6 -> 5.0)

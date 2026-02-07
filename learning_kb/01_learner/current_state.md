@@ -16,6 +16,7 @@ Last Updated: 2026-02-07
 - Input actions created: `move_left`, `move_right`, `jump`
 - Debug script attached and `jump` action verified
 - Versioned KB infrastructure is ready (`registry` + `upgrade protocol` + `compatibility matrix`)
+- Mentor support assets upgraded: QA001~QA025, multi-domain checklists, source quick-answer map v1 (40 items)
 
 ## Current Gaps
 

@@ -44,6 +44,8 @@
 
 - 关键知识点优先写来源（官方 docs URL、类名、源码路径）。
 - 导师知识条目需标注适用版本（至少写当前 Active Baseline）。
+- 用户触发“你自己学习”时，按 `02_mentor/mentor_vision_and_self_study_plan.md` 执行导师自学习循环。
+- 每次导师学习后更新 `02_mentor/mentor_progress_dashboard.md`（百分比 + 周目标）。
 - 先可运行，再扩展；每天要有最小可验证产出。
 - 术语保留英文原名，解释可中文。
 - 新会话默认读快照，不全量扫历史，避免上下文过载。

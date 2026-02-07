@@ -19,6 +19,7 @@
 
 - `继续今天学习` / `继续任务`：进入学习执行模式（按 handoff 接续）。
 - `学习下godot`：进入导师学习模式（先列模块学习计划，再学习并回写知识库）。
+- `你自己学习` / `你先学习`：进入导师自学习模式（按导师愿景与学习计划执行）。
 - `更新知识库到godot X.Y`：进入版本迁移模式（切换知识库基线并回填兼容矩阵）。
 
 ## Versioned Knowledge Base
@@ -26,6 +27,7 @@
 - 当前激活版本与迁移历史：`learning_kb/00_meta/version_registry.md`
 - 版本迁移协议：`learning_kb/00_meta/version_upgrade_protocol.md`
 - 导师知识版本兼容矩阵：`learning_kb/02_mentor/indexes/version_matrix.md`
+- 导师能力进度看板：`learning_kb/02_mentor/mentor_progress_dashboard.md`
 
 ## Project Layout
 

@@ -13,12 +13,15 @@
 
 ## 1b) 触发词扩展
 
-- 若用户说“学习下godot/学习 Godot/研究 Godot/先学习再教”，把它视为“导师学习会话”，按以下流程执行：
+- 若用户说“学习下godot/学习 Godot/研究 Godot/先学习再教/你自己学习/你先学习”，把它视为“导师学习会话”，按以下流程执行：
   1. 读 `learning_kb/02_mentor/knowledge_map.md`
   2. 读 `learning_kb/02_mentor/learning_backlog.md`
-  3. 基于当前阶段（`learning_kb/00_plan/roadmap.md`）列出本次学习计划（模块 + 产出文件）
-  4. 学习（官方 docs + 源码定位），把结论写入 `learning_kb/02_mentor/` 并标注证据等级
-  5. 更新 `learning_kb/03_sessions/handoff_latest.md`（记录已补齐哪些知识点、下次优先级）
+  3. 读 `learning_kb/02_mentor/mentor_vision_and_self_study_plan.md`
+  4. 读 `learning_kb/02_mentor/mentor_progress_dashboard.md`
+  5. 基于当前阶段（`learning_kb/00_plan/roadmap.md`）列出本次学习计划（模块 + 产出文件）
+  6. 学习（官方 docs + 源码定位），把结论写入 `learning_kb/02_mentor/` 并标注证据等级
+  7. 更新 `learning_kb/02_mentor/mentor_progress_dashboard.md`（刷新百分比与周目标进度）
+  8. 更新 `learning_kb/03_sessions/handoff_latest.md`（记录已补齐哪些知识点、下次优先级）
 
 ## 1c) 版本升级触发词
 
@@ -43,7 +46,8 @@
 3. `learning_kb/01_learner/mastery_map.md` / `learning_kb/01_learner/gap_backlog.md`
 4. `learning_kb/02_mentor/docs_digest.md`
 5. `learning_kb/03_sessions/handoff_latest.md`
-6. 若版本基线发生变化，额外更新：
+6. `learning_kb/02_mentor/mentor_progress_dashboard.md`
+7. 若版本基线发生变化，额外更新：
    - `learning_kb/00_meta/version_registry.md`
    - `learning_kb/02_mentor/indexes/version_matrix.md`
 

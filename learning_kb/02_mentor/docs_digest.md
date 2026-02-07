@@ -15,6 +15,171 @@
   - `00_meta/version_upgrade_protocol.md`
   - `02_mentor/indexes/version_matrix.md`
 
+- Topic: 导师愿景与自学习计划固化（Working）
+- Summary:
+  - 明确导师目标：成为 Godot 专家型指导老师，支持快速、正确、可验证的解答。
+  - 新增默认回答规范：feature 提供多方案 trade-off，源码问题给函数链路与证据。
+  - 新增触发词：`你自己学习 / 你先学习`，可按固定计划执行导师自学习。
+- Source:
+  - `02_mentor/mentor_vision_and_self_study_plan.md`
+  - `02_mentor/expert_study_protocol.md`
+  - `AGENTS.md`
+
+- Topic: 导师能力量化看板上线（Working）
+- Summary:
+  - 新增 5 维度量化模型与总百分比计算规则（当前 22%）。
+  - 新增 12 周周目标与每次导师学习后的自动更新规则。
+  - 后续可持续追踪“专家型导师”愿景达成进度。
+- Source:
+  - `02_mentor/mentor_progress_dashboard.md`
+  - `03_sessions/session_protocol.md`
+
+- Topic: CharacterBody2D Day2 教学清单与排错模板（Verified）
+- Summary:
+  - 补齐了 Day2 最小可玩实现的教学顺序：更新 velocity -> move_and_slide -> 读取 is_on_floor。
+  - 明确了两个高频坑：`velocity` 单位是 px/s（不要再乘 delta）、`is_on_floor` 是运动后状态。
+  - 新增可复用排错模板，覆盖输入、重力、碰撞、贴地与时序问题。
+- Source:
+  - `godot/doc/classes/CharacterBody2D.xml`
+  - `godot/scene/2d/physics/character_body_2d.cpp`
+  - `02_mentor/modules/M05_characterbody2d_movement_basics.md`
+  - `04_templates/characterbody2d_day2_troubleshooting_checklist.md`
+
+- Topic: 回调与删除时序问答扩展（Verified）
+- Summary:
+  - `queue_free` 被确认是“入删除队列 -> 帧尾 flush”语义，不是立即销毁。
+  - 新增 physics delta 与 step cap 问答，解释低帧率下 delta 与真实秒数偏差。
+  - QA 资产从 QA003 扩展到 QA007，覆盖 Day2 常见疑问。
+- Source:
+  - `godot/scene/main/scene_tree.cpp`
+  - `godot/main/main.cpp`
+  - `godot/doc/classes/Node.xml`
+  - `02_mentor/qa/QA004_queue_free_not_immediate.md`
+  - `02_mentor/qa/QA005_physics_delta_and_step_cap.md`
+
+- Topic: Feature 多方案对比库 v1（Working）
+- Summary:
+  - 新增 playbook，首批覆盖输入采样策略与坡面贴地策略两类 feature。
+  - 每个 feature 提供 2-3 个方案及优缺点/适用场景，提升指导速度与正确率。
+- Source:
+  - `02_mentor/feature_option_playbook.md`
+  - `godot/doc/classes/Node.xml`
+  - `godot/doc/classes/CharacterBody2D.xml`
+
+- Topic: Camera2D 跟随抖动诊断（Verified）
+- Summary:
+  - `Camera2D` 的跟随抖动常见于 callback 域不一致（player 在 physics，camera 在 idle 或反向）。
+  - 实际屏幕中心需用 `get_screen_center_position()` 诊断，不能只看 `global_position`。
+  - 参数修改后可用 `reset_smoothing()` / `force_update_scroll()` 做立即收敛验证。
+- Source:
+  - `godot/doc/classes/Camera2D.xml`
+  - `godot/scene/2d/camera_2d.cpp`
+  - `02_mentor/modules/M06_camera_follow_and_jitter_diagnosis.md`
+
+- Topic: Node 复用与 `_ready` 生命周期（Verified）
+- Summary:
+  - `_ready` 默认对同一实例只触发一次。
+  - 复用节点并重新初始化时，应在重新加入树前调用 `request_ready()`。
+- Source:
+  - `godot/doc/classes/Node.xml`
+  - `godot/scene/main/node.cpp`
+  - `02_mentor/qa/QA009_ready_not_called_again.md`
+
+- Topic: 源码快答映射表 v1（Working）
+- Summary:
+  - 已建立 10 个高频问题到源码入口的映射（类 -> 函数链路 -> 证据）。
+  - 可用于 5 分钟内输出“结论 + 证据 + 验证步骤”的源码答疑。
+- Source:
+  - `02_mentor/source_quick_answer_map_v1.md`
+
+- Topic: 资源加载与实例化链路（Verified）
+- Summary:
+  - `ResourceLoader.load` 默认复用缓存；线程加载需“先 status 再 get”，否则可能阻塞。
+  - `PackedScene.instantiate` 会发送 `NOTIFICATION_SCENE_INSTANTIATED`，可作为实例化后初始化锚点。
+  - 已补齐 M07、K011~K013、QA011~QA012 作为教学资产。
+- Source:
+  - `godot/doc/classes/ResourceLoader.xml`
+  - `godot/core/io/resource_loader.cpp`
+  - `godot/doc/classes/PackedScene.xml`
+  - `godot/scene/resources/packed_scene.cpp`
+
+- Topic: 性能监视与帧预算基线（Verified）
+- Summary:
+  - 建立“先判域后优化”流程：先看 `TIME_PROCESS` / `TIME_PHYSICS_PROCESS` / `RENDER_TOTAL_DRAW_CALLS_IN_FRAME`。
+  - 明确 release 导出下部分 monitor 固定为 0 的限制，避免误判。
+  - 已补齐 M08、K014~K016、QA013~QA014 与性能排查 checklist。
+- Source:
+  - `godot/doc/classes/Performance.xml`
+  - `godot/main/performance.cpp`
+  - `godot/doc/classes/Engine.xml`
+  - `godot/doc/classes/Time.xml`
+  - `04_templates/performance_frame_budget_checklist.md`
+
+- Topic: 导出运行时资源加载风险（Verified）
+- Summary:
+  - 导出后运行时加载差异需重点核查 `editor/export/convert_text_resources_to_binary`。
+  - 补齐导出运行时加载 checklist 与 QA015，形成 D5 基础资产。
+- Source:
+  - `godot/doc/classes/ResourceLoader.xml`
+  - `godot/doc/classes/ProjectSettings.xml`
+  - `04_templates/export_runtime_resource_loading_checklist.md`
+  - `02_mentor/qa/QA015_runtime_load_in_export_fail.md`
+
+- Topic: Runtime 指标与构建形态识别扩展（Verified）
+- Summary:
+  - 补充了 debug/release 指标可见性、`TIME_FPS` 更新节奏、`OS.has_feature("template")` 判定等高频结论。
+  - 新增 K017~K021 与 QA016~QA020，覆盖性能观测、缓存语义、VSync/FPS 联动与运行态识别。
+- Source:
+  - `godot/doc/classes/Performance.xml`
+  - `godot/doc/classes/OS.xml`
+  - `godot/doc/classes/Engine.xml`
+  - `godot/doc/classes/ProjectSettings.xml`
+  - `godot/doc/classes/DisplayServer.xml`
+
+- Topic: 多方案与快答图谱扩展（Working）
+- Summary:
+  - feature playbook 从 F010 扩展到 F015，补齐 runtime metrics、threaded loading depth、release preflight 策略。
+  - source quick-answer map 从 20 扩展到 30，形成更高覆盖率源码答疑入口。
+- Source:
+  - `02_mentor/feature_option_playbook.md`
+  - `02_mentor/source_quick_answer_map_v1.md`
+
+- Topic: D4/D5 实战资产补全（Working）
+- Summary:
+  - 新增性能案例库 v1（3 cases），覆盖 physics 慢动作、渲染峰值、线程加载卡顿。
+  - 新增 Windows 发布前回归清单，形成发布前最小可执行检查路径。
+- Source:
+  - `02_mentor/performance_casebook_v1.md`
+  - `04_templates/windows_release_preflight_checklist.md`
+
+- Topic: 配置与文件系统稳定性细节扩展（Verified）
+- Summary:
+  - 补齐了 `ConfigFile` 持久化、`DirAccess` 顺序不稳定、`FileAccess` 导出资源读取限制等易踩坑。
+  - 新增 K022~K026 与 QA021~QA025，覆盖 V-Sync 运行时变更、user:// 持久化与导出差异。
+- Source:
+  - `godot/doc/classes/ConfigFile.xml`
+  - `godot/doc/classes/DirAccess.xml`
+  - `godot/doc/classes/FileAccess.xml`
+  - `godot/doc/classes/OS.xml`
+  - `godot/doc/classes/DisplayServer.xml`
+
+- Topic: 决策资产与快答图谱扩容（Working）
+- Summary:
+  - playbook 从 F015 扩展到 F020，新增设置持久化、遍历确定性、运行态判定、发布风险管理策略。
+  - source quick-answer map 从 30 扩展到 40，提升发布链路与配置问题答疑覆盖率。
+- Source:
+  - `02_mentor/feature_option_playbook.md`
+  - `02_mentor/source_quick_answer_map_v1.md`
+
+- Topic: 发布治理资产补全（Working）
+- Summary:
+  - 新增发布风险矩阵 v1（概率 x 影响）与自动化回归规范 v1（指标/流程/门禁）。
+  - 导师能力看板更新到 48%，进入“可教学后期”阶段。
+- Source:
+  - `02_mentor/release_risk_matrix_v1.md`
+  - `02_mentor/automated_regression_spec_v1.md`
+  - `02_mentor/mentor_progress_dashboard.md`
+
 ## 2026-02-06
 
 - Topic: 文档入口结构与学习路径梳理

@@ -11,6 +11,13 @@
 - `game_dev_basics.md`：游戏开发基础方法论（循环、状态、反馈、调优）。
 - `steam_release_basics.md`：Steam 发布相关基础知识与检查点。
 - `learning_backlog.md`：导师待学习/待验证主题队列。
+- `mentor_vision_and_self_study_plan.md`：导师愿景、能力目标与自学习计划。
+- `mentor_progress_dashboard.md`：导师能力百分比与周目标进度看板。
+- `feature_option_playbook.md`：常见 feature 多方案对比与取舍模板。
+- `source_quick_answer_map_v1.md`：高频源码问题快速映射（类/函数链路/证据）。
+- `performance_casebook_v1.md`：性能问题案例库（症状/指标/修复/验证）。
+- `release_risk_matrix_v1.md`：发布风险矩阵（概率 x 影响 x 缓解）。
+- `automated_regression_spec_v1.md`：自动化回归协议（指标/步骤/通过条件）。
 - `indexes/version_matrix.md`：导师知识版本兼容矩阵（按 Godot 版本追踪）。
 - `00_meta/version_registry.md`：当前激活版本与迁移状态。
 - `00_meta/version_upgrade_protocol.md`：版本升级执行协议。
