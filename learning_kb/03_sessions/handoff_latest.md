@@ -40,7 +40,26 @@ Date: 2026-02-07
   - Source quick-answer map expanded from 30 to 40 questions.
   - Feature playbook expanded from F015 to F020.
   - Added `release_risk_matrix_v1.md` + `automated_regression_spec_v1.md`.
-- Mentor progress dashboard is active: current progress `48%`, sprint target `52%`.
+- Mentor self-study cycle continued again:
+  - QA expanded to QA030 (`QA026`~`QA030` added).
+  - Cards expanded to K031 (`K027`~`K031` added).
+  - Source quick-answer map expanded from 40 to 50 questions.
+  - Feature playbook expanded from F020 to F025.
+  - Added `release_rehearsal_samples_v1.md` and linked it to risk matrix.
+- Mentor self-study cycle continued further:
+  - Completed M09 (`SceneTree` group orchestration + persistence boundary + runtime render controls).
+  - QA expanded to QA035 (`QA031`~`QA035` added).
+  - Cards expanded to K036 (`K032`~`K036` added).
+  - Source quick-answer map expanded from 50 to 60 questions.
+  - Feature playbook expanded from F025 to F030.
+- Mentor self-study cycle continued again:
+  - Completed M10 (`Scene` switch timing + timer order + JSON resource runtime semantics).
+  - QA expanded to QA040 (`QA036`~`QA040` added).
+  - Cards expanded to K041 (`K037`~`K041` added).
+  - Source quick-answer map expanded from 60 to 70 questions.
+  - Feature playbook expanded from F030 to F035.
+  - Upgraded release rehearsal samples to real build records (`RRB-001~RRB-003`) with artifacts summary.
+- Mentor progress dashboard is active: current progress `60%`, sprint target `64%`.
 
 ## Active baseline
 
@@ -51,7 +70,7 @@ Date: 2026-02-07
   - docs channel: `https://docs.godotengine.org/en/stable/`
 - Mentor capability baseline:
   - dashboard: `02_mentor/mentor_progress_dashboard.md`
-  - current overall: `48%`
+  - current overall: `60%`
 
 ## Current learner state
 
@@ -88,7 +107,7 @@ Build minimal playable `Player` with left/right movement + jump using `Character
 ## Suggested first action next session
 
 - Learning mode: start Day 2 runbook, create `Player` scene + movement script.
-- Mentor self-study mode: expand quick-answer map to 50+ and playbook to F025.
+- Mentor self-study mode: expand quick-answer map to 80+ and playbook to F040.
 - Upgrade mode: execute protocol Step 1 and open migration matrix.
 
 ## Bootstrap Hint for new AI

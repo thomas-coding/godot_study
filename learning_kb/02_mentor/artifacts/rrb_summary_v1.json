@@ -1,0 +1,44 @@
+{
+  "generated_at": "2026-02-07T17:55:29",
+  "build": {
+    "exe_path": "D:\\software_package\\Godot_v4.6-stable_win64.exe",
+    "sha256": "63913d01be2c2d1f929b4a626f5347117126b34e9c64cbf350ea9f35a9657ebf",
+    "version": "4.6.stable.official.89cea1439"
+  },
+  "records": {
+    "RRB-001": {
+      "artifact": "rrb001_baseline_headless.json",
+      "captured_at": "2026-02-07T17:41:49",
+      "startup_ms": {
+        "Main::Setup": 17.979,
+        "Servers": 24.806,
+        "Scene": 53.393,
+        "Main::Setup2": 87.361,
+        "Load Game": 8.805,
+        "Main::Start": 9.3
+      }
+    },
+    "RRB-002": {
+      "artifact": "rrb002_headless_quickstart_3runs.json",
+      "captured_at": "2026-02-07T17:47:20",
+      "quickstart_ms": {
+        "avg": 177.06,
+        "min": 174.58,
+        "max": 179.93
+      }
+    },
+    "RRB-003": {
+      "artifact": "rrb003_benchmark_stdout_parsed.json",
+      "captured_at": "2026-02-07T17:47:46",
+      "benchmark_ms": {
+        "Main::Setup": 18.003,
+        "Servers": 19.745,
+        "Scene": 54.372,
+        "Main::Setup2": 85.323,
+        "Load Game": 8.611,
+        "Main::Start": 9.096,
+        "Main::Cleanup": 65.613
+      }
+    }
+  }
+}

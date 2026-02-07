@@ -48,6 +48,36 @@ Version Scope: 4.6
 | SQ38 | `user://` 的真实路径如何确认？ | User data path | `OS.get_user_data_dir` absolute path by platform | `godot/doc/classes/OS.xml` |
 | SQ39 | Web 平台存档为何偶发不持久？ | User FS persistence | `OS.is_userfs_persistent` indicates persistence availability | `godot/doc/classes/OS.xml` |
 | SQ40 | `application/run/max_fps` 与 `Engine.max_fps` 如何分工？ | Startup vs runtime FPS cap | project setting read on startup, runtime should set Engine | `godot/doc/classes/ProjectSettings.xml`, `godot/doc/classes/Engine.xml` |
+| SQ41 | 运行时改 V-Sync 为何不生效？ | ProjectSettings/DisplayServer | startup-only project setting -> runtime API switch | `godot/doc/classes/ProjectSettings.xml`, `godot/doc/classes/DisplayServer.xml` |
+| SQ42 | V-Sync 模式设置后为何回退到 Enabled？ | DisplayServer runtime vsync | unsupported mode fallback to `VSYNC_ENABLED` | `godot/doc/classes/DisplayServer.xml` |
+| SQ43 | `screen_get_refresh_rate` 为什么需要兜底 60Hz？ | Display refresh query | may return `-1.0` on invalid/unsupported cases | `godot/doc/classes/DisplayServer.xml` |
+| SQ44 | 目录遍历如何保证跨平台稳定？ | DirAccess traversal | non-deterministic stream -> use sorted `get_files/get_directories` | `godot/doc/classes/DirAccess.xml` |
+| SQ45 | `ResourceLoader.list_directory` 返回的文件名语义？ | Resource listing | original editor-visible resource names + folder suffix `/` | `godot/doc/classes/ResourceLoader.xml` |
+| SQ46 | `ConfigFile` 修改后为什么重启丢失？ | Config persistence | mutations are in-memory until explicit save | `godot/doc/classes/ConfigFile.xml` |
+| SQ47 | `ConfigFile` 键名为什么不能带空格？ | Config naming constraints | section/property names with spaces are truncated/ignored | `godot/doc/classes/ConfigFile.xml` |
+| SQ48 | `flush()` 为什么不能频繁调用？ | FileAccess write strategy | improves safety but hurts performance with constant writes | `godot/doc/classes/FileAccess.xml` |
+| SQ49 | 为什么导出后应优先 `ResourceLoader` 读资源？ | Exported resources | source files may be converted/missing in exported PCK | `godot/doc/classes/FileAccess.xml`, `godot/doc/classes/ProjectSettings.xml` |
+| SQ50 | Web 平台怎样做存档降级策略？ | UserFS persistence gating | check `is_userfs_persistent` then enable/disable persistence path | `godot/doc/classes/OS.xml` |
+| SQ51 | `GROUP_CALL_UNIQUE` 为什么没去重？ | SceneTree group calls | `call_group_flags` -> unique path requires deferred | `godot/doc/classes/SceneTree.xml`, `godot/scene/main/scene_tree.cpp` |
+| SQ52 | 怎么让组调用按反向顺序执行？ | SceneTree group calls | `GROUP_CALL_REVERSE` -> reverse for-loop dispatch | `godot/doc/classes/SceneTree.xml`, `godot/scene/main/scene_tree.cpp` |
+| SQ53 | `notify_group_flags` 与 `call_group_flags` 如何选？ | SceneTree notifications | method call path vs `Object.notification` broadcast path | `godot/doc/classes/SceneTree.xml`, `godot/scene/main/scene_tree.cpp` |
+| SQ54 | deferred 组调用何时执行？ | Message queue timing | `GROUP_CALL_DEFERRED` -> `MessageQueue::push_callp/push_notification` | `godot/scene/main/scene_tree.cpp` |
+| SQ55 | `PackedScene.pack` 为什么漏节点？ | Scene persistence ownership | `pack` -> `_parse_node` owner checks -> save owned nodes | `godot/doc/classes/PackedScene.xml`, `godot/scene/resources/packed_scene.cpp` |
+| SQ56 | JSON 解析要诊断错误该用哪个接口？ | JSON parsing | `JSON.parse` + `get_error_line/get_error_message` | `godot/doc/classes/JSON.xml`, `godot/core/io/json.cpp` |
+| SQ57 | `parse_string` 失败后为什么难定位？ | JSON parsing | static `parse_string` returns null on failure path | `godot/doc/classes/JSON.xml`, `godot/core/io/json.cpp` |
+| SQ58 | 保留原始 JSON 文本有什么用？ | JSON round-trip | `parse(keep_text=true)` -> `get_parsed_text` for later save path | `godot/doc/classes/JSON.xml`, `godot/core/io/json.cpp` |
+| SQ59 | 运行时切换 AA 参数走哪条链路？ | Viewport/RenderingServer | `Viewport::set_*` -> `RenderingServer.viewport_set_*` | `godot/doc/classes/Viewport.xml`, `godot/scene/main/viewport.cpp`, `godot/servers/rendering/rendering_server.h` |
+| SQ60 | debanding 为什么有时不生效？ | Viewport renderer constraints | `use_debanding` limited by renderer/mode conditions | `godot/doc/classes/Viewport.xml` |
+| SQ61 | `change_scene_to_node` 后为何短暂没有 current scene？ | SceneTree scene switch | remove old scene now -> pending new scene -> `_flush_scene_change` later | `godot/doc/classes/SceneTree.xml`, `godot/scene/main/scene_tree.cpp` |
+| SQ62 | 什么时候可以可靠访问新场景？ | SceneTree scene switch | wait for `scene_changed` after `_flush_scene_change` add_child | `godot/doc/classes/SceneTree.xml`, `godot/scene/main/scene_tree.cpp` |
+| SQ63 | `change_scene_to_file` 为什么在线程里失败？ | SceneTree thread context | main-thread guard in `change_scene_to_file` / `reload_current_scene` | `godot/scene/main/scene_tree.cpp` |
+| SQ64 | 场景切换的“新场景提交点”在哪个阶段？ | SceneTree process pipeline | `process()` -> `_flush_scene_change` when `pending_new_scene_id` valid | `godot/scene/main/scene_tree.cpp` |
+| SQ65 | `create_timer` timeout 为何总在节点逻辑后？ | SceneTree timers | `_process` first -> `process_timers` later in frame | `godot/doc/classes/SceneTree.xml`, `godot/scene/main/scene_tree.cpp` |
+| SQ66 | `process_in_physics=true` 的 timer 语义是什么？ | SceneTree timers | timer updated at end of physics frame, not process frame | `godot/doc/classes/SceneTree.xml`, `godot/scene/main/scene_tree.cpp` |
+| SQ67 | JSON 资源在 editor 与 runtime 失败行为为何不同？ | JSON resource loader | `ResourceFormatLoaderJSON::load` branches by `is_editor_hint()` | `godot/core/io/json.cpp` |
+| SQ68 | JSON 资源保存时何时保留原文本？ | JSON resource saver | `get_parsed_text` non-empty -> save source text, else stringify | `godot/doc/classes/JSON.xml`, `godot/core/io/json.cpp` |
+| SQ69 | `parse(..., keep_text=true)` 的工程价值是什么？ | JSON parse options | preserve parsed text for later resource save round-trip | `godot/doc/classes/JSON.xml`, `godot/core/io/json.cpp` |
+| SQ70 | `use_debanding` 在哪些情况下无效？ | Viewport renderer constraints | no effect in Compatibility; 2D effect depends on HDR/background mode | `godot/doc/classes/Viewport.xml` |
 
 ## Usage Rule
 

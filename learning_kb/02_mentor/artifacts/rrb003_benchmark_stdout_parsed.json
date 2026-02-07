@@ -1,0 +1,42 @@
+{
+  "command": [
+    "D:/software_package/Godot_v4.6-stable_win64.exe",
+    "--headless",
+    "--path",
+    "D:/workspace/code/godot_study/projects/first-game",
+    "--benchmark",
+    "--quit-after",
+    "240"
+  ],
+  "returncode": 0,
+  "samples": {
+    "Main::Setup": [
+      18.003,
+      18.003
+    ],
+    "Servers": [
+      19.745,
+      19.745
+    ],
+    "Scene": [
+      54.372,
+      54.372
+    ],
+    "Main::Setup2": [
+      85.323,
+      85.323
+    ],
+    "Load Game": [
+      8.611,
+      8.611
+    ],
+    "Main::Start": [
+      9.096,
+      9.096
+    ],
+    "Main::Cleanup": [
+      65.613
+    ]
+  },
+  "stdout_first_line": "Godot Engine v4.6.stable.official.89cea1439 - https://godotengine.org"
+}

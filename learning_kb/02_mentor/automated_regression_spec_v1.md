@@ -48,8 +48,21 @@ Version Scope: 4.6
 - 每次回归保存：
   - 构建信息
   - 场景路径
+  - 命令参数快照
   - 指标快照
   - 失败截图/日志链接
+
+建议命名（v1）：
+
+- `rrb000_build_identity.json`（版本 + 可执行文件哈希）
+- `rrb00x_<scenario>.json`（单次场景指标）
+- `rrb_summary_v1.json`（多样本汇总）
+
+## Capture Notes
+
+- 优先路径：`--benchmark` + stdout 解析 + 结构化 JSON 落盘。
+- 备用路径：`--benchmark-file`（若环境稳定可直接写文件）。
+- 若遇到工具不稳定，必须在记录中明确标注，并保留可复核的原始输出。
 
 ## References
 

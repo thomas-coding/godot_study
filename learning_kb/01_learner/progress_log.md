@@ -239,6 +239,52 @@
 - Next:
   - 继续扩展 quick-answer map 到 50+，playbook 到 F025，并补发布实战样本。
 
+## 2026-02-07 (mentor self-study cycle #6)
+
+- Status: 已完成第六次“你自己学习”循环（Godot 4.6）。
+- Done:
+  - QA 扩展到 QA030（新增 QA026~QA030）。
+  - 卡片扩展到 K031（新增 K027~K031）。
+  - `source_quick_answer_map_v1.md` 从 40 扩展到 50 个高频问题。
+  - `feature_option_playbook.md` 从 F020 扩展到 F025。
+  - 新增 `release_rehearsal_samples_v1.md`，并与风险矩阵建立回链。
+  - 导师能力看板从 48% 更新到 52%。
+- Blockers:
+  - 无。
+- Next:
+  - 继续扩展 quick-answer map 到 60+，playbook 到 F030，并补真实构建回归样本。
+
+## 2026-02-07 (mentor self-study cycle #7)
+
+- Status: 已完成第七次“你自己学习”循环（Godot 4.6）。
+- Done:
+  - 完成 M09：`SceneTree` 组调用编排 + 场景持久化 owner 边界 + JSON 诊断 + Viewport 运行时画质控制。
+  - QA 扩展到 QA035（新增 QA031~QA035）。
+  - 卡片扩展到 K036（新增 K032~K036）。
+  - `source_quick_answer_map_v1.md` 从 50 扩展到 60 个高频问题。
+  - `feature_option_playbook.md` 从 F025 扩展到 F030。
+  - 导师能力看板从 52% 更新到 56%。
+- Blockers:
+  - 无。
+- Next:
+  - 继续扩展 quick-answer map 到 70+，playbook 到 F035，并补真实构建回归样本（含指标快照）。
+
+## 2026-02-07 (mentor self-study cycle #8)
+
+- Status: 已完成第八次“你自己学习”循环（Godot 4.6）。
+- Done:
+  - 完成 M10：场景切换两阶段时序、`create_timer` 更新顺序、JSON 资源 editor/runtime 分支与保存语义。
+  - QA 扩展到 QA040（新增 QA036~QA040）。
+  - 卡片扩展到 K041（新增 K037~K041）。
+  - `source_quick_answer_map_v1.md` 从 60 扩展到 70 个高频问题。
+  - `feature_option_playbook.md` 从 F030 扩展到 F035。
+  - `release_rehearsal_samples_v1.md` 升级为真实构建记录（RRB-001~RRB-003）并新增 artifacts 汇总。
+  - 导师能力看板从 56% 更新到 60%。
+- Blockers:
+  - `--benchmark-file` 在当前环境与较长 `--quit-after` 组合存在不稳定现象，已改用 stdout 解析作为备份路径。
+- Next:
+  - 继续扩展 quick-answer map 到 80+，playbook 到 F040，并把真实构建样本累计到 5 次建立阈值带。
+
 ## Entry Template
 
 - Date:

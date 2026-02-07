@@ -2,7 +2,7 @@
 
 Last Updated: 2026-02-07
 Active Baseline: Godot 4.6 stable
-Current Mentor Progress: 48% (`02_mentor/mentor_progress_dashboard.md`)
+Current Mentor Progress: 60% (`02_mentor/mentor_progress_dashboard.md`)
 
 ## 愿景（Mentor North Star）
 

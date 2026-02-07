@@ -18,6 +18,8 @@
 - `performance_casebook_v1.md`：性能问题案例库（症状/指标/修复/验证）。
 - `release_risk_matrix_v1.md`：发布风险矩阵（概率 x 影响 x 缓解）。
 - `automated_regression_spec_v1.md`：自动化回归协议（指标/步骤/通过条件）。
+- `release_rehearsal_samples_v1.md`：发布演练样本（风险闭环与流程记录）。
+- `artifacts/`：真实构建回归证据（构建身份、指标快照、汇总 JSON）。
 - `indexes/version_matrix.md`：导师知识版本兼容矩阵（按 Godot 版本追踪）。
 - `00_meta/version_registry.md`：当前激活版本与迁移状态。
 - `00_meta/version_upgrade_protocol.md`：版本升级执行协议。

@@ -406,6 +406,306 @@ Version Scope: 4.6
 - 缺点：线上事故成本高。
 - 适用：不建议作为长期策略。
 
+## F021 - Save settings format strategy
+
+### Option A (Recommended)
+- 路径：优先 `ConfigFile` 管理设置，统一落盘与迁移逻辑。
+- 优点：结构清晰、可读性好、支持加密保存。
+- 缺点：键命名规范要严格（不能有空格）。
+- 适用：玩家设置与轻量配置。
+
+### Option B
+- 路径：`FileAccess` 自定义文本/二进制格式。
+- 优点：协议自由度高。
+- 缺点：维护与兼容成本高。
+- 适用：需要严格格式控制的系统。
+
+### Option C
+- 路径：混合策略（关键配置 ConfigFile，性能敏感数据二进制）。
+- 优点：兼顾可维护性与性能。
+- 缺点：多协议并存增加复杂度。
+- 适用：中后期项目。
+
+## F022 - Resource enumeration strategy
+
+### Option A (Recommended)
+- 路径：资源遍历统一“采集 -> 排序 -> 处理”。
+- 优点：跨平台结果稳定，回归可复现。
+- 缺点：多一步排序成本。
+- 适用：构建流程、批处理、自动化回归。
+
+### Option B
+- 路径：直接用 `list_dir_begin/get_next` 顺序驱动逻辑。
+- 优点：代码最短。
+- 缺点：顺序不稳定，跨平台差异大。
+- 适用：临时调试脚本。
+
+### Option C
+- 路径：`ResourceLoader.list_directory` + 二次排序。
+- 优点：可直接基于资源路径语义工作。
+- 缺点：仍需自行保证排序与过滤一致。
+- 适用：运行时资源发现系统。
+
+## F023 - Runtime FPS cap control strategy
+
+### Option A (Recommended)
+- 路径：启动用 `application/run/max_fps`，运行时统一写 `Engine.max_fps`。
+- 优点：时序清晰，行为可预测。
+- 缺点：需要统一封装入口。
+- 适用：支持运行时画质/延迟切换的项目。
+
+### Option B
+- 路径：运行时继续改 `ProjectSettings.application/run/max_fps`。
+- 优点：实现直观。
+- 缺点：运行时不生效。
+- 适用：仅限启动前配置。
+
+### Option C
+- 路径：只依赖 V-Sync，不设 FPS cap。
+- 优点：配置简单。
+- 缺点：输入延迟与功耗策略不够可控。
+- 适用：轻量项目。
+
+## F024 - Runtime V-Sync control strategy
+
+### Option A (Recommended)
+- 路径：运行时统一 `DisplayServer.window_set_vsync_mode`，并处理不支持模式回退。
+- 优点：可实时切换，平台行为可显式控制。
+- 缺点：需处理 renderer/平台兼容分支。
+- 适用：提供 V-Sync 选项的发布项目。
+
+### Option B
+- 路径：仅改 `ProjectSettings.display/window/vsync/vsync_mode`。
+- 优点：配置入口统一。
+- 缺点：启动后不生效。
+- 适用：固定启动配置项目。
+
+### Option C
+- 路径：只在命令行切换 V-Sync。
+- 优点：运维场景灵活。
+- 缺点：用户侧不可见，调试成本高。
+- 适用：内部诊断构建。
+
+## F025 - Web persistence fallback strategy
+
+### Option A (Recommended)
+- 路径：启动检测 `OS.is_userfs_persistent()`，按结果启用/降级存档。
+- 优点：行为透明，可提前规避数据丢失。
+- 缺点：需要实现降级分支。
+- 适用：Web 部署项目。
+
+### Option B
+- 路径：假设 `user://` 永久可用。
+- 优点：实现简单。
+- 缺点：在不持久环境下风险高。
+- 适用：不建议用于正式发布。
+
+### Option C
+- 路径：本地持久化 + 云端同步双保险。
+- 优点：可靠性最高。
+- 缺点：实现复杂、需要服务端支持。
+- 适用：长期运营项目。
+
+## F026 - SceneTree group call timing strategy
+
+### Option A (Recommended)
+- 路径：批量调用默认使用 `GROUP_CALL_DEFERRED`，高频触发再叠加 `GROUP_CALL_UNIQUE`。
+- 优点：降低同帧突发调用抖动，避免重复调度。
+- 缺点：执行延后到消息队列，非即时语义。
+- 适用：一帧内可能多次触发的广播逻辑。
+
+### Option B
+- 路径：使用 `GROUP_CALL_DEFAULT` 立即执行。
+- 优点：语义直观，结果立刻可见。
+- 缺点：大组调用可能导致卡顿。
+- 适用：节点数量小、实时依赖强的场景。
+
+### Option C
+- 路径：立即调用 + 自己维护去重状态。
+- 优点：行为完全可定制。
+- 缺点：复杂度高，容易与引擎队列语义冲突。
+- 适用：少量核心系统的高级优化。
+
+## F027 - Group traversal order strategy
+
+### Option A (Recommended)
+- 路径：默认顺序，只有存在父子顺序依赖时启用 `GROUP_CALL_REVERSE`。
+- 优点：保持大多数逻辑可读性，同时可局部修正时序。
+- 缺点：需要识别哪些组有顺序依赖。
+- 适用：中大型项目的稳定演进。
+
+### Option B
+- 路径：全量反向调用（统一 `GROUP_CALL_REVERSE`）。
+- 优点：可快速消除部分父先子后的副作用。
+- 缺点：会引入新的顺序假设，长期不可控。
+- 适用：短期应急排障。
+
+### Option C
+- 路径：放弃 group 广播，改为显式拓扑顺序调用。
+- 优点：顺序完全确定。
+- 缺点：耦合度与维护成本上升。
+- 适用：极端顺序敏感系统。
+
+## F028 - PackedScene persistence boundary strategy
+
+### Option A (Recommended)
+- 路径：明确 owner 规则，保存前先校验关键节点 `Node.owner`。
+- 优点：打包结果可预测，避免“丢子节点”事故。
+- 缺点：需要额外的校验脚本或编辑规范。
+- 适用：可编辑关卡、场景模板流程。
+
+### Option B
+- 路径：默认依赖编辑器当前 owner 状态，直接 pack。
+- 优点：流程最短。
+- 缺点：容易出现隐性遗漏，回归成本高。
+- 适用：一次性原型。
+
+### Option C
+- 路径：pack 前自动重写 owner（工具脚本）。
+- 优点：可批量修复历史资源。
+- 缺点：工具错误会放大影响范围。
+- 适用：遗留项目治理期。
+
+## F029 - JSON robustness strategy
+
+### Option A (Recommended)
+- 路径：外部输入统一走 `JSON.parse`，失败时记录 `get_error_line/get_error_message`。
+- 优点：诊断信息完整，线上问题可追踪。
+- 缺点：样板代码略多。
+- 适用：配置、存档、网络回包等关键路径。
+
+### Option B
+- 路径：全部使用 `JSON.parse_string`。
+- 优点：代码简短。
+- 缺点：失败诊断能力弱，排错效率低。
+- 适用：临时脚本或可忽略失败的非关键输入。
+
+### Option C
+- 路径：先 `parse_string` 快判，失败再二次 `parse` 获取诊断。
+- 优点：可在性能与诊断间折中。
+- 缺点：代码路径更复杂。
+- 适用：高频解析且需要降本的场景。
+
+## F030 - Runtime viewport quality control strategy
+
+### Option A (Recommended)
+- 路径：运行时统一通过 `Viewport` setter 切换 AA/pixel-snap/debanding，并记录当前档位。
+- 优点：可即时生效，便于做图形设置面板。
+- 缺点：需要处理渲染器兼容差异（如 debanding 在 Compatibility 无效）。
+- 适用：有用户图形选项的发布项目。
+
+### Option B
+- 路径：仅在 `ProjectSettings` 设置默认值，不做运行时切换。
+- 优点：实现简单，行为稳定。
+- 缺点：用户不可动态调整。
+- 适用：固定硬件目标、轻量项目。
+
+### Option C
+- 路径：直接调用 `RenderingServer.viewport_set_*` 做低层封装。
+- 优点：控制粒度最高。
+- 缺点：业务层与底层耦合更重。
+- 适用：已有统一渲染中间层的工程。
+
+## F031 - Scene transition entrypoint strategy
+
+### Option A (Recommended)
+- 路径：常规切场景优先 `change_scene_to_file/packed`，切换后统一等待 `scene_changed` 再访问新场景节点。
+- 优点：语义稳定，和 SceneTree 两阶段切换机制一致。
+- 缺点：需要把“切换后初始化”改写为信号驱动。
+- 适用：大多数 gameplay 场景流转。
+
+### Option B
+- 路径：用 `change_scene_to_node` 手动构造新场景后切换。
+- 优点：切换前可先注入依赖与初始状态。
+- 缺点：生命周期管理更复杂，误用容易悬挂引用。
+- 适用：需要预配置场景实例的系统。
+
+### Option C
+- 路径：不走 SceneTree change API，手动 `remove_child/add_child` 管理。
+- 优点：流程完全可控。
+- 缺点：容易偏离引擎默认安全语义，维护风险高。
+- 适用：少量特殊框架层。
+
+## F032 - Post-scene-switch synchronization strategy
+
+### Option A (Recommended)
+- 路径：统一监听 `scene_changed` 作为“新场景可用”锚点。
+- 优点：避免 current_scene 窗口期空值问题。
+- 缺点：需要重构部分同步初始化代码。
+- 适用：需要稳定跨场景初始化的项目。
+
+### Option B
+- 路径：切换后 `await get_tree().process_frame` 再访问。
+- 优点：改动小，快速修复时序错误。
+- 缺点：语义隐式，后续维护可读性一般。
+- 适用：临时修复或小项目。
+
+### Option C
+- 路径：主动轮询 `get_tree().current_scene != null`。
+- 优点：实现直观。
+- 缺点：轮询开销和异常分支多，不优雅。
+- 适用：不推荐，除非调试验证。
+
+## F033 - Delay/timer implementation strategy
+
+### Option A (Recommended)
+- 路径：一次性延时优先 `SceneTree.create_timer`，并明确 `process_in_physics` 语义。
+- 优点：轻量，无需常驻节点，顺序语义与引擎一致。
+- 缺点：不适合复杂重复计时。
+- 适用：技能冷却、短延迟触发。
+
+### Option B
+- 路径：使用常驻 `Timer` 节点管理重复或可视化计时。
+- 优点：编辑器可见、可配置、可复用。
+- 缺点：节点数量增多后维护成本上升。
+- 适用：周期事件与设计师可调参数场景。
+
+### Option C
+- 路径：手写 delta 累加器。
+- 优点：控制最细。
+- 缺点：容易出现时序漂移或重复造轮子。
+- 适用：极少数需要自定义积分行为的逻辑。
+
+## F034 - JSON resource robustness strategy (editor/runtime)
+
+### Option A (Recommended)
+- 路径：把 JSON 资源加载分成 editor/runtime 两条错误处理路径，发布前按 runtime 规则做硬校验。
+- 优点：能提前发现“编辑器可用但运行失败”的隐患。
+- 缺点：需要增加 CI 或预发布校验步骤。
+- 适用：配置驱动与内容驱动项目。
+
+### Option B
+- 路径：只在编辑器里人工打开检查 JSON。
+- 优点：流程简单。
+- 缺点：无法覆盖 runtime 严格失败分支。
+- 适用：非常小的原型项目。
+
+### Option C
+- 路径：业务层统一把 JSON 当文本处理，绕开资源系统。
+- 优点：可自定义容错策略。
+- 缺点：放弃引擎资源链路，工程成本更高。
+- 适用：有强定制需求的工具链。
+
+## F035 - Release regression evidence capture strategy
+
+### Option A (Recommended)
+- 路径：每次回归都写入“构建身份 + 命令参数 + 指标快照”三元组，并沉淀到 `artifacts/*.json`。
+- 优点：可追溯、可比较、可审计。
+- 缺点：需要维护命名规范与样本清理策略。
+- 适用：准备持续发布的项目。
+
+### Option B
+- 路径：只保留 checklist 勾选结果，不保存指标文件。
+- 优点：执行负担最低。
+- 缺点：无法做趋势分析，复盘证据弱。
+- 适用：短期演示发布。
+
+### Option C
+- 路径：只做临时口头/聊天记录，不留结构化产物。
+- 优点：即时。
+- 缺点：几乎不可复用，不适合作为发布门禁。
+- 适用：不建议作为正式流程。
+
 ## Evidence
 
 - `godot/doc/classes/Node.xml` -> `_input`, `_unhandled_input`, `_unhandled_key_input`
@@ -422,9 +722,24 @@ Version Scope: 4.6
 - `godot/doc/classes/DirAccess.xml` -> `list_dir_begin`, `get_files`, `get_directories`
 - `godot/doc/classes/ConfigFile.xml` -> `set_value`, `save`, `save_encrypted`
 - `godot/doc/classes/FileAccess.xml` -> export note and `flush`
+- `godot/doc/classes/ResourceLoader.xml` -> `list_directory`
+- `godot/doc/classes/SceneTree.xml` -> `call_group_flags`, `notify_group_flags`, `GROUP_CALL_*`
+- `godot/doc/classes/SceneTree.xml` -> `change_scene_to_node`, `scene_changed`, `create_timer`
+- `godot/doc/classes/PackedScene.xml` -> `pack`, `Node.owner`
+- `godot/doc/classes/JSON.xml` -> `parse`, `parse_string`, `get_error_line`, `get_error_message`
+- `godot/doc/classes/JSON.xml` -> `get_parsed_text`, `parse(keep_text)`
+- `godot/doc/classes/Viewport.xml` -> `msaa_*`, `screen_space_aa`, `use_taa`, `use_debanding`, `snap_2d_*`
 - `godot/scene/2d/physics/character_body_2d.cpp` -> `CharacterBody2D::move_and_slide`, `CharacterBody2D::_apply_floor_snap`
 - `godot/scene/2d/camera_2d.cpp` -> `Camera2D::_update_process_callback`, `Camera2D::reset_smoothing`
 - `godot/scene/main/scene_tree.cpp` -> `SceneTree::queue_delete`, `SceneTree::_flush_delete_queue`
+- `godot/scene/main/scene_tree.cpp` -> `SceneTree::call_group_flagsp`, `SceneTree::notify_group_flags`
+- `godot/scene/main/scene_tree.cpp` -> `SceneTree::change_scene_to_file`, `SceneTree::change_scene_to_node`, `SceneTree::process`, `process_timers`
 - `godot/core/io/resource_loader.cpp` -> `_load_start`, `load_threaded_get_status`
+- `godot/core/io/json.cpp` -> `JSON::parse`, `JSON::parse_string`
+- `godot/core/io/json.cpp` -> `ResourceFormatLoaderJSON::load`, `ResourceFormatSaverJSON::save`
 - `godot/scene/resources/packed_scene.cpp` -> `PackedScene::instantiate`
+- `godot/scene/resources/packed_scene.cpp` -> `SceneState::pack`, `SceneState::_parse_node`
 - `godot/main/performance.cpp` -> `Performance::get_monitor`
+- `godot/scene/main/viewport.cpp` -> `Viewport::set_msaa_2d`, `set_screen_space_aa`, `set_use_taa`, `set_use_debanding`
+- `godot/servers/rendering/rendering_server.h` -> `viewport_set_msaa_2d`, `viewport_set_use_taa`, `viewport_set_use_debanding`
+- `02_mentor/automated_regression_spec_v1.md` -> run profile + minimum metrics + storage convention

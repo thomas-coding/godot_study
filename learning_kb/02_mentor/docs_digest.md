@@ -180,6 +180,75 @@
   - `02_mentor/automated_regression_spec_v1.md`
   - `02_mentor/mentor_progress_dashboard.md`
 
+- Topic: 帧率/V-Sync/持久化高频坑扩展（Verified）
+- Summary:
+  - 新增 K027~K031 与 QA026~QA030，覆盖 startup-only 设置、V-Sync 运行时入口、ConfigFile 命名/落盘、flush 策略、Web 持久化降级。
+  - 强化了“启动期设置 vs 运行时 API”边界，减少配置错觉导致的问题。
+- Source:
+  - `godot/doc/classes/ProjectSettings.xml`
+  - `godot/doc/classes/Engine.xml`
+  - `godot/doc/classes/DisplayServer.xml`
+  - `godot/doc/classes/ConfigFile.xml`
+  - `godot/doc/classes/FileAccess.xml`
+  - `godot/doc/classes/OS.xml`
+
+- Topic: 决策与快答资产继续扩容（Working）
+- Summary:
+  - feature playbook 从 F020 扩展到 F025，补齐设置持久化、遍历确定性、运行态与 Web 持久化策略。
+  - source quick-answer map 从 40 扩展到 50，增强导出与运行态问题的快速定位能力。
+- Source:
+  - `02_mentor/feature_option_playbook.md`
+  - `02_mentor/source_quick_answer_map_v1.md`
+
+- Topic: 发布治理闭环样本补齐（Working）
+- Summary:
+  - 新增 `release_rehearsal_samples_v1.md`（3 个演练样本），并回链到风险矩阵。
+  - 导师能力看板更新到 52%，进入“进阶导师早期”。
+- Source:
+  - `02_mentor/release_rehearsal_samples_v1.md`
+  - `02_mentor/release_risk_matrix_v1.md`
+  - `02_mentor/mentor_progress_dashboard.md`
+
+- Topic: SceneTree/持久化边界/运行时渲染控制扩展（Verified）
+- Summary:
+  - 新增 M09，打通 group-call 编排、PackedScene owner 持久化边界、JSON 解析健壮性、Viewport 运行时画质控制。
+  - 新增 K032~K036 与 QA031~QA035，补齐 `GROUP_CALL_UNIQUE`、`GROUP_CALL_REVERSE`、`pack(owner)`、`JSON.parse` 诊断、Viewport AA/pixel-snap 运行时入口。
+  - quick-answer map 从 50 扩展到 60（SQ51~SQ60），playbook 从 F025 扩展到 F030，导师能力看板更新到 56%。
+- Source:
+  - `godot/doc/classes/SceneTree.xml`
+  - `godot/scene/main/scene_tree.cpp`
+  - `godot/doc/classes/PackedScene.xml`
+  - `godot/scene/resources/packed_scene.cpp`
+  - `godot/doc/classes/JSON.xml`
+  - `godot/core/io/json.cpp`
+  - `godot/doc/classes/Viewport.xml`
+  - `godot/scene/main/viewport.cpp`
+  - `godot/servers/rendering/rendering_server.h`
+  - `02_mentor/modules/M09_scenetree_persistence_and_runtime_render_controls.md`
+  - `02_mentor/source_quick_answer_map_v1.md`
+  - `02_mentor/feature_option_playbook.md`
+  - `02_mentor/mentor_progress_dashboard.md`
+
+- Topic: Scene 切换时序与真实构建回归证据扩展（Verified/Working）
+- Summary:
+  - 新增 M10，补齐 `change_scene` 两阶段提交、`scene_changed` 同步锚点、`create_timer` 更新顺序、JSON 资源 editor/runtime 分支与保存语义。
+  - 新增 K037~K041 与 QA036~QA040，形成场景切换和 JSON 资源行为的教学闭环。
+  - quick-answer map 从 60 扩展到 70（SQ61~SQ70），playbook 从 F030 扩展到 F035。
+  - 发布演练样本已升级为真实构建记录（RRB-001~RRB-003），并沉淀 artifacts（构建哈希 + 指标快照 + 汇总）。
+  - 导师能力看板从 56% 更新到 60%。
+- Source:
+  - `godot/doc/classes/SceneTree.xml`
+  - `godot/scene/main/scene_tree.cpp`
+  - `godot/doc/classes/JSON.xml`
+  - `godot/core/io/json.cpp`
+  - `godot/doc/classes/Viewport.xml`
+  - `02_mentor/modules/M10_scene_transition_timer_and_json_resource_runtime.md`
+  - `02_mentor/source_quick_answer_map_v1.md`
+  - `02_mentor/feature_option_playbook.md`
+  - `02_mentor/release_rehearsal_samples_v1.md`
+  - `02_mentor/artifacts/rrb_summary_v1.json`
+  - `02_mentor/mentor_progress_dashboard.md`
+
 ## 2026-02-06
 
 - Topic: 文档入口结构与学习路径梳理

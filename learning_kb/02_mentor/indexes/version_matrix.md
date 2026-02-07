@@ -24,6 +24,8 @@ Active Baseline: `4.6`
 | M06 | module | verified | not_started | 2026-02-07 | `02_mentor/modules/M06_camera_follow_and_jitter_diagnosis.md` | Camera follow/jitter diagnosis |
 | M07 | module | verified | not_started | 2026-02-07 | `02_mentor/modules/M07_resource_loading_and_scene_instancing.md` | Resource loading and scene instancing |
 | M08 | module | verified | not_started | 2026-02-07 | `02_mentor/modules/M08_performance_monitoring_and_frame_budget.md` | Performance monitoring and frame budget |
+| M09 | module | verified | not_started | 2026-02-07 | `02_mentor/modules/M09_scenetree_persistence_and_runtime_render_controls.md` | Group orchestration + persistence boundary + runtime render controls |
+| M10 | module | verified | not_started | 2026-02-07 | `02_mentor/modules/M10_scene_transition_timer_and_json_resource_runtime.md` | Scene transition timing + timer order + JSON runtime semantics |
 
 ## Cards
 
@@ -55,6 +57,21 @@ Active Baseline: `4.6`
 | K024 | card | verified | not_started | 2026-02-07 | `02_mentor/cards/K024_configfile_save_required_for_persistence.md` | config persistence save rule |
 | K025 | card | verified | not_started | 2026-02-07 | `02_mentor/cards/K025_fileaccess_export_resource_note.md` | FileAccess export resource caution |
 | K026 | card | verified | not_started | 2026-02-07 | `02_mentor/cards/K026_vsync_runtime_change_entrypoint.md` | runtime vsync control entrypoint |
+| K027 | card | verified | not_started | 2026-02-07 | `02_mentor/cards/K027_projectsettings_max_fps_startup_only.md` | startup-only max_fps setting |
+| K028 | card | verified | not_started | 2026-02-07 | `02_mentor/cards/K028_vsync_mode_runtime_fallback_rules.md` | runtime vsync fallback rules |
+| K029 | card | verified | not_started | 2026-02-07 | `02_mentor/cards/K029_resourceloader_list_directory_semantics.md` | list_directory semantics |
+| K030 | card | verified | not_started | 2026-02-07 | `02_mentor/cards/K030_configfile_key_space_pitfall.md` | ConfigFile key naming pitfall |
+| K031 | card | verified | not_started | 2026-02-07 | `02_mentor/cards/K031_fileaccess_flush_tradeoff.md` | FileAccess flush trade-off |
+| K032 | card | verified | not_started | 2026-02-07 | `02_mentor/cards/K032_scenetree_group_call_unique_requires_deferred.md` | GROUP_CALL_UNIQUE requires deferred |
+| K033 | card | verified | not_started | 2026-02-07 | `02_mentor/cards/K033_scenetree_group_call_reverse_order.md` | GROUP_CALL_REVERSE order semantics |
+| K034 | card | verified | not_started | 2026-02-07 | `02_mentor/cards/K034_packedscene_pack_owner_boundary.md` | pack owner boundary |
+| K035 | card | verified | not_started | 2026-02-07 | `02_mentor/cards/K035_json_parse_vs_parse_string_error_handling.md` | JSON parse diagnostics path |
+| K036 | card | verified | not_started | 2026-02-07 | `02_mentor/cards/K036_viewport_runtime_aa_pixel_snap_controls.md` | runtime AA and pixel-snap controls |
+| K037 | card | verified | not_started | 2026-02-07 | `02_mentor/cards/K037_scene_change_two_phase_commit.md` | scene change two-phase commit timing |
+| K038 | card | verified | not_started | 2026-02-07 | `02_mentor/cards/K038_scene_change_main_thread_guard.md` | scene change file/reload main-thread guard |
+| K039 | card | verified | not_started | 2026-02-07 | `02_mentor/cards/K039_scenetree_timer_updates_after_nodes.md` | SceneTree timer updates after nodes |
+| K040 | card | verified | not_started | 2026-02-07 | `02_mentor/cards/K040_json_resource_loader_editor_runtime_branch.md` | JSON resource loader editor/runtime branch |
+| K041 | card | verified | not_started | 2026-02-07 | `02_mentor/cards/K041_json_resource_save_prefers_parsed_text.md` | JSON resource save prefers parsed text |
 
 ## QA
 
@@ -85,6 +102,21 @@ Active Baseline: `4.6`
 | QA023 | qa | verified | not_started | 2026-02-07 | `02_mentor/qa/QA023_runtime_vsync_change_no_effect.md` | runtime vsync setting behavior |
 | QA024 | qa | verified | not_started | 2026-02-07 | `02_mentor/qa/QA024_user_data_path_and_persistence.md` | user data path and persistence |
 | QA025 | qa | verified | not_started | 2026-02-07 | `02_mentor/qa/QA025_fileaccess_resource_missing_in_export.md` | FileAccess export resource missing |
+| QA026 | qa | verified | not_started | 2026-02-07 | `02_mentor/qa/QA026_projectsettings_vs_engine_max_fps.md` | ProjectSettings vs Engine max_fps |
+| QA027 | qa | verified | not_started | 2026-02-07 | `02_mentor/qa/QA027_deterministic_directory_traversal.md` | deterministic directory traversal |
+| QA028 | qa | verified | not_started | 2026-02-07 | `02_mentor/qa/QA028_configfile_key_with_spaces_issue.md` | ConfigFile spaces issue |
+| QA029 | qa | verified | not_started | 2026-02-07 | `02_mentor/qa/QA029_flush_frequency_strategy.md` | flush frequency strategy |
+| QA030 | qa | verified | not_started | 2026-02-07 | `02_mentor/qa/QA030_web_userfs_persistence_fallback.md` | Web userfs persistence fallback |
+| QA031 | qa | verified | not_started | 2026-02-07 | `02_mentor/qa/QA031_group_call_unique_without_deferred.md` | GROUP_CALL_UNIQUE with deferred |
+| QA032 | qa | verified | not_started | 2026-02-07 | `02_mentor/qa/QA032_group_call_order_reverse_usage.md` | group reverse/deferred order |
+| QA033 | qa | verified | not_started | 2026-02-07 | `02_mentor/qa/QA033_packedscene_pack_missing_children_owner.md` | pack missing children from owner boundary |
+| QA034 | qa | verified | not_started | 2026-02-07 | `02_mentor/qa/QA034_json_parse_error_diagnostics.md` | JSON parse diagnostics |
+| QA035 | qa | verified | not_started | 2026-02-07 | `02_mentor/qa/QA035_viewport_runtime_aa_tuning.md` | Viewport runtime AA tuning |
+| QA036 | qa | verified | not_started | 2026-02-07 | `02_mentor/qa/QA036_scene_change_access_new_scene_timing.md` | scene change new-scene access timing |
+| QA037 | qa | verified | not_started | 2026-02-07 | `02_mentor/qa/QA037_scene_change_thread_context.md` | scene change thread context |
+| QA038 | qa | verified | not_started | 2026-02-07 | `02_mentor/qa/QA038_scenetree_timer_update_order.md` | SceneTree timer update order |
+| QA039 | qa | verified | not_started | 2026-02-07 | `02_mentor/qa/QA039_json_resource_editor_runtime_difference.md` | JSON resource editor/runtime difference |
+| QA040 | qa | verified | not_started | 2026-02-07 | `02_mentor/qa/QA040_json_keep_text_save_behavior.md` | JSON keep_text save behavior |
 
 ## Update Rule
 

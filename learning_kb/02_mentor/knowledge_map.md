@@ -14,8 +14,9 @@ Active Baseline: Godot 4.6
 7. `02_mentor/performance_casebook_v1.md`
 8. `02_mentor/release_risk_matrix_v1.md`
 9. `02_mentor/automated_regression_spec_v1.md`
-10. `02_mentor/learning_backlog.md`
-11. `02_mentor/docs_digest.md`
+10. `02_mentor/release_rehearsal_samples_v1.md`
+11. `02_mentor/learning_backlog.md`
+12. `02_mentor/docs_digest.md`
 
 启动时额外读取：`00_meta/version_registry.md`
 
@@ -23,7 +24,7 @@ Active Baseline: Godot 4.6
 
 - Godot Core Runtime
   - Status: `in_progress`
-  - Modules: M01, M02, M03
+  - Modules: M01, M02, M03, M09, M10
 
 - Input and Control
   - Status: `done` (baseline)
@@ -79,8 +80,8 @@ Active Baseline: Godot 4.6
 
 ## Current Priority (next sessions)
 
-1. 建立并扩展 source quick-answer map（v1 已完成 40 问题，下一步补到 50+）
-2. 扩展 feature option playbook（当前 F001~F020，目标 >=25）
-3. 扩展性能与发布链路资产（已完成案例库/回归清单/风险矩阵，下一步补实战数据）
+1. 建立并扩展 source quick-answer map（v1 已完成 70 问题，下一步补到 80+）
+2. 扩展 feature option playbook（当前 F001~F035，下一步目标 >=40）
+3. 扩展性能与发布链路资产（已完成案例库/回归清单/风险矩阵/真实构建回归样本，下一步补阈值调优）
 4. 维护版本兼容矩阵（为未来 5.0 迁移预置状态）
-5. 每次导师自学习后刷新能力看板（当前 48%，目标 52%）
+5. 每次导师自学习后刷新能力看板（当前 60%，下一目标 64%）

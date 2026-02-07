@@ -13,3 +13,5 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - M06 `camera follow and jitter diagnosis` — `done` — `02_mentor/modules/M06_camera_follow_and_jitter_diagnosis.md`
 - M07 `resource loading and instancing` — `done` — `02_mentor/modules/M07_resource_loading_and_scene_instancing.md`
 - M08 `rendering/frame budget fundamentals` — `done` — `02_mentor/modules/M08_performance_monitoring_and_frame_budget.md`
+- M09 `group orchestration, persistence, render runtime controls` — `done` — `02_mentor/modules/M09_scenetree_persistence_and_runtime_render_controls.md`
+- M10 `scene transition timing, timers, and JSON resource runtime` — `done` — `02_mentor/modules/M10_scene_transition_timer_and_json_resource_runtime.md`

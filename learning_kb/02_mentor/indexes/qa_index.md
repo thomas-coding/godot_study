@@ -30,3 +30,18 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - QA023 `runtime V-Sync change has no effect` — `02_mentor/qa/QA023_runtime_vsync_change_no_effect.md`
 - QA024 `user:// path and persistence` — `02_mentor/qa/QA024_user_data_path_and_persistence.md`
 - QA025 `FileAccess resource missing in export` — `02_mentor/qa/QA025_fileaccess_resource_missing_in_export.md`
+- QA026 `ProjectSettings max_fps vs Engine.max_fps` — `02_mentor/qa/QA026_projectsettings_vs_engine_max_fps.md`
+- QA027 `deterministic directory traversal` — `02_mentor/qa/QA027_deterministic_directory_traversal.md`
+- QA028 `ConfigFile key with spaces issue` — `02_mentor/qa/QA028_configfile_key_with_spaces_issue.md`
+- QA029 `flush frequency strategy` — `02_mentor/qa/QA029_flush_frequency_strategy.md`
+- QA030 `Web userfs persistence fallback` — `02_mentor/qa/QA030_web_userfs_persistence_fallback.md`
+- QA031 `GROUP_CALL_UNIQUE needs DEFERRED` — `02_mentor/qa/QA031_group_call_unique_without_deferred.md`
+- QA032 `group reverse/deferred call order` — `02_mentor/qa/QA032_group_call_order_reverse_usage.md`
+- QA033 `pack missing children from owner boundary` — `02_mentor/qa/QA033_packedscene_pack_missing_children_owner.md`
+- QA034 `JSON parse diagnostics path` — `02_mentor/qa/QA034_json_parse_error_diagnostics.md`
+- QA035 `Viewport runtime AA tuning entrypoint` — `02_mentor/qa/QA035_viewport_runtime_aa_tuning.md`
+- QA036 `scene change new-scene access timing` — `02_mentor/qa/QA036_scene_change_access_new_scene_timing.md`
+- QA037 `scene change thread context` — `02_mentor/qa/QA037_scene_change_thread_context.md`
+- QA038 `SceneTree timer update order` — `02_mentor/qa/QA038_scenetree_timer_update_order.md`
+- QA039 `JSON resource editor/runtime difference` — `02_mentor/qa/QA039_json_resource_editor_runtime_difference.md`
+- QA040 `JSON keep_text save behavior` — `02_mentor/qa/QA040_json_keep_text_save_behavior.md`
