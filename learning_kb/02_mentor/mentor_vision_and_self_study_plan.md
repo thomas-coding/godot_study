@@ -1,8 +1,8 @@
 # Mentor Vision and Self-Study Plan
 
-Last Updated: 2026-02-07
+Last Updated: 2026-02-08
 Active Baseline: Godot 4.6 stable
-Current Mentor Progress: 60% (`02_mentor/mentor_progress_dashboard.md`)
+Current Mentor Progress: 66% (`02_mentor/mentor_progress_dashboard.md`)
 
 ## 愿景（Mentor North Star）
 

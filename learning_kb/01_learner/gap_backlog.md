@@ -15,6 +15,7 @@
 - Practice performance frame-budget checklist on current project
 - Practice export runtime resource-loading checklist on a test export build
 - Practice Windows release preflight checklist on first playable build
+- Practice signal/GUI input propagation diagnostics on a small UI scene
 - Apply release risk matrix to first playable build and mark top 5 risks
 - Create a minimal gameplay loop (start -> play -> restart)
 - Learn basic collision and hit detection flow

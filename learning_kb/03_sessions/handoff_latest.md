@@ -1,6 +1,6 @@
 # Session Handoff (Latest)
 
-Date: 2026-02-07
+Date: 2026-02-08
 
 ## What was completed
 
@@ -59,7 +59,14 @@ Date: 2026-02-07
   - Source quick-answer map expanded from 60 to 70 questions.
   - Feature playbook expanded from F030 to F035.
   - Upgraded release rehearsal samples to real build records (`RRB-001~RRB-003`) with artifacts summary.
-- Mentor progress dashboard is active: current progress `60%`, sprint target `64%`.
+- Mentor self-study cycle continued further:
+  - Completed M11 (`Signal` dispatch + GUI input propagation + pause-aware processing).
+  - QA expanded to QA045 (`QA041`~`QA045` added).
+  - Cards expanded to K046 (`K042`~`K046` added).
+  - Source quick-answer map expanded from 70 to 80 questions.
+  - Feature playbook expanded from F035 to F040.
+  - Release regression records expanded to `RRB-001~RRB-005` and threshold band baseline established (`rrb_threshold_band_v1.json`).
+- Mentor progress dashboard is active: current progress `66%`, sprint target `70%`.
 
 ## Active baseline
 
@@ -70,7 +77,7 @@ Date: 2026-02-07
   - docs channel: `https://docs.godotengine.org/en/stable/`
 - Mentor capability baseline:
   - dashboard: `02_mentor/mentor_progress_dashboard.md`
-  - current overall: `60%`
+  - current overall: `66%`
 
 ## Current learner state
 
@@ -107,7 +114,7 @@ Build minimal playable `Player` with left/right movement + jump using `Character
 ## Suggested first action next session
 
 - Learning mode: start Day 2 runbook, create `Player` scene + movement script.
-- Mentor self-study mode: expand quick-answer map to 80+ and playbook to F040.
+- Mentor self-study mode: expand quick-answer map to 90+ and playbook to F045.
 - Upgrade mode: execute protocol Step 1 and open migration matrix.
 
 ## Bootstrap Hint for new AI

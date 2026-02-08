@@ -1,0 +1,92 @@
+{
+  "generated_at": "2026-02-08T10:41:18",
+  "reference_records": [
+    "RRB-001",
+    "RRB-002",
+    "RRB-003",
+    "RRB-004",
+    "RRB-005"
+  ],
+  "startup_metrics": {
+    "Main::Setup": {
+      "samples": 3,
+      "mean_ms": 19.04,
+      "min_ms": 17.979,
+      "max_ms": 21.137,
+      "pass_band_15pct_ms": [
+        16.184,
+        21.896
+      ]
+    },
+    "Servers": {
+      "samples": 3,
+      "mean_ms": 21.49,
+      "min_ms": 19.745,
+      "max_ms": 24.806,
+      "pass_band_15pct_ms": [
+        18.266,
+        24.713
+      ]
+    },
+    "Scene": {
+      "samples": 3,
+      "mean_ms": 52.391,
+      "min_ms": 49.408,
+      "max_ms": 54.372,
+      "pass_band_15pct_ms": [
+        44.532,
+        60.25
+      ]
+    },
+    "Main::Setup2": {
+      "samples": 3,
+      "mean_ms": 83.515,
+      "min_ms": 77.861,
+      "max_ms": 87.361,
+      "pass_band_15pct_ms": [
+        70.988,
+        96.042
+      ]
+    },
+    "Load Game": {
+      "samples": 3,
+      "mean_ms": 9.255,
+      "min_ms": 8.611,
+      "max_ms": 10.349,
+      "pass_band_15pct_ms": [
+        7.867,
+        10.643
+      ]
+    },
+    "Main::Start": {
+      "samples": 3,
+      "mean_ms": 9.733,
+      "min_ms": 9.096,
+      "max_ms": 10.804,
+      "pass_band_15pct_ms": [
+        8.273,
+        11.193
+      ]
+    }
+  },
+  "quickstart_elapsed_ms": {
+    "samples": 6,
+    "mean_ms": 174.878,
+    "min_ms": 169.72,
+    "max_ms": 179.93,
+    "pass_band_15pct_ms": [
+      148.647,
+      201.11
+    ]
+  },
+  "cleanup_metric": {
+    "samples": 2,
+    "mean_ms": 67.776,
+    "min_ms": 65.613,
+    "max_ms": 69.939,
+    "pass_band_15pct_ms": [
+      57.61,
+      77.942
+    ]
+  }
+}

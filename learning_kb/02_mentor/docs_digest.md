@@ -2,6 +2,40 @@
 
 > 规则：每次教学前后补充 1-2 条，记录“读了什么 -> 结论是什么 -> 来源在哪里”。
 
+## 2026-02-08
+
+- Topic: 信号派发与 GUI 输入链路深潜（Verified）
+- Summary:
+  - 新增 M11，补齐 `connect` 重复连接、`CONNECT_ONE_SHOT`/`CONNECT_DEFERRED` 派发语义、`set_block_signals` 行为、`Control` 输入链路与 `accept_event` 阻断机制。
+  - 新增 K042~K046 与 QA041~QA045，形成“信号时序 + UI 冒泡 + paused 处理”可教学闭环。
+  - quick-answer map 从 70 扩展到 80（SQ71~SQ80），重点补足 Signal/Control/Node pause 场景的源码快答入口。
+- Source:
+  - `godot/doc/classes/Object.xml`
+  - `godot/core/object/object.cpp`
+  - `godot/doc/classes/Control.xml`
+  - `godot/scene/gui/control.cpp`
+  - `godot/scene/main/viewport.cpp`
+  - `godot/doc/classes/Node.xml`
+  - `godot/scene/main/node.cpp`
+  - `godot/doc/classes/SceneTree.xml`
+  - `godot/scene/main/scene_tree.cpp`
+  - `02_mentor/modules/M11_signal_gui_input_and_pause_aware_processing.md`
+  - `02_mentor/source_quick_answer_map_v1.md`
+
+- Topic: 发布回归阈值带基线建立（Verified/Working）
+- Summary:
+  - 新增 RRB-004 与 RRB-005，真实构建样本累计到 5 条（RRB-001~RRB-005）。
+  - 生成 `rrb_threshold_band_v1.json`，把核心启动指标与 quickstart 延迟转为 `mean +/- 15%` 门禁带。
+  - playbook 从 F035 扩展到 F040，并把阈值治理写入自动回归规范。
+- Source:
+  - `02_mentor/artifacts/rrb004_headless_quickstart_3runs.json`
+  - `02_mentor/artifacts/rrb005_benchmark_stdout_parsed.json`
+  - `02_mentor/artifacts/rrb_threshold_band_v1.json`
+  - `02_mentor/release_rehearsal_samples_v1.md`
+  - `02_mentor/automated_regression_spec_v1.md`
+  - `02_mentor/feature_option_playbook.md`
+  - `02_mentor/mentor_progress_dashboard.md`
+
 ## 2026-02-07
 
 - Topic: 知识库版本化治理落地（Working）

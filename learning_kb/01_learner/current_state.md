@@ -1,6 +1,6 @@
 # Current Learner State
 
-Last Updated: 2026-02-07
+Last Updated: 2026-02-08
 
 ## Snapshot
 
@@ -16,7 +16,7 @@ Last Updated: 2026-02-07
 - Input actions created: `move_left`, `move_right`, `jump`
 - Debug script attached and `jump` action verified
 - Versioned KB infrastructure is ready (`registry` + `upgrade protocol` + `compatibility matrix`)
-- Mentor support assets upgraded: QA001~QA040, multi-domain checklists, source quick-answer map v1 (70 items)
+- Mentor support assets upgraded: QA001~QA045, multi-domain checklists, source quick-answer map v1 (80 items)
 
 ## Current Gaps
 

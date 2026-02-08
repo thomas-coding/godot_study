@@ -1,6 +1,6 @@
 # Source Quick-Answer Map v1 (Godot 4.6)
 
-Last Updated: 2026-02-07
+Last Updated: 2026-02-08
 Status: Working
 Version Scope: 4.6
 
@@ -78,6 +78,16 @@ Version Scope: 4.6
 | SQ68 | JSON 资源保存时何时保留原文本？ | JSON resource saver | `get_parsed_text` non-empty -> save source text, else stringify | `godot/doc/classes/JSON.xml`, `godot/core/io/json.cpp` |
 | SQ69 | `parse(..., keep_text=true)` 的工程价值是什么？ | JSON parse options | preserve parsed text for later resource save round-trip | `godot/doc/classes/JSON.xml`, `godot/core/io/json.cpp` |
 | SQ70 | `use_debanding` 在哪些情况下无效？ | Viewport renderer constraints | no effect in Compatibility; 2D effect depends on HDR/background mode | `godot/doc/classes/Viewport.xml` |
+| SQ71 | 重复 `connect` 为什么报错？ | Object signal connect | duplicate callable rejected unless `CONNECT_REFERENCE_COUNTED` | `godot/doc/classes/Object.xml`, `godot/core/object/object.cpp` |
+| SQ72 | one-shot 信号为什么不会递归连环触发？ | Object signal emit | one-shot slots are disconnected before signal callback dispatch | `godot/core/object/object.cpp` |
+| SQ73 | `CONNECT_DEFERRED` 到底延迟到哪里执行？ | Object/message queue | deferred signals push callables into `MessageQueue` idle path | `godot/doc/classes/Object.xml`, `godot/core/object/object.cpp` |
+| SQ74 | 为什么 `emit_signal` 没有触发任何回调？ | Object signal blocking | `_block_signals` early-return in `emit_signalp` | `godot/doc/classes/Object.xml`, `godot/core/object/object.cpp` |
+| SQ75 | 为什么 `_gui_input` 不触发？ | Control input routing | ignore/occluded/parent-stop/clip/outside checks block callback | `godot/doc/classes/Control.xml` |
+| SQ76 | `MOUSE_FILTER_STOP/PASS/IGNORE` 如何影响冒泡？ | Control/Viewport input routing | STOP handles pointer events; PASS bubbles; IGNORE skips receive | `godot/doc/classes/Control.xml`, `godot/scene/main/viewport.cpp` |
+| SQ77 | `accept_event()` 的底层效果是什么？ | Control/Viewport input routing | control delegates to viewport `_gui_accept_event` then input handled | `godot/scene/gui/control.cpp`, `godot/scene/main/viewport.cpp` |
+| SQ78 | 暂停后节点是否继续运行如何判断？ | Node process gate | `can_process` -> `_can_process(paused)` + `process_mode` branch | `godot/doc/classes/Node.xml`, `godot/scene/main/node.cpp` |
+| SQ79 | 暂停时 timer 为何还在走？ | SceneTree timer semantics | `process_timers` skips only when paused and `!process_always` | `godot/doc/classes/SceneTree.xml`, `godot/scene/main/scene_tree.cpp` |
+| SQ80 | 动态开关输入回调为何立刻生效？ | Node input callback registration | set_process_* toggles `_vp_*<viewport_id>` dispatch groups | `godot/scene/main/node.cpp` |
 
 ## Usage Rule
 

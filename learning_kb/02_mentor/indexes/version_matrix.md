@@ -1,6 +1,6 @@
 # Version Compatibility Matrix
 
-Last Updated: 2026-02-07
+Last Updated: 2026-02-08
 Active Baseline: `4.6`
 
 ## Status Legend
@@ -26,6 +26,7 @@ Active Baseline: `4.6`
 | M08 | module | verified | not_started | 2026-02-07 | `02_mentor/modules/M08_performance_monitoring_and_frame_budget.md` | Performance monitoring and frame budget |
 | M09 | module | verified | not_started | 2026-02-07 | `02_mentor/modules/M09_scenetree_persistence_and_runtime_render_controls.md` | Group orchestration + persistence boundary + runtime render controls |
 | M10 | module | verified | not_started | 2026-02-07 | `02_mentor/modules/M10_scene_transition_timer_and_json_resource_runtime.md` | Scene transition timing + timer order + JSON runtime semantics |
+| M11 | module | verified | not_started | 2026-02-08 | `02_mentor/modules/M11_signal_gui_input_and_pause_aware_processing.md` | Signal dispatch + GUI input + pause-aware processing |
 
 ## Cards
 
@@ -72,6 +73,11 @@ Active Baseline: `4.6`
 | K039 | card | verified | not_started | 2026-02-07 | `02_mentor/cards/K039_scenetree_timer_updates_after_nodes.md` | SceneTree timer updates after nodes |
 | K040 | card | verified | not_started | 2026-02-07 | `02_mentor/cards/K040_json_resource_loader_editor_runtime_branch.md` | JSON resource loader editor/runtime branch |
 | K041 | card | verified | not_started | 2026-02-07 | `02_mentor/cards/K041_json_resource_save_prefers_parsed_text.md` | JSON resource save prefers parsed text |
+| K042 | card | verified | not_started | 2026-02-08 | `02_mentor/cards/K042_signal_connect_reference_counted_duplicates.md` | signal connect duplicate behavior |
+| K043 | card | verified | not_started | 2026-02-08 | `02_mentor/cards/K043_signal_one_shot_and_deferred_dispatch.md` | one-shot and deferred signal dispatch |
+| K044 | card | verified | not_started | 2026-02-08 | `02_mentor/cards/K044_control_gui_input_accept_event_flow.md` | Control gui input and accept_event flow |
+| K045 | card | verified | not_started | 2026-02-08 | `02_mentor/cards/K045_node_can_process_pause_mode_gate.md` | Node can_process pause-mode gate |
+| K046 | card | verified | not_started | 2026-02-08 | `02_mentor/cards/K046_node_input_processing_group_registration.md` | input processing group registration |
 
 ## QA
 
@@ -117,6 +123,11 @@ Active Baseline: `4.6`
 | QA038 | qa | verified | not_started | 2026-02-07 | `02_mentor/qa/QA038_scenetree_timer_update_order.md` | SceneTree timer update order |
 | QA039 | qa | verified | not_started | 2026-02-07 | `02_mentor/qa/QA039_json_resource_editor_runtime_difference.md` | JSON resource editor/runtime difference |
 | QA040 | qa | verified | not_started | 2026-02-07 | `02_mentor/qa/QA040_json_keep_text_save_behavior.md` | JSON keep_text save behavior |
+| QA041 | qa | verified | not_started | 2026-02-08 | `02_mentor/qa/QA041_signal_duplicate_connection_reference_counted.md` | duplicate signal connection and ref-counted mode |
+| QA042 | qa | verified | not_started | 2026-02-08 | `02_mentor/qa/QA042_connect_deferred_vs_call_deferred.md` | CONNECT_DEFERRED vs call_deferred |
+| QA043 | qa | verified | not_started | 2026-02-08 | `02_mentor/qa/QA043_gui_input_not_triggered_mouse_filter.md` | _gui_input blocked by mouse filter/propagation |
+| QA044 | qa | verified | not_started | 2026-02-08 | `02_mentor/qa/QA044_pause_mode_and_timer_behavior.md` | pause mode and timer behavior |
+| QA045 | qa | verified | not_started | 2026-02-08 | `02_mentor/qa/QA045_runtime_toggle_input_processing.md` | runtime toggle input processing |
 
 ## Update Rule
 

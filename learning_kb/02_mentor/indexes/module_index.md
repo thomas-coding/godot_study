@@ -1,6 +1,6 @@
 # Module Index
 
-Last Updated: 2026-02-07
+Last Updated: 2026-02-08
 Active Baseline: 4.6
 
 Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
@@ -15,3 +15,4 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - M08 `rendering/frame budget fundamentals` — `done` — `02_mentor/modules/M08_performance_monitoring_and_frame_budget.md`
 - M09 `group orchestration, persistence, render runtime controls` — `done` — `02_mentor/modules/M09_scenetree_persistence_and_runtime_render_controls.md`
 - M10 `scene transition timing, timers, and JSON resource runtime` — `done` — `02_mentor/modules/M10_scene_transition_timer_and_json_resource_runtime.md`
+- M11 `signal dispatch, GUI input, and pause-aware processing` — `done` — `02_mentor/modules/M11_signal_gui_input_and_pause_aware_processing.md`

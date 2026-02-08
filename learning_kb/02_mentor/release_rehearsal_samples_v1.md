@@ -1,6 +1,6 @@
 # Release Rehearsal Samples v1 (Godot 4.6)
 
-Last Updated: 2026-02-07
+Last Updated: 2026-02-08
 Status: Working
 Version Scope: 4.6
 
@@ -70,9 +70,58 @@ Version Scope: 4.6
 - Result:
   - `recorded` (real build evidence)
 
+## RRB-004 - Headless quickstart latency (3 runs, repeat)
+
+- Captured at: `2026-02-08T10:40:46`
+- Command profile:
+  - `--headless --path projects/first-game --quit` (repeated 3 times)
+- Key metrics snapshot:
+  - `avg`: `172.700 ms`
+  - `min`: `169.720 ms`
+  - `max`: `174.220 ms`
+  - `spread`: `4.500 ms`
+- Artifact:
+  - `02_mentor/artifacts/rrb004_headless_quickstart_3runs.json`
+- Risk link:
+  - `R02` in `release_risk_matrix_v1.md`
+- Result:
+  - `recorded` (real build evidence)
+
+## RRB-005 - Benchmark stdout parsed snapshot (repeat)
+
+- Captured at: `2026-02-08T10:40:48`
+- Command profile:
+  - `--headless --path projects/first-game --benchmark --quit-after 240`
+- Key metrics snapshot:
+  - `Main::Setup`: `21.137 ms`
+  - `Servers`: `19.918 ms`
+  - `Scene`: `49.408 ms`
+  - `Main::Setup2`: `77.861 ms`
+  - `Load Game`: `10.349 ms`
+  - `Main::Start`: `10.804 ms`
+  - `Main::Cleanup`: `69.939 ms`
+- Artifact:
+  - `02_mentor/artifacts/rrb005_benchmark_stdout_parsed.json`
+- Risk link:
+  - `R03` in `release_risk_matrix_v1.md`
+- Result:
+  - `recorded` (real build evidence)
+
+## Threshold Band (5-record baseline)
+
+- Generated from records: `RRB-001~RRB-005`
+- Method: `mean +/- 15%`
+- Snapshot:
+  - `quickstart_elapsed_ms` mean: `174.878` (band `148.647 ~ 201.110`)
+  - `Main::Setup` mean: `19.040` (band `16.184 ~ 21.896`)
+  - `Scene` mean: `52.391` (band `44.532 ~ 60.250`)
+- Artifact:
+  - `02_mentor/artifacts/rrb_threshold_band_v1.json`
+
 ## Consolidated Summary Artifact
 
 - `02_mentor/artifacts/rrb_summary_v1.json`
+- `02_mentor/artifacts/rrb_threshold_band_v1.json`
 
 ## Execution Note
 
@@ -81,4 +130,4 @@ Version Scope: 4.6
 
 ## Next Action
 
-- 把 RRB-001~003 接入每周固定回归，累计 5 次后建立阈值带（均值 +/- 波动区间）。
+- 按周滚动追加样本并重算阈值带；当硬件/驱动变化或场景内容显著变化时重置基线窗口。

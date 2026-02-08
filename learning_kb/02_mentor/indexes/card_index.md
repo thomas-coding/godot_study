@@ -1,6 +1,6 @@
 # Card Index
 
-Last Updated: 2026-02-07
+Last Updated: 2026-02-08
 Active Baseline: 4.6
 
 Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
@@ -46,3 +46,8 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - K039 `SceneTree timer updates after nodes` — `Verified` — `02_mentor/cards/K039_scenetree_timer_updates_after_nodes.md`
 - K040 `JSON resource loader editor/runtime branch` — `Verified` — `02_mentor/cards/K040_json_resource_loader_editor_runtime_branch.md`
 - K041 `JSON resource save prefers parsed_text` — `Verified` — `02_mentor/cards/K041_json_resource_save_prefers_parsed_text.md`
+- K042 `signal connect reference-counted duplicates` — `Verified` — `02_mentor/cards/K042_signal_connect_reference_counted_duplicates.md`
+- K043 `signal one-shot and deferred dispatch` — `Verified` — `02_mentor/cards/K043_signal_one_shot_and_deferred_dispatch.md`
+- K044 `Control GUI input accept_event flow` — `Verified` — `02_mentor/cards/K044_control_gui_input_accept_event_flow.md`
+- K045 `Node can_process pause gate` — `Verified` — `02_mentor/cards/K045_node_can_process_pause_mode_gate.md`
+- K046 `node input processing group registration` — `Verified` — `02_mentor/cards/K046_node_input_processing_group_registration.md`

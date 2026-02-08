@@ -1,6 +1,6 @@
 # Automated Regression Spec v1 (Godot 4.6)
 
-Last Updated: 2026-02-07
+Last Updated: 2026-02-08
 Status: Working
 Version Scope: 4.6
 
@@ -43,6 +43,11 @@ Version Scope: 4.6
 - 指标偏差在阈值内（阈值按项目定义，默认 15%）。
 - 关键输入动作（移动/跳跃/确认/返回）全部可执行。
 
+当累计样本 >= 5 时：
+
+- 必须基于样本生成阈值文件（如 `rrb_threshold_band_v1.json`）。
+- 回归判定优先使用阈值带，而不是单次人工主观判断。
+
 ## Storage Convention
 
 - 每次回归保存：
@@ -57,6 +62,7 @@ Version Scope: 4.6
 - `rrb000_build_identity.json`（版本 + 可执行文件哈希）
 - `rrb00x_<scenario>.json`（单次场景指标）
 - `rrb_summary_v1.json`（多样本汇总）
+- `rrb_threshold_band_v1.json`（阈值带与基线窗口）
 
 ## Capture Notes
 

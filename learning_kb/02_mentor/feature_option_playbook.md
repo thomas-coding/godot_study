@@ -1,6 +1,6 @@
 # Feature Option Playbook (Godot 4.6)
 
-Last Updated: 2026-02-07
+Last Updated: 2026-02-08
 Status: Working
 Version Scope: 4.6
 
@@ -706,6 +706,106 @@ Version Scope: 4.6
 - 缺点：几乎不可复用，不适合作为发布门禁。
 - 适用：不建议作为正式流程。
 
+## F036 - Signal connection lifetime strategy
+
+### Option A (Recommended)
+- 路径：默认先 `is_connected()` 再 connect；需要重复订阅时显式使用 `CONNECT_REFERENCE_COUNTED`。
+- 优点：避免重复连接报错，同时保留可控的引用计数断开语义。
+- 缺点：需要团队统一连接约定。
+- 适用：中大型项目事件系统。
+
+### Option B
+- 路径：所有连接都用普通 `connect`，重复连接直接视为 bug。
+- 优点：规则简单，问题暴露早。
+- 缺点：动态装配场景容易误报或增加样板判断。
+- 适用：结构简单且连接点固定的项目。
+
+### Option C
+- 路径：所有连接都强制 `CONNECT_REFERENCE_COUNTED`。
+- 优点：不会因为重复连接直接抛错。
+- 缺点：容易把连接泄漏隐藏成“计数未归零”问题。
+- 适用：不推荐作为全局默认。
+
+## F037 - Deferred callback scheduling strategy
+
+### Option A (Recommended)
+- 路径：信号级延迟用 `CONNECT_DEFERRED`，单次方法延迟用 `call_deferred`，下一帧一次性回调用 `process_frame + CONNECT_ONE_SHOT`。
+- 优点：语义清晰，能区分连接策略与调用策略。
+- 缺点：需要开发者理解三者时序差异。
+- 适用：高频事件与时序敏感逻辑并存的项目。
+
+### Option B
+- 路径：统一只用 `call_deferred`。
+- 优点：上手快。
+- 缺点：无法表达“连接层的长期 deferred 语义”。
+- 适用：小规模项目的临时方案。
+
+### Option C
+- 路径：统一即时调用，不使用 deferred。
+- 优点：执行路径最短。
+- 缺点：容易触发重入/同帧状态竞争。
+- 适用：仅限确定无时序风险的简单逻辑。
+
+## F038 - GUI event propagation strategy
+
+### Option A (Recommended)
+- 路径：UI 控件默认 `MOUSE_FILTER_STOP`，业务层在 `_gui_input` 明确决定是否 `accept_event()`。
+- 优点：输入边界清楚，能稳定避免 UI 与 gameplay 抢事件。
+- 缺点：需要逐控件审查是否误吞输入。
+- 适用：有复杂 HUD/菜单交互的项目。
+
+### Option B
+- 路径：大量使用 `MOUSE_FILTER_PASS`，依赖父链处理。
+- 优点：组合灵活。
+- 缺点：冒泡链复杂，排错成本高。
+- 适用：层级简单且可控的 UI 树。
+
+### Option C
+- 路径：覆盖性 UI 全设 `MOUSE_FILTER_IGNORE`，把输入完全透给下层。
+- 优点：不会阻断 gameplay 输入。
+- 缺点：控件失去鼠标交互能力。
+- 适用：纯展示层（装饰/遮罩）节点。
+
+## F039 - Pause architecture strategy
+
+### Option A (Recommended)
+- 路径：统一按系统类型设置 `Node.process_mode`，并显式区分暂停期间继续运行的 UI/系统节点。
+- 优点：暂停语义可预测，`can_process()` 结果稳定。
+- 缺点：需要建立节点分类规范。
+- 适用：包含菜单、战斗、过场等多状态项目。
+
+### Option B
+- 路径：全局 `SceneTree.paused=true` 后只靠少量手动开关恢复。
+- 优点：实现简单。
+- 缺点：容易遗漏节点，出现“该停不停/该跑不跑”。
+- 适用：小项目快速迭代。
+
+### Option C
+- 路径：不使用 paused，改为自建全局 time-scale/state gate。
+- 优点：控制粒度高。
+- 缺点：脱离引擎默认流程，维护复杂。
+- 适用：强定制框架。
+
+## F040 - Regression threshold governance strategy
+
+### Option A (Recommended)
+- 路径：回归样本达到 5 次后，按关键指标生成 `mean +/- 15%` 阈值带并写入 artifacts。
+- 优点：发布门禁从“主观判断”升级为“可追踪阈值”。
+- 缺点：仍需定期重算阈值以适应硬件/内容变化。
+- 适用：进入持续发布阶段的项目。
+
+### Option B
+- 路径：只保留原始样本，不生成阈值带。
+- 优点：记录真实，不引入阈值维护成本。
+- 缺点：无法自动判定回归是否越界。
+- 适用：早期探索阶段。
+
+### Option C
+- 路径：人工经验阈值，不绑定样本统计。
+- 优点：配置快。
+- 缺点：解释性弱，团队共识成本高。
+- 适用：短期临时项目。
+
 ## Evidence
 
 - `godot/doc/classes/Node.xml` -> `_input`, `_unhandled_input`, `_unhandled_key_input`
@@ -728,6 +828,8 @@ Version Scope: 4.6
 - `godot/doc/classes/PackedScene.xml` -> `pack`, `Node.owner`
 - `godot/doc/classes/JSON.xml` -> `parse`, `parse_string`, `get_error_line`, `get_error_message`
 - `godot/doc/classes/JSON.xml` -> `get_parsed_text`, `parse(keep_text)`
+- `godot/doc/classes/Object.xml` -> `connect`, `set_block_signals`, `CONNECT_DEFERRED`, `CONNECT_ONE_SHOT`, `CONNECT_REFERENCE_COUNTED`
+- `godot/doc/classes/Control.xml` -> `_gui_input`, `accept_event`, `MOUSE_FILTER_*`
 - `godot/doc/classes/Viewport.xml` -> `msaa_*`, `screen_space_aa`, `use_taa`, `use_debanding`, `snap_2d_*`
 - `godot/scene/2d/physics/character_body_2d.cpp` -> `CharacterBody2D::move_and_slide`, `CharacterBody2D::_apply_floor_snap`
 - `godot/scene/2d/camera_2d.cpp` -> `Camera2D::_update_process_callback`, `Camera2D::reset_smoothing`
@@ -735,11 +837,15 @@ Version Scope: 4.6
 - `godot/scene/main/scene_tree.cpp` -> `SceneTree::call_group_flagsp`, `SceneTree::notify_group_flags`
 - `godot/scene/main/scene_tree.cpp` -> `SceneTree::change_scene_to_file`, `SceneTree::change_scene_to_node`, `SceneTree::process`, `process_timers`
 - `godot/core/io/resource_loader.cpp` -> `_load_start`, `load_threaded_get_status`
+- `godot/core/object/object.cpp` -> `Object::connect`, `Object::emit_signalp`, `Object::_disconnect`
 - `godot/core/io/json.cpp` -> `JSON::parse`, `JSON::parse_string`
 - `godot/core/io/json.cpp` -> `ResourceFormatLoaderJSON::load`, `ResourceFormatSaverJSON::save`
 - `godot/scene/resources/packed_scene.cpp` -> `PackedScene::instantiate`
 - `godot/scene/resources/packed_scene.cpp` -> `SceneState::pack`, `SceneState::_parse_node`
 - `godot/main/performance.cpp` -> `Performance::get_monitor`
 - `godot/scene/main/viewport.cpp` -> `Viewport::set_msaa_2d`, `set_screen_space_aa`, `set_use_taa`, `set_use_debanding`
+- `godot/scene/main/viewport.cpp` -> `Viewport::_gui_call_input`, `Viewport::set_input_as_handled`
+- `godot/scene/main/node.cpp` -> `Node::can_process`, `Node::_can_process`, `Node::set_process_input`
 - `godot/servers/rendering/rendering_server.h` -> `viewport_set_msaa_2d`, `viewport_set_use_taa`, `viewport_set_use_debanding`
 - `02_mentor/automated_regression_spec_v1.md` -> run profile + minimum metrics + storage convention
+- `02_mentor/artifacts/rrb_threshold_band_v1.json` -> threshold band metrics from 5-run baseline

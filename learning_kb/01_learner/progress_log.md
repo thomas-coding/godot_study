@@ -285,6 +285,22 @@
 - Next:
   - 继续扩展 quick-answer map 到 80+，playbook 到 F040，并把真实构建样本累计到 5 次建立阈值带。
 
+## 2026-02-08 (mentor self-study cycle #9)
+
+- Status: 已完成第九次“你自己学习”循环（Godot 4.6）。
+- Done:
+  - 完成 M11：Signal 派发语义、GUI 输入传播与 pause-aware processing。
+  - QA 扩展到 QA045（新增 QA041~QA045）。
+  - 卡片扩展到 K046（新增 K042~K046）。
+  - `source_quick_answer_map_v1.md` 从 70 扩展到 80 个高频问题。
+  - `feature_option_playbook.md` 从 F035 扩展到 F040。
+  - 真实构建样本从 3 条扩展到 5 条（新增 RRB-004/005），并建立 `rrb_threshold_band_v1.json` 阈值带。
+  - 导师能力看板从 60% 更新到 66%。
+- Blockers:
+  - `--benchmark-file` 在当前环境下仍存在不稳定；已持续使用 `--benchmark` stdout 解析链路。
+- Next:
+  - 继续扩展 quick-answer map 到 90+，playbook 到 F045，并把阈值带接入自动化 pass/fail 判定。
+
 ## Entry Template
 
 - Date:

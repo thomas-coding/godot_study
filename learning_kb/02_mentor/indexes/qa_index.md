@@ -1,6 +1,6 @@
 # QA Index
 
-Last Updated: 2026-02-07
+Last Updated: 2026-02-08
 Active Baseline: 4.6
 
 Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
@@ -45,3 +45,8 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - QA038 `SceneTree timer update order` — `02_mentor/qa/QA038_scenetree_timer_update_order.md`
 - QA039 `JSON resource editor/runtime difference` — `02_mentor/qa/QA039_json_resource_editor_runtime_difference.md`
 - QA040 `JSON keep_text save behavior` — `02_mentor/qa/QA040_json_keep_text_save_behavior.md`
+- QA041 `signal duplicate connection and ref-counted mode` — `02_mentor/qa/QA041_signal_duplicate_connection_reference_counted.md`
+- QA042 `CONNECT_DEFERRED vs call_deferred` — `02_mentor/qa/QA042_connect_deferred_vs_call_deferred.md`
+- QA043 `_gui_input blocked by mouse filter/propagation` — `02_mentor/qa/QA043_gui_input_not_triggered_mouse_filter.md`
+- QA044 `pause mode and timer behavior` — `02_mentor/qa/QA044_pause_mode_and_timer_behavior.md`
+- QA045 `runtime toggle input processing` — `02_mentor/qa/QA045_runtime_toggle_input_processing.md`
