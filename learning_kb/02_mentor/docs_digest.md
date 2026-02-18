@@ -2,6 +2,21 @@
 
 > 规则：每次教学前后补充 1-2 条，记录“读了什么 -> 结论是什么 -> 来源在哪里”。
 
+## 2026-02-18
+
+- Topic: 双轨长期治理规则固化（Working）
+- Summary:
+  - 把“学员线 + 导师线”长期协作模式固化为项目级协议文件，避免流程漂移。
+  - 明确轨道判定与默认优先级：歧义默认学员线，切轨必须显式声明。
+  - 学员课SOP固定为“回顾 -> 目标 -> runbook -> 验收 -> 修复 -> 收尾”，导师线增加“先给学员下节计划”的强制责任。
+  - 更新启动与会话协议，确保下一个 AI 能直接按稳定流程接管。
+- Source:
+  - `00_meta/dual_track_governance.md`
+  - `AGENTS.md`
+  - `03_sessions/session_protocol.md`
+  - `00_plan/week_01_bootstrap.md`
+  - `03_sessions/handoff_latest.md`
+
 ## 2026-02-08
 
 - Topic: 信号派发与 GUI 输入链路深潜（Verified）

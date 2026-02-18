@@ -301,6 +301,19 @@
 - Next:
   - 继续扩展 quick-answer map 到 90+，playbook 到 F045，并把阈值带接入自动化 pass/fail 判定。
 
+## 2026-02-18 (dual-track governance lock)
+
+- Status: 已固化长期双轨治理规则。
+- Done:
+  - 新增 `00_meta/dual_track_governance.md`，明确学员线/导师线触发词、优先级、切换规则。
+  - `AGENTS.md` 写入固定课堂SOP与导师线“必须先给学员下节计划”的约束。
+  - `03_sessions/session_protocol.md` 增加双轨判定与学员课堂固定流程。
+  - `week_01_bootstrap.md` 对齐 Day2 runbook 课程定义。
+- Blockers:
+  - 无。
+- Next:
+  - 按 Day2 runbook 开始学员实作：`CharacterBody2D` 左右移动 + 跳跃。
+
 ## Entry Template
 
 - Date:

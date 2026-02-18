@@ -8,10 +8,16 @@
 2. `learning_kb/01_learner/current_state.md`
 3. `learning_kb/02_mentor/knowledge_map.md`
 4. `learning_kb/00_plan/roadmap.md`
-5. `learning_kb/00_meta/version_registry.md`
-6. `learning_kb/03_sessions/session_protocol.md`
+5. `learning_kb/00_meta/dual_track_governance.md`
+6. `learning_kb/00_meta/version_registry.md`
+7. `learning_kb/03_sessions/session_protocol.md`
 
-## 1b) 触发词扩展
+## 1b) 触发词扩展（轨道判定）
+
+- 若用户说“我开始学习/day2 课程/上课/我学/学员线”，把它视为“学员会话”：
+  1. 读对应 runbook（例如 `learning_kb/00_plan/day_02_2h_runbook.md`）
+  2. 按固定课堂SOP执行（回顾 -> 目标 -> runbook -> 验收 -> 修复 -> 收尾）
+  3. 不跳步，不临时改流程
 
 - 若用户说“学习下godot/学习 Godot/研究 Godot/先学习再教/你自己学习/你先学习”，把它视为“导师学习会话”，按以下流程执行：
   1. 读 `learning_kb/02_mentor/knowledge_map.md`
@@ -19,11 +25,18 @@
   3. 读 `learning_kb/02_mentor/mentor_vision_and_self_study_plan.md`
   4. 读 `learning_kb/02_mentor/mentor_progress_dashboard.md`
   5. 基于当前阶段（`learning_kb/00_plan/roadmap.md`）列出本次学习计划（模块 + 产出文件）
-  6. 学习（官方 docs + 源码定位），把结论写入 `learning_kb/02_mentor/` 并标注证据等级
-  7. 更新 `learning_kb/02_mentor/mentor_progress_dashboard.md`（刷新百分比与周目标进度）
-  8. 更新 `learning_kb/03_sessions/handoff_latest.md`（记录已补齐哪些知识点、下次优先级）
+  6. 先输出“学员线下一节课计划”（目标 + 步骤 + 验收点）
+  7. 学习（官方 docs + 源码定位），把结论写入 `learning_kb/02_mentor/` 并标注证据等级
+  8. 更新 `learning_kb/02_mentor/mentor_progress_dashboard.md`（刷新百分比与周目标进度）
+  9. 更新 `learning_kb/03_sessions/handoff_latest.md`（记录已补齐哪些知识点、下次优先级）
 
-## 1c) 版本升级触发词
+## 1c) 默认优先级与切换规则
+
+- 若用户意图有歧义，默认走学员线。
+- 会话中切换轨道时，必须明确说明“已切换到学员线/导师线”。
+- 禁止把学员线与导师线流程混成一套随机流程。
+
+## 1d) 版本升级触发词
 
 - 若用户说“更新知识库到godot X.Y / 升级知识库到 X.Y / 切换到 Godot X.Y”，按以下流程执行：
   1. 读 `learning_kb/00_meta/version_registry.md`

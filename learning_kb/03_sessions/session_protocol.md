@@ -6,17 +6,36 @@
 2. 读取 `learning_kb/01_learner/current_state.md`
 3. 读取 `learning_kb/02_mentor/knowledge_map.md`
 4. 读取 `learning_kb/00_plan/roadmap.md`
-5. 读取 `learning_kb/00_meta/version_registry.md`
-6. 确定今日唯一目标（一句英文）
+5. 读取 `learning_kb/00_meta/dual_track_governance.md`
+6. 读取 `learning_kb/00_meta/version_registry.md`
+7. 确定今日唯一目标（一句英文）
 
-## Execution Blocks (1h)
+## 双轨判定规则（强制）
+
+- 学员线触发词：`我开始学习`、`day2 课程`、`上课`、`我学`、`学员线`。
+- 导师线触发词：`学习下godot`、`你自己学习`、`你先学习`、`导师线`。
+- 语义不清时默认学员线。
+- 若会话中切轨，必须明确告知“已切换到学员线/导师线”。
+
+## 学员会话（固定课堂SOP）
+
+1. 回顾（3-5 分钟）：复盘上节结果与未解决问题。
+2. 目标（1 句话）：必须可验收。
+3. Runbook 执行：按 day runbook 步骤推进，不跳步。
+4. 验收：给出通过/失败标准并现场检查。
+5. 修复：只做最小修复，避免超范围扩展。
+6. 收尾：更新日报/状态/handoff。
+
+执行备注：每节课流程必须一致，避免临时随机改课。
+
+## 学员线 Execution Blocks (1h)
 
 - Block A (12 min): 英文文档输入（先自己理解，不先问 AI）
 - Block B (8 min): 向 AI 发起聚焦问题（可中文提问 + 指定英文回答）
 - Block C (30 min): 动手实现与调试
 - Block D (5 min): 总结与术语卡片沉淀
 
-## Execution Blocks (2h, optional)
+## 学员线 Execution Blocks (2h, optional)
 
 - Block A (25 min): 英文文档输入（先自己理解，不先问 AI）
 - Block B (20 min): 向 AI 发起聚焦问题（可中文提问 + 指定英文回答）
@@ -26,6 +45,7 @@
 ## 导师学习会话（触发词：学习下godot / 你自己学习 / 你先学习）
 
 - 先输出：本次学习计划（1-2 模块 + 产出文件）
+- 必做：先输出“学员线下一节课计划”（目标 + 步骤 + 验收点）
 - 再执行：官方 docs + 源码定位学习
 - 参考导师目标与学习路线：
   - `02_mentor/mentor_vision_and_self_study_plan.md`

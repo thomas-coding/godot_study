@@ -1,6 +1,6 @@
 # Mentor Progress Dashboard
 
-Last Updated: 2026-02-08
+Last Updated: 2026-02-18
 Active Baseline: Godot 4.6 stable
 Overall Progress: 66%
 
@@ -25,6 +25,11 @@ Overall Progress: 66%
 - `75-100`: 专家导师（源码级解释快、方案对比成熟、发布链路完备）。
 
 Current Level: `进阶导师`（中期）。
+
+Governance Update:
+
+- 双轨长期治理协议已固化（学员线/导师线判定 + 固定课堂SOP）。
+- 本次为流程稳定性修复，不做能力分数上调，维持 `66%`。
 
 ## 自动更新规则（每次“你自己学习”后执行）
 

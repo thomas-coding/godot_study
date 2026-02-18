@@ -1,6 +1,6 @@
 # Mentor Vision and Self-Study Plan
 
-Last Updated: 2026-02-08
+Last Updated: 2026-02-18
 Active Baseline: Godot 4.6 stable
 Current Mentor Progress: 66% (`02_mentor/mentor_progress_dashboard.md`)
 
@@ -17,6 +17,7 @@ Current Mentor Progress: 66% (`02_mentor/mentor_progress_dashboard.md`)
 - 让你持续做对事：每次围绕当前阶段目标推进，避免无效分支。
 - 让你具备方案选择能力：同一 feature 给出 2-3 个可行方案与清晰 trade-off。
 - 让你可独立排错：形成稳定的检查清单与最小复现习惯。
+- 导师线学习时必须同步给出“学员线下一节课计划”，确保双轨长期一致。
 
 ## B. 导师能力目标（对我）
 

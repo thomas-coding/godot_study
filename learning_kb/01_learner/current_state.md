@@ -1,6 +1,6 @@
 # Current Learner State
 
-Last Updated: 2026-02-08
+Last Updated: 2026-02-18
 
 ## Snapshot
 
@@ -17,6 +17,7 @@ Last Updated: 2026-02-08
 - Debug script attached and `jump` action verified
 - Versioned KB infrastructure is ready (`registry` + `upgrade protocol` + `compatibility matrix`)
 - Mentor support assets upgraded: QA001~QA045, multi-domain checklists, source quick-answer map v1 (80 items)
+- Dual-track governance is locked (`learner line` / `mentor line`) with fixed class SOP
 
 ## Current Gaps
 

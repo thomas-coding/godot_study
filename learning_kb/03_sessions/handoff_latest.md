@@ -1,6 +1,6 @@
 # Session Handoff (Latest)
 
-Date: 2026-02-08
+Date: 2026-02-18
 
 ## What was completed
 
@@ -66,6 +66,10 @@ Date: 2026-02-08
   - Source quick-answer map expanded from 70 to 80 questions.
   - Feature playbook expanded from F035 to F040.
   - Release regression records expanded to `RRB-001~RRB-005` and threshold band baseline established (`rrb_threshold_band_v1.json`).
+- 双轨治理规则已固化：
+  - 新增 `00_meta/dual_track_governance.md`（长期双轨规则）。
+  - `AGENTS.md` 与 `session_protocol.md` 已写入“轨道判定 + 固定课堂SOP + 导师线必须输出学员下节计划”。
+  - `week_01_bootstrap.md` 已对齐 Day2 学员课程定义。
 - Mentor progress dashboard is active: current progress `66%`, sprint target `70%`.
 
 ## Active baseline
@@ -96,7 +100,8 @@ Build minimal playable `Player` with left/right movement + jump using `Character
 3. `01_learner/gap_backlog.md`
 4. `02_mentor/knowledge_map.md`
 5. `00_meta/version_registry.md`
-6. `02_mentor/mentor_progress_dashboard.md`
+6. `00_meta/dual_track_governance.md`
+7. `02_mentor/mentor_progress_dashboard.md`
 
 ## If user says "学习下godot / 你自己学习"
 

@@ -5,6 +5,7 @@
 ## P0
 
 - Implement `CharacterBody2D` minimal movement + jump
+- Execute Day2 runbook with fixed class SOP (`00_plan/day_02_2h_runbook.md`)
 - Understand `_process(delta)` vs `_physics_process(delta)` in practice
 - Build repeatable scene structure for `Main` and `Player`
 
