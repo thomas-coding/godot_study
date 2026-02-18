@@ -4,8 +4,8 @@ Last Updated: 2026-02-18
 
 ## Snapshot
 
-- Phase: Week 01 / Day 1 completed
-- Daily Time Budget: 2h (today was temporary 1h)
+- Phase: Week 01 / Day 2 core completed
+- Daily Time Budget: 2h
 - Primary Goal: Build and ship a complete game with Godot on Steam
 - KB Baseline: Godot 4.6 (version migration protocol enabled)
 
@@ -15,19 +15,22 @@ Last Updated: 2026-02-18
 - `first_game` project runs with `F5`
 - Input actions created: `move_left`, `move_right`, `jump`
 - Debug script attached and `jump` action verified
+- `CharacterBody2D` player implemented with A/D movement + Space jump
+- `Main` + `Player` reusable scene structure established
+- Ground collision works in runtime (`StaticBody2D` + `CollisionShape2D`)
 - Versioned KB infrastructure is ready (`registry` + `upgrade protocol` + `compatibility matrix`)
 - Mentor support assets upgraded: QA001~QA045, multi-domain checklists, source quick-answer map v1 (80 items)
 - Dual-track governance is locked (`learner line` / `mentor line`) with fixed class SOP
 
 ## Current Gaps
 
-- No `Player` movement/jump implementation yet
-- No `CharacterBody2D` collision workflow yet
-- No scene composition habit (`Main` + reusable sub-scenes) yet
+- No `Area2D`-based gameplay collision event yet (collect/hit trigger)
+- `_process(delta)` vs `_physics_process(delta)` understanding is not yet stable
+- No UI flow yet (`start`/`pause`/`restart`)
 
 ## Immediate Next Session Goal
 
-Implement minimal `Player` (`CharacterBody2D`) left/right movement + jump and verify runtime behavior.
+Implement one minimal gameplay interaction (`Area2D` collectible or hit trigger) on top of Day2 player movement.
 
 ## Teaching Preferences (Stable)
 

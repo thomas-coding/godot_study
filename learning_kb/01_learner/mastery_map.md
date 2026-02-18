@@ -12,7 +12,8 @@
   - Evidence: `01_learner/daily_reports/2026-02-06.md`
 - Script attach to node: `done`
   - Evidence: `01_learner/daily_reports/2026-02-06.md`
-- `CharacterBody2D` movement/jump: `not_started`
+- `CharacterBody2D` movement/jump: `done`
+  - Evidence: `01_learner/daily_reports/2026-02-18.md`
 - Camera2D follow: `not_started`
 
 ## Engineering Workflow

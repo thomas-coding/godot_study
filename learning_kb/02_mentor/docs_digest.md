@@ -17,6 +17,18 @@
   - `00_plan/week_01_bootstrap.md`
   - `03_sessions/handoff_latest.md`
 
+- Topic: 学员线 Day2 最小可玩实作验收（Working）
+- Summary:
+  - 学员完成 `CharacterBody2D` 最小可玩：A/D 左右移动 + Space 跳跃 + 地面碰撞。
+  - 采用 `Main`（关卡容器）+ `Player`（可复用子场景）结构，形成后续扩展基础。
+  - 运行时验收通过，无红色报错；当前通过可见碰撞形状辅助观察地面。
+- Source:
+  - `00_plan/day_02_2h_runbook.md`
+  - `projects/first-game/scenes/main.tscn`
+  - `projects/first-game/scenes/player.tscn`
+  - `projects/first-game/scenes/player.gd`
+  - `01_learner/daily_reports/2026-02-18.md`
+
 ## 2026-02-08
 
 - Topic: 信号派发与 GUI 输入链路深潜（Verified）

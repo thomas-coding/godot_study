@@ -70,6 +70,9 @@ Date: 2026-02-18
   - 新增 `00_meta/dual_track_governance.md`（长期双轨规则）。
   - `AGENTS.md` 与 `session_protocol.md` 已写入“轨道判定 + 固定课堂SOP + 导师线必须输出学员下节计划”。
   - `week_01_bootstrap.md` 已对齐 Day2 学员课程定义。
+- 学员线 Day2 课堂已完成（按固定SOP）：
+  - 已完成 `CharacterBody2D` 最小可玩：A/D 移动、Space 跳跃、地面碰撞。
+  - 已建立 `Main` + `Player` 子场景结构并通过运行验收。
 - Mentor progress dashboard is active: current progress `66%`, sprint target `70%`.
 
 ## Active baseline
@@ -87,11 +90,12 @@ Date: 2026-02-18
 
 - Level: Godot beginner from zero, strong C/C++ engineering background.
 - Confirmed skills: project setup, main scene run, input action creation, debug script attach.
-- Missing next: `CharacterBody2D` movement/jump implementation.
+- Confirmed new skills: `CharacterBody2D` movement/jump + ground collision workflow.
+- Missing next: add one `Area2D` gameplay interaction and start minimal UI flow.
 
-## Next session objective (Day 2, 2h)
+## Next session objective (Day 3 prep, 2h)
 
-Build minimal playable `Player` with left/right movement + jump using `CharacterBody2D`, then verify behavior in runtime.
+Add one minimal gameplay interaction (`Area2D` collectible/hit trigger) and connect it to the existing Day2 player movement.
 
 ## First files to read next time
 
@@ -119,6 +123,7 @@ Build minimal playable `Player` with left/right movement + jump using `Character
 ## Suggested first action next session
 
 - Learning mode: start Day 2 runbook, create `Player` scene + movement script.
+- Learning mode: continue from Day2 baseline, add `Area2D` interaction and begin Day3 flow.
 - Mentor self-study mode: expand quick-answer map to 90+ and playbook to F045.
 - Upgrade mode: execute protocol Step 1 and open migration matrix.
 

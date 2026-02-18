@@ -314,6 +314,21 @@
 - Next:
   - 按 Day2 runbook 开始学员实作：`CharacterBody2D` 左右移动 + 跳跃。
 
+## 2026-02-18 (learner Day2 class)
+
+- Status: 学员线 Day2 核心实作已完成（按固定课堂SOP）。
+- Done:
+  - 完成 `Player` 子场景（`CharacterBody2D` + `CollisionShape2D`）并实例化到 `Main`。
+  - 完成地面碰撞结构（`StaticBody2D` + `CollisionShape2D`）。
+  - 完成 `player.gd` 最小逻辑：重力、A/D 移动、落地跳跃、`move_and_slide()`。
+  - 运行验收通过：A/D 左右移动、Space 跳跃、无红色报错。
+- Blockers:
+  - 默认渲染下地面不可见（仅碰撞体），当前通过“显示碰撞区域”继续学习。
+- New Terms:
+  - `CharacterBody2D`, `velocity`, `move_and_slide`, `is_on_floor`。
+- Next:
+  - 进入 Day3 前置：添加 `Area2D` 交互事件（collect/hit）并理解输入/物理回调分工。
+
 ## Entry Template
 
 - Date:
