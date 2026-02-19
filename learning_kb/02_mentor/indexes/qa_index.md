@@ -1,6 +1,6 @@
 # QA Index
 
-Last Updated: 2026-02-08
+Last Updated: 2026-02-18
 Active Baseline: 4.6
 
 Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
@@ -50,3 +50,8 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - QA043 `_gui_input blocked by mouse filter/propagation` — `02_mentor/qa/QA043_gui_input_not_triggered_mouse_filter.md`
 - QA044 `pause mode and timer behavior` — `02_mentor/qa/QA044_pause_mode_and_timer_behavior.md`
 - QA045 `runtime toggle input processing` — `02_mentor/qa/QA045_runtime_toggle_input_processing.md`
+- QA046 `Area2D overlap list not immediate` — `02_mentor/qa/QA046_area2d_overlapping_list_not_immediate.md`
+- QA047 `Area2D body_entered layer/mask mismatch` — `02_mentor/qa/QA047_area2d_body_entered_not_firing_layer_mask.md`
+- QA048 `Area2D toggle monitoring inside callback` — `02_mentor/qa/QA048_area2d_toggle_monitoring_inside_callback.md`
+- QA049 `Area2D body_shape_entered get shape node` — `02_mentor/qa/QA049_area2d_body_shape_entered_get_shape_node.md`
+- QA050 `Area2D body_entered TileMap case` — `02_mentor/qa/QA050_area2d_body_entered_tilemap_case.md`

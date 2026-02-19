@@ -15,5 +15,10 @@ script = ExtResource("1_o5qli")
 position = Vector2(0, 163)
 shape = SubResource("RectangleShape2D_sugp2")
 
+[node name="Polygon2D" type="Polygon2D" parent="Ground" unique_id=252043894]
+position = Vector2(-1, 165)
+color = Color(0.74587727, 0.61068213, 0.18152583, 1)
+polygon = PackedVector2Array(-300, -20, 300, -20, 300, 20, -300, 20)
+
 [node name="Player" parent="." unique_id=690117528 instance=ExtResource("2_0wfyh")]
-position = Vector2(-6, -72)
+position = Vector2(180, 114)

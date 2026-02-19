@@ -27,3 +27,4 @@
 - 2026-02-06 当天按 1 小时执行，使用 `00_plan/day_01_1h_runbook.md`。
 - 从次日开始恢复本文件的 2h 默认节奏。
 - Day 2 学员实作使用 `00_plan/day_02_2h_runbook.md`（CharacterBody2D 最小可玩）。
+- Day 3 学员实作使用 `00_plan/day_03_2h_runbook.md`（Area2D 交互 + 最小计数反馈）。

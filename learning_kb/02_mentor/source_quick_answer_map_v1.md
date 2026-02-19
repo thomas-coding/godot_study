@@ -1,6 +1,6 @@
 # Source Quick-Answer Map v1 (Godot 4.6)
 
-Last Updated: 2026-02-08
+Last Updated: 2026-02-18
 Status: Working
 Version Scope: 4.6
 
@@ -88,6 +88,16 @@ Version Scope: 4.6
 | SQ78 | 暂停后节点是否继续运行如何判断？ | Node process gate | `can_process` -> `_can_process(paused)` + `process_mode` branch | `godot/doc/classes/Node.xml`, `godot/scene/main/node.cpp` |
 | SQ79 | 暂停时 timer 为何还在走？ | SceneTree timer semantics | `process_timers` skips only when paused and `!process_always` | `godot/doc/classes/SceneTree.xml`, `godot/scene/main/scene_tree.cpp` |
 | SQ80 | 动态开关输入回调为何立刻生效？ | Node input callback registration | set_process_* toggles `_vp_*<viewport_id>` dispatch groups | `godot/scene/main/node.cpp` |
+| SQ81 | 为什么刚移动后 `get_overlapping_bodies` 还是旧结果？ | Area2D overlap cache | overlaps list updated once per physics step | `godot/doc/classes/Area2D.xml` |
+| SQ82 | `monitoring` 和 `monitorable` 有什么区别？ | Area2D monitoring gates | detect others vs be detected by other monitoring areas | `godot/doc/classes/Area2D.xml`, `godot/scene/2d/physics/area_2d.cpp` |
+| SQ83 | `body_entered` 为什么不触发？ | Area2D + layer/mask | check `monitoring` and layer-mask intersection rule | `godot/doc/classes/Area2D.xml`, `godot/doc/classes/CollisionObject2D.xml` |
+| SQ84 | Area2D 的 `body_entered` 为啥收到 TileMap？ | Area2D body signal semantics | signal body can be `PhysicsBody2D` or `TileMap` with colliding tiles | `godot/doc/classes/Area2D.xml` |
+| SQ85 | 怎样从 `body_shape_entered` 的 index 找到具体 shape 节点？ | CollisionObject2D shape owner API | `shape_find_owner` -> `shape_owner_get_owner` | `godot/doc/classes/Area2D.xml`, `godot/doc/classes/CollisionObject2D.xml` |
+| SQ86 | layer/mask 的检测规则一句话怎么说？ | CollisionObject2D bitmask | B.layer must be included in A.mask for A to detect B | `godot/doc/classes/CollisionObject2D.xml` |
+| SQ87 | `set_collision_layer_value` 做了什么？ | CollisionObject2D bit operations | writes layer bit by `1 << (layer_number - 1)` | `godot/scene/2d/physics/collision_object_2d.cpp` |
+| SQ88 | 回调里切 monitoring 为什么报错？ | Area2D signal reentrancy guard | `locked` guard blocks direct mutation, use deferred | `godot/scene/2d/physics/area_2d.cpp` |
+| SQ89 | 为何碰撞对象“有节点但没交互”？ | CollisionObject2D shape requirement | no shape -> can't collide/interact warning | `godot/scene/2d/physics/collision_object_2d.cpp` |
+| SQ90 | 收集物回收为何用 `queue_free`？ | Node/SceneTree deletion timing | queue at frame end via SceneTree delete queue | `godot/doc/classes/Node.xml`, `godot/scene/main/scene_tree.cpp` |
 
 ## Usage Rule
 

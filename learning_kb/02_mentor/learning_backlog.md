@@ -28,10 +28,10 @@
 - Save/load baseline pattern (`ConfigFile` vs JSON) for this project
 - Prepare first cross-version migration drill (`4.6` -> target) using `version_upgrade_protocol.md`
 - [done] Build feature option playbook (for each common feature: 2-3 implementation paths + trade-off)
-  - Current: F001~F040
+  - Current: F001~F045
   - Output: `02_mentor/feature_option_playbook.md`
 - [done] Build source quick-answer map (question -> class -> function chain -> evidence)
-  - Output: `02_mentor/source_quick_answer_map_v1.md` (80 高频问题)
+  - Output: `02_mentor/source_quick_answer_map_v1.md` (90 高频问题)
 - [done] Build performance/export troubleshooting checklists
   - Output: `04_templates/performance_frame_budget_checklist.md` + `04_templates/export_runtime_resource_loading_checklist.md`
 - [done] Build performance casebook baseline
@@ -50,6 +50,9 @@
 
 - [done] Establish regression threshold band from 5 records
   - Output: `02_mentor/artifacts/rrb_threshold_band_v1.json`
+
+- [done] Build Day3 Area2D interaction troubleshooting assets
+  - Output: `02_mentor/modules/M12_area2d_collision_layers_and_interaction_flow.md`, `04_templates/area2d_interaction_troubleshooting_checklist.md`, `00_plan/day_03_2h_runbook.md`
 
 ## P2 (mid term)
 

@@ -73,7 +73,14 @@ Date: 2026-02-18
 - 学员线 Day2 课堂已完成（按固定SOP）：
   - 已完成 `CharacterBody2D` 最小可玩：A/D 移动、Space 跳跃、地面碰撞。
   - 已建立 `Main` + `Player` 子场景结构并通过运行验收。
-- Mentor progress dashboard is active: current progress `66%`, sprint target `70%`.
+- 导师线课前自学习已完成（为 Day3 学员课准备）：
+  - 新增 M12（`Area2D` 交互流 + layer/mask + 回调时序 + 安全回收）。
+  - QA 扩展到 QA050（新增 QA046~QA050）。
+  - 卡片扩展到 K051（新增 K047~K051）。
+  - source quick-answer map 扩展到 90（SQ81~SQ90）。
+  - feature playbook 扩展到 F045。
+  - 新增 `00_plan/day_03_2h_runbook.md` 与 `04_templates/area2d_interaction_troubleshooting_checklist.md`。
+- Mentor progress dashboard is active: current progress `69%`, sprint target `72%`.
 
 ## Active baseline
 
@@ -84,7 +91,7 @@ Date: 2026-02-18
   - docs channel: `https://docs.godotengine.org/en/stable/`
 - Mentor capability baseline:
   - dashboard: `02_mentor/mentor_progress_dashboard.md`
-  - current overall: `66%`
+  - current overall: `69%`
 
 ## Current learner state
 
@@ -92,6 +99,16 @@ Date: 2026-02-18
 - Confirmed skills: project setup, main scene run, input action creation, debug script attach.
 - Confirmed new skills: `CharacterBody2D` movement/jump + ground collision workflow.
 - Missing next: add one `Area2D` gameplay interaction and start minimal UI flow.
+
+## 学员线下一节课计划（已准备）
+
+- 课程目标：完成一个 `Area2D` 可收集交互与最小计数反馈闭环。
+- 执行脚本：`00_plan/day_03_2h_runbook.md`。
+- 验收点：
+  1. `Player` 进入 `Coin(Area2D)` 能触发 `body_entered`
+  2. 收集物 `queue_free` 回收且计数 +1
+  3. 运行无红色报错
+- 排错模板：`04_templates/area2d_interaction_troubleshooting_checklist.md`。
 
 ## Next session objective (Day 3 prep, 2h)
 
@@ -122,9 +139,8 @@ Add one minimal gameplay interaction (`Area2D` collectible/hit trigger) and conn
 
 ## Suggested first action next session
 
-- Learning mode: start Day 2 runbook, create `Player` scene + movement script.
 - Learning mode: continue from Day2 baseline, add `Area2D` interaction and begin Day3 flow.
-- Mentor self-study mode: expand quick-answer map to 90+ and playbook to F045.
+- Mentor self-study mode: expand quick-answer map to 100+ and playbook to F050.
 - Upgrade mode: execute protocol Step 1 and open migration matrix.
 
 ## Bootstrap Hint for new AI

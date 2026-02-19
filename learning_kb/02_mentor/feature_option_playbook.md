@@ -1,6 +1,6 @@
 # Feature Option Playbook (Godot 4.6)
 
-Last Updated: 2026-02-08
+Last Updated: 2026-02-18
 Status: Working
 Version Scope: 4.6
 
@@ -806,6 +806,106 @@ Version Scope: 4.6
 - 缺点：解释性弱，团队共识成本高。
 - 适用：短期临时项目。
 
+## F041 - Area2D collectible detection architecture
+
+### Option A (Recommended)
+- 路径：把 `Area2D` 放在收集物上，监听 `body_entered` 检测 `Player` 后回收。
+- 优点：资源职责清晰，每个收集物可独立配置与复用。
+- 缺点：场景中收集物很多时信号连接管理要规范。
+- 适用：大多数平台跳跃和轻量关卡项目。
+
+### Option B
+- 路径：把 `Area2D` 放在玩家上，轮询或信号识别可收集物。
+- 优点：玩家侧统一处理，便于做“吸附范围”类机制。
+- 缺点：收集物侧逻辑变薄，易产生耦合。
+- 适用：玩家主导交互范围的玩法。
+
+### Option C
+- 路径：不用 `Area2D`，改为手动 physics query 检测邻近对象。
+- 优点：逻辑集中、可做复杂过滤。
+- 缺点：实现复杂度与调试成本更高。
+- 适用：高级系统或大量对象优化场景。
+
+## F042 - Collision layer/mask authoring strategy
+
+### Option A (Recommended)
+- 路径：从 Day3 开始就建立层级约定（例如 Player=1, World=2, Collectible=3），并写注释或常量表。
+- 优点：后续扩展敌人/UI/交互不会反复返工。
+- 缺点：前期需要额外配置成本。
+- 适用：准备持续迭代的小中型项目。
+
+### Option B
+- 路径：原型期全部放在 layer 1，后期统一拆层。
+- 优点：上手最快，适合教学第一轮。
+- 缺点：后期迁移可能出现隐藏碰撞回归。
+- 适用：一次性演示或极短原型期。
+
+### Option C
+- 路径：运行时动态切 layer/mask 做状态切换。
+- 优点：可做无敌帧、隐身、动态可交互区等高级机制。
+- 缺点：状态爆炸风险高，排错难度大。
+- 适用：玩法机制明确且有测试保障的项目。
+
+## F043 - Interaction signal wiring strategy
+
+### Option A (Recommended)
+- 路径：场景内本地信号（`Coin.collected`）上抛给 `Main` 聚合计分。
+- 优点：解耦清晰，适合教学与后续扩展。
+- 缺点：需要维护一层聚合逻辑。
+- 适用：小型项目逐步演进。
+
+### Option B
+- 路径：收集物直接访问 `Main` 或 `Player` 并改状态。
+- 优点：写法直接，初学者容易理解。
+- 缺点：节点路径耦合高，重构成本大。
+- 适用：非常短期的教学 Demo。
+
+### Option C
+- 路径：用 group 广播（`call_group`）通知系统。
+- 优点：可减少硬编码引用。
+- 缺点：追踪调用来源较难，调试门槛更高。
+- 适用：已有 group 规范的工程。
+
+## F044 - Collectible removal timing strategy
+
+### Option A (Recommended)
+- 路径：命中后先禁监控/隐藏，再 `queue_free()`。
+- 优点：视觉上即时消失，同时保持删除时序安全。
+- 缺点：多一步状态切换。
+- 适用：大多数收集/拾取物。
+
+### Option B
+- 路径：命中后直接 `queue_free()`。
+- 优点：实现最短。
+- 缺点：在复杂回调链中可读性稍弱（“为何不是立即删除”）。
+- 适用：简单项目、低复杂交互。
+
+### Option C
+- 路径：对象池复用，命中后 `disable + recycle`。
+- 优点：高频生成销毁场景性能更稳。
+- 缺点：实现复杂，生命周期管理要求高。
+- 适用：大量重复拾取物或弹幕类项目。
+
+## F045 - Day3 minimal gameplay loop assembly strategy
+
+### Option A (Recommended)
+- 路径：`Player` + `Coin(Area2D)` + `Main` 计分 + 简单 `Label` 显示。
+- 优点：最小闭环完整，便于讲解“输入->物理->交互->反馈”。
+- 缺点：UI 与玩法仍较原始。
+- 适用：Day3 入门课堂。
+
+### Option B
+- 路径：直接引入 `GameManager`（autoload）管理分数和状态。
+- 优点：结构更工程化。
+- 缺点：对新手一次性概念负担较大。
+- 适用：已有全局状态需求的项目。
+
+### Option C
+- 路径：先不做 UI，只打印日志验证交互，再下节补显示层。
+- 优点：把交互逻辑与 UI 风险解耦。
+- 缺点：可视反馈弱，学习成就感稍低。
+- 适用：排错优先的课堂节奏。
+
 ## Evidence
 
 - `godot/doc/classes/Node.xml` -> `_input`, `_unhandled_input`, `_unhandled_key_input`
@@ -830,6 +930,8 @@ Version Scope: 4.6
 - `godot/doc/classes/JSON.xml` -> `get_parsed_text`, `parse(keep_text)`
 - `godot/doc/classes/Object.xml` -> `connect`, `set_block_signals`, `CONNECT_DEFERRED`, `CONNECT_ONE_SHOT`, `CONNECT_REFERENCE_COUNTED`
 - `godot/doc/classes/Control.xml` -> `_gui_input`, `accept_event`, `MOUSE_FILTER_*`
+- `godot/doc/classes/Area2D.xml` -> `body_entered`, `body_shape_entered`, `monitoring`, `monitorable`, `get_overlapping_bodies`
+- `godot/doc/classes/CollisionObject2D.xml` -> `collision_layer`, `collision_mask`, `set_collision_layer_value`
 - `godot/doc/classes/Viewport.xml` -> `msaa_*`, `screen_space_aa`, `use_taa`, `use_debanding`, `snap_2d_*`
 - `godot/scene/2d/physics/character_body_2d.cpp` -> `CharacterBody2D::move_and_slide`, `CharacterBody2D::_apply_floor_snap`
 - `godot/scene/2d/camera_2d.cpp` -> `Camera2D::_update_process_callback`, `Camera2D::reset_smoothing`
@@ -840,6 +942,8 @@ Version Scope: 4.6
 - `godot/core/object/object.cpp` -> `Object::connect`, `Object::emit_signalp`, `Object::_disconnect`
 - `godot/core/io/json.cpp` -> `JSON::parse`, `JSON::parse_string`
 - `godot/core/io/json.cpp` -> `ResourceFormatLoaderJSON::load`, `ResourceFormatSaverJSON::save`
+- `godot/scene/2d/physics/area_2d.cpp` -> `Area2D::set_monitoring`, `set_monitorable`, `get_overlapping_bodies`
+- `godot/scene/2d/physics/collision_object_2d.cpp` -> `CollisionObject2D::set_collision_layer`, `set_collision_mask_value`
 - `godot/scene/resources/packed_scene.cpp` -> `PackedScene::instantiate`
 - `godot/scene/resources/packed_scene.cpp` -> `SceneState::pack`, `SceneState::_parse_node`
 - `godot/main/performance.cpp` -> `Performance::get_monitor`
@@ -849,3 +953,4 @@ Version Scope: 4.6
 - `godot/servers/rendering/rendering_server.h` -> `viewport_set_msaa_2d`, `viewport_set_use_taa`, `viewport_set_use_debanding`
 - `02_mentor/automated_regression_spec_v1.md` -> run profile + minimum metrics + storage convention
 - `02_mentor/artifacts/rrb_threshold_band_v1.json` -> threshold band metrics from 5-run baseline
+- `04_templates/area2d_interaction_troubleshooting_checklist.md` -> Day3 interaction troubleshooting flow

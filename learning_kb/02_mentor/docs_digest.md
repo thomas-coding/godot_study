@@ -29,6 +29,25 @@
   - `projects/first-game/scenes/player.gd`
   - `01_learner/daily_reports/2026-02-18.md`
 
+- Topic: Day3 交互课前教师自学习（Area2D）准备完成（Verified）
+- Summary:
+  - 新增 M12，补齐 `Area2D` 触发时序、`monitoring/monitorable` 语义、layer/mask 检测门槛、`queue_free` 帧尾删除链路。
+  - 新增 K047~K051 与 QA046~QA050，覆盖“碰到了不触发”“回调里切 monitoring 报错”“shape index 定位具体碰撞体”等高频疑问。
+  - 新增 Day3 runbook 与排错清单，明日学员课可直接按固定SOP执行。
+  - quick-answer map 扩展到 90，playbook 扩展到 F045。
+- Source:
+  - `godot/doc/classes/Area2D.xml`
+  - `godot/doc/classes/CollisionObject2D.xml`
+  - `godot/doc/classes/Node.xml`
+  - `godot/scene/2d/physics/area_2d.cpp`
+  - `godot/scene/2d/physics/collision_object_2d.cpp`
+  - `godot/scene/main/scene_tree.cpp`
+  - `02_mentor/modules/M12_area2d_collision_layers_and_interaction_flow.md`
+  - `02_mentor/source_quick_answer_map_v1.md`
+  - `02_mentor/feature_option_playbook.md`
+  - `00_plan/day_03_2h_runbook.md`
+  - `04_templates/area2d_interaction_troubleshooting_checklist.md`
+
 ## 2026-02-08
 
 - Topic: 信号派发与 GUI 输入链路深潜（Verified）

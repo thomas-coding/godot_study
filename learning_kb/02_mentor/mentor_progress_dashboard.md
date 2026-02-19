@@ -2,7 +2,7 @@
 
 Last Updated: 2026-02-18
 Active Baseline: Godot 4.6 stable
-Overall Progress: 66%
+Overall Progress: 69%
 
 ## 评分模型（5 维度）
 
@@ -11,10 +11,10 @@ Overall Progress: 66%
 
 | Dimension | Score | Weight | Contribution | Current Evidence | Main Gap |
 | --- | --- | --- | --- | --- | --- |
-| D1 Runtime & Core API Mastery | 88 | 20% | 17.6 | M01-M11、K001-K046、QA001-QA045 | 需扩展到 UI/Signals/渲染深水区 |
-| D2 Feature Solution Design | 78 | 20% | 15.6 | playbook 扩展到 F001~F040 | 需补跨平台/发布链路决策树 |
-| D3 Source-level Q&A Speed | 84 | 20% | 16.8 | quick-answer map v1 已扩展到 80 问题 | 需继续压缩答复路径并补渲染源码链路 |
-| D4 Engineering Reliability | 44 | 20% | 8.8 | 排错清单 + 性能案例库 + 自动回归规范 + 阈值带样本 | 缺自动化执行样本与阈值调优 |
+| D1 Runtime & Core API Mastery | 90 | 20% | 18.0 | M01-M12、K001-K051、QA001-QA050 | 需扩展到渲染深水区与工程边界案例 |
+| D2 Feature Solution Design | 82 | 20% | 16.4 | playbook 扩展到 F001~F045 | 需补跨平台/发布链路决策树 |
+| D3 Source-level Q&A Speed | 88 | 20% | 17.6 | quick-answer map v1 已扩展到 90 问题 | 需继续压缩答复路径并补渲染源码链路 |
+| D4 Engineering Reliability | 46 | 20% | 9.2 | 排错清单 + 性能案例库 + 自动回归规范 + 阈值带样本 + Day3 Area2D 清单 | 缺自动化执行样本与阈值调优 |
 | D5 Shipping & Version Governance | 38 | 20% | 7.6 | 版本治理 + preflight + 风险矩阵 + 阈值证据链已落地 | 缺 Steam 上线前端到端演练与指标闭环 |
 
 ## 等级解释
@@ -29,8 +29,8 @@ Current Level: `进阶导师`（中期）。
 Governance Update:
 
 - 双轨长期治理协议已固化（学员线/导师线判定 + 固定课堂SOP）。
-- 本次为流程稳定性修复，不做能力分数上调，维持 `66%`。
-- 学员线 Day2 最小可玩实作已完成（移动/跳跃/地面碰撞），导师评分仍维持 `66%`。
+- 本次导师学习补齐 Day3 `Area2D` 交互知识与教学模板，能力分数更新为 `69%`。
+- 学员线明日课程已准备：`day_03_2h_runbook + Area2D troubleshooting checklist`。
 
 ## 自动更新规则（每次“你自己学习”后执行）
 
@@ -120,10 +120,16 @@ Governance Update:
   - [done] RRB-001~RRB-005 阈值带基线（`rrb_threshold_band_v1.json`）
 - W09 progress: `3/3 completed`
 
+- W10 deliverables:
+  - [done] quick-answer map 扩展到 90 问题（SQ81~SQ90）
+  - [done] playbook 扩展到 F045
+  - [done] M12 + QA046~QA050 + K047~K051 + Day3 runbook/checklist
+- W10 progress: `3/3 completed`
+
 ## 当前两周冲刺（Now)
 
-- Sprint Goal: `66% -> 70%`
+- Sprint Goal: `69% -> 72%`
 - Must Deliver:
-  1. 为渲染/资源管线再补 10 个 quick-answer 条目（80 -> 90）
-  2. playbook 从 F040 扩展到 F045（补 Steam/导出决策）
+  1. 为渲染/资源管线再补 10 个 quick-answer 条目（90 -> 100）
+  2. playbook 从 F045 扩展到 F050（补 Steam/导出决策）
   3. 将阈值带接入自动化执行（脚本化判定 pass/fail）

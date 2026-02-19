@@ -14,6 +14,7 @@
   - Evidence: `01_learner/daily_reports/2026-02-06.md`
 - `CharacterBody2D` movement/jump: `done`
   - Evidence: `01_learner/daily_reports/2026-02-18.md`
+- `Area2D` interaction (collect/hit trigger): `not_started`
 - Camera2D follow: `not_started`
 
 ## Engineering Workflow

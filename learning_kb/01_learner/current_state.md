@@ -32,6 +32,8 @@ Last Updated: 2026-02-18
 
 Implement one minimal gameplay interaction (`Area2D` collectible or hit trigger) on top of Day2 player movement.
 
+Runbook: `00_plan/day_03_2h_runbook.md`
+
 ## Teaching Preferences (Stable)
 
 - Chinese discussion is fine; English answers on request with glossary

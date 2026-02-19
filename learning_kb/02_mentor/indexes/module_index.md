@@ -1,6 +1,6 @@
 # Module Index
 
-Last Updated: 2026-02-08
+Last Updated: 2026-02-18
 Active Baseline: 4.6
 
 Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
@@ -16,3 +16,4 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - M09 `group orchestration, persistence, render runtime controls` — `done` — `02_mentor/modules/M09_scenetree_persistence_and_runtime_render_controls.md`
 - M10 `scene transition timing, timers, and JSON resource runtime` — `done` — `02_mentor/modules/M10_scene_transition_timer_and_json_resource_runtime.md`
 - M11 `signal dispatch, GUI input, and pause-aware processing` — `done` — `02_mentor/modules/M11_signal_gui_input_and_pause_aware_processing.md`
+- M12 `Area2D interaction flow and layer/mask gates` — `done` — `02_mentor/modules/M12_area2d_collision_layers_and_interaction_flow.md`

@@ -1,6 +1,6 @@
 # Version Compatibility Matrix
 
-Last Updated: 2026-02-08
+Last Updated: 2026-02-18
 Active Baseline: `4.6`
 
 ## Status Legend
@@ -27,6 +27,7 @@ Active Baseline: `4.6`
 | M09 | module | verified | not_started | 2026-02-07 | `02_mentor/modules/M09_scenetree_persistence_and_runtime_render_controls.md` | Group orchestration + persistence boundary + runtime render controls |
 | M10 | module | verified | not_started | 2026-02-07 | `02_mentor/modules/M10_scene_transition_timer_and_json_resource_runtime.md` | Scene transition timing + timer order + JSON runtime semantics |
 | M11 | module | verified | not_started | 2026-02-08 | `02_mentor/modules/M11_signal_gui_input_and_pause_aware_processing.md` | Signal dispatch + GUI input + pause-aware processing |
+| M12 | module | verified | not_started | 2026-02-18 | `02_mentor/modules/M12_area2d_collision_layers_and_interaction_flow.md` | Area2D interaction flow + layer/mask + safe removal timing |
 
 ## Cards
 
@@ -78,6 +79,11 @@ Active Baseline: `4.6`
 | K044 | card | verified | not_started | 2026-02-08 | `02_mentor/cards/K044_control_gui_input_accept_event_flow.md` | Control gui input and accept_event flow |
 | K045 | card | verified | not_started | 2026-02-08 | `02_mentor/cards/K045_node_can_process_pause_mode_gate.md` | Node can_process pause-mode gate |
 | K046 | card | verified | not_started | 2026-02-08 | `02_mentor/cards/K046_node_input_processing_group_registration.md` | input processing group registration |
+| K047 | card | verified | not_started | 2026-02-18 | `02_mentor/cards/K047_area2d_overlap_cache_updates_per_physics_step.md` | Area2D overlap cache update cadence |
+| K048 | card | verified | not_started | 2026-02-18 | `02_mentor/cards/K048_area2d_monitoring_monitorable_gate.md` | Area2D monitoring vs monitorable gates |
+| K049 | card | verified | not_started | 2026-02-18 | `02_mentor/cards/K049_area2d_monitoring_change_requires_deferred_in_signal.md` | monitoring mutation requires deferred in signal |
+| K050 | card | verified | not_started | 2026-02-18 | `02_mentor/cards/K050_collision_layer_mask_bit_rules.md` | layer/mask bit rules |
+| K051 | card | verified | not_started | 2026-02-18 | `02_mentor/cards/K051_area2d_shape_index_to_node_mapping.md` | shape index to node mapping |
 
 ## QA
 
@@ -128,6 +134,11 @@ Active Baseline: `4.6`
 | QA043 | qa | verified | not_started | 2026-02-08 | `02_mentor/qa/QA043_gui_input_not_triggered_mouse_filter.md` | _gui_input blocked by mouse filter/propagation |
 | QA044 | qa | verified | not_started | 2026-02-08 | `02_mentor/qa/QA044_pause_mode_and_timer_behavior.md` | pause mode and timer behavior |
 | QA045 | qa | verified | not_started | 2026-02-08 | `02_mentor/qa/QA045_runtime_toggle_input_processing.md` | runtime toggle input processing |
+| QA046 | qa | verified | not_started | 2026-02-18 | `02_mentor/qa/QA046_area2d_overlapping_list_not_immediate.md` | Area2D overlap list timing |
+| QA047 | qa | verified | not_started | 2026-02-18 | `02_mentor/qa/QA047_area2d_body_entered_not_firing_layer_mask.md` | body_entered layer/mask mismatch |
+| QA048 | qa | verified | not_started | 2026-02-18 | `02_mentor/qa/QA048_area2d_toggle_monitoring_inside_callback.md` | toggle monitoring inside callback |
+| QA049 | qa | verified | not_started | 2026-02-18 | `02_mentor/qa/QA049_area2d_body_shape_entered_get_shape_node.md` | body_shape_entered shape node mapping |
+| QA050 | qa | verified | not_started | 2026-02-18 | `02_mentor/qa/QA050_area2d_body_entered_tilemap_case.md` | body_entered TileMap case |
 
 ## Update Rule
 

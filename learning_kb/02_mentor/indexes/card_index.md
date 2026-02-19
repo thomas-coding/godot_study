@@ -1,6 +1,6 @@
 # Card Index
 
-Last Updated: 2026-02-08
+Last Updated: 2026-02-18
 Active Baseline: 4.6
 
 Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
@@ -51,3 +51,8 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - K044 `Control GUI input accept_event flow` — `Verified` — `02_mentor/cards/K044_control_gui_input_accept_event_flow.md`
 - K045 `Node can_process pause gate` — `Verified` — `02_mentor/cards/K045_node_can_process_pause_mode_gate.md`
 - K046 `node input processing group registration` — `Verified` — `02_mentor/cards/K046_node_input_processing_group_registration.md`
+- K047 `Area2D overlap cache per physics step` — `Verified` — `02_mentor/cards/K047_area2d_overlap_cache_updates_per_physics_step.md`
+- K048 `Area2D monitoring/monitorable gate` — `Verified` — `02_mentor/cards/K048_area2d_monitoring_monitorable_gate.md`
+- K049 `Area2D monitoring change needs deferred in signal` — `Verified` — `02_mentor/cards/K049_area2d_monitoring_change_requires_deferred_in_signal.md`
+- K050 `collision layer/mask bit rules` — `Verified` — `02_mentor/cards/K050_collision_layer_mask_bit_rules.md`
+- K051 `Area2D shape index to node mapping` — `Verified` — `02_mentor/cards/K051_area2d_shape_index_to_node_mapping.md`
