@@ -2,6 +2,36 @@
 
 > 规则：每次教学前后补充 1-2 条，记录“读了什么 -> 结论是什么 -> 来源在哪里”。
 
+## 2026-02-19
+
+- Topic: 学员线 Day3 `Area2D` 最小玩法闭环验收（Working）
+- Summary:
+  - 完成 `Coin(Area2D)` 可收集交互：`body_entered` 触发后发射 `collected` 并 `queue_free`。
+  - 完成 `Main` 侧计数聚合：`collected_count` 随收集增长，控制台与 `ScoreLabel` 同步更新。
+  - 运行验收通过：碰撞触发正常、收集物回收正常、计数反馈正常、无红色报错。
+  - 补了临时可视化处理：缩小 `icon.svg` 精灵缩放并调整碰撞半径，避免“巨型 coin”影响教学。
+- Source:
+  - `00_plan/day_03_2h_runbook.md`
+  - `projects/first-game/scenes/coin.tscn`
+  - `projects/first-game/scenes/coin.gd`
+  - `projects/first-game/scenes/main.gd`
+  - `projects/first-game/scenes/main.tscn`
+  - `01_learner/daily_reports/2026-02-19.md`
+
+- Topic: 学员线 Day3 扩展验收（restart + pause 语义修复）（Working）
+- Summary:
+  - 新增 `restart` 行为：`R` 触发 `reload_current_scene`，可正确恢复 coin 并重置计数。
+  - 新增 `pause_toggle` 行为：`P` 控制 `SceneTree.paused`，`PauseLabel` 同步显示。
+  - 发现并修复“暂停不生效”根因：`Player` 继承了 `Main` 的 `PROCESS_MODE_ALWAYS`。
+  - 修复策略：`Main` 保持 `ALWAYS` 以接收热键，`Player/Coin` 显式设为 `PROCESS_MODE_PAUSABLE`。
+- Source:
+  - `godot/doc/classes/Node.xml`
+  - `godot/doc/classes/SceneTree.xml`
+  - `projects/first-game/scenes/main.gd`
+  - `projects/first-game/scenes/main.tscn`
+  - `projects/first-game/scenes/player.gd`
+  - `01_learner/daily_reports/2026-02-19.md`
+
 ## 2026-02-18
 
 - Topic: 双轨长期治理规则固化（Working）

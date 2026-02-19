@@ -1,6 +1,6 @@
 # Session Handoff (Latest)
 
-Date: 2026-02-18
+Date: 2026-02-19
 
 ## What was completed
 
@@ -80,6 +80,12 @@ Date: 2026-02-18
   - source quick-answer map 扩展到 90（SQ81~SQ90）。
   - feature playbook 扩展到 F045。
   - 新增 `00_plan/day_03_2h_runbook.md` 与 `04_templates/area2d_interaction_troubleshooting_checklist.md`。
+- 学员线 Day3 课堂已完成（按固定SOP）：
+  - 已完成 `Coin(Area2D)` 可收集交互（`body_entered` 触发 + `queue_free` 回收）。
+  - 已完成最小计数反馈闭环（控制台打印 + 左上角 `ScoreLabel` 同步更新）。
+  - 运行验收通过：收集生效、计数正确、无红色报错。
+  - 课堂扩展已完成：`R` 重开（重载场景后 coin 恢复、分数归零）与 `P` 暂停/恢复（`PauseLabel` 同步）。
+  - 已修复暂停不生效问题：`Main` 保持 `PROCESS_MODE_ALWAYS`，玩法节点改为 `PROCESS_MODE_PAUSABLE`。
 - Mentor progress dashboard is active: current progress `69%`, sprint target `72%`.
 
 ## Active baseline
@@ -97,22 +103,22 @@ Date: 2026-02-18
 
 - Level: Godot beginner from zero, strong C/C++ engineering background.
 - Confirmed skills: project setup, main scene run, input action creation, debug script attach.
-- Confirmed new skills: `CharacterBody2D` movement/jump + ground collision workflow.
-- Missing next: add one `Area2D` gameplay interaction and start minimal UI flow.
+- Confirmed new skills: `CharacterBody2D` movement/jump + ground collision + `Area2D` collectible loop + score label + `restart/pause` control.
+- Missing next: build start gate (`start` -> `play`) and standardize collision layer/mask convention.
 
-## 学员线下一节课计划（已准备）
+## 学员线下一节课计划（Day4 方向）
 
-- 课程目标：完成一个 `Area2D` 可收集交互与最小计数反馈闭环。
-- 执行脚本：`00_plan/day_03_2h_runbook.md`。
+- 课程目标：在现有 `play/pause/restart` 基础上补齐 `start -> play` 入口状态。
+- 执行脚本：沿用 `00_plan/day_03_2h_runbook.md` 并新增开始界面最小步骤。
 - 验收点：
-  1. `Player` 进入 `Coin(Area2D)` 能触发 `body_entered`
-  2. 收集物 `queue_free` 回收且计数 +1
-  3. 运行无红色报错
+  1. 进入游戏前显示 `Start` 提示，按键后才进入 `play`
+  2. `play` 状态下 `pause/restart` 仍稳定可用
+  3. `Player/World/Collectible` 的 layer/mask 约定清晰且触发稳定
 - 排错模板：`04_templates/area2d_interaction_troubleshooting_checklist.md`。
 
-## Next session objective (Day 3 prep, 2h)
+## Next session objective (Day 4 prep, 2h)
 
-Add one minimal gameplay interaction (`Area2D` collectible/hit trigger) and connect it to the existing Day2 player movement.
+Build a minimal start-state entry flow on top of the completed Day3 play/pause/restart loop.
 
 ## First files to read next time
 
@@ -139,7 +145,7 @@ Add one minimal gameplay interaction (`Area2D` collectible/hit trigger) and conn
 
 ## Suggested first action next session
 
-- Learning mode: continue from Day2 baseline, add `Area2D` interaction and begin Day3 flow.
+- Learning mode: continue from Day3 baseline, add start gate flow and layer/mask convention cleanup.
 - Mentor self-study mode: expand quick-answer map to 100+ and playbook to F050.
 - Upgrade mode: execute protocol Step 1 and open migration matrix.
 

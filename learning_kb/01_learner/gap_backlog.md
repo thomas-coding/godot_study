@@ -5,8 +5,8 @@
 ## P0
 
 - Understand `_process(delta)` vs `_physics_process(delta)` in practice
-- Add one `Area2D` gameplay interaction (collectible or damage trigger)
-- Build a minimal Day3 UI flow (`start` -> `play` -> `restart`)
+- Build minimal start gate flow (`start` -> `play`) on top of existing pause/restart loop
+- Standardize collision layer/mask convention (Player/World/Collectible)
 
 ## P1
 
@@ -17,8 +17,7 @@
 - Practice Windows release preflight checklist on first playable build
 - Practice signal/GUI input propagation diagnostics on a small UI scene
 - Apply release risk matrix to first playable build and mark top 5 risks
-- Create a minimal gameplay loop (start -> play -> restart)
-- Learn basic collision and hit detection flow
+- Add one enemy/hazard interaction using existing `Area2D` pattern
 - Run first real migration rehearsal when target version changes (e.g. 4.6 -> 5.0)
 
 ## P2
