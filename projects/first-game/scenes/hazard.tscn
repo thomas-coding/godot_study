@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://406iyw4t4q3x"]
+
+[ext_resource type="Script" uid="uid://chfkm3e8joek5" path="res://scenes/hazard.gd" id="1_awlwb"]
+[ext_resource type="Texture2D" uid="uid://dtblcxisugrwu" path="res://assets/hazards/hazard1.png" id="1_rxmjj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_awlwb"]
+
+[node name="Hazards" type="Area2D" unique_id=604436082]
+collision_layer = 8
+script = ExtResource("1_awlwb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=311622917]
+shape = SubResource("RectangleShape2D_awlwb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1590121763]
+position = Vector2(-2.0000002, 3.0000002)
+scale = Vector2(0.05464481, 0.054590568)
+texture = ExtResource("1_rxmjj")

@@ -22,7 +22,14 @@
   - Evidence: `01_learner/daily_reports/2026-02-19.md`
 - Pause/resume flow (`SceneTree.paused` + process mode): `done`
   - Evidence: `01_learner/daily_reports/2026-02-19.md`
-- Start gate (`start` -> `play`): `not_started`
+- Start gate (`start` -> `play`): `done`
+  - Evidence: `01_learner/daily_reports/2026-02-20.md`
+- Collision layer/mask convention (Player/World/Collectible): `done`
+  - Evidence: `01_learner/daily_reports/2026-02-20.md`
+- Hazard damage + game over loop: `done`
+  - Evidence: `01_learner/daily_reports/2026-02-20.md`
+- Goal win + restart loop: `done`
+  - Evidence: `01_learner/daily_reports/2026-02-20.md`
 - Camera2D follow: `not_started`
 
 ## Engineering Workflow

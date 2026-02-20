@@ -1,6 +1,6 @@
 # Mentor Knowledge Map
 
-Last Updated: 2026-02-18
+Last Updated: 2026-02-20
 Active Baseline: Godot 4.6
 
 ## Fast Read Order (new AI)
@@ -24,11 +24,11 @@ Active Baseline: Godot 4.6
 
 - Godot Core Runtime
   - Status: `in_progress`
-  - Modules: M01, M02, M03, M09, M10, M11, M12
+  - Modules: M01, M02, M03, M09, M10, M11, M12, M13
 
 - Input and Control
   - Status: `done` (baseline)
-  - Modules: M04
+  - Modules: M04, M13
 
 - Character Controller (2D)
   - Status: `done` (baseline)
@@ -75,13 +75,14 @@ Active Baseline: Godot 4.6
 
 - 当用户说“学习下godot/研究 Godot/你自己学习/你先学习”时：
   1. 先给本次学习计划（模块 + 产出文件）
-  2. 再做 docs+source 学习
-  3. 回写 `modules/` + `cards/` + `qa/` + `docs_digest.md`
+  2. 先检查 `00_plan/lesson_queue.md`，补齐至少 3 课备课缓冲
+  3. 再做 docs+source 学习
+  4. 回写 `modules/` + `cards/` + `qa/` + `docs_digest.md`
 
 ## Current Priority (next sessions)
 
-1. 建立并扩展 source quick-answer map（v1 已完成 90 问题，下一步补到 100+）
-2. 扩展 feature option playbook（当前 F001~F045，下一步目标 >=50）
+1. 建立并扩展 source quick-answer map（v1 已完成 100 问题，下一步补到 110+）
+2. 扩展 feature option playbook（当前 F001~F050，下一步目标 >=55）
 3. 扩展性能与发布链路资产（已完成案例库/回归清单/风险矩阵/样本阈值带，下一步补自动化执行）
 4. 维护版本兼容矩阵（为未来 5.0 迁移预置状态）
-5. 每次导师自学习后刷新能力看板（当前 69%，下一目标 72%）
+5. 每次导师自学习后刷新能力看板（当前 71%，下一目标 72%）

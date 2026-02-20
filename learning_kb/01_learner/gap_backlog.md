@@ -5,8 +5,10 @@
 ## P0
 
 - Understand `_process(delta)` vs `_physics_process(delta)` in practice
-- Build minimal start gate flow (`start` -> `play`) on top of existing pause/restart loop
-- Standardize collision layer/mask convention (Player/World/Collectible)
+- Build Camera2D follow with jitter-free baseline
+- Understand `_unhandled_input` dispatch order and handled propagation in practice
+
+Reference runbook: `00_plan/lesson_07_2h_runbook.md`
 
 ## P1
 

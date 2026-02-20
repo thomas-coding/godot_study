@@ -1,6 +1,6 @@
 # Session Handoff (Latest)
 
-Date: 2026-02-19
+Date: 2026-02-20
 
 ## What was completed
 
@@ -13,6 +13,12 @@ Date: 2026-02-19
 - Existing modules/cards/qa now include version metadata (`Version Scope`, `Last Verified`, `Compatibility`).
 - Mentor mission is now explicit: build Godot expert-level teaching capability with fast source-backed answers and multi-solution guidance.
 - Self-study trigger is expanded: `学习下godot / 你自己学习 / 你先学习`.
+- 课程组织已切换为“课次制”（不是按自然日）：
+  - 学员触发词增加 `继续学 / 学下一课 / 第X课`。
+  - 每课默认 2h。
+  - 导师线目标为“至少提前 3 课”备课缓冲（见 `00_plan/lesson_queue.md`，当前缺口按导师线触发时补齐）。
+  - 新增并对齐第4~第6课 runbook：`lesson_04_2h_runbook.md`、`lesson_05_2h_runbook.md`、`lesson_06_2h_runbook.md`。
+  - 新增执行保护：学员线进行中不切导师线备课，避免学员等待；仅在用户明确触发后切导师线。
 - Mentor self-study cycle executed (2026-02-07):
   - M05 upgraded with Day2 teaching checklist.
   - QA expanded to QA010 (`QA004`~`QA010` added).
@@ -86,7 +92,19 @@ Date: 2026-02-19
   - 运行验收通过：收集生效、计数正确、无红色报错。
   - 课堂扩展已完成：`R` 重开（重载场景后 coin 恢复、分数归零）与 `P` 暂停/恢复（`PauseLabel` 同步）。
   - 已修复暂停不生效问题：`Main` 保持 `PROCESS_MODE_ALWAYS`，玩法节点改为 `PROCESS_MODE_PAUSABLE`。
-- Mentor progress dashboard is active: current progress `69%`, sprint target `72%`.
+- 学员线第4~第6课已完成（按固定SOP）：
+  - 第4课：完成 `start_game` 入口门控与 `StartLabel`，并固化 `layer/mask` 约定。
+  - 第5课：完成 `Hazard` 伤害闭环（`hit -> hp -> game over -> restart`）。
+  - 第6课：完成 `Goal` 胜利闭环（`reached_goal -> YOU WIN -> restart`）。
+  - 运行回归通过：start/play、collect/score、pause/resume、game over、win、restart。
+- 导师线课前自学习已完成（为第4课学员课准备）：
+  - 新增 M13（输入分发顺序 + pause gate + scene reload 语义）。
+  - QA 扩展到 QA055（新增 QA051~QA055）。
+  - 卡片扩展到 K056（新增 K052~K056）。
+  - source quick-answer map 扩展到 100（SQ91~SQ100）。
+  - feature playbook 扩展到 F050。
+  - 新增 `00_plan/lesson_04_2h_runbook.md` 与 `04_templates/gameplay_state_pause_restart_troubleshooting_checklist.md`。
+- Mentor progress dashboard is active: current progress `71%`, sprint target `72%`.
 
 ## Active baseline
 
@@ -97,38 +115,39 @@ Date: 2026-02-19
   - docs channel: `https://docs.godotengine.org/en/stable/`
 - Mentor capability baseline:
   - dashboard: `02_mentor/mentor_progress_dashboard.md`
-  - current overall: `69%`
+  - current overall: `71%`
 
 ## Current learner state
 
 - Level: Godot beginner from zero, strong C/C++ engineering background.
 - Confirmed skills: project setup, main scene run, input action creation, debug script attach.
-- Confirmed new skills: `CharacterBody2D` movement/jump + ground collision + `Area2D` collectible loop + score label + `restart/pause` control.
-- Missing next: build start gate (`start` -> `play`) and standardize collision layer/mask convention.
+- Confirmed new skills: `CharacterBody2D` movement/jump + ground collision + `Area2D` collectible/hazard/goal loop + start/pause/restart + game over/win gating.
+- Missing next: build Camera2D follow and complete jitter diagnosis workflow.
 
-## 学员线下一节课计划（Day4 方向）
+## 学员线下一节课计划（第7课）
 
-- 课程目标：在现有 `play/pause/restart` 基础上补齐 `start -> play` 入口状态。
-- 执行脚本：沿用 `00_plan/day_03_2h_runbook.md` 并新增开始界面最小步骤。
+- 课程目标：完成 Camera2D 跟随，并掌握最小抖动排查流程。
+- 执行脚本：`00_plan/lesson_07_2h_runbook.md`。
 - 验收点：
-  1. 进入游戏前显示 `Start` 提示，按键后才进入 `play`
-  2. `play` 状态下 `pause/restart` 仍稳定可用
-  3. `Player/World/Collectible` 的 layer/mask 约定清晰且触发稳定
-- 排错模板：`04_templates/area2d_interaction_troubleshooting_checklist.md`。
+  1. Camera2D 可稳定跟随玩家移动/跳跃
+  2. 无明显抖动（或能定位具体根因）
+  3. 不破坏现有 start/pause/restart 与胜负状态流
+- 排错模板：`04_templates/camera2d_follow_jitter_checklist.md`。
 
-## Next session objective (Day 4 prep, 2h)
+## Next session objective (Lesson 7 prep, 2h)
 
-Build a minimal start-state entry flow on top of the completed Day3 play/pause/restart loop.
+Add Camera2D follow and establish a reproducible jitter diagnosis checklist usage.
 
 ## First files to read next time
 
 1. `01_learner/current_state.md`
 2. `01_learner/mastery_map.md`
 3. `01_learner/gap_backlog.md`
-4. `02_mentor/knowledge_map.md`
-5. `00_meta/version_registry.md`
-6. `00_meta/dual_track_governance.md`
-7. `02_mentor/mentor_progress_dashboard.md`
+4. `00_plan/lesson_queue.md`
+5. `02_mentor/knowledge_map.md`
+6. `00_meta/version_registry.md`
+7. `00_meta/dual_track_governance.md`
+8. `02_mentor/mentor_progress_dashboard.md`
 
 ## If user says "学习下godot / 你自己学习"
 
@@ -145,8 +164,8 @@ Build a minimal start-state entry flow on top of the completed Day3 play/pause/r
 
 ## Suggested first action next session
 
-- Learning mode: continue from Day3 baseline, add start gate flow and layer/mask convention cleanup.
-- Mentor self-study mode: expand quick-answer map to 100+ and playbook to F050.
+- Learning mode: read `lesson_queue.md`, then execute `lesson_07_2h_runbook` and complete Camera2D follow + jitter diagnosis.
+- Mentor self-study mode: expand quick-answer map to 110+ and playbook to F055.
 - Upgrade mode: execute protocol Step 1 and open migration matrix.
 
 ## Bootstrap Hint for new AI

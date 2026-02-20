@@ -1,6 +1,6 @@
 # Source Quick-Answer Map v1 (Godot 4.6)
 
-Last Updated: 2026-02-18
+Last Updated: 2026-02-19
 Status: Working
 Version Scope: 4.6
 
@@ -98,6 +98,16 @@ Version Scope: 4.6
 | SQ88 | 回调里切 monitoring 为什么报错？ | Area2D signal reentrancy guard | `locked` guard blocks direct mutation, use deferred | `godot/scene/2d/physics/area_2d.cpp` |
 | SQ89 | 为何碰撞对象“有节点但没交互”？ | CollisionObject2D shape requirement | no shape -> can't collide/interact warning | `godot/scene/2d/physics/collision_object_2d.cpp` |
 | SQ90 | 收集物回收为何用 `queue_free`？ | Node/SceneTree deletion timing | queue at frame end via SceneTree delete queue | `godot/doc/classes/Node.xml`, `godot/scene/main/scene_tree.cpp` |
+| SQ91 | `_unhandled_input` 在输入链里排第几？ | Viewport input dispatch order | order is `_input -> _gui_input -> _shortcut_input -> _unhandled_key_input -> _unhandled_input` | `godot/doc/classes/Viewport.xml`, `godot/scene/main/viewport.cpp` |
+| SQ92 | 为什么 `_unhandled_input` 有时收不到事件？ | Input handled short-circuit | earlier stage called `set_input_as_handled`, later stages are skipped | `godot/doc/classes/Viewport.xml`, `godot/scene/main/viewport.cpp` |
+| SQ93 | 为什么一个热键会触发两次？ | Multiple node unhandled listeners | event keeps propagating if no node marks input handled | `godot/doc/classes/Node.xml`, `godot/doc/classes/Viewport.xml` |
+| SQ94 | 暂停后角色为何还在动？ | process_mode inheritance pitfall | child inherited parent `ALWAYS` so pause gate does not stop processing | `godot/doc/classes/Node.xml`, `godot/scene/main/node.cpp` |
+| SQ95 | `INHERIT` 在根节点下会变成什么？ | Node process mode fallback | when no owner, inherit resolves to `PAUSABLE` fallback | `godot/scene/main/node.cpp` |
+| SQ96 | `SceneTree.paused=true` 会停什么？ | SceneTree pause semantics | physics stops and node callbacks depend on each node process_mode | `godot/doc/classes/SceneTree.xml`, `godot/scene/main/scene_tree.cpp` |
+| SQ97 | `reload_current_scene` 底层做了什么？ | SceneTree reload flow | read current scene file path and route through `change_scene_to_file` | `godot/scene/main/scene_tree.cpp` |
+| SQ98 | 为什么重开后 autoload 状态没清零？ | Scene reload scope boundary | reload rebuilds current scene, not root-level autoload nodes | `godot/doc/classes/SceneTree.xml`, `godot/scene/main/scene_tree.cpp` |
+| SQ99 | 为什么暂停时有的节点还能收输入？ | SceneTree input dispatch + can_process | `_call_input_pause` skips nodes failing `can_process`; `ALWAYS` still runs | `godot/scene/main/scene_tree.cpp`, `godot/scene/main/node.cpp` |
+| SQ100 | `_ready` 的父子调用顺序是什么？ | Node lifecycle order | `_enter_tree` parent-first, `_ready` child-first then parent | `godot/doc/classes/Node.xml` |
 
 ## Usage Rule
 

@@ -1,6 +1,6 @@
 # Version Compatibility Matrix
 
-Last Updated: 2026-02-18
+Last Updated: 2026-02-19
 Active Baseline: `4.6`
 
 ## Status Legend
@@ -28,6 +28,7 @@ Active Baseline: `4.6`
 | M10 | module | verified | not_started | 2026-02-07 | `02_mentor/modules/M10_scene_transition_timer_and_json_resource_runtime.md` | Scene transition timing + timer order + JSON runtime semantics |
 | M11 | module | verified | not_started | 2026-02-08 | `02_mentor/modules/M11_signal_gui_input_and_pause_aware_processing.md` | Signal dispatch + GUI input + pause-aware processing |
 | M12 | module | verified | not_started | 2026-02-18 | `02_mentor/modules/M12_area2d_collision_layers_and_interaction_flow.md` | Area2D interaction flow + layer/mask + safe removal timing |
+| M13 | module | verified | not_started | 2026-02-19 | `02_mentor/modules/M13_input_dispatch_pause_gates_and_scene_reload_semantics.md` | Input dispatch order + pause gates + scene reload scope |
 
 ## Cards
 
@@ -84,6 +85,11 @@ Active Baseline: `4.6`
 | K049 | card | verified | not_started | 2026-02-18 | `02_mentor/cards/K049_area2d_monitoring_change_requires_deferred_in_signal.md` | monitoring mutation requires deferred in signal |
 | K050 | card | verified | not_started | 2026-02-18 | `02_mentor/cards/K050_collision_layer_mask_bit_rules.md` | layer/mask bit rules |
 | K051 | card | verified | not_started | 2026-02-18 | `02_mentor/cards/K051_area2d_shape_index_to_node_mapping.md` | shape index to node mapping |
+| K052 | card | verified | not_started | 2026-02-19 | `02_mentor/cards/K052_viewport_input_dispatch_order_and_handled_stop.md` | Viewport input dispatch order and handled stop |
+| K053 | card | verified | not_started | 2026-02-19 | `02_mentor/cards/K053_scenetree_input_dispatch_checks_can_process.md` | SceneTree input dispatch can_process gate |
+| K054 | card | verified | not_started | 2026-02-19 | `02_mentor/cards/K054_process_mode_inherit_can_break_pause_expectation.md` | process_mode inherit pause pitfall |
+| K055 | card | verified | not_started | 2026-02-19 | `02_mentor/cards/K055_reload_current_scene_uses_current_scene_file_path.md` | reload_current_scene main-thread and path flow |
+| K056 | card | verified | not_started | 2026-02-19 | `02_mentor/cards/K056_scene_reload_resets_scene_local_but_not_autoload.md` | reload reset scope vs autoload |
 
 ## QA
 
@@ -139,6 +145,11 @@ Active Baseline: `4.6`
 | QA048 | qa | verified | not_started | 2026-02-18 | `02_mentor/qa/QA048_area2d_toggle_monitoring_inside_callback.md` | toggle monitoring inside callback |
 | QA049 | qa | verified | not_started | 2026-02-18 | `02_mentor/qa/QA049_area2d_body_shape_entered_get_shape_node.md` | body_shape_entered shape node mapping |
 | QA050 | qa | verified | not_started | 2026-02-18 | `02_mentor/qa/QA050_area2d_body_entered_tilemap_case.md` | body_entered TileMap case |
+| QA051 | qa | verified | not_started | 2026-02-19 | `02_mentor/qa/QA051_pause_label_shows_but_player_still_moves.md` | pause label shows but player still moves |
+| QA052 | qa | verified | not_started | 2026-02-19 | `02_mentor/qa/QA052_duplicate_hotkey_trigger_in_unhandled_input.md` | same hotkey triggers twice |
+| QA053 | qa | verified | not_started | 2026-02-19 | `02_mentor/qa/QA053_restart_called_while_paused.md` | restart from paused state |
+| QA054 | qa | verified | not_started | 2026-02-19 | `02_mentor/qa/QA054_reload_current_scene_reset_scope.md` | reload_current_scene reset scope |
+| QA055 | qa | verified | not_started | 2026-02-19 | `02_mentor/qa/QA055_input_callback_choice_for_gameplay_hotkeys.md` | input callback choice for gameplay hotkeys |
 
 ## Update Rule
 

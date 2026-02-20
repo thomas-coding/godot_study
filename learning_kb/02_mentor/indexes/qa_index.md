@@ -1,6 +1,6 @@
 # QA Index
 
-Last Updated: 2026-02-18
+Last Updated: 2026-02-19
 Active Baseline: 4.6
 
 Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
@@ -55,3 +55,8 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - QA048 `Area2D toggle monitoring inside callback` — `02_mentor/qa/QA048_area2d_toggle_monitoring_inside_callback.md`
 - QA049 `Area2D body_shape_entered get shape node` — `02_mentor/qa/QA049_area2d_body_shape_entered_get_shape_node.md`
 - QA050 `Area2D body_entered TileMap case` — `02_mentor/qa/QA050_area2d_body_entered_tilemap_case.md`
+- QA051 `pause label shows but player still moves` — `02_mentor/qa/QA051_pause_label_shows_but_player_still_moves.md`
+- QA052 `same hotkey triggers twice in _unhandled_input` — `02_mentor/qa/QA052_duplicate_hotkey_trigger_in_unhandled_input.md`
+- QA053 `restart called while paused state` — `02_mentor/qa/QA053_restart_called_while_paused.md`
+- QA054 `reload_current_scene reset scope` — `02_mentor/qa/QA054_reload_current_scene_reset_scope.md`
+- QA055 `input callback choice for gameplay hotkeys` — `02_mentor/qa/QA055_input_callback_choice_for_gameplay_hotkeys.md`

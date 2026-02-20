@@ -1,4 +1,4 @@
-# Daily Session Protocol
+# Session Protocol (Lesson-Based)
 
 ## Start Checklist (5 min)
 
@@ -6,13 +6,14 @@
 2. 读取 `learning_kb/01_learner/current_state.md`
 3. 读取 `learning_kb/02_mentor/knowledge_map.md`
 4. 读取 `learning_kb/00_plan/roadmap.md`
-5. 读取 `learning_kb/00_meta/dual_track_governance.md`
-6. 读取 `learning_kb/00_meta/version_registry.md`
-7. 确定今日唯一目标（一句英文）
+5. 读取 `learning_kb/00_plan/lesson_queue.md`
+6. 读取 `learning_kb/00_meta/dual_track_governance.md`
+7. 读取 `learning_kb/00_meta/version_registry.md`
+8. 确定今日唯一目标（一句英文）
 
 ## 双轨判定规则（强制）
 
-- 学员线触发词：`我开始学习`、`day2 课程`、`上课`、`我学`、`学员线`。
+- 学员线触发词：`我开始学习`、`继续今天学习`、`继续学`、`学下一课`、`第X课`、`上课`、`我学`、`学员线`。
 - 导师线触发词：`学习下godot`、`你自己学习`、`你先学习`、`导师线`。
 - 语义不清时默认学员线。
 - 若会话中切轨，必须明确告知“已切换到学员线/导师线”。
@@ -21,31 +22,28 @@
 
 1. 回顾（3-5 分钟）：复盘上节结果与未解决问题。
 2. 目标（1 句话）：必须可验收。
-3. Runbook 执行：按 day runbook 步骤推进，不跳步。
+3. Runbook 执行：先读 `00_plan/lesson_queue.md`，再按对应 lesson runbook 推进，不跳步。
 4. 验收：给出通过/失败标准并现场检查。
 5. 修复：只做最小修复，避免超范围扩展。
 6. 收尾：更新日报/状态/handoff。
 
 执行备注：每节课流程必须一致，避免临时随机改课。
+执行备注：学员线进行中不做导师备课与导师知识库扩写，避免学员等待。
 
-## 学员线 Execution Blocks (1h)
-
-- Block A (12 min): 英文文档输入（先自己理解，不先问 AI）
-- Block B (8 min): 向 AI 发起聚焦问题（可中文提问 + 指定英文回答）
-- Block C (30 min): 动手实现与调试
-- Block D (5 min): 总结与术语卡片沉淀
-
-## 学员线 Execution Blocks (2h, optional)
+## 学员线 Execution Blocks (2h, standard)
 
 - Block A (25 min): 英文文档输入（先自己理解，不先问 AI）
 - Block B (20 min): 向 AI 发起聚焦问题（可中文提问 + 指定英文回答）
 - Block C (50 min): 动手实现与调试
 - Block D (20 min): 总结与术语卡片沉淀
 
+执行备注：课次与自然日解耦。一天可以学习多课，也可以不学习。
+
 ## 导师学习会话（触发词：学习下godot / 你自己学习 / 你先学习）
 
 - 先输出：本次学习计划（1-2 模块 + 产出文件）
 - 必做：先输出“学员线下一节课计划”（目标 + 步骤 + 验收点）
+- 必做：检查并补齐“至少提前 3 课”的 lesson runbook 缓冲
 - 再执行：官方 docs + 源码定位学习
 - 参考导师目标与学习路线：
   - `02_mentor/mentor_vision_and_self_study_plan.md`
@@ -85,4 +83,10 @@
 - `02_mentor/docs_digest.md` 更新（新增来源或结论）
 - `02_mentor/mentor_progress_dashboard.md` 更新（导师能力百分比）
 - `03_sessions/handoff_latest.md` 更新
+- `00_plan/lesson_queue.md` 更新
 - 若版本迁移发生：`00_meta/version_registry.md` + `02_mentor/indexes/version_matrix.md`
+
+## 切轨保护
+
+- 若学员线未明确结束（例如未说“今天结束/先到这里/下课”），不得中途切导师线备课。
+- 仅当用户明确触发导师线（如“你学习下/你备下课”）时，才执行备课与导师资产更新。

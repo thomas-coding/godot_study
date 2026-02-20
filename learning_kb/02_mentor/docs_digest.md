@@ -2,6 +2,38 @@
 
 > 规则：每次教学前后补充 1-2 条，记录“读了什么 -> 结论是什么 -> 来源在哪里”。
 
+## 2026-02-20
+
+- Topic: 学员线第4~第6课实作验收（Working）
+- Summary:
+  - 第4课完成：`start_game` 入口门控 + `StartLabel`，并完成 `layer/mask` 约定落地。
+  - 第5课完成：`Hazard(Area2D)` 伤害触发 + `hp` 递减 + `GAME OVER` 状态门控。
+  - 第6课完成：`Goal(Area2D)` 胜利触发 + `YOU WIN` 终态门控 + 重开恢复。
+  - 全链路回归通过：start/play、collect/score、pause/resume、game over、win、restart。
+- Source:
+  - `projects/first-game/scenes/main.gd`
+  - `projects/first-game/scenes/main.tscn`
+  - `projects/first-game/scenes/hazard.gd`
+  - `projects/first-game/scenes/hazard.tscn`
+  - `projects/first-game/scenes/goal.gd`
+  - `projects/first-game/scenes/goal.tscn`
+  - `01_learner/daily_reports/2026-02-20.md`
+
+- Topic: 学员线课次制改造与三课备课缓冲（Working）
+- Summary:
+  - 学习计划从“按天推进”改为“按课次推进”，每课默认 2h，可单日多课或零课。
+  - 学员触发词扩展为 `继续学/学下一课/第X课`，默认按 `lesson_queue` 跳转到下一课。
+  - 导师线新增硬约束：持续维护至少 3 课可执行 runbook 缓冲。
+  - 已新增第4~第6课 runbook，满足当前三课缓冲要求。
+- Source:
+  - `AGENTS.md`
+  - `03_sessions/session_protocol.md`
+  - `00_meta/dual_track_governance.md`
+  - `00_plan/lesson_queue.md`
+  - `00_plan/lesson_04_2h_runbook.md`
+  - `00_plan/lesson_05_2h_runbook.md`
+  - `00_plan/lesson_06_2h_runbook.md`
+
 ## 2026-02-19
 
 - Topic: 学员线 Day3 `Area2D` 最小玩法闭环验收（Working）
@@ -31,6 +63,25 @@
   - `projects/first-game/scenes/main.tscn`
   - `projects/first-game/scenes/player.gd`
   - `01_learner/daily_reports/2026-02-19.md`
+
+- Topic: 第4课教学准备：输入链路与 pause/restart 机制固化（Verified）
+- Summary:
+  - 新增 M13，补齐 `Viewport` 输入传播顺序、`set_input_as_handled` 阻断语义、`SceneTree._call_input_pause` 与 `Node.can_process` 的联动机制。
+  - 新增 K052~K056 与 QA051~QA055，覆盖“热键重复触发”“暂停显示但角色仍移动”“重开重置范围”等明日课堂高频问题。
+  - source quick-answer map 扩展到 100（SQ91~SQ100），feature playbook 扩展到 F050（输入路由、暂停架构、重开策略、start gate、layer/mask 治理）。
+  - 新增第4课 runbook 与专用排错清单，可直接用于明日学员线课堂。
+- Source:
+  - `godot/doc/classes/Node.xml`
+  - `godot/doc/classes/SceneTree.xml`
+  - `godot/doc/classes/Viewport.xml`
+  - `godot/scene/main/node.cpp`
+  - `godot/scene/main/scene_tree.cpp`
+  - `godot/scene/main/viewport.cpp`
+  - `02_mentor/modules/M13_input_dispatch_pause_gates_and_scene_reload_semantics.md`
+  - `02_mentor/source_quick_answer_map_v1.md`
+  - `02_mentor/feature_option_playbook.md`
+  - `00_plan/lesson_04_2h_runbook.md`
+  - `04_templates/gameplay_state_pause_restart_troubleshooting_checklist.md`
 
 ## 2026-02-18
 

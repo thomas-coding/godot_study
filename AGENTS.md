@@ -8,16 +8,19 @@
 2. `learning_kb/01_learner/current_state.md`
 3. `learning_kb/02_mentor/knowledge_map.md`
 4. `learning_kb/00_plan/roadmap.md`
-5. `learning_kb/00_meta/dual_track_governance.md`
-6. `learning_kb/00_meta/version_registry.md`
-7. `learning_kb/03_sessions/session_protocol.md`
+5. `learning_kb/00_plan/lesson_queue.md`
+6. `learning_kb/00_meta/dual_track_governance.md`
+7. `learning_kb/00_meta/version_registry.md`
+8. `learning_kb/03_sessions/session_protocol.md`
 
 ## 1b) 触发词扩展（轨道判定）
 
-- 若用户说“我开始学习/day2 课程/上课/我学/学员线”，把它视为“学员会话”：
-  1. 读对应 runbook（例如 `learning_kb/00_plan/day_02_2h_runbook.md`）
-  2. 按固定课堂SOP执行（回顾 -> 目标 -> runbook -> 验收 -> 修复 -> 收尾）
-  3. 不跳步，不临时改流程
+- 若用户说“我开始学习/上课/继续今天学习/继续学/学下一课/第X课/我学/学员线”，把它视为“学员会话”：
+  1. 先读 `learning_kb/00_plan/lesson_queue.md`，确认“当前课次 + 下一课 + 缓冲课次”
+  2. 读对应 runbook（例如 `learning_kb/00_plan/lesson_04_2h_runbook.md`）
+  3. 按固定课堂SOP执行（回顾 -> 目标 -> runbook -> 验收 -> 修复 -> 收尾）
+  4. 不跳步，不临时改流程
+  5. 学员线进行中禁止备课与导师知识库扩写，避免学员等待
 
 - 若用户说“学习下godot/学习 Godot/研究 Godot/先学习再教/你自己学习/你先学习”，把它视为“导师学习会话”，按以下流程执行：
   1. 读 `learning_kb/02_mentor/knowledge_map.md`
@@ -26,9 +29,12 @@
   4. 读 `learning_kb/02_mentor/mentor_progress_dashboard.md`
   5. 基于当前阶段（`learning_kb/00_plan/roadmap.md`）列出本次学习计划（模块 + 产出文件）
   6. 先输出“学员线下一节课计划”（目标 + 步骤 + 验收点）
-  7. 学习（官方 docs + 源码定位），把结论写入 `learning_kb/02_mentor/` 并标注证据等级
-  8. 更新 `learning_kb/02_mentor/mentor_progress_dashboard.md`（刷新百分比与周目标进度）
-  9. 更新 `learning_kb/03_sessions/handoff_latest.md`（记录已补齐哪些知识点、下次优先级）
+  7. 同步检查并补齐“至少提前 3 课”的备课缓冲（课次 runbook）
+  8. 学习（官方 docs + 源码定位），把结论写入 `learning_kb/02_mentor/` 并标注证据等级
+  9. 更新 `learning_kb/02_mentor/mentor_progress_dashboard.md`（刷新百分比与周目标进度）
+  10. 更新 `learning_kb/03_sessions/handoff_latest.md`（记录已补齐哪些知识点、下次优先级）
+
+- 若用户说“今天结束/先到这里/下课”后再说“你学习下/你备下课”，再切到导师线进行备课。
 
 ## 1c) 默认优先级与切换规则
 
@@ -60,7 +66,8 @@
 4. `learning_kb/02_mentor/docs_digest.md`
 5. `learning_kb/03_sessions/handoff_latest.md`
 6. `learning_kb/02_mentor/mentor_progress_dashboard.md`
-7. 若版本基线发生变化，额外更新：
+7. `learning_kb/00_plan/lesson_queue.md`
+8. 若版本基线发生变化，额外更新：
    - `learning_kb/00_meta/version_registry.md`
    - `learning_kb/02_mentor/indexes/version_matrix.md`
 

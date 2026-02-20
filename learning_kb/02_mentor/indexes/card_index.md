@@ -1,6 +1,6 @@
 # Card Index
 
-Last Updated: 2026-02-18
+Last Updated: 2026-02-19
 Active Baseline: 4.6
 
 Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
@@ -56,3 +56,8 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - K049 `Area2D monitoring change needs deferred in signal` — `Verified` — `02_mentor/cards/K049_area2d_monitoring_change_requires_deferred_in_signal.md`
 - K050 `collision layer/mask bit rules` — `Verified` — `02_mentor/cards/K050_collision_layer_mask_bit_rules.md`
 - K051 `Area2D shape index to node mapping` — `Verified` — `02_mentor/cards/K051_area2d_shape_index_to_node_mapping.md`
+- K052 `Viewport input order and handled short-circuit` — `Verified` — `02_mentor/cards/K052_viewport_input_dispatch_order_and_handled_stop.md`
+- K053 `SceneTree input dispatch can_process gate` — `Verified` — `02_mentor/cards/K053_scenetree_input_dispatch_checks_can_process.md`
+- K054 `process_mode inherit pause pitfall` — `Verified` — `02_mentor/cards/K054_process_mode_inherit_can_break_pause_expectation.md`
+- K055 `reload_current_scene main-thread and file-path flow` — `Verified` — `02_mentor/cards/K055_reload_current_scene_uses_current_scene_file_path.md`
+- K056 `scene reload resets scene-local not autoload` — `Verified` — `02_mentor/cards/K056_scene_reload_resets_scene_local_but_not_autoload.md`

@@ -1,6 +1,6 @@
 # Feature Option Playbook (Godot 4.6)
 
-Last Updated: 2026-02-18
+Last Updated: 2026-02-19
 Status: Working
 Version Scope: 4.6
 
@@ -906,6 +906,106 @@ Version Scope: 4.6
 - 缺点：可视反馈弱，学习成就感稍低。
 - 适用：排错优先的课堂节奏。
 
+## F046 - Gameplay hotkey routing strategy
+
+### Option A (Recommended)
+- 路径：把全局玩法热键（pause/restart/start）集中到 `Main._unhandled_input`。
+- 优点：统一路由，冲突少，教学成本低。
+- 缺点：`Main` 会成为输入中枢，需保持代码整洁。
+- 适用：小中型项目与教学项目。
+
+### Option B
+- 路径：各节点各自处理 `_unhandled_input`。
+- 优点：局部自治，单节点看起来更直观。
+- 缺点：易重复触发，需要额外 handled 约束。
+- 适用：模块边界明确且有输入治理规范的工程。
+
+### Option C
+- 路径：改用轮询 `Input.is_action_*` 放进 `_process/_physics_process`。
+- 优点：逻辑直白，容易起步。
+- 缺点：语义上不属于事件驱动，容易和状态机耦合失控。
+- 适用：极简原型或临时验证。
+
+## F047 - Pause architecture strategy
+
+### Option A (Recommended)
+- 路径：使用 `SceneTree.paused` + `process_mode` 分层（`Main=ALWAYS`, gameplay=PAUSABLE）。
+- 优点：贴合引擎调度模型，行为可预测。
+- 缺点：必须显式管理 `INHERIT` 链，避免误继承。
+- 适用：绝大多数 2D 教学与实战项目。
+
+### Option B
+- 路径：不用 `SceneTree.paused`，完全依赖自定义 `game_state` 跳过逻辑。
+- 优点：状态集中，可做精细化业务控制。
+- 缺点：物理、动画、输入需逐点手动关停，漏项风险高。
+- 适用：高度定制状态机框架。
+
+### Option C
+- 路径：混合方案（仅暂停物理，UI 和部分逻辑继续走）。
+- 优点：可满足特殊玩法需求。
+- 缺点：教学期复杂度高，排错成本高。
+- 适用：已明确需要“半暂停”行为的项目。
+
+## F048 - Restart implementation strategy
+
+### Option A (Recommended)
+- 路径：`get_tree().paused = false` 后 `reload_current_scene()`。
+- 优点：实现短、重置彻底、教学可解释性强。
+- 缺点：场景切换成本高于局部重置。
+- 适用：早期教学项目与小型关卡。
+
+### Option B
+- 路径：手动重置关键节点（分数、玩家位置、收集物状态）。
+- 优点：可控性高，性能更细粒度。
+- 缺点：易漏重置项，维护成本高。
+- 适用：中后期性能优化或复杂关卡。
+
+### Option C
+- 路径：切换到专门的 Start/Play 场景再切回。
+- 优点：状态边界清晰，流程化更强。
+- 缺点：场景管理与资源引用复杂度提升。
+- 适用：准备扩展为完整菜单系统的项目。
+
+## F049 - Start gate implementation strategy
+
+### Option A (Recommended)
+- 路径：在 `Main` 增加 `is_game_started` 与 `StartLabel`，按键后进入 play。
+- 优点：增量改动小，便于从 Day3 平滑升级。
+- 缺点：`Main` 状态逻辑会逐步增长。
+- 适用：第4课入门课堂。
+
+### Option B
+- 路径：独立 `Start` 场景，开始后 `change_scene_to_file` 到 `Main`。
+- 优点：结构清晰，职责分离好。
+- 缺点：需要额外场景切换教学成本。
+- 适用：计划扩展主菜单/设置页的项目。
+
+### Option C
+- 路径：用 `CanvasLayer` 弹层做开始门控，不切场景。
+- 优点：视觉反馈好，可快速迭代 UI。
+- 缺点：输入焦点管理相对复杂。
+- 适用：希望先做 UI 体验再拆分结构的项目。
+
+## F050 - Collision layer/mask governance strategy for teaching projects
+
+### Option A (Recommended)
+- 路径：课堂早期就固定命名约定（`Player=1`, `World=2`, `Collectible=3`）并写入 runbook。
+- 优点：减少“看起来碰撞了但不触发”的排错时间。
+- 缺点：前期讲解成本稍增。
+- 适用：持续迭代项目与多节课程体系。
+
+### Option B
+- 路径：前几节课全部共用 layer1，后续统一拆层。
+- 优点：入门非常快。
+- 缺点：迁移阶段容易引入回归。
+- 适用：一次性演示。
+
+### Option C
+- 路径：把层级定义写进全局常量并运行时动态配置。
+- 优点：代码可维护性高、便于复用。
+- 缺点：新手初期抽象负担偏大。
+- 适用：工程化程度较高的长期项目。
+
 ## Evidence
 
 - `godot/doc/classes/Node.xml` -> `_input`, `_unhandled_input`, `_unhandled_key_input`
@@ -932,6 +1032,8 @@ Version Scope: 4.6
 - `godot/doc/classes/Control.xml` -> `_gui_input`, `accept_event`, `MOUSE_FILTER_*`
 - `godot/doc/classes/Area2D.xml` -> `body_entered`, `body_shape_entered`, `monitoring`, `monitorable`, `get_overlapping_bodies`
 - `godot/doc/classes/CollisionObject2D.xml` -> `collision_layer`, `collision_mask`, `set_collision_layer_value`
+- `godot/doc/classes/SceneTree.xml` -> `paused`, `reload_current_scene`
+- `godot/doc/classes/Viewport.xml` -> `push_input`, `set_input_as_handled`
 - `godot/doc/classes/Viewport.xml` -> `msaa_*`, `screen_space_aa`, `use_taa`, `use_debanding`, `snap_2d_*`
 - `godot/scene/2d/physics/character_body_2d.cpp` -> `CharacterBody2D::move_and_slide`, `CharacterBody2D::_apply_floor_snap`
 - `godot/scene/2d/camera_2d.cpp` -> `Camera2D::_update_process_callback`, `Camera2D::reset_smoothing`
@@ -944,12 +1046,14 @@ Version Scope: 4.6
 - `godot/core/io/json.cpp` -> `ResourceFormatLoaderJSON::load`, `ResourceFormatSaverJSON::save`
 - `godot/scene/2d/physics/area_2d.cpp` -> `Area2D::set_monitoring`, `set_monitorable`, `get_overlapping_bodies`
 - `godot/scene/2d/physics/collision_object_2d.cpp` -> `CollisionObject2D::set_collision_layer`, `set_collision_mask_value`
+- `godot/scene/main/scene_tree.cpp` -> `_call_input_pause`, `set_pause`, `reload_current_scene`
 - `godot/scene/resources/packed_scene.cpp` -> `PackedScene::instantiate`
 - `godot/scene/resources/packed_scene.cpp` -> `SceneState::pack`, `SceneState::_parse_node`
 - `godot/main/performance.cpp` -> `Performance::get_monitor`
 - `godot/scene/main/viewport.cpp` -> `Viewport::set_msaa_2d`, `set_screen_space_aa`, `set_use_taa`, `set_use_debanding`
 - `godot/scene/main/viewport.cpp` -> `Viewport::_gui_call_input`, `Viewport::set_input_as_handled`
 - `godot/scene/main/node.cpp` -> `Node::can_process`, `Node::_can_process`, `Node::set_process_input`
+- `godot/scene/main/viewport.cpp` -> `Viewport::push_input`, `Viewport::set_input_as_handled`
 - `godot/servers/rendering/rendering_server.h` -> `viewport_set_msaa_2d`, `viewport_set_use_taa`, `viewport_set_use_debanding`
 - `02_mentor/automated_regression_spec_v1.md` -> run profile + minimum metrics + storage convention
 - `02_mentor/artifacts/rrb_threshold_band_v1.json` -> threshold band metrics from 5-run baseline
