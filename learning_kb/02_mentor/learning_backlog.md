@@ -60,6 +60,12 @@
 - [done] Switch learner planning to lesson-based flow and keep 3-lesson prep buffer
   - Output: `00_plan/lesson_queue.md`, `00_plan/lesson_04_2h_runbook.md`, `00_plan/lesson_05_2h_runbook.md`, `00_plan/lesson_06_2h_runbook.md`
 
+- [done] Refill prep buffer after learner reached Lesson 6
+  - Output: `00_plan/lesson_08_2h_runbook.md`, `00_plan/lesson_09_2h_runbook.md`, updated `00_plan/lesson_queue.md`
+
+- [done] Refill prep buffer after learner reached Lesson 9
+  - Output: `00_plan/lesson_10_2h_runbook.md`, `00_plan/lesson_11_2h_runbook.md`, `00_plan/lesson_12_2h_runbook.md`, updated `00_plan/lesson_queue.md`
+
 ## P2 (mid term)
 
 - 2D graphics and math fundamentals for gameplay programming

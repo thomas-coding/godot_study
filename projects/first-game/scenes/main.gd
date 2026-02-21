@@ -1,20 +1,11 @@
 extends Node2D
 var collected_count := 0
-@onready var score_label: Label = get_node_or_null("ScoreLabel")
-
-var is_paused := false
-@onready var pause_label: Label = get_node_or_null("PauseLabel")
-
-var is_game_started := false
-@onready var start_label: Label = get_node_or_null("StartLabel")
-
-var is_game_over := false
 var hp := 3
-@onready var hp_label: Label = get_node_or_null("HpLabel")
-@onready var game_over_label: Label = get_node_or_null("GameOverLabel")
 
-var is_won := false
-@onready var win_label: Label = get_node_or_null("WinLabel")
+@onready var hud: Node = get_node_or_null("HUD")
+
+enum GameState { WAIT_START, PLAYING, PAUSED, GAME_OVER, WON }
+var game_state: GameState = GameState.WAIT_START
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -23,11 +14,7 @@ func _ready() -> void:
 		# Main stays always-on for pause hotkeys; gameplay nodes must be pausable.
 		player.process_mode = Node.PROCESS_MODE_PAUSABLE
 	_refresh_score_label()
-	_refresh_pause_label()
-	_refresh_start_label()
 	_refresh_hp_label()
-	_refresh_game_over_label()
-	_refresh_win_label()
 	for child in get_children():
 		if child.has_signal("collected"):
 			child.process_mode = Node.PROCESS_MODE_PAUSABLE
@@ -38,82 +25,74 @@ func _ready() -> void:
 		if child.has_signal("reached_goal"):
 			child.process_mode = Node.PROCESS_MODE_PAUSABLE
 			child.reached_goal.connect(_on_goal_reached)
-	# Start gate: game starts after Enter.
-	get_tree().paused = true
+	# Start gate via state machine.
+	_set_game_state(GameState.WAIT_START)
 
 func _on_coin_collected() -> void:
-	if is_game_over or is_won:
+	if game_state != GameState.PLAYING:
 		return
 	collected_count += 1
 	_refresh_score_label()
 	print("Collected: %d" % collected_count)
 
 func _refresh_score_label() -> void:
-	if score_label != null:
-		score_label.text = "Collected: %d" % collected_count
+	if hud != null and hud.has_method("set_score"):
+		hud.call("set_score", collected_count)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("restart"):
 		get_tree().paused = false
 		get_tree().reload_current_scene()
 		return
-	if not is_game_started:
-		if event.is_action_pressed("start_game"):
-			is_game_started = true
-			is_paused = false
-			get_tree().paused = false
-			_refresh_start_label()
-			_refresh_pause_label()
-		return
+	match game_state:
+		GameState.WAIT_START:
+			if event.is_action_pressed("start_game"):
+				_set_game_state(GameState.PLAYING)
+		GameState.PLAYING:
+			if event.is_action_pressed("pause_toggle"):
+				_set_game_state(GameState.PAUSED)
+		GameState.PAUSED:
+			if event.is_action_pressed("pause_toggle"):
+				_set_game_state(GameState.PLAYING)
+		GameState.GAME_OVER, GameState.WON:
+			pass
 
-	if is_game_over or is_won:
-		return
-
-	if event.is_action_pressed("pause_toggle"):
-		is_paused = !is_paused
-		get_tree().paused = is_paused
-		_refresh_pause_label()
-
-func _refresh_pause_label() -> void:
-	if pause_label != null:
-		pause_label.visible = is_paused
-
-
-func _refresh_start_label() -> void:
-	if start_label != null:
-		start_label.visible = not is_game_started
+func _refresh_state_hint() -> void:
+	if hud != null and hud.has_method("set_state_hint"):
+		hud.call("set_state_hint", GameState.keys()[game_state])
 
 func _on_hazard_hit() -> void:
-	if is_game_over or is_won:
+	if game_state != GameState.PLAYING:
 		return
 	hp -= 1
 	_refresh_hp_label()
 	print("HP: %d" % hp)
 	if hp <= 0:
-		is_game_over = true
-		is_paused = false
-		get_tree().paused = true
-		_refresh_pause_label()
-		_refresh_game_over_label()
+		_set_game_state(GameState.GAME_OVER)
 
 func _refresh_hp_label() -> void:
-	if hp_label != null:
-		hp_label.text = "HP: %d" % hp
-
-func _refresh_game_over_label() -> void:
-	if game_over_label != null:
-		game_over_label.visible = is_game_over
+	if hud != null and hud.has_method("set_hp"):
+		hud.call("set_hp", hp)
 
 func _on_goal_reached() -> void:
-	if is_game_over or is_won:
+	if game_state != GameState.PLAYING:
 		return
-	is_won = true
-	is_paused = false
-	get_tree().paused = true
-	_refresh_pause_label()
-	_refresh_win_label()
+	_set_game_state(GameState.WON)
 	print("YOU WIN")
 
-func _refresh_win_label() -> void:
-	if win_label != null:
-		win_label.visible = is_won
+func _set_game_state(next_state: GameState) -> void:
+	game_state = next_state
+	print("State -> %s" % GameState.keys()[game_state])
+	match game_state:
+		GameState.WAIT_START:
+			get_tree().paused = true
+		GameState.PLAYING:
+			get_tree().paused = false
+		GameState.PAUSED:
+			get_tree().paused = true
+		GameState.GAME_OVER:
+			get_tree().paused = true
+		GameState.WON:
+			get_tree().paused = true
+
+	_refresh_state_hint()

@@ -1,6 +1,6 @@
 # Mentor Vision and Self-Study Plan
 
-Last Updated: 2026-02-20
+Last Updated: 2026-02-21
 Active Baseline: Godot 4.6 stable
 Current Mentor Progress: 71% (`02_mentor/mentor_progress_dashboard.md`)
 
@@ -46,6 +46,8 @@ Current Mentor Progress: 71% (`02_mentor/mentor_progress_dashboard.md`)
 - `学习下godot`
 - `你自己学习`
 - `你先学习`
+- `你备下课`
+- `备课`
 - `先学习再教`
 
 每次触发后执行一个完整学习循环：

@@ -30,7 +30,14 @@
   - Evidence: `01_learner/daily_reports/2026-02-20.md`
 - Goal win + restart loop: `done`
   - Evidence: `01_learner/daily_reports/2026-02-20.md`
-- Camera2D follow: `not_started`
+- Camera2D follow: `done`
+  - Evidence: `01_learner/daily_reports/2026-02-21.md`
+- Gameplay state machine refactor: `done`
+  - Evidence: `01_learner/daily_reports/2026-02-21.md`
+- HUD scene decoupling and unified UI update API: `done`
+  - Evidence: `01_learner/daily_reports/2026-02-21.md`
+- Enemy patrol behavior: `not_started`
+- Objective gate (`collect all -> unlock goal`): `not_started`
 
 ## Engineering Workflow
 
@@ -42,8 +49,8 @@
   - Evidence: `00_meta/version_registry.md`, `00_meta/version_upgrade_protocol.md`, `02_mentor/indexes/version_matrix.md`
 - Dual-track learning governance (`learner line` + `mentor line` + fixed class SOP): `done`
   - Evidence: `00_meta/dual_track_governance.md`, `AGENTS.md`, `03_sessions/session_protocol.md`
-- Mentor troubleshooting knowledge pack (`QA050` + checklists + quick map): `done`
-  - Evidence: `02_mentor/qa/QA050_area2d_body_entered_tilemap_case.md`, `04_templates/performance_frame_budget_checklist.md`, `04_templates/area2d_interaction_troubleshooting_checklist.md`, `02_mentor/source_quick_answer_map_v1.md`
+- Mentor troubleshooting knowledge pack (`QA055` + checklists + quick map): `done`
+  - Evidence: `02_mentor/qa/QA055_input_callback_choice_for_gameplay_hotkeys.md`, `04_templates/performance_frame_budget_checklist.md`, `04_templates/gameplay_state_pause_restart_troubleshooting_checklist.md`, `02_mentor/source_quick_answer_map_v1.md`
 
 ## English in Technical Context
 

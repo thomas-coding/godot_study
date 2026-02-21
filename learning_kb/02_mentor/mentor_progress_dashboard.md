@@ -1,6 +1,6 @@
 # Mentor Progress Dashboard
 
-Last Updated: 2026-02-20
+Last Updated: 2026-02-21
 Active Baseline: Godot 4.6 stable
 Overall Progress: 71%
 
@@ -29,10 +29,11 @@ Current Level: `进阶导师`（中期）。
 Governance Update:
 
 - 双轨长期治理协议已固化（学员线/导师线判定 + 固定课堂SOP）。
-- 本次导师学习补齐第4课课前资产（M13 + QA051~QA055 + K052~K056 + lesson_04 runbook/checklist），能力分数更新为 `71%`。
-- 学员线下一课已准备：`lesson_04_2h_runbook + gameplay_state_pause_restart_troubleshooting_checklist`。
+- 本次导师学习聚焦课程缓冲维护与课次治理同步（本轮不调整能力分数，维持 `71%`）。
+- 学员线下一课已准备：`lesson_10_2h_runbook`（敌人巡逻 + 接触伤害）。
 - 课程组织已切换为“课次制”，并建立 `lesson_queue` 与“提前 3 课”备课缓冲约束。
 - 学员线新增执行约束：学习过程中不切导师线备课，避免学员等待；仅在用户明确触发后切导师线。
+- 本轮导师备课已补齐第10课~第12课，备课缓冲恢复为 `第10课~第12课`（3课）。
 
 ## 自动更新规则（每次“你自己学习”后执行）
 

@@ -22,7 +22,7 @@
   4. 不跳步，不临时改流程
   5. 学员线进行中禁止备课与导师知识库扩写，避免学员等待
 
-- 若用户说“学习下godot/学习 Godot/研究 Godot/先学习再教/你自己学习/你先学习”，把它视为“导师学习会话”，按以下流程执行：
+- 若用户说“学习下godot/学习 Godot/研究 Godot/先学习再教/你自己学习/你先学习/你备下课/备课”，把它视为“导师学习会话”，按以下流程执行：
   1. 读 `learning_kb/02_mentor/knowledge_map.md`
   2. 读 `learning_kb/02_mentor/learning_backlog.md`
   3. 读 `learning_kb/02_mentor/mentor_vision_and_self_study_plan.md`

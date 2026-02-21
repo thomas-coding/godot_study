@@ -1,11 +1,12 @@
 # Current Learner State
 
-Last Updated: 2026-02-20
+Last Updated: 2026-02-21
 
 ## Snapshot
 
-- Phase: Week 01 / 第6课完成
+- Phase: Week 01 / 第9课完成
 - Per-Lesson Budget: 2h
+- Lesson Prep Buffer: Lessons 10-12 ready
 - Primary Goal: Build and ship a complete game with Godot on Steam
 - KB Baseline: Godot 4.6 (version migration protocol enabled)
 
@@ -26,6 +27,9 @@ Last Updated: 2026-02-20
 - Collision layer/mask convention applied (`Player=1`, `World=2`, `Collectible=3`)
 - Hazard damage loop works (`hit` -> `hp` decrease -> `game over`)
 - Goal win loop works (`reached_goal` -> `YOU WIN` -> restart)
+- Camera2D follow works (`Camera2D` + smoothing baseline validated)
+- Gameplay state machine refactor works (`WAIT_START/PLAYING/PAUSED/GAME_OVER/WON`)
+- HUD decoupling works (`CanvasLayer HUD` + unified UI update methods)
 - Versioned KB infrastructure is ready (`registry` + `upgrade protocol` + `compatibility matrix`)
 - Mentor support assets upgraded: QA001~QA055, multi-domain checklists, source quick-answer map v1 (100 items)
 - Dual-track governance is locked (`learner line` / `mentor line`) with fixed class SOP
@@ -33,16 +37,17 @@ Last Updated: 2026-02-20
 ## Current Gaps
 
 - `_process(delta)` vs `_physics_process(delta)` understanding is not yet stable
-- Camera follow and jitter diagnosis is not started yet
 - `_unhandled_input` 分发顺序与 handled 传播机制理解尚不稳定
+- Enemy dynamic behavior pattern (patrol + contact damage) is not started yet
 
 ## Immediate Next Session Goal
 
-Build Camera2D follow and complete a minimal jitter diagnosis workflow on top of the completed 第6课 gameplay loop.
+Build an enemy patrol + contact damage loop on top of the completed Lesson 9 state/HUD architecture.
 
-Runbook: `00_plan/lesson_07_2h_runbook.md`
+Runbook: `00_plan/lesson_10_2h_runbook.md`
 
 Lesson Queue: `00_plan/lesson_queue.md`
+- Next prepared lessons: `lesson_11_2h_runbook.md`, `lesson_12_2h_runbook.md`
 
 ## Teaching Preferences (Stable)
 

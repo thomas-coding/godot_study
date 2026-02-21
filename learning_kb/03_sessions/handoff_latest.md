@@ -1,6 +1,6 @@
 # Session Handoff (Latest)
 
-Date: 2026-02-20
+Date: 2026-02-21
 
 ## What was completed
 
@@ -12,11 +12,12 @@ Date: 2026-02-20
 - Upgrade trigger flow is wired: `更新知识库到godot X.Y / 升级知识库到 X.Y / 切换到 Godot X.Y`.
 - Existing modules/cards/qa now include version metadata (`Version Scope`, `Last Verified`, `Compatibility`).
 - Mentor mission is now explicit: build Godot expert-level teaching capability with fast source-backed answers and multi-solution guidance.
-- Self-study trigger is expanded: `学习下godot / 你自己学习 / 你先学习`.
+- Self-study trigger is expanded: `学习下godot / 你自己学习 / 你先学习 / 你备下课 / 备课`.
 - 课程组织已切换为“课次制”（不是按自然日）：
   - 学员触发词增加 `继续学 / 学下一课 / 第X课`。
+  - 导师触发词增加 `你备下课 / 备课`。
   - 每课默认 2h。
-  - 导师线目标为“至少提前 3 课”备课缓冲（见 `00_plan/lesson_queue.md`，当前缺口按导师线触发时补齐）。
+  - 导师线目标为“至少提前 3 课”备课缓冲（见 `00_plan/lesson_queue.md`，当前已恢复到 10~12 课）。
   - 新增并对齐第4~第6课 runbook：`lesson_04_2h_runbook.md`、`lesson_05_2h_runbook.md`、`lesson_06_2h_runbook.md`。
   - 新增执行保护：学员线进行中不切导师线备课，避免学员等待；仅在用户明确触发后切导师线。
 - Mentor self-study cycle executed (2026-02-07):
@@ -97,6 +98,11 @@ Date: 2026-02-20
   - 第5课：完成 `Hazard` 伤害闭环（`hit -> hp -> game over -> restart`）。
   - 第6课：完成 `Goal` 胜利闭环（`reached_goal -> YOU WIN -> restart`）。
   - 运行回归通过：start/play、collect/score、pause/resume、game over、win、restart。
+- 学员线第7~第9课已完成（按固定SOP）：
+  - 第7课：完成 `Camera2D` 跟随与 smoothing 基线验证。
+  - 第8课：完成单状态机重构（`WAIT_START/PLAYING/PAUSED/GAME_OVER/WON`）。
+  - 第9课：完成 `HUD(CanvasLayer)` 解耦与统一 UI 更新接口。
+  - 运行回归通过：状态切换、胜负终态、重开与 UI 提示一致。
 - 导师线课前自学习已完成（为第4课学员课准备）：
   - 新增 M13（输入分发顺序 + pause gate + scene reload 语义）。
   - QA 扩展到 QA055（新增 QA051~QA055）。
@@ -104,6 +110,11 @@ Date: 2026-02-20
   - source quick-answer map 扩展到 100（SQ91~SQ100）。
   - feature playbook 扩展到 F050。
   - 新增 `00_plan/lesson_04_2h_runbook.md` 与 `04_templates/gameplay_state_pause_restart_troubleshooting_checklist.md`。
+- 导师线备课已补齐（本轮触发）：
+  - 新增 `00_plan/lesson_10_2h_runbook.md`（敌人巡逻 + 接触伤害）。
+  - 新增 `00_plan/lesson_11_2h_runbook.md`（收集门控后解锁 Goal）。
+  - 新增 `00_plan/lesson_12_2h_runbook.md`（Level1 -> Level2 关卡切换）。
+  - `lesson_queue` 备课缓冲恢复为 `第10课~第12课`（3课）。
 - Mentor progress dashboard is active: current progress `71%`, sprint target `72%`.
 
 ## Active baseline
@@ -122,21 +133,21 @@ Date: 2026-02-20
 - Level: Godot beginner from zero, strong C/C++ engineering background.
 - Confirmed skills: project setup, main scene run, input action creation, debug script attach.
 - Confirmed new skills: `CharacterBody2D` movement/jump + ground collision + `Area2D` collectible/hazard/goal loop + start/pause/restart + game over/win gating.
-- Missing next: build Camera2D follow and complete jitter diagnosis workflow.
+- Missing next: build enemy patrol + contact damage loop and continue vertical slice depth.
 
-## 学员线下一节课计划（第7课）
+## 学员线下一节课计划（第10课）
 
-- 课程目标：完成 Camera2D 跟随，并掌握最小抖动排查流程。
-- 执行脚本：`00_plan/lesson_07_2h_runbook.md`。
+- 课程目标：完成敌人巡逻与接触伤害，并接入现有状态机门控。
+- 执行脚本：`00_plan/lesson_10_2h_runbook.md`。
 - 验收点：
-  1. Camera2D 可稳定跟随玩家移动/跳跃
-  2. 无明显抖动（或能定位具体根因）
-  3. 不破坏现有 start/pause/restart 与胜负状态流
-- 排错模板：`04_templates/camera2d_follow_jitter_checklist.md`。
+  1. 至少 1 个敌人可巡逻并造成接触伤害
+  2. `PLAYING` 外不触发伤害（终态无穿透）
+  3. 重开后敌人与状态恢复初始
+- 排错模板：`04_templates/area2d_interaction_troubleshooting_checklist.md`。
 
-## Next session objective (Lesson 7 prep, 2h)
+## Next session objective (Lesson 10 prep, 2h)
 
-Add Camera2D follow and establish a reproducible jitter diagnosis checklist usage.
+Add enemy patrol behavior and connect contact damage to current state/HUD flow.
 
 ## First files to read next time
 
@@ -164,7 +175,7 @@ Add Camera2D follow and establish a reproducible jitter diagnosis checklist usag
 
 ## Suggested first action next session
 
-- Learning mode: read `lesson_queue.md`, then execute `lesson_07_2h_runbook` and complete Camera2D follow + jitter diagnosis.
+- Learning mode: read `lesson_queue.md`, then execute `lesson_10_2h_runbook` and complete enemy patrol + contact damage loop.
 - Mentor self-study mode: expand quick-answer map to 110+ and playbook to F055.
 - Upgrade mode: execute protocol Step 1 and open migration matrix.
 

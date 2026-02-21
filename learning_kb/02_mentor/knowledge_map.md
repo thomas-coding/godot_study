@@ -1,6 +1,6 @@
 # Mentor Knowledge Map
 
-Last Updated: 2026-02-20
+Last Updated: 2026-02-21
 Active Baseline: Godot 4.6
 
 ## Fast Read Order (new AI)
@@ -73,7 +73,7 @@ Active Baseline: Godot 4.6
 
 ## Study Trigger Contract
 
-- 当用户说“学习下godot/研究 Godot/你自己学习/你先学习”时：
+- 当用户说“学习下godot/研究 Godot/你自己学习/你先学习/你备下课/备课”时：
   1. 先给本次学习计划（模块 + 产出文件）
   2. 先检查 `00_plan/lesson_queue.md`，补齐至少 3 课备课缓冲
   3. 再做 docs+source 学习

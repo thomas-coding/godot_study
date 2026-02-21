@@ -5,10 +5,11 @@
 ## P0
 
 - Understand `_process(delta)` vs `_physics_process(delta)` in practice
-- Build Camera2D follow with jitter-free baseline
 - Understand `_unhandled_input` dispatch order and handled propagation in practice
+- Build enemy patrol + contact damage loop
+- Build objective gate (`collect all coins` before goal unlock)
 
-Reference runbook: `00_plan/lesson_07_2h_runbook.md`
+Reference runbook: `00_plan/lesson_10_2h_runbook.md`
 
 ## P1
 

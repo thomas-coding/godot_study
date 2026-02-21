@@ -2,6 +2,37 @@
 
 > 规则：每次教学前后补充 1-2 条，记录“读了什么 -> 结论是什么 -> 来源在哪里”。
 
+## 2026-02-21
+
+- Topic: 学员线第7~第9课实作验收（Working）
+- Summary:
+  - 第7课完成：`Camera2D` 跟随与 smoothing 参数基线验证。
+  - 第8课完成：`Main` 从多布尔门控重构为单状态机门控。
+  - 第9课完成：UI 迁移到 `HUD(CanvasLayer)`，并通过统一接口更新分数/血量/状态提示。
+  - 关键回归通过：start/play/pause/restart + game over/win 全链路无回归。
+- Source:
+  - `projects/first-game/scenes/player.tscn`
+  - `projects/first-game/scenes/main.gd`
+  - `projects/first-game/scenes/main.tscn`
+  - `projects/first-game/scenes/hud.tscn`
+  - `projects/first-game/scenes/hud.gd`
+  - `01_learner/daily_reports/2026-02-21.md`
+
+- Topic: 导师线备课补齐（第10课/第11课/第12课）与三课缓冲恢复（Working）
+- Summary:
+  - 根据学员线已推进到第9课，补齐第10~第12课 runbook。
+  - 第10课聚焦敌人巡逻与接触伤害，第11课聚焦收集目标门控，第12课聚焦关卡切换。
+  - `lesson_queue` 已恢复到 `第10课~第12课` 三课缓冲，满足“至少提前 3 课”要求。
+  - 导师线触发词补充 `你备下课/备课`，用于学员线结束后的备课切换。
+  - 保持学员线不中断原则：仅在用户明确触发导师线时执行备课。
+- Source:
+  - `00_plan/lesson_queue.md`
+  - `00_plan/lesson_10_2h_runbook.md`
+  - `00_plan/lesson_11_2h_runbook.md`
+  - `00_plan/lesson_12_2h_runbook.md`
+  - `03_sessions/session_protocol.md`
+  - `00_meta/dual_track_governance.md`
+
 ## 2026-02-20
 
 - Topic: 学员线第4~第6课实作验收（Working）
