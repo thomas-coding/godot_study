@@ -114,7 +114,12 @@ Date: 2026-02-21
   - 新增 `00_plan/lesson_10_2h_runbook.md`（敌人巡逻 + 接触伤害）。
   - 新增 `00_plan/lesson_11_2h_runbook.md`（收集门控后解锁 Goal）。
   - 新增 `00_plan/lesson_12_2h_runbook.md`（Level1 -> Level2 关卡切换）。
-  - `lesson_queue` 备课缓冲恢复为 `第10课~第12课`（3课）。
+  - 新增 `00_plan/lesson_13_2h_runbook.md`（存档与设置基础：ConfigFile）。
+  - 新增 `00_plan/lesson_14_2h_runbook.md`（设置菜单：音量/窗口/快捷键入口）。
+  - 新增 `00_plan/lesson_15_2h_runbook.md`（数据驱动参数：Resource）。
+  - 新增 `00_plan/lesson_16_2h_runbook.md`（性能优化与帧预算回归）。
+  - 新增 `00_plan/lesson_17_2h_runbook.md`（敌人扩展：追踪/投射物与战斗反馈）。
+  - `lesson_queue` 备课缓冲扩展为 `第10课~第17课`（8课）。
 - Mentor progress dashboard is active: current progress `71%`, sprint target `72%`.
 
 ## Active baseline
