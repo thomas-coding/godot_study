@@ -6,6 +6,7 @@ extends CanvasLayer
 @onready var pause_label: Label = get_node_or_null("PauseLabel")
 @onready var game_over_label: Label = get_node_or_null("GameOverLabel")
 @onready var win_label: Label = get_node_or_null("WinLabel")
+@onready var objective_label: Label = get_node_or_null("ObjectiveLabel")
 
 func set_score(value: int) -> void:
 	if score_label != null:
@@ -24,3 +25,11 @@ func set_state_hint(state_name: String) -> void:
 		game_over_label.visible = state_name == "GAME_OVER"
 	if win_label != null:
 		win_label.visible = state_name == "WON"
+
+func set_objective_status(unlocked: bool, collected: int, total: int) -> void:
+	if objective_label == null:
+		return
+	if unlocked:
+		objective_label.text = "Goal: UNLOCKED (%d/%d)" % [collected, total]
+	else:
+		objective_label.text = "Goal: LOCKED (%d/%d)" % [collected, total]

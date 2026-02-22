@@ -46,7 +46,7 @@ scale = Vector2(0.87545186, 1.0340157)
 [node name="Hazards2" parent="." unique_id=1781041526 instance=ExtResource("4_jyhfs")]
 position = Vector2(56, 133)
 
-[node name="Enemy" parent="." instance=ExtResource("6_71sn6")]
+[node name="Enemy" parent="." unique_id=285095833 instance=ExtResource("6_71sn6")]
 position = Vector2(446, 129)
 left_bound_x = 330.0
 right_bound_x = 540.0

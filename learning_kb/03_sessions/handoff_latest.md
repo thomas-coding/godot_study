@@ -17,7 +17,7 @@ Date: 2026-02-22
   - 学员触发词增加 `继续学 / 学下一课 / 第X课`。
   - 导师触发词增加 `你备下课 / 备课`。
   - 每课默认 2h。
-  - 导师线目标为“至少提前 3 课”备课缓冲（见 `00_plan/lesson_queue.md`，当前维持在 11~17 课）。
+  - 导师线目标为“至少提前 3 课”备课缓冲（见 `00_plan/lesson_queue.md`，当前维持在 12~17 课）。
   - 新增并对齐第4~第6课 runbook：`lesson_04_2h_runbook.md`、`lesson_05_2h_runbook.md`、`lesson_06_2h_runbook.md`。
   - 新增执行保护：学员线进行中不切导师线备课，避免学员等待；仅在用户明确触发后切导师线。
 - Mentor self-study cycle executed (2026-02-07):
@@ -108,6 +108,11 @@ Date: 2026-02-22
   - 完成 `Area2D Hitbox` 接触伤害信号接线，并复用主流程 hp 扣减逻辑。
   - 状态机门控通过：仅 `PLAYING` 扣血，`GAME_OVER/WON` 无终态穿透伤害。
   - 学员已掌握 `global_position` 与 Camera 的关系、body collision 与 hitbox trigger 的职责差异。
+- 学员线第11课已完成（按固定SOP）：
+  - 完成收集门控闭环：`total_coins/remaining_coins/goal_unlocked`。
+  - 完成 Goal 条件触发：未收集完成前拒绝通关，收集完成后允许 `WON`。
+  - 完成 HUD 目标状态提示：`Goal: LOCKED/UNLOCKED (x/y)`。
+  - 运行回归通过：未解锁不通关、解锁后可通关、`R` 重开恢复锁定初始态。
 - 导师线课前自学习已完成（为第4课学员课准备）：
   - 新增 M13（输入分发顺序 + pause gate + scene reload 语义）。
   - QA 扩展到 QA055（新增 QA051~QA055）。
@@ -124,7 +129,7 @@ Date: 2026-02-22
   - 新增 `00_plan/lesson_15_2h_runbook.md`（数据驱动参数：Resource）。
   - 新增 `00_plan/lesson_16_2h_runbook.md`（性能优化与帧预算回归）。
   - 新增 `00_plan/lesson_17_2h_runbook.md`（敌人扩展：追踪/投射物与战斗反馈）。
-  - `lesson_queue` 备课缓冲扩展为 `第10课~第17课`（8课），第10课完成后当前有效缓冲为 `第11课~第17课`（7课）。
+  - `lesson_queue` 备课缓冲扩展为 `第10课~第17课`（8课），第10/11课完成后当前有效缓冲为 `第12课~第17课`（6课）。
 - Mentor progress dashboard is active: current progress `71%`, sprint target `72%`.
 
 ## Active baseline
@@ -142,22 +147,22 @@ Date: 2026-02-22
 
 - Level: Godot beginner from zero, strong C/C++ engineering background.
 - Confirmed skills: project setup, main scene run, input action creation, debug script attach.
-- Confirmed new skills: `CharacterBody2D` movement/jump + ground collision + `Area2D` collectible/hazard/goal loop + start/pause/restart + game over/win gating + enemy patrol/contact-damage integration.
-- Missing next: build objective gate (`collect all coins -> unlock goal`) and continue vertical slice depth.
+- Confirmed new skills: `CharacterBody2D` movement/jump + ground collision + `Area2D` collectible/hazard/goal loop + start/pause/restart + game over/win gating + enemy patrol/contact-damage integration + objective gate unlock flow.
+- Missing next: build Level 1 -> Level 2 transition and continue vertical slice depth.
 
-## 学员线下一节课计划（第11课）
+## 学员线下一节课计划（第12课）
 
-- 课程目标：完成收集目标门控（收集完成后才允许 Goal 触发胜利）。
-- 执行脚本：`00_plan/lesson_11_2h_runbook.md`。
+- 课程目标：完成关卡切换最小闭环（Level 1 通关后进入 Level 2）。
+- 执行脚本：`00_plan/lesson_12_2h_runbook.md`。
 - 验收点：
-  1. 未收集完成前，Goal 不触发胜利
-  2. 收集完成后，Goal 解锁并可正常通关
-  3. 重开后锁定状态恢复初始
+  1. Level 1 通关后可切换到 Level 2
+  2. Level 2 初始化状态正确（HUD/状态机不乱）
+  3. 重开后场景与状态恢复可预期
 - 排错模板：`04_templates/area2d_interaction_troubleshooting_checklist.md`。
 
-## Next session objective (Lesson 11 prep, 2h)
+## Next session objective (Lesson 12 prep, 2h)
 
-Add objective gating so the goal only works after all required collectibles are completed.
+Build a minimal scene transition from Level 1 to Level 2 with stable state/HUD behavior.
 
 ## First files to read next time
 
@@ -185,7 +190,7 @@ Add objective gating so the goal only works after all required collectibles are 
 
 ## Suggested first action next session
 
-- Learning mode: read `lesson_queue.md`, then execute `lesson_11_2h_runbook` and complete collect-all -> unlock-goal gating.
+- Learning mode: read `lesson_queue.md`, then execute `lesson_12_2h_runbook` and complete Level 1 -> Level 2 transition.
 - Mentor self-study mode: expand quick-answer map to 110+ and playbook to F055.
 - Upgrade mode: execute protocol Step 1 and open migration matrix.
 

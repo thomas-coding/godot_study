@@ -6,9 +6,9 @@
 
 - Understand `_process(delta)` vs `_physics_process(delta)` in practice
 - Understand `_unhandled_input` dispatch order and handled propagation in practice
-- Build objective gate (`collect all coins` before goal unlock)
+- Build level transition loop (`Level 1 -> Level 2`)
 
-Reference runbook: `00_plan/lesson_11_2h_runbook.md`
+Reference runbook: `00_plan/lesson_12_2h_runbook.md`
 
 ## P1
 

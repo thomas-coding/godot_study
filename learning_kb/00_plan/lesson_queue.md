@@ -35,9 +35,9 @@ Mode: 按“课次”推进（不是按自然日）
 
 - 第10课（已完成）：敌人基础行为（巡逻 + 接触伤害）
   - 脚本：`learning_kb/00_plan/lesson_10_2h_runbook.md`
-- 第11课（已备课，下一课）：关卡目标门控（收集完成后解锁 Goal）
+- 第11课（已完成）：关卡目标门控（收集完成后解锁 Goal）
   - 脚本：`learning_kb/00_plan/lesson_11_2h_runbook.md`
-- 第12课（已备课）：关卡切换与最小流程闭环（Level 1 -> Level 2）
+- 第12课（已备课，下一课）：关卡切换与最小流程闭环（Level 1 -> Level 2）
   - 脚本：`learning_kb/00_plan/lesson_12_2h_runbook.md`
 - 第13课（已备课）：存档与设置基础（ConfigFile）
   - 脚本：`learning_kb/00_plan/lesson_13_2h_runbook.md`
@@ -53,5 +53,5 @@ Mode: 按“课次”推进（不是按自然日）
 
 ## 备课缓冲检查
 
-- 当前已备课缓冲：`第11课~第17课`（7 课）
+- 当前已备课缓冲：`第12课~第17课`（6 课）
 - 缓冲状态：已满足“至少提前 3 课”要求。

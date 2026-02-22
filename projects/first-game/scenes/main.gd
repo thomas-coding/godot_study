@@ -2,6 +2,11 @@ extends Node2D
 var collected_count := 0
 var hp := 3
 
+var total_coins := 0
+var remaining_coins := 0
+var goal_unlocked := false
+
+
 @onready var hud: Node = get_node_or_null("HUD")
 
 enum GameState { WAIT_START, PLAYING, PAUSED, GAME_OVER, WON }
@@ -15,10 +20,12 @@ func _ready() -> void:
 		player.process_mode = Node.PROCESS_MODE_PAUSABLE
 	_refresh_score_label()
 	_refresh_hp_label()
+	total_coins = 0
 	for child in get_children():
 		if child.has_signal("collected"):
 			child.process_mode = Node.PROCESS_MODE_PAUSABLE
 			child.collected.connect(_on_coin_collected)
+			total_coins += 1
 		if child.has_signal("hit"):
 			child.process_mode = Node.PROCESS_MODE_PAUSABLE
 			child.hit.connect(_on_hazard_hit)
@@ -28,15 +35,24 @@ func _ready() -> void:
 		if child.has_signal("reached_goal"):
 			child.process_mode = Node.PROCESS_MODE_PAUSABLE
 			child.reached_goal.connect(_on_goal_reached)
+	remaining_coins = total_coins
+	goal_unlocked = remaining_coins == 0
+	print("Coins total: %d" % total_coins)
 	# Start gate via state machine.
 	_set_game_state(GameState.WAIT_START)
+	_refresh_objective_status()
 
 func _on_coin_collected() -> void:
 	if game_state != GameState.PLAYING:
 		return
 	collected_count += 1
+	remaining_coins = max(remaining_coins - 1, 0)
 	_refresh_score_label()
-	print("Collected: %d" % collected_count)
+	print("Collected: %d / %d" % [collected_count, total_coins])
+	if not goal_unlocked and remaining_coins == 0:
+		goal_unlocked = true
+		print("Goal unlocked")
+	_refresh_objective_status()
 
 func _refresh_score_label() -> void:
 	if hud != null and hud.has_method("set_score"):
@@ -83,6 +99,9 @@ func _refresh_hp_label() -> void:
 func _on_goal_reached() -> void:
 	if game_state != GameState.PLAYING:
 		return
+	if not goal_unlocked:
+		print("Goal is locked. Collect all coins first.")
+		return
 	_set_game_state(GameState.WON)
 	print("YOU WIN")
 
@@ -102,3 +121,7 @@ func _set_game_state(next_state: GameState) -> void:
 			get_tree().paused = true
 
 	_refresh_state_hint()
+
+func _refresh_objective_status() -> void:
+	if hud != null and hud.has_method("set_objective_status"):
+		hud.call("set_objective_status", goal_unlocked, collected_count, total_coins)

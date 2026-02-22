@@ -38,7 +38,8 @@
   - Evidence: `01_learner/daily_reports/2026-02-21.md`
 - Enemy patrol behavior + contact damage integration: `done`
   - Evidence: `01_learner/daily_reports/2026-02-22.md`
-- Objective gate (`collect all -> unlock goal`): `not_started`
+- Objective gate (`collect all -> unlock goal`): `done`
+  - Evidence: `01_learner/daily_reports/2026-02-22.md`
 
 ## Engineering Workflow
 

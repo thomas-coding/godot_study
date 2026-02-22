@@ -19,6 +19,19 @@
   - `projects/first-game/assets/enemy/enemy.png`
   - `01_learner/daily_reports/2026-02-22.md`
 
+- Topic: 学员线第11课实作验收（收集门控后解锁 Goal）（Working）
+- Summary:
+  - 在 `Main` 建立 `total_coins/remaining_coins/goal_unlocked`，实现目标门控最小闭环。
+  - 未收集完成前，触碰 Goal 仅提示锁定，不触发胜利。
+  - 收集完成后触发解锁，Goal 才能进入 `WON`；重开后可恢复到锁定初始态。
+  - HUD 新增目标状态提示（`Goal: LOCKED/UNLOCKED (x/y)`），玩家可见进度。
+- Source:
+  - `projects/first-game/scenes/main.gd`
+  - `projects/first-game/scenes/hud.gd`
+  - `projects/first-game/scenes/hud.tscn`
+  - `projects/first-game/scenes/goal.gd`
+  - `01_learner/daily_reports/2026-02-22.md`
+
 ## 2026-02-21
 
 - Topic: 学员线第7~第9课实作验收（Working）
