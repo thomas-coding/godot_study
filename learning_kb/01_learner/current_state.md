@@ -1,12 +1,12 @@
 # Current Learner State
 
-Last Updated: 2026-02-21
+Last Updated: 2026-02-22
 
 ## Snapshot
 
-- Phase: Week 01 / 第9课完成
+- Phase: Week 01 / 第10课完成
 - Per-Lesson Budget: 2h
-- Lesson Prep Buffer: Lessons 10-12 ready
+- Lesson Prep Buffer: Lessons 11-17 ready
 - Primary Goal: Build and ship a complete game with Godot on Steam
 - KB Baseline: Godot 4.6 (version migration protocol enabled)
 
@@ -30,6 +30,7 @@ Last Updated: 2026-02-21
 - Camera2D follow works (`Camera2D` + smoothing baseline validated)
 - Gameplay state machine refactor works (`WAIT_START/PLAYING/PAUSED/GAME_OVER/WON`)
 - HUD decoupling works (`CanvasLayer HUD` + unified UI update methods)
+- Enemy patrol + contact damage loop works (`Enemy(CharacterBody2D)` + `Hitbox(Area2D)` + state-gated hp deduction)
 - Versioned KB infrastructure is ready (`registry` + `upgrade protocol` + `compatibility matrix`)
 - Mentor support assets upgraded: QA001~QA055, multi-domain checklists, source quick-answer map v1 (100 items)
 - Dual-track governance is locked (`learner line` / `mentor line`) with fixed class SOP
@@ -38,16 +39,16 @@ Last Updated: 2026-02-21
 
 - `_process(delta)` vs `_physics_process(delta)` understanding is not yet stable
 - `_unhandled_input` 分发顺序与 handled 传播机制理解尚不稳定
-- Enemy dynamic behavior pattern (patrol + contact damage) is not started yet
+- Goal unlock gate (`collect all coins` before goal active) is not started yet
 
 ## Immediate Next Session Goal
 
-Build an enemy patrol + contact damage loop on top of the completed Lesson 9 state/HUD architecture.
+Build an objective gate loop: goal is locked until all required collectibles are finished.
 
-Runbook: `00_plan/lesson_10_2h_runbook.md`
+Runbook: `00_plan/lesson_11_2h_runbook.md`
 
 Lesson Queue: `00_plan/lesson_queue.md`
-- Next prepared lessons: `lesson_11_2h_runbook.md`, `lesson_12_2h_runbook.md`
+- Next prepared lessons: `lesson_12_2h_runbook.md`, `lesson_13_2h_runbook.md`
 
 ## Teaching Preferences (Stable)
 

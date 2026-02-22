@@ -22,6 +22,9 @@ func _ready() -> void:
 		if child.has_signal("hit"):
 			child.process_mode = Node.PROCESS_MODE_PAUSABLE
 			child.hit.connect(_on_hazard_hit)
+		if child.has_signal("hit_player"):
+			child.process_mode = Node.PROCESS_MODE_PAUSABLE
+			child.hit_player.connect(_on_enemy_hit_player)
 		if child.has_signal("reached_goal"):
 			child.process_mode = Node.PROCESS_MODE_PAUSABLE
 			child.reached_goal.connect(_on_goal_reached)
@@ -69,6 +72,9 @@ func _on_hazard_hit() -> void:
 	print("HP: %d" % hp)
 	if hp <= 0:
 		_set_game_state(GameState.GAME_OVER)
+
+func _on_enemy_hit_player() -> void:
+	_on_hazard_hit()
 
 func _refresh_hp_label() -> void:
 	if hud != null and hud.has_method("set_hp"):

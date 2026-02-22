@@ -6,10 +6,9 @@
 
 - Understand `_process(delta)` vs `_physics_process(delta)` in practice
 - Understand `_unhandled_input` dispatch order and handled propagation in practice
-- Build enemy patrol + contact damage loop
 - Build objective gate (`collect all coins` before goal unlock)
 
-Reference runbook: `00_plan/lesson_10_2h_runbook.md`
+Reference runbook: `00_plan/lesson_11_2h_runbook.md`
 
 ## P1
 
@@ -21,6 +20,7 @@ Reference runbook: `00_plan/lesson_10_2h_runbook.md`
 - Practice signal/GUI input propagation diagnostics on a small UI scene
 - Apply release risk matrix to first playable build and mark top 5 risks
 - Add one enemy/hazard interaction using existing `Area2D` pattern
+- Compare `CharacterBody2D` body collision vs `Area2D` trigger hitbox with one concrete scene
 - Run first real migration rehearsal when target version changes (e.g. 4.6 -> 5.0)
 
 ## P2

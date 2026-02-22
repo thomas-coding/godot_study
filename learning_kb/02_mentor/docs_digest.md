@@ -2,6 +2,23 @@
 
 > 规则：每次教学前后补充 1-2 条，记录“读了什么 -> 结论是什么 -> 来源在哪里”。
 
+## 2026-02-22
+
+- Topic: 学员线第10课实作验收（敌人巡逻 + 接触伤害）（Working）
+- Summary:
+  - 完成 `Enemy(CharacterBody2D)` 场景：实体碰撞体负责巡逻移动，`Area2D Hitbox` 负责伤害触发。
+  - 完成两点巡逻与边界反向（`left_bound_x/right_bound_x`），并通过 `Visual.scale.x` 实现朝向翻转。
+  - 在 `Main` 接入 `hit_player` 信号并复用现有扣血逻辑，确保仅在 `PLAYING` 生效。
+  - 替换为学员提供的不对称贴图并调整可视尺寸，便于观察翻转效果。
+  - 学员已能解释世界坐标、相机关系、父子节点变换继承、以及 body collision/hitbox 分工。
+- Source:
+  - `projects/first-game/scenes/enemy.gd`
+  - `projects/first-game/scenes/enemy.tscn`
+  - `projects/first-game/scenes/main.gd`
+  - `projects/first-game/scenes/main.tscn`
+  - `projects/first-game/assets/enemy/enemy.png`
+  - `01_learner/daily_reports/2026-02-22.md`
+
 ## 2026-02-21
 
 - Topic: 学员线第7~第9课实作验收（Working）

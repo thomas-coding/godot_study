@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d1n18f7d7hqr2" path="res://scenes/coin.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://406iyw4t4q3x" path="res://scenes/hazard.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://e4ly1hnyqpjt" path="res://scenes/goal.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" path="res://scenes/enemy.tscn" id="6_71sn6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
 size = Vector2(1311, 40)
@@ -44,6 +45,11 @@ scale = Vector2(0.87545186, 1.0340157)
 
 [node name="Hazards2" parent="." unique_id=1781041526 instance=ExtResource("4_jyhfs")]
 position = Vector2(56, 133)
+
+[node name="Enemy" parent="." instance=ExtResource("6_71sn6")]
+position = Vector2(446, 129)
+left_bound_x = 330.0
+right_bound_x = 540.0
 
 [node name="Goal" parent="." unique_id=357092830 instance=ExtResource("5_tbgi4")]
 position = Vector2(588, 44)

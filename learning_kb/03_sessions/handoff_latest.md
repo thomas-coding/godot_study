@@ -1,6 +1,6 @@
 # Session Handoff (Latest)
 
-Date: 2026-02-21
+Date: 2026-02-22
 
 ## What was completed
 
@@ -17,7 +17,7 @@ Date: 2026-02-21
   - 学员触发词增加 `继续学 / 学下一课 / 第X课`。
   - 导师触发词增加 `你备下课 / 备课`。
   - 每课默认 2h。
-  - 导师线目标为“至少提前 3 课”备课缓冲（见 `00_plan/lesson_queue.md`，当前已恢复到 10~12 课）。
+  - 导师线目标为“至少提前 3 课”备课缓冲（见 `00_plan/lesson_queue.md`，当前维持在 11~17 课）。
   - 新增并对齐第4~第6课 runbook：`lesson_04_2h_runbook.md`、`lesson_05_2h_runbook.md`、`lesson_06_2h_runbook.md`。
   - 新增执行保护：学员线进行中不切导师线备课，避免学员等待；仅在用户明确触发后切导师线。
 - Mentor self-study cycle executed (2026-02-07):
@@ -103,6 +103,11 @@ Date: 2026-02-21
   - 第8课：完成单状态机重构（`WAIT_START/PLAYING/PAUSED/GAME_OVER/WON`）。
   - 第9课：完成 `HUD(CanvasLayer)` 解耦与统一 UI 更新接口。
   - 运行回归通过：状态切换、胜负终态、重开与 UI 提示一致。
+- 学员线第10课已完成（按固定SOP）：
+  - 完成 `Enemy(CharacterBody2D)` 场景与两点巡逻（边界反向 + 朝向翻转）。
+  - 完成 `Area2D Hitbox` 接触伤害信号接线，并复用主流程 hp 扣减逻辑。
+  - 状态机门控通过：仅 `PLAYING` 扣血，`GAME_OVER/WON` 无终态穿透伤害。
+  - 学员已掌握 `global_position` 与 Camera 的关系、body collision 与 hitbox trigger 的职责差异。
 - 导师线课前自学习已完成（为第4课学员课准备）：
   - 新增 M13（输入分发顺序 + pause gate + scene reload 语义）。
   - QA 扩展到 QA055（新增 QA051~QA055）。
@@ -119,7 +124,7 @@ Date: 2026-02-21
   - 新增 `00_plan/lesson_15_2h_runbook.md`（数据驱动参数：Resource）。
   - 新增 `00_plan/lesson_16_2h_runbook.md`（性能优化与帧预算回归）。
   - 新增 `00_plan/lesson_17_2h_runbook.md`（敌人扩展：追踪/投射物与战斗反馈）。
-  - `lesson_queue` 备课缓冲扩展为 `第10课~第17课`（8课）。
+  - `lesson_queue` 备课缓冲扩展为 `第10课~第17课`（8课），第10课完成后当前有效缓冲为 `第11课~第17课`（7课）。
 - Mentor progress dashboard is active: current progress `71%`, sprint target `72%`.
 
 ## Active baseline
@@ -137,22 +142,22 @@ Date: 2026-02-21
 
 - Level: Godot beginner from zero, strong C/C++ engineering background.
 - Confirmed skills: project setup, main scene run, input action creation, debug script attach.
-- Confirmed new skills: `CharacterBody2D` movement/jump + ground collision + `Area2D` collectible/hazard/goal loop + start/pause/restart + game over/win gating.
-- Missing next: build enemy patrol + contact damage loop and continue vertical slice depth.
+- Confirmed new skills: `CharacterBody2D` movement/jump + ground collision + `Area2D` collectible/hazard/goal loop + start/pause/restart + game over/win gating + enemy patrol/contact-damage integration.
+- Missing next: build objective gate (`collect all coins -> unlock goal`) and continue vertical slice depth.
 
-## 学员线下一节课计划（第10课）
+## 学员线下一节课计划（第11课）
 
-- 课程目标：完成敌人巡逻与接触伤害，并接入现有状态机门控。
-- 执行脚本：`00_plan/lesson_10_2h_runbook.md`。
+- 课程目标：完成收集目标门控（收集完成后才允许 Goal 触发胜利）。
+- 执行脚本：`00_plan/lesson_11_2h_runbook.md`。
 - 验收点：
-  1. 至少 1 个敌人可巡逻并造成接触伤害
-  2. `PLAYING` 外不触发伤害（终态无穿透）
-  3. 重开后敌人与状态恢复初始
+  1. 未收集完成前，Goal 不触发胜利
+  2. 收集完成后，Goal 解锁并可正常通关
+  3. 重开后锁定状态恢复初始
 - 排错模板：`04_templates/area2d_interaction_troubleshooting_checklist.md`。
 
-## Next session objective (Lesson 10 prep, 2h)
+## Next session objective (Lesson 11 prep, 2h)
 
-Add enemy patrol behavior and connect contact damage to current state/HUD flow.
+Add objective gating so the goal only works after all required collectibles are completed.
 
 ## First files to read next time
 
@@ -180,7 +185,7 @@ Add enemy patrol behavior and connect contact damage to current state/HUD flow.
 
 ## Suggested first action next session
 
-- Learning mode: read `lesson_queue.md`, then execute `lesson_10_2h_runbook` and complete enemy patrol + contact damage loop.
+- Learning mode: read `lesson_queue.md`, then execute `lesson_11_2h_runbook` and complete collect-all -> unlock-goal gating.
 - Mentor self-study mode: expand quick-answer map to 110+ and playbook to F055.
 - Upgrade mode: execute protocol Step 1 and open migration matrix.
 
