@@ -118,6 +118,16 @@ Version Scope: 4.6
 | SQ108 | `root` 与 `current_scene`、autoload 的关系是什么？ | SceneTree root child boundary | root children may include current_scene and autoloads | `godot/doc/classes/SceneTree.xml` |
 | SQ109 | 为什么切场景后旧场景引用会失效？ | SceneTree ownership and free | SceneTree takes ownership and frees previous scene on next change | `godot/doc/classes/SceneTree.xml`, `godot/scene/main/scene_tree.cpp` |
 | SQ110 | 多关卡中 `R` 重开为何推荐 `reload_current_scene`？ | Restart semantics by current scene | keeps restart scoped to current level, avoids hardcoded back-jump | `godot/doc/classes/SceneTree.xml`, `godot/scene/main/scene_tree.cpp` |
+| SQ111 | `create_timer` 的对象生命周期是什么？ | SceneTreeTimer one-shot lifecycle | emits `timeout` then dereferenced/auto-freed unless retained by reference | `godot/doc/classes/SceneTree.xml`, `godot/doc/classes/SceneTreeTimer.xml` |
+| SQ112 | 为什么暂停后有的 timer 不走了？ | SceneTree pause gate for timers | paused tree skips timers with `process_always=false` | `godot/doc/classes/SceneTree.xml`, `godot/scene/main/scene_tree.cpp` |
+| SQ113 | `process_in_physics=true` 的 timer 在哪一阶段更新？ | SceneTree timer phase selection | timer updates at end of physics frame, after node physics callbacks | `godot/doc/classes/SceneTree.xml`, `godot/scene/main/scene_tree.cpp` |
+| SQ114 | `ignore_time_scale` 底层影响了什么？ | Timer delta source switch | timer subtracts unscaled step instead of frame delta when enabled | `godot/doc/classes/SceneTree.xml`, `godot/scene/main/scene_tree.cpp` |
+| SQ115 | 为什么 timer 看起来总比 `_process` 晚一步？ | Node callbacks vs timer order | node callbacks run first, timer updates later in same frame | `godot/doc/classes/SceneTree.xml`, `godot/doc/classes/SceneTreeTimer.xml` |
+| SQ116 | timeout 回调里新建 timer 为何不在同轮处理？ | Timer traversal boundary snapshot | traversal breaks at initial last element, new timers wait next pass | `godot/scene/main/scene_tree.cpp` |
+| SQ117 | 为什么 `time_left` 读不到负数？ | SceneTreeTimer getter clamp | `get_time_left` returns `MAX(time_left, 0)` | `godot/scene/main/scene_tree.cpp` |
+| SQ118 | timeout 发出后 timer 是何时移除的？ | Timeout emit then erase | emits `timeout` first, then erases timer from list | `godot/scene/main/scene_tree.cpp` |
+| SQ119 | 场景树销毁时如何避免 timer 残留连接？ | SceneTree finalize cleanup | finalize releases timer connections and clears timer list | `godot/scene/main/scene_tree.cpp` |
+| SQ120 | `Engine.time_scale` 与 timer 精度有什么关系？ | Time-scale and simulation precision | time_scale affects timers; high scale may require higher physics ticks | `godot/doc/classes/Engine.xml`, `godot/doc/classes/SceneTree.xml` |
 
 ## Usage Rule
 

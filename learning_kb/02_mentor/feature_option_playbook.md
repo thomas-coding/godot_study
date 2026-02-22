@@ -1106,6 +1106,106 @@ Version Scope: 4.6
 - 缺点：不可观测、不可维护。
 - 适用：不建议。
 
+## F056 - One-shot delay implementation strategy
+
+### Option A (Recommended)
+- 路径：使用 `get_tree().create_timer(...).timeout` 处理一次性延时。
+- 优点：无节点负担，写法短，适合课堂增量开发。
+- 缺点：复杂复用场景下可视化配置能力弱。
+- 适用：技能前摇、短暂提示、教学样例。
+
+### Option B
+- 路径：使用场景内 `Timer` 节点（可重复、可编辑器配置）。
+- 优点：参数可视化，适合策划调参和复用。
+- 缺点：节点管理成本更高。
+- 适用：长期存在的周期逻辑或多状态计时。
+
+### Option C
+- 路径：在 `_process/_physics_process` 里手动累加 `delta`。
+- 优点：逻辑完全可控。
+- 缺点：容易与暂停/时间缩放语义耦合出错。
+- 适用：极少数特殊时序需求。
+
+## F057 - Pause-aware timer policy strategy
+
+### Option A (Recommended)
+- 路径：玩法 timer 统一 `process_always=false`，与 `SceneTree.paused` 同步冻结。
+- 优点：语义一致，回归风险低。
+- 缺点：UI/系统倒计时需额外分流。
+- 适用：课堂项目主线玩法计时。
+
+### Option B
+- 路径：所有 timer 都 `process_always=true`。
+- 优点：暂停时后台逻辑不中断。
+- 缺点：易出现“暂停却状态变化”的体验违和。
+- 适用：联网同步、后台系统计时等特定需求。
+
+### Option C
+- 路径：按职责拆分（玩法 false，UI/系统 true）。
+- 优点：兼顾可玩性与系统时钟稳定。
+- 缺点：需要明确分类规范。
+- 适用：中后期工程化项目。
+
+## F058 - Time-scale policy for timers
+
+### Option A (Recommended)
+- 路径：默认跟随 `Engine.time_scale`，仅少量系统计时设 `ignore_time_scale=true`。
+- 优点：慢动作下体验统一，策略简单。
+- 缺点：需要手动识别“真实时间”计时点。
+- 适用：动作游戏与教学项目。
+
+### Option B
+- 路径：全量 `ignore_time_scale=true`。
+- 优点：所有计时都稳定按真实时间推进。
+- 缺点：慢动作时会出现“视觉慢但 CD 不慢”的违和。
+- 适用：UI 超时、联网时钟优先的项目。
+
+### Option C
+- 路径：关键系统用真实时间，玩法用缩放时间，并在代码注释中标注时钟域。
+- 优点：语义清晰，便于长期维护。
+- 缺点：实现与审查成本更高。
+- 适用：多人协作项目。
+
+## F059 - Reentrant timeout chain strategy
+
+### Option A (Recommended)
+- 路径：在 `timeout` 回调中创建下一轮 timer，接受“下一轮才生效”的引擎语义。
+- 优点：行为稳定，可预测。
+- 缺点：不适合同帧连锁触发需求。
+- 适用：节奏驱动、波次生成、冷却链。
+
+### Option B
+- 路径：若必须同帧连锁，改为显式状态机循环，不依赖新建 timer 立刻处理。
+- 优点：时序明确可控。
+- 缺点：代码复杂度上升。
+- 适用：严格帧内确定性逻辑。
+
+### Option C
+- 路径：通过 `call_deferred` 或消息队列拆分链式动作。
+- 优点：避免递归连锁。
+- 缺点：引入额外异步层，排错成本增加。
+- 适用：复杂事件系统。
+
+## F060 - Timer ownership boundary strategy
+
+### Option A (Recommended)
+- 路径：关卡内临时 timer 放场景本地；跨关卡长期计时放 AutoLoad 管理器。
+- 优点：与场景生命周期一致，重开/切关语义清晰。
+- 缺点：需要定义跨关状态边界。
+- 适用：多关卡教学与中小型项目。
+
+### Option B
+- 路径：全部 timer 放当前场景。
+- 优点：实现简单。
+- 缺点：切关后状态断裂，难做跨关持续逻辑。
+- 适用：单关卡原型。
+
+### Option C
+- 路径：全部 timer 放 AutoLoad。
+- 优点：跨关连续最直接。
+- 缺点：容易产生“离开关卡后仍在跑”的悬挂计时。
+- 适用：已具备严格清理协议的工程。
+
 ## Evidence
 
 - `godot/doc/classes/Node.xml` -> `_input`, `_unhandled_input`, `_unhandled_key_input`
@@ -1134,6 +1234,10 @@ Version Scope: 4.6
 - `godot/doc/classes/CollisionObject2D.xml` -> `collision_layer`, `collision_mask`, `set_collision_layer_value`
 - `godot/doc/classes/SceneTree.xml` -> `paused`, `reload_current_scene`
 - `godot/doc/classes/SceneTree.xml` -> `change_scene_to_file`, `change_scene_to_packed`, `change_scene_to_node`, `scene_changed`, `root`, `current_scene`
+- `godot/doc/classes/SceneTree.xml` -> `create_timer`, `process_always`, `process_in_physics`, `ignore_time_scale`
+- `godot/doc/classes/SceneTreeTimer.xml` -> one-shot lifecycle and frame-order note
+- `godot/doc/classes/Timer.xml` -> node-based timer usage model
+- `godot/doc/classes/Engine.xml` -> `time_scale`
 - `godot/doc/classes/Viewport.xml` -> `push_input`, `set_input_as_handled`
 - `godot/doc/classes/Viewport.xml` -> `msaa_*`, `screen_space_aa`, `use_taa`, `use_debanding`, `snap_2d_*`
 - `godot/scene/2d/physics/character_body_2d.cpp` -> `CharacterBody2D::move_and_slide`, `CharacterBody2D::_apply_floor_snap`
@@ -1141,6 +1245,7 @@ Version Scope: 4.6
 - `godot/scene/main/scene_tree.cpp` -> `SceneTree::queue_delete`, `SceneTree::_flush_delete_queue`
 - `godot/scene/main/scene_tree.cpp` -> `SceneTree::call_group_flagsp`, `SceneTree::notify_group_flags`
 - `godot/scene/main/scene_tree.cpp` -> `SceneTree::change_scene_to_file`, `SceneTree::change_scene_to_node`, `SceneTree::process`, `process_timers`
+- `godot/scene/main/scene_tree.cpp` -> `SceneTree::create_timer`, `SceneTree::process_timers`, `SceneTree::finalize`, `SceneTreeTimer::release_connections`
 - `godot/core/io/resource_loader.cpp` -> `_load_start`, `load_threaded_get_status`
 - `godot/core/object/object.cpp` -> `Object::connect`, `Object::emit_signalp`, `Object::_disconnect`
 - `godot/core/io/json.cpp` -> `JSON::parse`, `JSON::parse_string`

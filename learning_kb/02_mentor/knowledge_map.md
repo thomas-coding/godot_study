@@ -24,7 +24,7 @@ Active Baseline: Godot 4.6
 
 - Godot Core Runtime
   - Status: `in_progress`
-  - Modules: M01, M02, M03, M09, M10, M11, M12, M13, M14
+  - Modules: M01, M02, M03, M09, M10, M11, M12, M13, M14, M15
 
 - Input and Control
   - Status: `done` (baseline)
@@ -81,8 +81,8 @@ Active Baseline: Godot 4.6
 
 ## Current Priority (next sessions)
 
-1. 建立并扩展 source quick-answer map（v1 已完成 110 问题，下一步补到 120+）
-2. 扩展 feature option playbook（当前 F001~F055，下一步目标 >=60）
+1. 建立并扩展 source quick-answer map（v1 已完成 120 问题，下一步补到 130+）
+2. 扩展 feature option playbook（当前 F001~F060，下一步目标 >=65）
 3. 扩展性能与发布链路资产（已完成案例库/回归清单/风险矩阵/样本阈值带，当前重点是自动化执行）
 4. 维护版本兼容矩阵（为未来 5.0 迁移预置状态）
-5. 每次导师自学习后刷新能力看板（当前 71%，下一目标 72%）
+5. 每次导师自学习后刷新能力看板（当前 73%，下一目标 74%）

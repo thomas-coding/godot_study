@@ -32,6 +32,31 @@
   - `projects/first-game/scenes/goal.gd`
   - `01_learner/daily_reports/2026-02-22.md`
 
+- Topic: 导师线自学习（SceneTreeTimer 时序与暂停/时间缩放语义）（Verified/Working）
+- Summary:
+  - 新增 M15：沉淀 `SceneTreeTimer` 的 one-shot 生命周期、暂停门控、`time_scale` 影响与更新顺序。
+  - 新增 K062~K066 与 QA061~QA065，覆盖“暂停后 timer 不走、timeout 时序、回调中再建 timer”等高频课堂问题。
+  - source quick-answer map 从 110 扩展到 120（SQ111~SQ120）。
+  - feature playbook 从 F055 扩展到 F060，补齐延时实现、pause 策略、time-scale 策略、reentrant 链式 timer 与归属边界。
+- Source:
+  - `godot/doc/classes/SceneTree.xml`
+  - `godot/doc/classes/SceneTreeTimer.xml`
+  - `godot/doc/classes/Engine.xml`
+  - `godot/scene/main/scene_tree.cpp`
+  - `02_mentor/modules/M15_scenetreetimer_pause_time_scale_and_update_order.md`
+  - `02_mentor/cards/K062_scenetreetimer_is_one_shot_and_auto_freed.md`
+  - `02_mentor/cards/K063_scenetreetimer_process_always_controls_pause_gate.md`
+  - `02_mentor/cards/K064_scenetreetimer_ignore_time_scale_uses_unscaled_step.md`
+  - `02_mentor/cards/K065_scenetreetimer_newly_added_timers_wait_next_pass.md`
+  - `02_mentor/cards/K066_scenetreetimer_time_left_getter_clamps_non_negative.md`
+  - `02_mentor/qa/QA061_create_timer_vs_timer_node_choice.md`
+  - `02_mentor/qa/QA062_scenetreetimer_stops_when_paused.md`
+  - `02_mentor/qa/QA063_scenetreetimer_timeout_after_process_callbacks.md`
+  - `02_mentor/qa/QA064_ignore_time_scale_for_ui_and_bullet_time.md`
+  - `02_mentor/qa/QA065_timer_created_inside_timeout_not_same_frame.md`
+  - `02_mentor/source_quick_answer_map_v1.md`
+  - `02_mentor/feature_option_playbook.md`
+
 - Topic: 导师线自学习（第12课场景切换资产补齐）（Verified/Working）
 - Summary:
   - 新增 M14：固化“切关两阶段 + `scene_changed` 同步点 + 场景本地/AutoLoad 状态边界”教学口径。

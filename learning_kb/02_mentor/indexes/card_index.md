@@ -66,3 +66,8 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - K059 `change_scene_to_file error codes for fallback` — `Verified` — `02_mentor/cards/K059_change_scene_error_codes_for_fallback.md`
 - K060 `reload_current_scene uses current scene file path` — `Verified` — `02_mentor/cards/K060_reload_current_scene_uses_current_scene_file_path.md`
 - K061 `root contains current_scene and autoload children` — `Verified` — `02_mentor/cards/K061_root_contains_current_scene_and_autoload_children.md`
+- K062 `scenetreetimer one-shot auto-free` — `Verified` — `02_mentor/cards/K062_scenetreetimer_is_one_shot_and_auto_freed.md`
+- K063 `scenetreetimer process_always pause gate` — `Verified` — `02_mentor/cards/K063_scenetreetimer_process_always_controls_pause_gate.md`
+- K064 `scenetreetimer ignore_time_scale unscaled step` — `Verified` — `02_mentor/cards/K064_scenetreetimer_ignore_time_scale_uses_unscaled_step.md`
+- K065 `scenetreetimer newly added timers next pass` — `Verified` — `02_mentor/cards/K065_scenetreetimer_newly_added_timers_wait_next_pass.md`
+- K066 `scenetreetimer time_left non-negative clamp` — `Verified` — `02_mentor/cards/K066_scenetreetimer_time_left_getter_clamps_non_negative.md`

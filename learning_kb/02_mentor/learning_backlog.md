@@ -72,6 +72,12 @@
 - [done] Expand quick-answer map to 110 and playbook to F055
   - Output: `02_mentor/source_quick_answer_map_v1.md` (`SQ101~SQ110`), `02_mentor/feature_option_playbook.md` (`F051~F055`)
 
+- [done] Build SceneTreeTimer teaching assets and Q&A pack
+  - Output: `02_mentor/modules/M15_scenetreetimer_pause_time_scale_and_update_order.md`, `02_mentor/cards/K062~K066`, `02_mentor/qa/QA061~QA065`
+
+- [done] Expand quick-answer map to 120 and playbook to F060
+  - Output: `02_mentor/source_quick_answer_map_v1.md` (`SQ111~SQ120`), `02_mentor/feature_option_playbook.md` (`F056~F060`)
+
 ## P2 (mid term)
 
 - 2D graphics and math fundamentals for gameplay programming

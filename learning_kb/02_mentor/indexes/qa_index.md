@@ -65,3 +65,8 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - QA058 `change_scene failure handling` — `02_mentor/qa/QA058_change_scene_failure_handling.md`
 - QA059 `scene-local vs autoload state boundary` — `02_mentor/qa/QA059_scene_local_vs_autoload_state_boundary.md`
 - QA060 `restart semantics in multi-level flow` — `02_mentor/qa/QA060_restart_semantics_in_multi_level_flow.md`
+- QA061 `create_timer vs Timer node choice` — `02_mentor/qa/QA061_create_timer_vs_timer_node_choice.md`
+- QA062 `scenetreetimer stops when paused` — `02_mentor/qa/QA062_scenetreetimer_stops_when_paused.md`
+- QA063 `scenetreetimer timeout after process callbacks` — `02_mentor/qa/QA063_scenetreetimer_timeout_after_process_callbacks.md`
+- QA064 `ignore_time_scale for UI and bullet-time` — `02_mentor/qa/QA064_ignore_time_scale_for_ui_and_bullet_time.md`
+- QA065 `timer created inside timeout not same frame` — `02_mentor/qa/QA065_timer_created_inside_timeout_not_same_frame.md`

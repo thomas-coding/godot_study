@@ -30,6 +30,7 @@ Active Baseline: `4.6`
 | M12 | module | verified | not_started | 2026-02-18 | `02_mentor/modules/M12_area2d_collision_layers_and_interaction_flow.md` | Area2D interaction flow + layer/mask + safe removal timing |
 | M13 | module | verified | not_started | 2026-02-19 | `02_mentor/modules/M13_input_dispatch_pause_gates_and_scene_reload_semantics.md` | Input dispatch order + pause gates + scene reload scope |
 | M14 | module | verified | not_started | 2026-02-22 | `02_mentor/modules/M14_level_transition_consistency_and_handoff_boundaries.md` | Level transition consistency + scene_changed + state boundary |
+| M15 | module | verified | not_started | 2026-02-22 | `02_mentor/modules/M15_scenetreetimer_pause_time_scale_and_update_order.md` | SceneTreeTimer pause/time-scale semantics + update order |
 
 ## Cards
 
@@ -96,6 +97,11 @@ Active Baseline: `4.6`
 | K059 | card | verified | not_started | 2026-02-22 | `02_mentor/cards/K059_change_scene_error_codes_for_fallback.md` | change_scene_to_file error codes and fallback |
 | K060 | card | verified | not_started | 2026-02-22 | `02_mentor/cards/K060_reload_current_scene_uses_current_scene_file_path.md` | reload_current_scene routes via current scene file path |
 | K061 | card | verified | not_started | 2026-02-22 | `02_mentor/cards/K061_root_contains_current_scene_and_autoload_children.md` | root contains current_scene and autoload siblings |
+| K062 | card | verified | not_started | 2026-02-22 | `02_mentor/cards/K062_scenetreetimer_is_one_shot_and_auto_freed.md` | SceneTreeTimer one-shot and auto-free |
+| K063 | card | verified | not_started | 2026-02-22 | `02_mentor/cards/K063_scenetreetimer_process_always_controls_pause_gate.md` | process_always controls pause gate |
+| K064 | card | verified | not_started | 2026-02-22 | `02_mentor/cards/K064_scenetreetimer_ignore_time_scale_uses_unscaled_step.md` | ignore_time_scale uses unscaled step |
+| K065 | card | verified | not_started | 2026-02-22 | `02_mentor/cards/K065_scenetreetimer_newly_added_timers_wait_next_pass.md` | newly added timers wait next pass |
+| K066 | card | verified | not_started | 2026-02-22 | `02_mentor/cards/K066_scenetreetimer_time_left_getter_clamps_non_negative.md` | get_time_left clamps non-negative |
 
 ## QA
 
@@ -161,6 +167,11 @@ Active Baseline: `4.6`
 | QA058 | qa | verified | not_started | 2026-02-22 | `02_mentor/qa/QA058_change_scene_failure_handling.md` | change_scene error handling strategy |
 | QA059 | qa | verified | not_started | 2026-02-22 | `02_mentor/qa/QA059_scene_local_vs_autoload_state_boundary.md` | scene-local vs autoload state boundary |
 | QA060 | qa | verified | not_started | 2026-02-22 | `02_mentor/qa/QA060_restart_semantics_in_multi_level_flow.md` | restart semantics in multi-level flow |
+| QA061 | qa | verified | not_started | 2026-02-22 | `02_mentor/qa/QA061_create_timer_vs_timer_node_choice.md` | create_timer vs Timer node choice |
+| QA062 | qa | verified | not_started | 2026-02-22 | `02_mentor/qa/QA062_scenetreetimer_stops_when_paused.md` | SceneTreeTimer pause behavior |
+| QA063 | qa | verified | not_started | 2026-02-22 | `02_mentor/qa/QA063_scenetreetimer_timeout_after_process_callbacks.md` | timeout order after node callbacks |
+| QA064 | qa | verified | not_started | 2026-02-22 | `02_mentor/qa/QA064_ignore_time_scale_for_ui_and_bullet_time.md` | ignore_time_scale policy under bullet-time |
+| QA065 | qa | verified | not_started | 2026-02-22 | `02_mentor/qa/QA065_timer_created_inside_timeout_not_same_frame.md` | reentrant timer timing semantics |
 
 ## Update Rule
 
