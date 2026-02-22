@@ -1,6 +1,6 @@
 # QA Index
 
-Last Updated: 2026-02-19
+Last Updated: 2026-02-22
 Active Baseline: 4.6
 
 Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
@@ -60,3 +60,8 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - QA053 `restart called while paused state` — `02_mentor/qa/QA053_restart_called_while_paused.md`
 - QA054 `reload_current_scene reset scope` — `02_mentor/qa/QA054_reload_current_scene_reset_scope.md`
 - QA055 `input callback choice for gameplay hotkeys` — `02_mentor/qa/QA055_input_callback_choice_for_gameplay_hotkeys.md`
+- QA056 `current_scene null right after change_scene` — `02_mentor/qa/QA056_current_scene_null_right_after_change_scene.md`
+- QA057 `best hook for post-transition init` — `02_mentor/qa/QA057_best_hook_for_post_transition_init.md`
+- QA058 `change_scene failure handling` — `02_mentor/qa/QA058_change_scene_failure_handling.md`
+- QA059 `scene-local vs autoload state boundary` — `02_mentor/qa/QA059_scene_local_vs_autoload_state_boundary.md`
+- QA060 `restart semantics in multi-level flow` — `02_mentor/qa/QA060_restart_semantics_in_multi_level_flow.md`

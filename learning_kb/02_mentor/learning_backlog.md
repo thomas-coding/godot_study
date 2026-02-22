@@ -66,6 +66,12 @@
 - [done] Refill prep buffer after learner reached Lesson 9
   - Output: `00_plan/lesson_10_2h_runbook.md`, `00_plan/lesson_11_2h_runbook.md`, `00_plan/lesson_12_2h_runbook.md`, updated `00_plan/lesson_queue.md`
 
+- [done] Build Lesson12 scene-transition teaching assets and Q&A pack
+  - Output: `02_mentor/modules/M14_level_transition_consistency_and_handoff_boundaries.md`, `02_mentor/cards/K057~K061`, `02_mentor/qa/QA056~QA060`
+
+- [done] Expand quick-answer map to 110 and playbook to F055
+  - Output: `02_mentor/source_quick_answer_map_v1.md` (`SQ101~SQ110`), `02_mentor/feature_option_playbook.md` (`F051~F055`)
+
 ## P2 (mid term)
 
 - 2D graphics and math fundamentals for gameplay programming

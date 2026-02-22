@@ -32,6 +32,29 @@
   - `projects/first-game/scenes/goal.gd`
   - `01_learner/daily_reports/2026-02-22.md`
 
+- Topic: 导师线自学习（第12课场景切换资产补齐）（Verified/Working）
+- Summary:
+  - 新增 M14：固化“切关两阶段 + `scene_changed` 同步点 + 场景本地/AutoLoad 状态边界”教学口径。
+  - 新增 K057~K061 与 QA056~QA060，覆盖“`current_scene` 空窗期、切关失败码、多关卡重开语义”等高频疑问。
+  - source quick-answer map 从 100 扩展到 110（SQ101~SQ110），聚焦场景切换稳定性与容错。
+  - feature playbook 从 F050 扩展到 F055，补齐关卡切换触发、切关后初始化、状态边界、重开语义与失败回退策略。
+- Source:
+  - `godot/doc/classes/SceneTree.xml`
+  - `godot/scene/main/scene_tree.cpp`
+  - `02_mentor/modules/M14_level_transition_consistency_and_handoff_boundaries.md`
+  - `02_mentor/cards/K057_scene_changed_is_post_switch_safe_hook.md`
+  - `02_mentor/cards/K058_current_scene_null_window_during_scene_switch.md`
+  - `02_mentor/cards/K059_change_scene_error_codes_for_fallback.md`
+  - `02_mentor/cards/K060_reload_current_scene_uses_current_scene_file_path.md`
+  - `02_mentor/cards/K061_root_contains_current_scene_and_autoload_children.md`
+  - `02_mentor/qa/QA056_current_scene_null_right_after_change_scene.md`
+  - `02_mentor/qa/QA057_best_hook_for_post_transition_init.md`
+  - `02_mentor/qa/QA058_change_scene_failure_handling.md`
+  - `02_mentor/qa/QA059_scene_local_vs_autoload_state_boundary.md`
+  - `02_mentor/qa/QA060_restart_semantics_in_multi_level_flow.md`
+  - `02_mentor/source_quick_answer_map_v1.md`
+  - `02_mentor/feature_option_playbook.md`
+
 ## 2026-02-21
 
 - Topic: 学员线第7~第9课实作验收（Working）

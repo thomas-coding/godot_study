@@ -1,6 +1,6 @@
 # Feature Option Playbook (Godot 4.6)
 
-Last Updated: 2026-02-19
+Last Updated: 2026-02-22
 Status: Working
 Version Scope: 4.6
 
@@ -1006,6 +1006,106 @@ Version Scope: 4.6
 - 缺点：新手初期抽象负担偏大。
 - 适用：工程化程度较高的长期项目。
 
+## F051 - Level transition trigger strategy (Level 1 -> Level 2)
+
+### Option A (Recommended)
+- 路径：在 Level 1 的 `WON` 分支调用 `change_scene_to_file("res://scenes/level_02.tscn")`，并检查返回值。
+- 优点：路径清晰、与第12课目标一致、实现最短。
+- 缺点：关卡路径直接写在主流程，后续关卡多时要抽象。
+- 适用：两关最小闭环与教学首版。
+
+### Option B
+- 路径：使用 AutoLoad `TransitionManager` 统一负责切关。
+- 优点：职责清晰，可统一做转场动画/日志/容错。
+- 缺点：前期结构成本更高。
+- 适用：计划扩展到 3+ 关卡或加入过场系统。
+
+### Option C
+- 路径：提前 preload `PackedScene`，在关键节点调用 `change_scene_to_packed`。
+- 优点：减少运行时路径拼写错误风险。
+- 缺点：资产管理复杂度上升。
+- 适用：资源路径稳定、希望减少运行时加载分支的项目。
+
+## F052 - Post-transition initialization hook strategy
+
+### Option A (Recommended)
+- 路径：场景内初始化放 `_ready`，跨场景编排在 AutoLoad 中 `await scene_changed`。
+- 优点：时序稳定，教学解释性强。
+- 缺点：需要区分“场景本地初始化”和“全局编排初始化”。
+- 适用：第12课及后续多关卡教学。
+
+### Option B
+- 路径：`change_scene_*` 后立即访问 `current_scene` 做初始化。
+- 优点：写法直觉化。
+- 缺点：容易踩到 `current_scene` 空窗期导致空引用。
+- 适用：不推荐，除非已自行做空值重试机制。
+
+### Option C
+- 路径：仅用 `call_deferred` 延后一帧再访问。
+- 优点：代码量小。
+- 缺点：依赖帧时序假设，不如 `scene_changed` 明确。
+- 适用：过渡方案或临时修复。
+
+## F053 - Cross-level state boundary strategy
+
+### Option A (Recommended)
+- 路径：关卡瞬时状态放场景本地，跨关状态放 AutoLoad。
+- 优点：重开语义清晰，状态污染低。
+- 缺点：需要明确边界文档。
+- 适用：教学项目与中小型多关卡项目。
+
+### Option B
+- 路径：全部状态都放当前场景脚本。
+- 优点：单文件直观。
+- 缺点：切关后状态难以延续，跨关统计不便。
+- 适用：单关卡原型。
+
+### Option C
+- 路径：全部状态都放 AutoLoad。
+- 优点：跨关共享简单。
+- 缺点：易出现“重开后仍残留状态”回归。
+- 适用：已有严格 reset 协议的项目。
+
+## F054 - Restart semantics strategy in multi-level project
+
+### Option A (Recommended)
+- 路径：统一用 `reload_current_scene()` 作为 `R` 重开。
+- 优点：语义稳定，自动保持“重开当前关”。
+- 缺点：无法直接做局部重置优化。
+- 适用：教学阶段和多数 2D 关卡项目。
+
+### Option B
+- 路径：硬编码 `change_scene_to_file("level_01")`。
+- 优点：实现简单。
+- 缺点：在 Level 2 按重开会错误回 Level 1。
+- 适用：仅一次性演示，不建议长期使用。
+
+### Option C
+- 路径：checkpoint 系统做局部重置而非重载场景。
+- 优点：体验更平滑、可保留部分状态。
+- 缺点：实现和排错成本显著增加。
+- 适用：中后期体验优化。
+
+## F055 - Scene-switch failure fallback strategy
+
+### Option A (Recommended)
+- 路径：检查 `change_scene_*` 返回值，失败时输出错误码 + HUD 提示 + 保留当前关卡。
+- 优点：最小容错闭环完整，定位快。
+- 缺点：需要补一层错误文案。
+- 适用：教学与实战通用。
+
+### Option B
+- 路径：失败后自动重试一次，再失败才提示。
+- 优点：可掩盖偶发资源竞争。
+- 缺点：会放大时序不确定性，排错更难。
+- 适用：有明确偶发失败证据的项目。
+
+### Option C
+- 路径：失败直接静默忽略。
+- 优点：实现最少。
+- 缺点：不可观测、不可维护。
+- 适用：不建议。
+
 ## Evidence
 
 - `godot/doc/classes/Node.xml` -> `_input`, `_unhandled_input`, `_unhandled_key_input`
@@ -1033,6 +1133,7 @@ Version Scope: 4.6
 - `godot/doc/classes/Area2D.xml` -> `body_entered`, `body_shape_entered`, `monitoring`, `monitorable`, `get_overlapping_bodies`
 - `godot/doc/classes/CollisionObject2D.xml` -> `collision_layer`, `collision_mask`, `set_collision_layer_value`
 - `godot/doc/classes/SceneTree.xml` -> `paused`, `reload_current_scene`
+- `godot/doc/classes/SceneTree.xml` -> `change_scene_to_file`, `change_scene_to_packed`, `change_scene_to_node`, `scene_changed`, `root`, `current_scene`
 - `godot/doc/classes/Viewport.xml` -> `push_input`, `set_input_as_handled`
 - `godot/doc/classes/Viewport.xml` -> `msaa_*`, `screen_space_aa`, `use_taa`, `use_debanding`, `snap_2d_*`
 - `godot/scene/2d/physics/character_body_2d.cpp` -> `CharacterBody2D::move_and_slide`, `CharacterBody2D::_apply_floor_snap`

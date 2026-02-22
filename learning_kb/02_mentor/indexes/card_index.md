@@ -1,6 +1,6 @@
 # Card Index
 
-Last Updated: 2026-02-19
+Last Updated: 2026-02-22
 Active Baseline: 4.6
 
 Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
@@ -61,3 +61,8 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - K054 `process_mode inherit pause pitfall` — `Verified` — `02_mentor/cards/K054_process_mode_inherit_can_break_pause_expectation.md`
 - K055 `reload_current_scene main-thread and file-path flow` — `Verified` — `02_mentor/cards/K055_reload_current_scene_uses_current_scene_file_path.md`
 - K056 `scene reload resets scene-local not autoload` — `Verified` — `02_mentor/cards/K056_scene_reload_resets_scene_local_but_not_autoload.md`
+- K057 `scene_changed post-switch safe hook` — `Verified` — `02_mentor/cards/K057_scene_changed_is_post_switch_safe_hook.md`
+- K058 `current_scene null window during scene switch` — `Verified` — `02_mentor/cards/K058_current_scene_null_window_during_scene_switch.md`
+- K059 `change_scene_to_file error codes for fallback` — `Verified` — `02_mentor/cards/K059_change_scene_error_codes_for_fallback.md`
+- K060 `reload_current_scene uses current scene file path` — `Verified` — `02_mentor/cards/K060_reload_current_scene_uses_current_scene_file_path.md`
+- K061 `root contains current_scene and autoload children` — `Verified` — `02_mentor/cards/K061_root_contains_current_scene_and_autoload_children.md`

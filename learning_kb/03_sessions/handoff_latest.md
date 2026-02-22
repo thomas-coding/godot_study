@@ -113,6 +113,11 @@ Date: 2026-02-22
   - 完成 Goal 条件触发：未收集完成前拒绝通关，收集完成后允许 `WON`。
   - 完成 HUD 目标状态提示：`Goal: LOCKED/UNLOCKED (x/y)`。
   - 运行回归通过：未解锁不通关、解锁后可通关、`R` 重开恢复锁定初始态。
+- 导师线自学习已完成（本轮触发）：
+  - 新增 `M14`（场景切换一致性 + `scene_changed` 同步点 + 状态边界）。
+  - 新增 `K057~K061` 与 `QA056~QA060`（关卡切换空窗期/失败码/重开语义）。
+  - source quick-answer map 扩展到 110（`SQ101~SQ110`）。
+  - feature playbook 扩展到 F055（`F051~F055`）。
 - 导师线课前自学习已完成（为第4课学员课准备）：
   - 新增 M13（输入分发顺序 + pause gate + scene reload 语义）。
   - QA 扩展到 QA055（新增 QA051~QA055）。
@@ -130,7 +135,7 @@ Date: 2026-02-22
   - 新增 `00_plan/lesson_16_2h_runbook.md`（性能优化与帧预算回归）。
   - 新增 `00_plan/lesson_17_2h_runbook.md`（敌人扩展：追踪/投射物与战斗反馈）。
   - `lesson_queue` 备课缓冲扩展为 `第10课~第17课`（8课），第10/11课完成后当前有效缓冲为 `第12课~第17课`（6课）。
-- Mentor progress dashboard is active: current progress `71%`, sprint target `72%`.
+- Mentor progress dashboard is active: current progress `72%`, sprint target `73%`.
 
 ## Active baseline
 
@@ -141,7 +146,7 @@ Date: 2026-02-22
   - docs channel: `https://docs.godotengine.org/en/stable/`
 - Mentor capability baseline:
   - dashboard: `02_mentor/mentor_progress_dashboard.md`
-  - current overall: `71%`
+  - current overall: `72%`
 
 ## Current learner state
 
@@ -191,7 +196,7 @@ Build a minimal scene transition from Level 1 to Level 2 with stable state/HUD b
 ## Suggested first action next session
 
 - Learning mode: read `lesson_queue.md`, then execute `lesson_12_2h_runbook` and complete Level 1 -> Level 2 transition.
-- Mentor self-study mode: expand quick-answer map to 110+ and playbook to F055.
+- Mentor self-study mode: expand quick-answer map to 120+ and playbook to F060; continue threshold-band automation.
 - Upgrade mode: execute protocol Step 1 and open migration matrix.
 
 ## Bootstrap Hint for new AI

@@ -1,6 +1,6 @@
 # Version Compatibility Matrix
 
-Last Updated: 2026-02-19
+Last Updated: 2026-02-22
 Active Baseline: `4.6`
 
 ## Status Legend
@@ -29,6 +29,7 @@ Active Baseline: `4.6`
 | M11 | module | verified | not_started | 2026-02-08 | `02_mentor/modules/M11_signal_gui_input_and_pause_aware_processing.md` | Signal dispatch + GUI input + pause-aware processing |
 | M12 | module | verified | not_started | 2026-02-18 | `02_mentor/modules/M12_area2d_collision_layers_and_interaction_flow.md` | Area2D interaction flow + layer/mask + safe removal timing |
 | M13 | module | verified | not_started | 2026-02-19 | `02_mentor/modules/M13_input_dispatch_pause_gates_and_scene_reload_semantics.md` | Input dispatch order + pause gates + scene reload scope |
+| M14 | module | verified | not_started | 2026-02-22 | `02_mentor/modules/M14_level_transition_consistency_and_handoff_boundaries.md` | Level transition consistency + scene_changed + state boundary |
 
 ## Cards
 
@@ -90,6 +91,11 @@ Active Baseline: `4.6`
 | K054 | card | verified | not_started | 2026-02-19 | `02_mentor/cards/K054_process_mode_inherit_can_break_pause_expectation.md` | process_mode inherit pause pitfall |
 | K055 | card | verified | not_started | 2026-02-19 | `02_mentor/cards/K055_reload_current_scene_uses_current_scene_file_path.md` | reload_current_scene main-thread and path flow |
 | K056 | card | verified | not_started | 2026-02-19 | `02_mentor/cards/K056_scene_reload_resets_scene_local_but_not_autoload.md` | reload reset scope vs autoload |
+| K057 | card | verified | not_started | 2026-02-22 | `02_mentor/cards/K057_scene_changed_is_post_switch_safe_hook.md` | scene_changed as post-switch safe hook |
+| K058 | card | verified | not_started | 2026-02-22 | `02_mentor/cards/K058_current_scene_null_window_during_scene_switch.md` | current_scene null window during scene switch |
+| K059 | card | verified | not_started | 2026-02-22 | `02_mentor/cards/K059_change_scene_error_codes_for_fallback.md` | change_scene_to_file error codes and fallback |
+| K060 | card | verified | not_started | 2026-02-22 | `02_mentor/cards/K060_reload_current_scene_uses_current_scene_file_path.md` | reload_current_scene routes via current scene file path |
+| K061 | card | verified | not_started | 2026-02-22 | `02_mentor/cards/K061_root_contains_current_scene_and_autoload_children.md` | root contains current_scene and autoload siblings |
 
 ## QA
 
@@ -150,6 +156,11 @@ Active Baseline: `4.6`
 | QA053 | qa | verified | not_started | 2026-02-19 | `02_mentor/qa/QA053_restart_called_while_paused.md` | restart from paused state |
 | QA054 | qa | verified | not_started | 2026-02-19 | `02_mentor/qa/QA054_reload_current_scene_reset_scope.md` | reload_current_scene reset scope |
 | QA055 | qa | verified | not_started | 2026-02-19 | `02_mentor/qa/QA055_input_callback_choice_for_gameplay_hotkeys.md` | input callback choice for gameplay hotkeys |
+| QA056 | qa | verified | not_started | 2026-02-22 | `02_mentor/qa/QA056_current_scene_null_right_after_change_scene.md` | current_scene null window after scene switch |
+| QA057 | qa | verified | not_started | 2026-02-22 | `02_mentor/qa/QA057_best_hook_for_post_transition_init.md` | post-transition initialization hook choice |
+| QA058 | qa | verified | not_started | 2026-02-22 | `02_mentor/qa/QA058_change_scene_failure_handling.md` | change_scene error handling strategy |
+| QA059 | qa | verified | not_started | 2026-02-22 | `02_mentor/qa/QA059_scene_local_vs_autoload_state_boundary.md` | scene-local vs autoload state boundary |
+| QA060 | qa | verified | not_started | 2026-02-22 | `02_mentor/qa/QA060_restart_semantics_in_multi_level_flow.md` | restart semantics in multi-level flow |
 
 ## Update Rule
 

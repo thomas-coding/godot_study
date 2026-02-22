@@ -1,6 +1,6 @@
 # Source Quick-Answer Map v1 (Godot 4.6)
 
-Last Updated: 2026-02-19
+Last Updated: 2026-02-22
 Status: Working
 Version Scope: 4.6
 
@@ -108,6 +108,16 @@ Version Scope: 4.6
 | SQ98 | 为什么重开后 autoload 状态没清零？ | Scene reload scope boundary | reload rebuilds current scene, not root-level autoload nodes | `godot/doc/classes/SceneTree.xml`, `godot/scene/main/scene_tree.cpp` |
 | SQ99 | 为什么暂停时有的节点还能收输入？ | SceneTree input dispatch + can_process | `_call_input_pause` skips nodes failing `can_process`; `ALWAYS` still runs | `godot/scene/main/scene_tree.cpp`, `godot/scene/main/node.cpp` |
 | SQ100 | `_ready` 的父子调用顺序是什么？ | Node lifecycle order | `_enter_tree` parent-first, `_ready` child-first then parent | `godot/doc/classes/Node.xml` |
+| SQ101 | 为什么切场景后 `current_scene` 会暂时是空？ | Scene change two-phase commit | old scene removed immediately, new scene committed at frame end | `godot/doc/classes/SceneTree.xml`, `godot/scene/main/scene_tree.cpp` |
+| SQ102 | 切关后什么时候能稳定访问新场景？ | SceneTree `scene_changed` timing | await `scene_changed`, emitted after new scene is added and initialized | `godot/doc/classes/SceneTree.xml`, `godot/scene/main/scene_tree.cpp` |
+| SQ103 | `change_scene_to_file` 失败怎么判断原因？ | SceneTree error code mapping | returns `ERR_CANT_OPEN` for load fail, `ERR_CANT_CREATE` for instantiate fail | `godot/doc/classes/SceneTree.xml`, `godot/scene/main/scene_tree.cpp` |
+| SQ104 | 为什么切场景必须在主线程？ | SceneTree main-thread guard | scene change APIs guard with `Thread::is_main_thread()` | `godot/scene/main/scene_tree.cpp` |
+| SQ105 | `reload_current_scene` 底层用的是什么路径？ | SceneTree reload route | reads `current_scene->get_scene_file_path()` then `change_scene_to_file` | `godot/scene/main/scene_tree.cpp` |
+| SQ106 | `change_scene_to_packed` 什么时候会报参数错误？ | SceneTree packed scene validation | null packed scene returns `ERR_INVALID_PARAMETER` | `godot/doc/classes/SceneTree.xml`, `godot/scene/main/scene_tree.cpp` |
+| SQ107 | pending 切换时再次切场景会怎样？ | SceneTree pending scene replacement | previous pending scene is queued for delete before replacing | `godot/scene/main/scene_tree.cpp` |
+| SQ108 | `root` 与 `current_scene`、autoload 的关系是什么？ | SceneTree root child boundary | root children may include current_scene and autoloads | `godot/doc/classes/SceneTree.xml` |
+| SQ109 | 为什么切场景后旧场景引用会失效？ | SceneTree ownership and free | SceneTree takes ownership and frees previous scene on next change | `godot/doc/classes/SceneTree.xml`, `godot/scene/main/scene_tree.cpp` |
+| SQ110 | 多关卡中 `R` 重开为何推荐 `reload_current_scene`？ | Restart semantics by current scene | keeps restart scoped to current level, avoids hardcoded back-jump | `godot/doc/classes/SceneTree.xml`, `godot/scene/main/scene_tree.cpp` |
 
 ## Usage Rule
 
