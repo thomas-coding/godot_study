@@ -2,6 +2,22 @@
 
 > 规则：每次教学前后补充 1-2 条，记录“读了什么 -> 结论是什么 -> 来源在哪里”。
 
+## 2026-02-24
+
+- Topic: 学员线第12课实作验收（关卡切换最小闭环 + 多关卡链路练习）（Working）
+- Summary:
+  - 完成 `Level 1 -> Level 2` 场景切换：在 `WON` 后按配置路径切关，并保留 `R` 重开当前关语义。
+  - `Main` 新增 `next_level_scene_path` 导出字段，支持每个关卡在 Inspector 单独配置下一关。
+  - 切关逻辑采用 `call_deferred` 执行，避免在信号回调当帧直接切场景的时序风险。
+  - 新增 `level_02.tscn`，并扩展练习创建 `level_03.tscn`，验证多关卡链路与终关停留语义。
+  - 复盘并修正了“03 配回 02”导致回环的问题，明确终关需要空 next path。
+- Source:
+  - `projects/first-game/scenes/main.gd`
+  - `projects/first-game/scenes/main.tscn`
+  - `projects/first-game/scenes/level_02.tscn`
+  - `projects/first-game/scenes/level_03.tscn`
+  - `01_learner/daily_reports/2026-02-24.md`
+
 ## 2026-02-22
 
 - Topic: 学员线第10课实作验收（敌人巡逻 + 接触伤害）（Working）

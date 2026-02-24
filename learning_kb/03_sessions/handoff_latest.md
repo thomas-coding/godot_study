@@ -1,10 +1,11 @@
 # Session Handoff (Latest)
 
-Date: 2026-02-22
+Date: 2026-02-24
 
 ## What was completed
 
 - Day 1 done: Godot installed, project runs with `F5`, Input Map created, `jump` verified.
+- 学员线第12课已完成（2026-02-24）：`Level 1 -> Level 2` 切关闭环通过，且完成了 `Level 3` 扩展练习与终关停留语义校验（避免回环误配）。
 - KB now supports versioned continuity:
   - `00_meta/version_registry.md`
   - `00_meta/version_upgrade_protocol.md`
@@ -157,22 +158,22 @@ Date: 2026-02-22
 
 - Level: Godot beginner from zero, strong C/C++ engineering background.
 - Confirmed skills: project setup, main scene run, input action creation, debug script attach.
-- Confirmed new skills: `CharacterBody2D` movement/jump + ground collision + `Area2D` collectible/hazard/goal loop + start/pause/restart + game over/win gating + enemy patrol/contact-damage integration + objective gate unlock flow.
-- Missing next: build Level 1 -> Level 2 transition and continue vertical slice depth.
+- Confirmed new skills: `CharacterBody2D` movement/jump + ground collision + `Area2D` collectible/hazard/goal loop + start/pause/restart + game over/win gating + enemy patrol/contact-damage integration + objective gate unlock flow + level transition chain (`change_scene_to_file` + Inspector-configured next-level path).
+- Missing next: start save/settings foundation (`ConfigFile`) and stabilize multi-level content pipeline.
 
-## 学员线下一节课计划（第12课）
+## 学员线下一节课计划（第13课）
 
-- 课程目标：完成关卡切换最小闭环（Level 1 通关后进入 Level 2）。
-- 执行脚本：`00_plan/lesson_12_2h_runbook.md`。
+- 课程目标：完成最小可用存档与设置基础（配置读写 + 重启后生效）。
+- 执行脚本：`00_plan/lesson_13_2h_runbook.md`。
 - 验收点：
-  1. Level 1 通关后可切换到 Level 2
-  2. Level 2 初始化状态正确（HUD/状态机不乱）
-  3. 重开后场景与状态恢复可预期
+  1. 配置可写入 `user://` 并可在下次运行读取
+  2. 至少 1 个设置项能通过 UI/输入修改并即时或重启后生效
+  3. 配置异常时有最小回退策略，不阻塞运行
 - 排错模板：`04_templates/area2d_interaction_troubleshooting_checklist.md`。
 
-## Next session objective (Lesson 12 prep, 2h)
+## Next session objective (Lesson 13 prep, 2h)
 
-Build a minimal scene transition from Level 1 to Level 2 with stable state/HUD behavior.
+Build a minimal save/settings loop with ConfigFile and validate persistence behavior.
 
 ## First files to read next time
 
@@ -200,7 +201,7 @@ Build a minimal scene transition from Level 1 to Level 2 with stable state/HUD b
 
 ## Suggested first action next session
 
-- Learning mode: read `lesson_queue.md`, then execute `lesson_12_2h_runbook` and complete Level 1 -> Level 2 transition.
+- Learning mode: read `lesson_queue.md`, then execute `lesson_13_2h_runbook` for ConfigFile save/settings foundation.
 - Mentor self-study mode: expand quick-answer map to 130+ and playbook to F065; continue threshold-band automation.
 - Upgrade mode: execute protocol Step 1 and open migration matrix.
 

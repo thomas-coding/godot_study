@@ -1,6 +1,7 @@
 extends Node2D
 var collected_count := 0
 var hp := 3
+@export_file("*.tscn") var next_level_scene_path := ""
 
 var total_coins := 0
 var remaining_coins := 0
@@ -104,6 +105,14 @@ func _on_goal_reached() -> void:
 		return
 	_set_game_state(GameState.WON)
 	print("YOU WIN")
+	if not next_level_scene_path.is_empty():
+		call_deferred("_go_to_next_level")
+
+func _go_to_next_level() -> void:
+	get_tree().paused = false
+	var err := get_tree().change_scene_to_file(next_level_scene_path)
+	if err != OK:
+		push_warning("Level switch failed. err=%d path=%s" % [err, next_level_scene_path])
 
 func _set_game_state(next_state: GameState) -> void:
 	game_state = next_state

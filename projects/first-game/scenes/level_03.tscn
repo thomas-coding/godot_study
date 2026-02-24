@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://ccyr06hiumc33"]
+
+[ext_resource type="Script" uid="uid://cwdm2mvoc7jl1" path="res://scenes/main.gd" id="1_si4cl"]
+[ext_resource type="PackedScene" uid="uid://b02sdjjdkt47h" path="res://scenes/hud.tscn" id="2_8idsu"]
+[ext_resource type="PackedScene" uid="uid://bma8wsy6t2ey5" path="res://scenes/player.tscn" id="3_2lv0n"]
+[ext_resource type="PackedScene" uid="uid://d1n18f7d7hqr2" path="res://scenes/coin.tscn" id="4_0hxtc"]
+[ext_resource type="PackedScene" uid="uid://406iyw4t4q3x" path="res://scenes/hazard.tscn" id="5_m0ibc"]
+[ext_resource type="PackedScene" path="res://scenes/enemy.tscn" id="6_jjwm3"]
+[ext_resource type="PackedScene" uid="uid://e4ly1hnyqpjt" path="res://scenes/goal.tscn" id="7_yv1v3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
+size = Vector2(1311, 40)
+
+[node name="Main" type="Node2D" unique_id=77717777]
+script = ExtResource("1_si4cl")
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=1432951872]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=470674790]
+position = Vector2(-73.5, 163)
+shape = SubResource("RectangleShape2D_sugp2")
+
+[node name="Polygon2D" type="Polygon2D" parent="Ground" unique_id=252043894]
+position = Vector2(-252.00002, 165)
+scale = Vector2(1.595, 1)
+color = Color(0.74587727, 0.61068213, 0.18152583, 1)
+polygon = PackedVector2Array(-300, -20, 300, -20, 522.88403, -20, 522.2571, 19, 300, 20, -300, 20)
+
+[node name="HUD" parent="." unique_id=281953342 instance=ExtResource("2_8idsu")]
+
+[node name="Player" parent="." unique_id=690117528 instance=ExtResource("3_2lv0n")]
+position = Vector2(180, 114)
+collision_mask = 6
+
+[node name="Coin" parent="." unique_id=413837549 instance=ExtResource("4_0hxtc")]
+position = Vector2(98, 58)
+
+[node name="Coin2" parent="." unique_id=1809711203 instance=ExtResource("4_0hxtc")]
+position = Vector2(285, 53)
+
+[node name="Hazards" parent="." unique_id=604436082 instance=ExtResource("5_m0ibc")]
+position = Vector2(399, 130)
+scale = Vector2(0.87545186, 1.0340157)
+
+[node name="Hazards2" parent="." unique_id=1781041526 instance=ExtResource("5_m0ibc")]
+position = Vector2(56, 133)
+
+[node name="Enemy" parent="." unique_id=285095833 instance=ExtResource("6_jjwm3")]
+position = Vector2(446, 129)
+left_bound_x = 330.0
+right_bound_x = 540.0
+
+[node name="Goal" parent="." unique_id=357092830 instance=ExtResource("7_yv1v3")]
+position = Vector2(436, 41)
+
+[node name="Coin3" parent="." unique_id=19316019 instance=ExtResource("4_0hxtc")]
+position = Vector2(207, 58)

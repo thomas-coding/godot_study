@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bxkku2t01vqb"]
+[gd_scene format=3 uid="uid://c38ihktxw5xyy"]
 
 [ext_resource type="Script" uid="uid://cwdm2mvoc7jl1" path="res://scenes/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://bma8wsy6t2ey5" path="res://scenes/player.tscn" id="2_0wfyh"]
@@ -13,7 +13,7 @@ size = Vector2(1311, 40)
 
 [node name="Main" type="Node2D" unique_id=77717777]
 script = ExtResource("1_o5qli")
-next_level_scene_path = "res://scenes/level_02.tscn"
+next_level_scene_path = "res://scenes/level_03.tscn"
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=1432951872]
 collision_layer = 2
@@ -31,26 +31,26 @@ polygon = PackedVector2Array(-300, -20, 300, -20, 522.88403, -20, 522.2571, 19, 
 [node name="HUD" parent="." unique_id=281953342 instance=ExtResource("2_tefeu")]
 
 [node name="Player" parent="." unique_id=690117528 instance=ExtResource("2_0wfyh")]
-position = Vector2(180, 114)
+position = Vector2(32, 113)
 collision_mask = 6
 
 [node name="Coin" parent="." unique_id=413837549 instance=ExtResource("3_sugp2")]
-position = Vector2(98, 58)
+position = Vector2(220, 48)
 
 [node name="Coin2" parent="." unique_id=1809711203 instance=ExtResource("3_sugp2")]
-position = Vector2(285, 53)
+position = Vector2(488, 74)
 
 [node name="Hazards" parent="." unique_id=604436082 instance=ExtResource("4_jyhfs")]
-position = Vector2(399, 130)
+position = Vector2(350, 130)
 scale = Vector2(0.87545186, 1.0340157)
 
 [node name="Hazards2" parent="." unique_id=1781041526 instance=ExtResource("4_jyhfs")]
-position = Vector2(56, 133)
+position = Vector2(585, 133)
 
 [node name="Enemy" parent="." unique_id=285095833 instance=ExtResource("6_71sn6")]
-position = Vector2(446, 129)
-left_bound_x = 330.0
-right_bound_x = 540.0
+position = Vector2(278, 129)
+left_bound_x = 190.0
+right_bound_x = 360.0
 
 [node name="Goal" parent="." unique_id=357092830 instance=ExtResource("5_tbgi4")]
-position = Vector2(588, 44)
+position = Vector2(687, 58)

@@ -40,6 +40,8 @@
   - Evidence: `01_learner/daily_reports/2026-02-22.md`
 - Objective gate (`collect all -> unlock goal`): `done`
   - Evidence: `01_learner/daily_reports/2026-02-22.md`
+- Level transition (`change_scene_to_file` + next-level configuration): `done`
+  - Evidence: `01_learner/daily_reports/2026-02-24.md`
 
 ## Engineering Workflow
 

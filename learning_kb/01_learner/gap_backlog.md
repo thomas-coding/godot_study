@@ -6,9 +6,8 @@
 
 - Understand `_process(delta)` vs `_physics_process(delta)` in practice
 - Understand `_unhandled_input` dispatch order and handled propagation in practice
-- Build level transition loop (`Level 1 -> Level 2`)
 
-Reference runbook: `00_plan/lesson_12_2h_runbook.md`
+Reference runbook: `00_plan/lesson_13_2h_runbook.md`
 
 ## P1
 
@@ -21,6 +20,7 @@ Reference runbook: `00_plan/lesson_12_2h_runbook.md`
 - Apply release risk matrix to first playable build and mark top 5 risks
 - Add one enemy/hazard interaction using existing `Area2D` pattern
 - Compare `CharacterBody2D` body collision vs `Area2D` trigger hitbox with one concrete scene
+- Keep multi-level chain explicit (`01 -> 02 -> 03 -> end`) and avoid loopback misconfiguration
 - Run first real migration rehearsal when target version changes (e.g. 4.6 -> 5.0)
 
 ## P2
