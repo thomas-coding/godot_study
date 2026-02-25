@@ -13,6 +13,8 @@ var goal_unlocked := false
 enum GameState { WAIT_START, PLAYING, PAUSED, GAME_OVER, WON }
 var game_state: GameState = GameState.WAIT_START
 
+@export var unlock_level_on_win := 1
+
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	var player := get_node_or_null("Player")
@@ -21,6 +23,12 @@ func _ready() -> void:
 		player.process_mode = Node.PROCESS_MODE_PAUSABLE
 	_refresh_score_label()
 	_refresh_hp_label()
+	if SaveManager != null:
+		print("Save snapshot: best=%d unlocked=%d volume=%.2f" % [
+			SaveManager.best_score,
+			SaveManager.unlocked_level,
+			SaveManager.audio_volume
+		])
 	total_coins = 0
 	for child in get_children():
 		if child.has_signal("collected"):
@@ -47,6 +55,8 @@ func _on_coin_collected() -> void:
 	if game_state != GameState.PLAYING:
 		return
 	collected_count += 1
+	if SaveManager != null:
+		SaveManager.try_update_best_score(collected_count)
 	remaining_coins = max(remaining_coins - 1, 0)
 	_refresh_score_label()
 	print("Collected: %d / %d" % [collected_count, total_coins])
@@ -104,6 +114,8 @@ func _on_goal_reached() -> void:
 		print("Goal is locked. Collect all coins first.")
 		return
 	_set_game_state(GameState.WON)
+	if SaveManager != null:
+		SaveManager.unlock_level(unlock_level_on_win)
 	print("YOU WIN")
 	if not next_level_scene_path.is_empty():
 		call_deferred("_go_to_next_level")

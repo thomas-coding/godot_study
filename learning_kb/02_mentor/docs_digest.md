@@ -2,6 +2,24 @@
 
 > 规则：每次教学前后补充 1-2 条，记录“读了什么 -> 结论是什么 -> 来源在哪里”。
 
+## 2026-02-25
+
+- Topic: 学员线第13课实作验收（ConfigFile 存档与设置基础）（Working）
+- Summary:
+  - 完成 `SaveManager` autoload，建立 `ConfigFile` 读写闭环（`user://save.cfg`）。
+  - 完成首启默认值回退与自动建档，避免无存档时阻塞运行。
+  - 接入主流程写入点：收集分数更新 `best_score`，通关更新 `unlocked_level`。
+  - 通过 `unlock_level_on_win` 导出字段实现每关独立解锁目标配置。
+  - 运行验收通过：重启后 `best_score` 与 `unlocked_level` 可恢复。
+- Source:
+  - `projects/first-game/scenes/save_manager.gd`
+  - `projects/first-game/project.godot`
+  - `projects/first-game/scenes/main.gd`
+  - `projects/first-game/scenes/main.tscn`
+  - `projects/first-game/scenes/level_02.tscn`
+  - `projects/first-game/scenes/level_03.tscn`
+  - `01_learner/daily_reports/2026-02-25.md`
+
 ## 2026-02-24
 
 - Topic: 学员线第12课实作验收（关卡切换最小闭环 + 多关卡链路练习）（Working）

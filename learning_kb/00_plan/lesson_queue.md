@@ -1,6 +1,6 @@
 # Lesson Queue (2h per lesson)
 
-Last Updated: 2026-02-24
+Last Updated: 2026-02-25
 Mode: 按“课次”推进（不是按自然日）
 
 ## 执行规则
@@ -39,9 +39,9 @@ Mode: 按“课次”推进（不是按自然日）
   - 脚本：`learning_kb/00_plan/lesson_11_2h_runbook.md`
 - 第12课（已完成）：关卡切换与最小流程闭环（Level 1 -> Level 2）
   - 脚本：`learning_kb/00_plan/lesson_12_2h_runbook.md`
-- 第13课（已备课，下一课）：存档与设置基础（ConfigFile）
+- 第13课（已完成）：存档与设置基础（ConfigFile）
   - 脚本：`learning_kb/00_plan/lesson_13_2h_runbook.md`
-- 第14课（已备课）：设置菜单（音量/窗口/快捷键入口）
+- 第14课（已备课，下一课）：设置菜单（音量/窗口/快捷键入口）
   - 脚本：`learning_kb/00_plan/lesson_14_2h_runbook.md`
 - 第15课（已备课）：数据驱动参数（Resource）
   - 脚本：`learning_kb/00_plan/lesson_15_2h_runbook.md`
@@ -53,5 +53,5 @@ Mode: 按“课次”推进（不是按自然日）
 
 ## 备课缓冲检查
 
-- 当前已备课缓冲：`第13课~第17课`（5 课）
+- 当前已备课缓冲：`第14课~第17课`（4 课）
 - 缓冲状态：已满足“至少提前 3 课”要求。
