@@ -20,6 +20,39 @@
   - `projects/first-game/scenes/level_03.tscn`
   - `01_learner/daily_reports/2026-02-25.md`
 
+- Topic: 导师线自学习（运行时设置链路：Audio/Window/InputMap）（Verified/Working）
+- Summary:
+  - 新增 M16：固化“运行时应用 + 启动回放”的设置系统教学口径（音量、窗口模式、按键映射边界）。
+  - 新增 K067~K070 与 QA066~QA070，覆盖“Master bus 无效、线性音量与 dB 映射、全屏边框副作用、改键持久化边界、恢复默认键位”等高频问题。
+  - source quick-answer map 从 120 扩展到 130（SQ121~SQ130）。
+  - feature playbook 从 F060 扩展到 F065，补齐运行时设置与发布期窗口策略决策。
+  - 备课缓冲补齐到第18课：新增 `lesson_18_2h_runbook`，当前缓冲 `第14课~第18课`（5课）。
+- Source:
+  - `godot/doc/classes/AudioServer.xml`
+  - `godot/doc/classes/DisplayServer.xml`
+  - `godot/doc/classes/Window.xml`
+  - `godot/doc/classes/InputMap.xml`
+  - `godot/doc/classes/@GlobalScope.xml`
+  - `godot/servers/audio/audio_server.cpp`
+  - `godot/servers/display/display_server.h`
+  - `godot/servers/display/display_server.cpp`
+  - `godot/platform/windows/display_server_windows.cpp`
+  - `godot/core/input/input_map.cpp`
+  - `02_mentor/modules/M16_runtime_settings_application_audio_window_inputmap.md`
+  - `02_mentor/cards/K067_audioserver_get_bus_index_returns_minus_one_if_missing.md`
+  - `02_mentor/cards/K068_set_bus_volume_linear_maps_to_db_internally.md`
+  - `02_mentor/cards/K069_window_set_mode_runtime_entrypoint_and_mode_enums.md`
+  - `02_mentor/cards/K070_fullscreen_forces_borderless_restore_on_exit.md`
+  - `02_mentor/qa/QA066_master_bus_volume_not_applying.md`
+  - `02_mentor/qa/QA067_volume_slider_linear_vs_db.md`
+  - `02_mentor/qa/QA068_fullscreen_mode_and_borderless_side_effect.md`
+  - `02_mentor/qa/QA069_runtime_rebind_persistence_boundary.md`
+  - `02_mentor/qa/QA070_restore_default_inputmap.md`
+  - `02_mentor/source_quick_answer_map_v1.md`
+  - `02_mentor/feature_option_playbook.md`
+  - `00_plan/lesson_18_2h_runbook.md`
+  - `00_plan/lesson_queue.md`
+
 ## 2026-02-24
 
 - Topic: 学员线第12课实作验收（关卡切换最小闭环 + 多关卡链路练习）（Working）

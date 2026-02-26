@@ -57,11 +57,12 @@
 
 ## 会话恢复路径（新 AI）
 
-1. `03_sessions/handoff_latest.md`
-2. `01_learner/current_state.md`
-3. `02_mentor/knowledge_map.md`
-4. `00_plan/roadmap.md`
-5. `00_meta/version_registry.md`
+1. `.opencode/PROJECT_BRIEF.md`
+2. `.opencode/SESSION_STATE.md`
+3. `00_plan/lesson_queue.md`
+4. `00_meta/version_registry.md`
+5. 按轨道补读：`01_learner/current_state.md` 或 `02_mentor/knowledge_map.md`
+6. 需要历史追溯时再读 `03_sessions/handoff_latest.md`
 
 只在需要时下钻到 Raw 文件。
 

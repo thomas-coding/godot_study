@@ -1,6 +1,6 @@
 # Version Compatibility Matrix
 
-Last Updated: 2026-02-22
+Last Updated: 2026-02-25
 Active Baseline: `4.6`
 
 ## Status Legend
@@ -31,6 +31,7 @@ Active Baseline: `4.6`
 | M13 | module | verified | not_started | 2026-02-19 | `02_mentor/modules/M13_input_dispatch_pause_gates_and_scene_reload_semantics.md` | Input dispatch order + pause gates + scene reload scope |
 | M14 | module | verified | not_started | 2026-02-22 | `02_mentor/modules/M14_level_transition_consistency_and_handoff_boundaries.md` | Level transition consistency + scene_changed + state boundary |
 | M15 | module | verified | not_started | 2026-02-22 | `02_mentor/modules/M15_scenetreetimer_pause_time_scale_and_update_order.md` | SceneTreeTimer pause/time-scale semantics + update order |
+| M16 | module | verified | not_started | 2026-02-25 | `02_mentor/modules/M16_runtime_settings_application_audio_window_inputmap.md` | Runtime settings application for audio/window/inputmap |
 
 ## Cards
 
@@ -102,6 +103,10 @@ Active Baseline: `4.6`
 | K064 | card | verified | not_started | 2026-02-22 | `02_mentor/cards/K064_scenetreetimer_ignore_time_scale_uses_unscaled_step.md` | ignore_time_scale uses unscaled step |
 | K065 | card | verified | not_started | 2026-02-22 | `02_mentor/cards/K065_scenetreetimer_newly_added_timers_wait_next_pass.md` | newly added timers wait next pass |
 | K066 | card | verified | not_started | 2026-02-22 | `02_mentor/cards/K066_scenetreetimer_time_left_getter_clamps_non_negative.md` | get_time_left clamps non-negative |
+| K067 | card | verified | not_started | 2026-02-25 | `02_mentor/cards/K067_audioserver_get_bus_index_returns_minus_one_if_missing.md` | Audio bus lookup returns -1 when missing |
+| K068 | card | verified | not_started | 2026-02-25 | `02_mentor/cards/K068_set_bus_volume_linear_maps_to_db_internally.md` | linear volume setter maps to dB internally |
+| K069 | card | verified | not_started | 2026-02-25 | `02_mentor/cards/K069_window_set_mode_runtime_entrypoint_and_mode_enums.md` | window_set_mode runtime entrypoint + mode enums |
+| K070 | card | verified | not_started | 2026-02-25 | `02_mentor/cards/K070_fullscreen_forces_borderless_restore_on_exit.md` | fullscreen forces borderless; restore explicitly |
 
 ## QA
 
@@ -172,6 +177,11 @@ Active Baseline: `4.6`
 | QA063 | qa | verified | not_started | 2026-02-22 | `02_mentor/qa/QA063_scenetreetimer_timeout_after_process_callbacks.md` | timeout order after node callbacks |
 | QA064 | qa | verified | not_started | 2026-02-22 | `02_mentor/qa/QA064_ignore_time_scale_for_ui_and_bullet_time.md` | ignore_time_scale policy under bullet-time |
 | QA065 | qa | verified | not_started | 2026-02-22 | `02_mentor/qa/QA065_timer_created_inside_timeout_not_same_frame.md` | reentrant timer timing semantics |
+| QA066 | qa | verified | not_started | 2026-02-25 | `02_mentor/qa/QA066_master_bus_volume_not_applying.md` | Master bus volume no-effect triage |
+| QA067 | qa | verified | not_started | 2026-02-25 | `02_mentor/qa/QA067_volume_slider_linear_vs_db.md` | linear slider vs dB apply strategy |
+| QA068 | qa | verified | not_started | 2026-02-25 | `02_mentor/qa/QA068_fullscreen_mode_and_borderless_side_effect.md` | fullscreen exit style inconsistency |
+| QA069 | qa | verified | not_started | 2026-02-25 | `02_mentor/qa/QA069_runtime_rebind_persistence_boundary.md` | runtime rebind persistence boundary |
+| QA070 | qa | verified | not_started | 2026-02-25 | `02_mentor/qa/QA070_restore_default_inputmap.md` | restore defaults with load_from_project_settings |
 
 ## Update Rule
 

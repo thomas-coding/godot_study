@@ -2,13 +2,13 @@
 
 ## Start Checklist (5 min)
 
-1. 读取 `learning_kb/03_sessions/handoff_latest.md`
-2. 读取 `learning_kb/01_learner/current_state.md`
-3. 读取 `learning_kb/02_mentor/knowledge_map.md`
-4. 读取 `learning_kb/00_plan/roadmap.md`
-5. 读取 `learning_kb/00_plan/lesson_queue.md`
-6. 读取 `learning_kb/00_meta/dual_track_governance.md`
-7. 读取 `learning_kb/00_meta/version_registry.md`
+1. 读取 `.opencode/PROJECT_BRIEF.md`（通常由外部命令自动读取，AI 无需重复执行）
+2. 读取 `.opencode/SESSION_STATE.md`（通常由外部命令自动读取，AI 无需重复执行）
+3. 读取 `learning_kb/00_plan/lesson_queue.md`
+4. 读取 `learning_kb/00_meta/dual_track_governance.md`
+5. 读取 `learning_kb/00_meta/version_registry.md`
+6. 按轨道补读：学员线读 `learning_kb/01_learner/current_state.md`；导师线读 `learning_kb/02_mentor/knowledge_map.md`
+7. 需要历史追溯时再读 `learning_kb/03_sessions/handoff_latest.md`
 8. 确定今日唯一目标（一句英文）
 
 ## 双轨判定规则（强制）
@@ -25,7 +25,7 @@
 3. Runbook 执行：先读 `00_plan/lesson_queue.md`，再按对应 lesson runbook 推进，不跳步。
 4. 验收：给出通过/失败标准并现场检查。
 5. 修复：只做最小修复，避免超范围扩展。
-6. 收尾：更新日报/状态/handoff。
+6. 收尾：更新日报/状态；通过外部命令写入 `.opencode/SESSION_STATE.md`（需要长历史时再补 `handoff_latest.md`）。
 
 执行备注：每节课流程必须一致，避免临时随机改课。
 执行备注：学员线进行中不做导师备课与导师知识库扩写，避免学员等待。
@@ -54,7 +54,8 @@
   - `02_mentor/qa/`
   - `02_mentor/docs_digest.md`
   - `02_mentor/mentor_progress_dashboard.md`
-  - `03_sessions/handoff_latest.md`
+  - `.opencode/SESSION_STATE.md`（通常由外部命令写入）
+  - `03_sessions/handoff_latest.md`（需要保留长历史时）
 
 ## 版本迁移会话（触发词：更新知识库到godot X.Y）
 
@@ -70,10 +71,13 @@
   - `00_meta/version_registry.md`
   - `02_mentor/indexes/version_matrix.md`
   - `02_mentor/docs_digest.md`
-  - `03_sessions/handoff_latest.md`
+  - `.opencode/SESSION_STATE.md`（通常由外部命令写入）
+  - `03_sessions/handoff_latest.md`（需要保留长历史时）
 
 ## End Deliverables
 
+- `.opencode/SESSION_STATE.md` 更新（每日必做，通常由外部命令执行）
+- `.opencode/PROJECT_BRIEF.md` 更新（仅长期规则/范围变化时）
 - 可运行结果（最小功能）
 - 英文总结 5-8 行
 - 术语卡 1-3 条（1h 模式至少 1 条）
@@ -82,7 +86,7 @@
 - `01_learner/mastery_map.md` / `gap_backlog.md` 更新
 - `02_mentor/docs_digest.md` 更新（新增来源或结论）
 - `02_mentor/mentor_progress_dashboard.md` 更新（导师能力百分比）
-- `03_sessions/handoff_latest.md` 更新
+- `03_sessions/handoff_latest.md` 更新（需要保留长历史时）
 - `00_plan/lesson_queue.md` 更新
 - 若版本迁移发生：`00_meta/version_registry.md` + `02_mentor/indexes/version_matrix.md`
 

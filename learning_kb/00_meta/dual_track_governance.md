@@ -26,7 +26,7 @@ Baseline: Godot 4.6
 3. Runbook执行（按步骤，不跳步）。
 4. 运行验证（给出通过/失败标准）。
 5. 最小修复（仅处理阻塞问题）。
-6. 课后沉淀（日报 + 状态 + handoff 更新）。
+6. 课后沉淀（日报 + 状态 + `.opencode/SESSION_STATE.md`；需要长历史时再追加 handoff）。
 
 说明：禁止“今天这样上、明天那样上”的随机流程漂移。
 说明：学员线进行中禁止导师备课与导师知识库扩写，避免学员等待。
@@ -47,8 +47,12 @@ Baseline: Godot 4.6
   - 学员线当前进度（第 X 课完成度、当前阻塞、下一步）。
   - 导师线当前进度（能力百分比、已完成资产、下一轮重点）。
 - 导师线必须持续维护“至少提前 3 课”的备课缓冲（runbook 可直接执行）。
-- `handoff_latest.md` 必须可让“下一个 AI”无上下文直接接管。
+- `.opencode/SESSION_STATE.md` 必须可让“下一个 AI”无上下文直接接管。
+- `.opencode/PROJECT_BRIEF.md` 维护长期规则与范围边界。
+- `handoff_latest.md` 保留为长历史追溯档案（按需追加，不再作为每日首读）。
 - 若新增规则，优先写入：
+  - `.opencode/PROJECT_BRIEF.md`
+  - `.opencode/SESSION_STATE.md`
   - `AGENTS.md`
   - `03_sessions/session_protocol.md`
   - 本文件（`dual_track_governance.md`）

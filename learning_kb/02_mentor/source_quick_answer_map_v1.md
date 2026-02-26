@@ -128,6 +128,16 @@ Version Scope: 4.6
 | SQ118 | timeout 发出后 timer 是何时移除的？ | Timeout emit then erase | emits `timeout` first, then erases timer from list | `godot/scene/main/scene_tree.cpp` |
 | SQ119 | 场景树销毁时如何避免 timer 残留连接？ | SceneTree finalize cleanup | finalize releases timer connections and clears timer list | `godot/scene/main/scene_tree.cpp` |
 | SQ120 | `Engine.time_scale` 与 timer 精度有什么关系？ | Time-scale and simulation precision | time_scale affects timers; high scale may require higher physics ticks | `godot/doc/classes/Engine.xml`, `godot/doc/classes/SceneTree.xml` |
+| SQ121 | 为什么设置音量前要先查 bus 索引？ | Audio bus existence guard | `get_bus_index` may return `-1`; invalid index means no effective volume change | `godot/doc/classes/AudioServer.xml`, `godot/servers/audio/audio_server.cpp` |
+| SQ122 | `set_bus_volume_linear` 和 `set_bus_volume_db` 的关系？ | Linear-to-dB mapping | linear setter internally converts with `linear_to_db` then calls dB setter | `godot/doc/classes/AudioServer.xml`, `godot/servers/audio/audio_server.cpp` |
+| SQ123 | 全屏切换为什么会影响窗口边框？ | Fullscreen borderless side effect | fullscreen/exclusive fullscreen forces borderless behavior | `godot/doc/classes/DisplayServer.xml` |
+| SQ124 | 运行时切窗口模式的统一入口是什么？ | DisplayServer mode API | use `DisplayServer.window_set_mode/window_get_mode` with `WindowMode` enums | `godot/doc/classes/DisplayServer.xml`, `godot/servers/display/display_server.h` |
+| SQ125 | `Window.mode` 与 `DisplayServer.window_set_mode` 如何选？ | Node API vs server API boundary | both can switch mode, but `Window.mode` applies to native windows; server API is global runtime entrypoint | `godot/doc/classes/Window.xml`, `godot/doc/classes/DisplayServer.xml` |
+| SQ126 | 为什么运行时改键位重启后会丢失？ | InputMap persistence boundary | `action_add_event/erase` mutate runtime map only; no automatic persistence to project defaults | `godot/doc/classes/InputMap.xml`, `godot/core/input/input_map.cpp` |
+| SQ127 | 如何一键恢复默认按键映射？ | InputMap restore default | `load_from_project_settings` clears current map then reloads `input/*` from ProjectSettings | `godot/doc/classes/InputMap.xml`, `godot/core/input/input_map.cpp` |
+| SQ128 | 重复添加同一输入事件会怎样？ | InputMap duplicate guard | `action_add_event` exits early when existing event is found | `godot/core/input/input_map.cpp` |
+| SQ129 | 清空 action 事件时为什么还要释放按下态？ | Input state consistency on erase | `action_erase_events` calls `action_release` before clearing events if pressed | `godot/core/input/input_map.cpp` |
+| SQ130 | `event_is_action` 为何对松开事件有时忽略修饰键？ | Modifier matching rule | for proper release detection, non-pressed events can ignore modifiers in this check | `godot/doc/classes/InputMap.xml` |
 
 ## Usage Rule
 

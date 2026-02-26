@@ -1,6 +1,6 @@
 # Card Index
 
-Last Updated: 2026-02-22
+Last Updated: 2026-02-25
 Active Baseline: 4.6
 
 Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
@@ -71,3 +71,7 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - K064 `scenetreetimer ignore_time_scale unscaled step` — `Verified` — `02_mentor/cards/K064_scenetreetimer_ignore_time_scale_uses_unscaled_step.md`
 - K065 `scenetreetimer newly added timers next pass` — `Verified` — `02_mentor/cards/K065_scenetreetimer_newly_added_timers_wait_next_pass.md`
 - K066 `scenetreetimer time_left non-negative clamp` — `Verified` — `02_mentor/cards/K066_scenetreetimer_time_left_getter_clamps_non_negative.md`
+- K067 `audioserver get_bus_index returns -1 if missing` — `Verified` — `02_mentor/cards/K067_audioserver_get_bus_index_returns_minus_one_if_missing.md`
+- K068 `set_bus_volume_linear maps to db internally` — `Verified` — `02_mentor/cards/K068_set_bus_volume_linear_maps_to_db_internally.md`
+- K069 `window_set_mode runtime entrypoint and mode enums` — `Verified` — `02_mentor/cards/K069_window_set_mode_runtime_entrypoint_and_mode_enums.md`
+- K070 `fullscreen forces borderless and restore on exit` — `Verified` — `02_mentor/cards/K070_fullscreen_forces_borderless_restore_on_exit.md`

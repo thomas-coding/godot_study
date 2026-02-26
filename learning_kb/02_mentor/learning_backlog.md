@@ -78,6 +78,12 @@
 - [done] Expand quick-answer map to 120 and playbook to F060
   - Output: `02_mentor/source_quick_answer_map_v1.md` (`SQ111~SQ120`), `02_mentor/feature_option_playbook.md` (`F056~F060`)
 
+- [done] Build runtime settings teaching assets and Q&A pack
+  - Output: `02_mentor/modules/M16_runtime_settings_application_audio_window_inputmap.md`, `02_mentor/cards/K067~K070`, `02_mentor/qa/QA066~QA070`
+
+- [done] Expand quick-answer map to 130 and playbook to F065
+  - Output: `02_mentor/source_quick_answer_map_v1.md` (`SQ121~SQ130`), `02_mentor/feature_option_playbook.md` (`F061~F065`)
+
 ## P2 (mid term)
 
 - 2D graphics and math fundamentals for gameplay programming

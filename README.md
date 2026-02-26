@@ -6,18 +6,18 @@
 
 如果用户说“继续今天学习/继续任务”，请先读取：
 
-1. `learning_kb/03_sessions/handoff_latest.md`
-2. `learning_kb/01_learner/current_state.md`
-3. `learning_kb/02_mentor/knowledge_map.md`
-4. `learning_kb/00_plan/roadmap.md`
-5. `learning_kb/00_meta/version_registry.md`
-6. `learning_kb/03_sessions/session_protocol.md`
+1. `.opencode/PROJECT_BRIEF.md`（通常由外部命令自动读取）
+2. `.opencode/SESSION_STATE.md`（通常由外部命令自动读取）
+3. `learning_kb/00_plan/lesson_queue.md`
+4. `learning_kb/00_meta/version_registry.md`
+5. `learning_kb/03_sessions/session_protocol.md`
+6. 按需补读：`learning_kb/01_learner/current_state.md` / `learning_kb/02_mentor/knowledge_map.md` / `learning_kb/03_sessions/handoff_latest.md`
 
 说明：详细强制规则见仓库根目录 `AGENTS.md`。
 
 ## Trigger Phrases
 
-- `继续今天学习` / `继续任务`：进入学习执行模式（按 handoff 接续）。
+- `继续今天学习` / `继续任务`：进入学习执行模式（先读 `.opencode` 双文件再接续）。
 - `学习下godot`：进入导师学习模式（先列模块学习计划，再学习并回写知识库）。
 - `你自己学习` / `你先学习`：进入导师自学习模式（按导师愿景与学习计划执行）。
 - `更新知识库到godot X.Y`：进入版本迁移模式（切换知识库基线并回填兼容矩阵）。

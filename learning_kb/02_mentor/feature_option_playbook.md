@@ -1206,6 +1206,106 @@ Version Scope: 4.6
 - 缺点：容易产生“离开关卡后仍在跑”的悬挂计时。
 - 适用：已具备严格清理协议的工程。
 
+## F061 - Runtime audio setting apply strategy
+
+### Option A (Recommended)
+- 路径：UI 保存 `0..1` 线性值，运行时调用 `set_bus_volume_linear`，持久化写 `ConfigFile`。
+- 优点：UI 与存储直观，避免手动 dB 换算错误。
+- 缺点：与音频工程里的 dB 直觉有表述差异。
+- 适用：教学项目与中小型 2D 游戏。
+
+### Option B
+- 路径：UI 仍用线性值，但应用时手动 `linear_to_db` 再 `set_bus_volume_db`。
+- 优点：便于在日志里直接观察 dB。
+- 缺点：代码与认知负担更高。
+- 适用：需要与音频中间件 dB 口径对齐的项目。
+
+### Option C
+- 路径：UI 和存储直接使用 dB。
+- 优点：音频工程语义统一。
+- 缺点：非线性体感明显，新手调参门槛高。
+- 适用：音频资源复杂、已有 dB 管线的项目。
+
+## F062 - Window mode runtime API choice
+
+### Option A (Recommended)
+- 路径：统一通过 `DisplayServer.window_set_mode/window_get_mode` 处理窗口模式切换。
+- 优点：语义明确，跨平台入口一致。
+- 缺点：需要额外处理全屏副作用（如 borderless）。
+- 适用：主窗口设置菜单。
+
+### Option B
+- 路径：通过 `Window.mode` 读写窗口模式。
+- 优点：与场景树节点风格一致，脚本调用简洁。
+- 缺点：仅 native window 生效，嵌入窗口语义易混淆。
+- 适用：窗口节点已集中管理的项目。
+
+### Option C
+- 路径：启动时仅依赖项目设置，不做运行时切换。
+- 优点：实现最简单。
+- 缺点：用户体验差，无法即时调试全屏/窗口行为。
+- 适用：一次性演示原型。
+
+## F063 - Fullscreen policy for shipping
+
+### Option A (Recommended)
+- 路径：默认 `WINDOW_MODE_FULLSCREEN`，提供“独占全屏”可选开关。
+- 优点：兼顾兼容性与用户选择。
+- 缺点：需要额外测试两种全屏路径。
+- 适用：面向多平台发布的中小项目。
+
+### Option B
+- 路径：只启用 `WINDOW_MODE_EXCLUSIVE_FULLSCREEN`。
+- 优点：部分平台开销更低。
+- 缺点：多窗口切换与录屏兼容性风险更高。
+- 适用：性能敏感且平台受控的场景。
+
+### Option C
+- 路径：仅 windowed + borderless，不提供真正全屏模式。
+- 优点：实现稳定、平台差异小。
+- 缺点：显示/输入体验可能不如原生全屏。
+- 适用：工具型应用或轻量内部发行。
+
+## F064 - Runtime keybind persistence strategy
+
+### Option A (Recommended)
+- 路径：运行时修改 `InputMap`，并把 keybind 写入 `ConfigFile`，启动时重放。
+- 优点：行为可控、与课程存档体系一致。
+- 缺点：需要维护序列化格式和兼容迁移。
+- 适用：教学项目与可配置输入游戏。
+
+### Option B
+- 路径：仅运行时改 `InputMap`，不持久化。
+- 优点：实现最快。
+- 缺点：重启丢失改动，用户体验差。
+- 适用：临时调试或演示。
+
+### Option C
+- 路径：把玩家改键直接回写项目设置。
+- 优点：理论上持久化简单。
+- 缺点：侵入工程默认配置，不利于多人协作与版本控制。
+- 适用：不推荐作为常规发布策略。
+
+## F065 - Settings apply timing strategy
+
+### Option A (Recommended)
+- 路径：启动时读取并一次性回放全部设置；运行时变更立即应用并落盘。
+- 优点：启动与运行期口径一致，问题可复现。
+- 缺点：需要定义“失败回退默认值”逻辑。
+- 适用：有菜单设置且强调稳定性的项目。
+
+### Option B
+- 路径：只在进入设置菜单时懒加载并应用。
+- 优点：初始化代码更短。
+- 缺点：首次进入前实际运行参数可能不一致。
+- 适用：设置项很少的早期原型。
+
+### Option C
+- 路径：设置只在重启后生效。
+- 优点：实现简单，减少运行时副作用。
+- 缺点：交互反馈差，调试效率低。
+- 适用：历史遗留项目过渡期。
+
 ## Evidence
 
 - `godot/doc/classes/Node.xml` -> `_input`, `_unhandled_input`, `_unhandled_key_input`

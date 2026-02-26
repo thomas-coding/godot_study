@@ -1,6 +1,6 @@
 # Module Index
 
-Last Updated: 2026-02-22
+Last Updated: 2026-02-25
 Active Baseline: 4.6
 
 Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
@@ -20,3 +20,4 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - M13 `input dispatch, pause gates, and reload semantics` — `done` — `02_mentor/modules/M13_input_dispatch_pause_gates_and_scene_reload_semantics.md`
 - M14 `level transition consistency and handoff boundaries` — `done` — `02_mentor/modules/M14_level_transition_consistency_and_handoff_boundaries.md`
 - M15 `scenetreetimer pause/time-scale and update order` — `done` — `02_mentor/modules/M15_scenetreetimer_pause_time_scale_and_update_order.md`
+- M16 `runtime settings application (audio/window/inputmap)` — `done` — `02_mentor/modules/M16_runtime_settings_application_audio_window_inputmap.md`

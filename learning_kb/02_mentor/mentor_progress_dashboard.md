@@ -2,7 +2,7 @@
 
 Last Updated: 2026-02-25
 Active Baseline: Godot 4.6 stable
-Overall Progress: 73%
+Overall Progress: 74%
 
 ## 评分模型（5 维度）
 
@@ -11,9 +11,9 @@ Overall Progress: 73%
 
 | Dimension | Score | Weight | Contribution | Current Evidence | Main Gap |
 | --- | --- | --- | --- | --- | --- |
-| D1 Runtime & Core API Mastery | 95 | 20% | 19.0 | M01-M15、K001-K066、QA001-QA065 | 需扩展到渲染深水区与工程边界案例 |
-| D2 Feature Solution Design | 88 | 20% | 17.6 | playbook 扩展到 F001~F060 | 需补跨平台/发布链路决策树 |
-| D3 Source-level Q&A Speed | 95 | 20% | 19.0 | quick-answer map v1 已扩展到 120 问题 | 需继续压缩答复路径并补渲染源码链路 |
+| D1 Runtime & Core API Mastery | 95 | 20% | 19.0 | M01-M16、K001-K070、QA001-QA070 | 需扩展到渲染深水区与工程边界案例 |
+| D2 Feature Solution Design | 91 | 20% | 18.2 | playbook 扩展到 F001~F065 | 需补跨平台/发布链路决策树 |
+| D3 Source-level Q&A Speed | 97 | 20% | 19.4 | quick-answer map v1 已扩展到 130 问题 | 需继续压缩答复路径并补渲染源码链路 |
 | D4 Engineering Reliability | 47 | 20% | 9.4 | 排错清单 + 性能案例库 + 自动回归规范 + 阈值带样本 + 第3/第4课清单 | 缺自动化执行样本与阈值调优 |
 | D5 Shipping & Version Governance | 38 | 20% | 7.6 | 版本治理 + preflight + 风险矩阵 + 阈值证据链已落地 | 缺 Steam 上线前端到端演练与指标闭环 |
 
@@ -29,13 +29,13 @@ Current Level: `进阶导师`（中期）。
 Governance Update:
 
 - 双轨长期治理协议已固化（学员线/导师线判定 + 固定课堂SOP）。
-- 本次导师学习聚焦 SceneTreeTimer 时序语义（暂停/时间缩放/回调顺序），并同步扩展快答图谱与方案库（本轮总进度提升到 `73%`）。
+- 本次导师学习聚焦运行时设置应用链路（Audio/Window/InputMap），并同步扩展快答图谱与方案库（本轮总进度提升到 `74%`）。
 - 学员线第13课已完成：ConfigFile 存档与设置基础已通过运行验收（best score/unlocked level 持久化）。
 - 学员线下一课已准备：`lesson_14_2h_runbook`（设置菜单入口：音量/窗口/快捷键）。
 - 课程组织已切换为“课次制”，并建立 `lesson_queue` 与“提前 3 课”备课缓冲约束。
 - 学员线新增执行约束：学习过程中不切导师线备课，避免学员等待；仅在用户明确触发后切导师线。
-- 本轮导师备课已扩展到第12课~第17课（第10/11/12/13课已在学员线完成），当前缓冲为 `第14课~第17课`（4课）。
-- 本轮新增导师资产：`M15`、`K062~K066`、`QA061~QA065`、`SQ111~SQ120`、`F056~F060`。
+- 本轮导师备课已扩展到第12课~第18课（第10/11/12/13课已在学员线完成），当前缓冲为 `第14课~第18课`（5课）。
+- 本轮新增导师资产：`M16`、`K067~K070`、`QA066~QA070`、`SQ121~SQ130`、`F061~F065`。
 
 ## 自动更新规则（每次“你自己学习”后执行）
 
@@ -151,8 +151,8 @@ Governance Update:
 
 ## 当前两周冲刺（Now)
 
-- Sprint Goal: `73% -> 74%`
+- Sprint Goal: `74% -> 75%`
 - Must Deliver:
-  1. [in_progress] 为渲染/资源管线再补 10 个 quick-answer 条目（120 -> 130）
-  2. [in_progress] playbook 从 F060 扩展到 F065（补渲染与发布决策）
+  1. [done] 为渲染/资源管线再补 10 个 quick-answer 条目（120 -> 130）
+  2. [done] playbook 从 F060 扩展到 F065（补运行时设置与发布决策）
   3. [in_progress] 将阈值带接入自动化执行（脚本化判定 pass/fail）

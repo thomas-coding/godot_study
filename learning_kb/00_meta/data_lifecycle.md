@@ -9,7 +9,8 @@
 ## 读写策略
 
 - Append-only：历史记录尽量追加，不覆盖。
-- Snapshot overwrite：`current_state.md`、`handoff_latest.md` 可覆盖更新。
+- Snapshot overwrite：`current_state.md`、`.opencode/SESSION_STATE.md`、`handoff_latest.md` 可覆盖更新。
+- Long-lived contract：`.opencode/PROJECT_BRIEF.md` 仅在规则/范围变化时更新。
 - 关键变更写入 `progress_log.md` 形成可追溯链。
 
 ## 归档策略（规模变大后）
@@ -41,5 +42,5 @@
 ## 启动优化规则
 
 - 新会话只读快照与索引，不扫描全量历史。
-- 下钻顺序：handoff -> current_state -> version_registry -> mastery/gap -> raw report。
+- 下钻顺序：PROJECT_BRIEF -> SESSION_STATE -> lesson_queue/version_registry -> current_state -> mastery/gap -> handoff/raw。
 - 导师侧下钻顺序：knowledge_map -> indexes -> modules/cards/qa -> docs_digest archive。

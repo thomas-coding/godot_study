@@ -4,7 +4,8 @@
 
 - 统一小写 + 下划线（已有历史文件可渐进兼容）。
 - 日期文件用 `YYYY-MM-DD`。
-- 交接文件固定名：`handoff_latest.md`。
+- 启动双文件固定名：`.opencode/PROJECT_BRIEF.md`、`.opencode/SESSION_STATE.md`。
+- 长历史交接文件固定名：`handoff_latest.md`（按需追加）。
 
 ## 索引优先
 

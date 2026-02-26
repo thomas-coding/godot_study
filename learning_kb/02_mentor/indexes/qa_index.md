@@ -1,6 +1,6 @@
 # QA Index
 
-Last Updated: 2026-02-22
+Last Updated: 2026-02-25
 Active Baseline: 4.6
 
 Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
@@ -70,3 +70,8 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - QA063 `scenetreetimer timeout after process callbacks` — `02_mentor/qa/QA063_scenetreetimer_timeout_after_process_callbacks.md`
 - QA064 `ignore_time_scale for UI and bullet-time` — `02_mentor/qa/QA064_ignore_time_scale_for_ui_and_bullet_time.md`
 - QA065 `timer created inside timeout not same frame` — `02_mentor/qa/QA065_timer_created_inside_timeout_not_same_frame.md`
+- QA066 `master bus volume not applying` — `02_mentor/qa/QA066_master_bus_volume_not_applying.md`
+- QA067 `volume slider linear vs db` — `02_mentor/qa/QA067_volume_slider_linear_vs_db.md`
+- QA068 `fullscreen mode and borderless side effect` — `02_mentor/qa/QA068_fullscreen_mode_and_borderless_side_effect.md`
+- QA069 `runtime rebind persistence boundary` — `02_mentor/qa/QA069_runtime_rebind_persistence_boundary.md`
+- QA070 `restore default inputmap` — `02_mentor/qa/QA070_restore_default_inputmap.md`

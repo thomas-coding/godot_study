@@ -4,14 +4,16 @@
 
 ## 1) 必读文件（按顺序）
 
-1. `learning_kb/03_sessions/handoff_latest.md`
-2. `learning_kb/01_learner/current_state.md`
-3. `learning_kb/02_mentor/knowledge_map.md`
-4. `learning_kb/00_plan/roadmap.md`
-5. `learning_kb/00_plan/lesson_queue.md`
-6. `learning_kb/00_meta/dual_track_governance.md`
-7. `learning_kb/00_meta/version_registry.md`
-8. `learning_kb/03_sessions/session_protocol.md`
+1. `.opencode/PROJECT_BRIEF.md`（通常由外部命令自动读取，AI 无需重复执行）
+2. `.opencode/SESSION_STATE.md`（通常由外部命令自动读取，AI 无需重复执行）
+3. `learning_kb/00_plan/lesson_queue.md`
+4. `learning_kb/00_meta/dual_track_governance.md`
+5. `learning_kb/00_meta/version_registry.md`
+6. `learning_kb/03_sessions/session_protocol.md`
+7. `learning_kb/01_learner/current_state.md`（学员线细节时）
+8. `learning_kb/02_mentor/knowledge_map.md`（导师线细节时）
+9. `learning_kb/03_sessions/handoff_latest.md`（需要历史追溯时）
+10. `learning_kb/00_plan/roadmap.md`（阶段目标对齐时）
 
 ## 1b) 触发词扩展（轨道判定）
 
@@ -32,7 +34,7 @@
   7. 同步检查并补齐“至少提前 3 课”的备课缓冲（课次 runbook）
   8. 学习（官方 docs + 源码定位），把结论写入 `learning_kb/02_mentor/` 并标注证据等级
   9. 更新 `learning_kb/02_mentor/mentor_progress_dashboard.md`（刷新百分比与周目标进度）
-  10. 更新 `learning_kb/03_sessions/handoff_latest.md`（记录已补齐哪些知识点、下次优先级）
+  10. 通过外部命令更新 `.opencode/SESSION_STATE.md`（记录已补齐哪些知识点、下次优先级）；需要长历史时再补充 `learning_kb/03_sessions/handoff_latest.md`
 
 - 若用户说“今天结束/先到这里/下课”后再说“你学习下/你备下课”，再切到导师线进行备课。
 
@@ -50,7 +52,7 @@
   3. 读 `learning_kb/02_mentor/indexes/version_matrix.md`
   4. 将 `version_registry.md` 的 Active Baseline 更新为目标版本，并标记迁移状态
   5. 按协议逐项回填 `version_matrix.md` 与导师知识条目的版本适配状态
-  6. 更新 `learning_kb/03_sessions/handoff_latest.md` 记录迁移进度与下一优先级
+  6. 通过外部命令更新 `.opencode/SESSION_STATE.md` 记录迁移进度与下一优先级；必要时追加 `learning_kb/03_sessions/handoff_latest.md` 历史细节
 
 ## 2) 启动规则
 
@@ -60,14 +62,16 @@
 
 ## 3) 会话结束时必须更新
 
-1. `learning_kb/01_learner/daily_reports/YYYY-MM-DD.md`
-2. `learning_kb/01_learner/current_state.md`
-3. `learning_kb/01_learner/mastery_map.md` / `learning_kb/01_learner/gap_backlog.md`
-4. `learning_kb/02_mentor/docs_digest.md`
-5. `learning_kb/03_sessions/handoff_latest.md`
-6. `learning_kb/02_mentor/mentor_progress_dashboard.md`
-7. `learning_kb/00_plan/lesson_queue.md`
-8. 若版本基线发生变化，额外更新：
+1. `.opencode/SESSION_STATE.md`（每日必更，通常由外部命令执行）
+2. `.opencode/PROJECT_BRIEF.md`（仅长期规则/范围变化时更新）
+3. `learning_kb/01_learner/daily_reports/YYYY-MM-DD.md`（学员线有进展时）
+4. `learning_kb/01_learner/current_state.md`（学员线有进展时）
+5. `learning_kb/01_learner/mastery_map.md` / `learning_kb/01_learner/gap_backlog.md`（学员线有进展时）
+6. `learning_kb/02_mentor/docs_digest.md`（导师线有进展时）
+7. `learning_kb/02_mentor/mentor_progress_dashboard.md`（导师线有进展时）
+8. `learning_kb/00_plan/lesson_queue.md`（课次状态变化时）
+9. `learning_kb/03_sessions/handoff_latest.md`（需要保留长历史时）
+10. 若版本基线发生变化，额外更新：
    - `learning_kb/00_meta/version_registry.md`
    - `learning_kb/02_mentor/indexes/version_matrix.md`
 

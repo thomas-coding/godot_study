@@ -24,21 +24,26 @@
 
 ## 新会话快速恢复（Fast Boot）
 
-1. 读 `03_sessions/handoff_latest.md`（最快恢复上下文）。
-2. 读 `01_learner/current_state.md`（当前能力/短板/下一步）。
-3. 读 `02_mentor/knowledge_map.md`（我方知识状态与优先级）。
-4. 读 `00_plan/roadmap.md`（阶段目标不跑偏）。
-5. 读 `00_meta/version_registry.md`（确认当前 Godot 基线版本）。
-6. 按 `03_sessions/session_protocol.md` 执行当日教学。
+1. 读 `.opencode/PROJECT_BRIEF.md`（长期规则/范围/Done Definition，通常由外部命令自动读取）。
+2. 读 `.opencode/SESSION_STATE.md`（昨日结果与今日第一步，通常由外部命令自动读取）。
+3. 读 `00_plan/lesson_queue.md`（课次进度 + 缓冲）。
+4. 读 `00_meta/version_registry.md`（确认当前 Godot 基线版本）。
+5. 按轨道补读：学员线 `01_learner/current_state.md`；导师线 `02_mentor/knowledge_map.md`。
+6. 需要历史追溯时再读 `03_sessions/handoff_latest.md`。
+7. 按 `03_sessions/session_protocol.md` 执行当日教学。
 
 ## 每次结束必须更新
 
-1. 当天日报：`01_learner/daily_reports/`
-2. 学员快照：`01_learner/current_state.md`
-3. 技能与短板：`01_learner/mastery_map.md`、`01_learner/gap_backlog.md`
-4. 导师知识摘要：`02_mentor/docs_digest.md`
-5. 会话交接：`03_sessions/handoff_latest.md`
-6. 若版本变化：`00_meta/version_registry.md` + `02_mentor/indexes/version_matrix.md`
+1. 每日会话状态：`.opencode/SESSION_STATE.md`（必更，通常由外部命令执行）
+2. 若长期规则变化：`.opencode/PROJECT_BRIEF.md`
+3. 当天日报：`01_learner/daily_reports/`（学员线有进展时）
+4. 学员快照：`01_learner/current_state.md`（学员线有进展时）
+5. 技能与短板：`01_learner/mastery_map.md`、`01_learner/gap_backlog.md`（学员线有进展时）
+6. 导师知识摘要：`02_mentor/docs_digest.md`（导师线有进展时）
+7. 导师看板：`02_mentor/mentor_progress_dashboard.md`（导师线有进展时）
+8. 课次队列：`00_plan/lesson_queue.md`（状态变化时）
+9. 长历史交接：`03_sessions/handoff_latest.md`（需要保留长历史时）
+10. 若版本变化：`00_meta/version_registry.md` + `02_mentor/indexes/version_matrix.md`
 
 ## 维护原则
 
