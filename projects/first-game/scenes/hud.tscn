@@ -68,3 +68,82 @@ offset_top = 6.0
 offset_right = 373.0
 offset_bottom = 29.0
 text = "Goal: LOCKED"
+
+[node name="SettingsButton" type="Button" parent="." unique_id=1593564981]
+visible = false
+offset_left = 16.0
+offset_top = 84.0
+offset_right = 148.0
+offset_bottom = 120.0
+text = "Settings"
+
+[node name="PauseOverlay" type="ColorRect" parent="." unique_id=1841523237]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 0.45)
+
+[node name="SettingsPanel" type="Control" parent="." unique_id=1788962174]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="SettingsPanel" unique_id=813731518]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -150.0
+offset_right = 190.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="SettingsPanel/Panel" unique_id=1408484607]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 22.0
+offset_right = -24.0
+offset_bottom = -22.0
+theme_override_constants/separation = 10
+
+[node name="VolumeLabel" type="Label" parent="SettingsPanel/Panel/VBox" unique_id=1304909471]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="SettingsPanel/Panel/VBox" unique_id=1681056730]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 28)
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="WindowModeLabel" type="Label" parent="SettingsPanel/Panel/VBox" unique_id=1079087865]
+layout_mode = 2
+text = "Window Mode"
+
+[node name="WindowModeOption" type="OptionButton" parent="SettingsPanel/Panel/VBox" unique_id=406067003]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 30)
+
+[node name="KeybindHint" type="Label" parent="SettingsPanel/Panel/VBox" unique_id=180548730]
+layout_mode = 2
+text = "Keybinds: coming soon"
+
+[node name="BackButton" type="Button" parent="SettingsPanel/Panel/VBox" unique_id=248391405]
+layout_mode = 2
+text = "Back"
+size_flags_horizontal = 4

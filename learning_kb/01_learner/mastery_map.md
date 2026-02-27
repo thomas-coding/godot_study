@@ -44,6 +44,8 @@
   - Evidence: `01_learner/daily_reports/2026-02-24.md`
 - ConfigFile save/load foundation (`user://save.cfg` + autoload `SaveManager`): `done`
   - Evidence: `01_learner/daily_reports/2026-02-25.md`
+- In-game settings menu runtime apply + persistence (`audio_volume` + `window_mode`): `done`
+  - Evidence: `01_learner/daily_reports/2026-02-27.md`
 
 ## Engineering Workflow
 

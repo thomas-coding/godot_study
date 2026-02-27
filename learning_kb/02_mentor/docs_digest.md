@@ -2,6 +2,69 @@
 
 > 规则：每次教学前后补充 1-2 条，记录“读了什么 -> 结论是什么 -> 来源在哪里”。
 
+## 2026-02-27
+
+- Topic: 导师线自学习（第14课复盘：嵌入运行窗口模式陷阱 + 模态设置 UI）（Verified/Working）
+- Summary:
+  - 学员线第14课已完成并通过验收，沉淀“日志变化不等于视觉验证通过”的课堂口径。
+  - 新增 M18，固化编辑器嵌入运行限制与模态设置面板布局规范（full-rect 遮罩 + 居中面板 + size flags + mouse filter）。
+  - 新增 K075~K078 与 QA076~QA080，覆盖 `game_embed_mode` 覆盖关系、嵌入窗口仅支持 windowed、全屏边框副作用、模态输入拦截、无音频素材时的音量验收。
+  - source quick-answer map 从 140 扩展到 150（`SQ141~SQ150`）。
+  - feature playbook 从 F070 扩展到 F075（`F071~F075`）。
+  - 补齐 `lesson_20_2h_runbook`，队列缓冲更新为 `第15课~第20课`（6课）；导师进度看板刷新到 76%。
+- Source:
+  - `godot/doc/classes/EditorSettings.xml`
+  - `godot/doc/classes/DisplayServer.xml`
+  - `godot/doc/classes/Control.xml`
+  - `godot/doc/classes/AudioServer.xml`
+  - `godot/editor/run/game_view_plugin.cpp`
+  - `godot/platform/windows/display_server_windows.cpp`
+  - `godot/platform/linuxbsd/x11/display_server_x11.cpp`
+  - `02_mentor/modules/M18_embedded_run_window_modes_and_modal_ui_layout.md`
+  - `02_mentor/cards/K075_game_embed_mode_overrides_project_embed_preference.md`
+  - `02_mentor/cards/K076_embedded_windows_only_support_windowed_mode.md`
+  - `02_mentor/cards/K077_fullscreen_sets_borderless_true_on_enter.md`
+  - `02_mentor/cards/K078_modal_overlay_layout_with_full_rect_and_size_flags.md`
+  - `02_mentor/qa/QA076_window_mode_changes_but_visual_stays_same_in_editor.md`
+  - `02_mentor/qa/QA077_reliable_fullscreen_validation_workflow_from_editor.md`
+  - `02_mentor/qa/QA078_centered_modal_settings_panel_layout_pattern.md`
+  - `02_mentor/qa/QA079_modal_overlay_input_blocking_and_mouse_filter.md`
+  - `02_mentor/qa/QA080_how_to_verify_volume_without_audio_assets.md`
+  - `02_mentor/source_quick_answer_map_v1.md`
+  - `02_mentor/feature_option_playbook.md`
+  - `00_plan/lesson_20_2h_runbook.md`
+  - `00_plan/lesson_queue.md`
+
+- Topic: 导师线自学习（敌人与事件联动：波次刷新 + 门控备课）（Verified/Working）
+- Summary:
+  - 新增 M17，固化第19课教学口径：事件统一刷怪、组计数清波、离树后开门。
+  - 新增 K071~K074 与 QA071~QA075，覆盖组顺序、组计数、`tree_exited` 时序、`GROUP_CALL_UNIQUE` 语义等高频坑位。
+  - source quick-answer map 从 130 扩展到 140（`SQ131~SQ140`）。
+  - feature playbook 从 F065 扩展到 F070（`F066~F070`）。
+  - 新增 `lesson_19_2h_runbook` 并更新 lesson queue，备课缓冲提升到 `第14课~第19课`（6课）。
+  - 导师进度看板更新为 75%（达到本轮 `74% -> 75%` 冲刺目标）。
+- Source:
+  - `godot/doc/classes/Node.xml`
+  - `godot/doc/classes/SceneTree.xml`
+  - `godot/doc/classes/PackedScene.xml`
+  - `godot/scene/main/node.cpp`
+  - `godot/scene/main/scene_tree.cpp`
+  - `godot/scene/resources/packed_scene.cpp`
+  - `02_mentor/modules/M17_enemy_event_wave_spawn_and_gate_unlock.md`
+  - `02_mentor/cards/K071_node_group_order_not_guaranteed.md`
+  - `02_mentor/cards/K072_get_node_count_in_group_zero_when_missing.md`
+  - `02_mentor/cards/K073_tree_exited_is_safe_post_exit_hook.md`
+  - `02_mentor/cards/K074_group_call_unique_requires_deferred.md`
+  - `02_mentor/qa/QA071_wave_clear_check_after_queue_free.md`
+  - `02_mentor/qa/QA072_group_count_vs_manual_counter_for_wave_clear.md`
+  - `02_mentor/qa/QA073_prevent_duplicate_wave_trigger.md`
+  - `02_mentor/qa/QA074_add_to_group_before_enter_tree.md`
+  - `02_mentor/qa/QA075_when_to_unlock_gate_after_last_enemy.md`
+  - `02_mentor/source_quick_answer_map_v1.md`
+  - `02_mentor/feature_option_playbook.md`
+  - `00_plan/lesson_19_2h_runbook.md`
+  - `00_plan/lesson_queue.md`
+
 ## 2026-02-25
 
 - Topic: 学员线第13课实作验收（ConfigFile 存档与设置基础）（Working）

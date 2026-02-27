@@ -28,10 +28,10 @@
 - Save/load baseline pattern (`ConfigFile` vs JSON) for this project
 - Prepare first cross-version migration drill (`4.6` -> target) using `version_upgrade_protocol.md`
 - [done] Build feature option playbook (for each common feature: 2-3 implementation paths + trade-off)
-  - Current: F001~F050
+  - Current: F001~F075
   - Output: `02_mentor/feature_option_playbook.md`
 - [done] Build source quick-answer map (question -> class -> function chain -> evidence)
-  - Output: `02_mentor/source_quick_answer_map_v1.md` (100 高频问题)
+  - Output: `02_mentor/source_quick_answer_map_v1.md` (150 高频问题)
 - [done] Build performance/export troubleshooting checklists
   - Output: `04_templates/performance_frame_budget_checklist.md` + `04_templates/export_runtime_resource_loading_checklist.md`
 - [done] Build performance casebook baseline
@@ -83,6 +83,21 @@
 
 - [done] Expand quick-answer map to 130 and playbook to F065
   - Output: `02_mentor/source_quick_answer_map_v1.md` (`SQ121~SQ130`), `02_mentor/feature_option_playbook.md` (`F061~F065`)
+
+- [done] Build enemy-event linkage teaching assets and Q&A pack
+  - Output: `02_mentor/modules/M17_enemy_event_wave_spawn_and_gate_unlock.md`, `02_mentor/cards/K071~K074`, `02_mentor/qa/QA071~QA075`, `00_plan/lesson_19_2h_runbook.md`
+
+- [done] Expand quick-answer map to 140 and playbook to F070
+  - Output: `02_mentor/source_quick_answer_map_v1.md` (`SQ131~SQ140`), `02_mentor/feature_option_playbook.md` (`F066~F070`)
+
+- [done] Build embedded-run diagnostics and modal settings layout teaching assets
+  - Output: `02_mentor/modules/M18_embedded_run_window_modes_and_modal_ui_layout.md`, `02_mentor/cards/K075~K078`, `02_mentor/qa/QA076~QA080`, `00_plan/lesson_20_2h_runbook.md`
+
+- [done] Expand quick-answer map to 150 and playbook to F075
+  - Output: `02_mentor/source_quick_answer_map_v1.md` (`SQ141~SQ150`), `02_mentor/feature_option_playbook.md` (`F071~F075`)
+
+- [done] Refill prep buffer after learner reached Lesson 14
+  - Output: `00_plan/lesson_20_2h_runbook.md`, updated `00_plan/lesson_queue.md`
 
 ## P2 (mid term)
 

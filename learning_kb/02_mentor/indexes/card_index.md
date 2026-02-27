@@ -1,6 +1,6 @@
 # Card Index
 
-Last Updated: 2026-02-25
+Last Updated: 2026-02-27
 Active Baseline: 4.6
 
 Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
@@ -75,3 +75,11 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - K068 `set_bus_volume_linear maps to db internally` — `Verified` — `02_mentor/cards/K068_set_bus_volume_linear_maps_to_db_internally.md`
 - K069 `window_set_mode runtime entrypoint and mode enums` — `Verified` — `02_mentor/cards/K069_window_set_mode_runtime_entrypoint_and_mode_enums.md`
 - K070 `fullscreen forces borderless and restore on exit` — `Verified` — `02_mentor/cards/K070_fullscreen_forces_borderless_restore_on_exit.md`
+- K071 `Node group order is not guaranteed` — `Verified` — `02_mentor/cards/K071_node_group_order_not_guaranteed.md`
+- K072 `get_node_count_in_group returns 0 when group is missing` — `Verified` — `02_mentor/cards/K072_get_node_count_in_group_zero_when_missing.md`
+- K073 `tree_exited is the safe post-exit hook` — `Verified` — `02_mentor/cards/K073_tree_exited_is_safe_post_exit_hook.md`
+- K074 `GROUP_CALL_UNIQUE deduplicates only with DEFERRED` — `Verified` — `02_mentor/cards/K074_group_call_unique_requires_deferred.md`
+- K075 `game_embed_mode overrides project embed preference` — `Verified` — `02_mentor/cards/K075_game_embed_mode_overrides_project_embed_preference.md`
+- K076 `embedded windows only support windowed mode` — `Verified` — `02_mentor/cards/K076_embedded_windows_only_support_windowed_mode.md`
+- K077 `fullscreen sets borderless true on enter` — `Verified` — `02_mentor/cards/K077_fullscreen_sets_borderless_true_on_enter.md`
+- K078 `modal overlay layout with full-rect and size flags` — `Verified` — `02_mentor/cards/K078_modal_overlay_layout_with_full_rect_and_size_flags.md`

@@ -1,6 +1,6 @@
 # Version Compatibility Matrix
 
-Last Updated: 2026-02-25
+Last Updated: 2026-02-27
 Active Baseline: `4.6`
 
 ## Status Legend
@@ -32,6 +32,8 @@ Active Baseline: `4.6`
 | M14 | module | verified | not_started | 2026-02-22 | `02_mentor/modules/M14_level_transition_consistency_and_handoff_boundaries.md` | Level transition consistency + scene_changed + state boundary |
 | M15 | module | verified | not_started | 2026-02-22 | `02_mentor/modules/M15_scenetreetimer_pause_time_scale_and_update_order.md` | SceneTreeTimer pause/time-scale semantics + update order |
 | M16 | module | verified | not_started | 2026-02-25 | `02_mentor/modules/M16_runtime_settings_application_audio_window_inputmap.md` | Runtime settings application for audio/window/inputmap |
+| M17 | module | verified | not_started | 2026-02-27 | `02_mentor/modules/M17_enemy_event_wave_spawn_and_gate_unlock.md` | Enemy-event linkage for wave spawn and gate unlock |
+| M18 | module | verified | not_started | 2026-02-27 | `02_mentor/modules/M18_embedded_run_window_modes_and_modal_ui_layout.md` | Embedded run constraints + modal settings UI layout |
 
 ## Cards
 
@@ -107,6 +109,14 @@ Active Baseline: `4.6`
 | K068 | card | verified | not_started | 2026-02-25 | `02_mentor/cards/K068_set_bus_volume_linear_maps_to_db_internally.md` | linear volume setter maps to dB internally |
 | K069 | card | verified | not_started | 2026-02-25 | `02_mentor/cards/K069_window_set_mode_runtime_entrypoint_and_mode_enums.md` | window_set_mode runtime entrypoint + mode enums |
 | K070 | card | verified | not_started | 2026-02-25 | `02_mentor/cards/K070_fullscreen_forces_borderless_restore_on_exit.md` | fullscreen forces borderless; restore explicitly |
+| K071 | card | verified | not_started | 2026-02-27 | `02_mentor/cards/K071_node_group_order_not_guaranteed.md` | Node group order is not guaranteed |
+| K072 | card | verified | not_started | 2026-02-27 | `02_mentor/cards/K072_get_node_count_in_group_zero_when_missing.md` | get_node_count_in_group returns 0 when group is missing |
+| K073 | card | verified | not_started | 2026-02-27 | `02_mentor/cards/K073_tree_exited_is_safe_post_exit_hook.md` | tree_exited is the safe post-exit hook |
+| K074 | card | verified | not_started | 2026-02-27 | `02_mentor/cards/K074_group_call_unique_requires_deferred.md` | GROUP_CALL_UNIQUE deduplicates only with DEFERRED |
+| K075 | card | verified | not_started | 2026-02-27 | `02_mentor/cards/K075_game_embed_mode_overrides_project_embed_preference.md` | game_embed_mode can override project embed preference |
+| K076 | card | verified | not_started | 2026-02-27 | `02_mentor/cards/K076_embedded_windows_only_support_windowed_mode.md` | embedded windows only support windowed mode |
+| K077 | card | verified | not_started | 2026-02-27 | `02_mentor/cards/K077_fullscreen_sets_borderless_true_on_enter.md` | fullscreen sets borderless true on enter |
+| K078 | card | verified | not_started | 2026-02-27 | `02_mentor/cards/K078_modal_overlay_layout_with_full_rect_and_size_flags.md` | modal overlay layout with full-rect and size flags |
 
 ## QA
 
@@ -182,6 +192,16 @@ Active Baseline: `4.6`
 | QA068 | qa | verified | not_started | 2026-02-25 | `02_mentor/qa/QA068_fullscreen_mode_and_borderless_side_effect.md` | fullscreen exit style inconsistency |
 | QA069 | qa | verified | not_started | 2026-02-25 | `02_mentor/qa/QA069_runtime_rebind_persistence_boundary.md` | runtime rebind persistence boundary |
 | QA070 | qa | verified | not_started | 2026-02-25 | `02_mentor/qa/QA070_restore_default_inputmap.md` | restore defaults with load_from_project_settings |
+| QA071 | qa | verified | not_started | 2026-02-27 | `02_mentor/qa/QA071_wave_clear_check_after_queue_free.md` | wave clear check timing after queue_free |
+| QA072 | qa | verified | not_started | 2026-02-27 | `02_mentor/qa/QA072_group_count_vs_manual_counter_for_wave_clear.md` | group count vs manual counter for wave clear |
+| QA073 | qa | verified | not_started | 2026-02-27 | `02_mentor/qa/QA073_prevent_duplicate_wave_trigger.md` | prevent duplicate wave trigger |
+| QA074 | qa | verified | not_started | 2026-02-27 | `02_mentor/qa/QA074_add_to_group_before_enter_tree.md` | add_to_group behavior before enter_tree |
+| QA075 | qa | verified | not_started | 2026-02-27 | `02_mentor/qa/QA075_when_to_unlock_gate_after_last_enemy.md` | safe unlock timing after last enemy dies |
+| QA076 | qa | verified | not_started | 2026-02-27 | `02_mentor/qa/QA076_window_mode_changes_but_visual_stays_same_in_editor.md` | window mode logs change but visuals stay same in embedded editor mode |
+| QA077 | qa | verified | not_started | 2026-02-27 | `02_mentor/qa/QA077_reliable_fullscreen_validation_workflow_from_editor.md` | reliable fullscreen validation workflow from editor |
+| QA078 | qa | verified | not_started | 2026-02-27 | `02_mentor/qa/QA078_centered_modal_settings_panel_layout_pattern.md` | centered modal settings panel layout pattern |
+| QA079 | qa | verified | not_started | 2026-02-27 | `02_mentor/qa/QA079_modal_overlay_input_blocking_and_mouse_filter.md` | modal overlay input blocking and mouse_filter triage |
+| QA080 | qa | verified | not_started | 2026-02-27 | `02_mentor/qa/QA080_how_to_verify_volume_without_audio_assets.md` | verify volume chain without audio assets |
 
 ## Update Rule
 

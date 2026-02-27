@@ -1,6 +1,6 @@
 # Lesson Queue (2h per lesson)
 
-Last Updated: 2026-02-25
+Last Updated: 2026-02-27
 Mode: 按“课次”推进（不是按自然日）
 
 ## 执行规则
@@ -41,9 +41,9 @@ Mode: 按“课次”推进（不是按自然日）
   - 脚本：`learning_kb/00_plan/lesson_12_2h_runbook.md`
 - 第13课（已完成）：存档与设置基础（ConfigFile）
   - 脚本：`learning_kb/00_plan/lesson_13_2h_runbook.md`
-- 第14课（已备课，下一课）：设置菜单（音量/窗口/快捷键入口）
+- 第14课（已完成）：设置菜单（音量/窗口/快捷键入口）
   - 脚本：`learning_kb/00_plan/lesson_14_2h_runbook.md`
-- 第15课（已备课）：数据驱动参数（Resource）
+- 第15课（已备课，下一课）：数据驱动参数（Resource）
   - 脚本：`learning_kb/00_plan/lesson_15_2h_runbook.md`
 - 第16课（已备课）：性能优化与帧预算回归（Profiler + checklist）
   - 脚本：`learning_kb/00_plan/lesson_16_2h_runbook.md`
@@ -51,9 +51,13 @@ Mode: 按“课次”推进（不是按自然日）
   - 脚本：`learning_kb/00_plan/lesson_17_2h_runbook.md`
 - 第18课（已备课）：关卡事件系统（触发器 + 一次性事件）
   - 脚本：`learning_kb/00_plan/lesson_18_2h_runbook.md`
-- 第19课（待备课）：敌人与事件联动（波次刷新 + 门控）
+- 第19课（已备课）：敌人与事件联动（波次刷新 + 门控）
+  - 脚本：`learning_kb/00_plan/lesson_19_2h_runbook.md`
+- 第20课（已备课）：小型 Boss 原型（阶段行为 + 受击反馈）
+  - 脚本：`learning_kb/00_plan/lesson_20_2h_runbook.md`
+- 第21课（待备课）：Boss 战结算与奖励循环（掉落/结算面板）
 
 ## 备课缓冲检查
 
-- 当前已备课缓冲：`第14课~第18课`（5 课）
+- 当前已备课缓冲：`第15课~第20课`（6 课）
 - 缓冲状态：已满足“至少提前 3 课”要求。

@@ -1,6 +1,6 @@
 # Session Handoff (Latest)
 
-Date: 2026-02-25
+Date: 2026-02-27
 
 ## What was completed
 
@@ -19,7 +19,7 @@ Date: 2026-02-25
   - 学员触发词增加 `继续学 / 学下一课 / 第X课`。
   - 导师触发词增加 `你备下课 / 备课`。
   - 每课默认 2h。
-  - 导师线目标为“至少提前 3 课”备课缓冲（见 `00_plan/lesson_queue.md`，当前维持在 14~18 课）。
+  - 导师线目标为“至少提前 3 课”备课缓冲（见 `00_plan/lesson_queue.md`，当前维持在 14~19 课）。
   - 新增并对齐第4~第6课 runbook：`lesson_04_2h_runbook.md`、`lesson_05_2h_runbook.md`、`lesson_06_2h_runbook.md`。
   - 新增执行保护：学员线进行中不切导师线备课，避免学员等待；仅在用户明确触发后切导师线。
 - Mentor self-study cycle executed (2026-02-07):
@@ -131,6 +131,12 @@ Date: 2026-02-25
   - source quick-answer map 扩展到 130（`SQ121~SQ130`）。
   - feature playbook 扩展到 F065（`F061~F065`）。
   - 新增 `00_plan/lesson_18_2h_runbook.md`，当前有效备课缓冲为 `第14课~第18课`（5课）。
+- 导师线自学习已继续完成（本轮触发）：
+  - 新增 `M17`（敌人与事件联动：波次刷新 + 门控）。
+  - 新增 `K071~K074` 与 `QA071~QA075`（组顺序、组计数、离树时序、group unique 语义）。
+  - source quick-answer map 扩展到 140（`SQ131~SQ140`）。
+  - feature playbook 扩展到 F070（`F066~F070`）。
+  - 新增 `00_plan/lesson_19_2h_runbook.md`，当前有效备课缓冲为 `第14课~第19课`（6课）。
 - 导师线课前自学习已完成（为第4课学员课准备）：
   - 新增 M13（输入分发顺序 + pause gate + scene reload 语义）。
   - QA 扩展到 QA055（新增 QA051~QA055）。
@@ -148,7 +154,7 @@ Date: 2026-02-25
   - 新增 `00_plan/lesson_16_2h_runbook.md`（性能优化与帧预算回归）。
   - 新增 `00_plan/lesson_17_2h_runbook.md`（敌人扩展：追踪/投射物与战斗反馈）。
   - `lesson_queue` 备课缓冲扩展为 `第10课~第17课`（8课），第10/11/12/13课完成后当前有效缓冲为 `第14课~第17课`（4课）。
-- Mentor progress dashboard is active: current progress `74%`, sprint target `75%`.
+- Mentor progress dashboard is active: current progress `76%`, sprint target `77%`.
 
 ## Active baseline
 
@@ -159,28 +165,28 @@ Date: 2026-02-25
   - docs channel: `https://docs.godotengine.org/en/stable/`
 - Mentor capability baseline:
   - dashboard: `02_mentor/mentor_progress_dashboard.md`
-  - current overall: `74%`
+  - current overall: `76%`
 
 ## Current learner state
 
 - Level: Godot beginner from zero, strong C/C++ engineering background.
 - Confirmed skills: project setup, main scene run, input action creation, debug script attach.
 - Confirmed new skills: `CharacterBody2D` movement/jump + ground collision + `Area2D` collectible/hazard/goal loop + start/pause/restart + game over/win gating + enemy patrol/contact-damage integration + objective gate unlock flow + level transition chain (`change_scene_to_file` + Inspector-configured next-level path) + ConfigFile persistence foundation.
-- Missing next: execute Lesson 14 learner implementation (settings menu runtime apply + persistence replay) and stabilize save schema evolution.
+- Missing next: execute Lesson 15 learner implementation (Resource 参数化玩法) and stabilize config fallback strategy.
 
-## 学员线下一节课计划（第14课）
+## 学员线下一节课计划（第15课）
 
-- 课程目标：完成设置菜单入口（音量/窗口/快捷键）并接入现有 SaveManager。
-- 执行脚本：`00_plan/lesson_14_2h_runbook.md`。
+- 课程目标：把核心玩法参数从硬编码迁移到 Resource，并建立可切换配置。
+- 执行脚本：`00_plan/lesson_15_2h_runbook.md`。
 - 验收点：
-  1. 至少 1 个设置项（音量或窗口）可通过菜单修改并立即生效
-  2. 设置项重启后可恢复（走 SaveManager）
-  3. 不破坏现有关卡链路与状态机
+  1. 至少 1 组核心玩法参数迁移到 Resource
+  2. 至少 2 套配置可切换并可观察差异
+  3. 不破坏现有关卡链路与状态机/HUD
 - 排错模板：`04_templates/area2d_interaction_troubleshooting_checklist.md`。
 
-## Next session objective (Lesson 14 prep, 2h)
+## Next session objective (Lesson 15 prep, 2h)
 
-Build settings entry points (volume/window/hotkey hooks) and wire them to persisted values.
+Convert core gameplay constants into Resource-driven configs and validate balancing switch workflow.
 
 ## First files to read next time
 
@@ -208,8 +214,8 @@ Build settings entry points (volume/window/hotkey hooks) and wire them to persis
 
 ## Suggested first action next session
 
-- Learning mode: read `lesson_queue.md`, then execute `lesson_14_2h_runbook` for settings menu entry points.
-- Mentor self-study mode: expand quick-answer map to 140+ and playbook to F070; continue threshold-band automation.
+- Learning mode: read `lesson_queue.md`, then execute `lesson_15_2h_runbook` for Resource-driven gameplay configs.
+- Mentor self-study mode: continue threshold-band automation and shipping decision tree assets; prepare `lesson_21_2h_runbook`.
 - Upgrade mode: execute protocol Step 1 and open migration matrix.
 
 ## Bootstrap Hint for new AI

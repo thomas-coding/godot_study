@@ -1,12 +1,12 @@
 # Current Learner State
 
-Last Updated: 2026-02-25
+Last Updated: 2026-02-27
 
 ## Snapshot
 
-- Phase: Week 01 / 第13课完成
+- Phase: Week 01 / 第14课完成
 - Per-Lesson Budget: 2h
-- Lesson Prep Buffer: Lessons 14-17 ready
+- Lesson Prep Buffer: Lessons 15-19 ready
 - Primary Goal: Build and ship a complete game with Godot on Steam
 - KB Baseline: Godot 4.6 (version migration protocol enabled)
 
@@ -34,6 +34,10 @@ Last Updated: 2026-02-25
 - Objective gate loop works (`collect all -> unlock goal` + progress feedback + restart reset)
 - Level transition loop works (`change_scene_to_file` + exported next-level path + reset consistency)
 - ConfigFile save/settings foundation works (`SaveManager` autoload + `user://save.cfg` persistence for best score/unlocked level/audio volume)
+- In-game settings menu loop works (`SettingsButton` + `SettingsPanel` + pause-state-only entry)
+- Runtime settings apply works (`AudioServer` volume + `DisplayServer` window mode)
+- Settings persistence loop expanded (`audio_volume` + `window_mode`) and restart validation passed
+- Embedded-run environment caveat is understood (window-mode visual validation must use standalone window)
 - Versioned KB infrastructure is ready (`registry` + `upgrade protocol` + `compatibility matrix`)
 - Mentor support assets upgraded: QA001~QA065, multi-domain checklists, source quick-answer map v1 (120 items)
 - Dual-track governance is locked (`learner line` / `mentor line`) with fixed class SOP
@@ -44,15 +48,16 @@ Last Updated: 2026-02-25
 - `_unhandled_input` 分发顺序与 handled 传播机制理解尚不稳定
 - Multi-level chain configuration discipline (avoid loopback and keep terminal level explicit)
 - Save schema evolution discipline (field/version compatibility and fallback)
+- Keybinding rebind implementation is still placeholder-only (entry exists, rebinding flow not implemented)
 
 ## Immediate Next Session Goal
 
-Start Lesson 14 and build settings menu entry points (volume/window/hotkey hooks).
+Start Lesson 15 and introduce Resource-driven gameplay parameter tuning.
 
-Runbook: `00_plan/lesson_14_2h_runbook.md`
+Runbook: `00_plan/lesson_15_2h_runbook.md`
 
 Lesson Queue: `00_plan/lesson_queue.md`
-- Next prepared lessons: `lesson_15_2h_runbook.md`, `lesson_16_2h_runbook.md`
+- Next prepared lessons: `lesson_16_2h_runbook.md`, `lesson_17_2h_runbook.md`, `lesson_18_2h_runbook.md`
 
 ## Teaching Preferences (Stable)
 

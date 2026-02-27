@@ -1,6 +1,6 @@
 # QA Index
 
-Last Updated: 2026-02-25
+Last Updated: 2026-02-27
 Active Baseline: 4.6
 
 Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
@@ -75,3 +75,13 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - QA068 `fullscreen mode and borderless side effect` — `02_mentor/qa/QA068_fullscreen_mode_and_borderless_side_effect.md`
 - QA069 `runtime rebind persistence boundary` — `02_mentor/qa/QA069_runtime_rebind_persistence_boundary.md`
 - QA070 `restore default inputmap` — `02_mentor/qa/QA070_restore_default_inputmap.md`
+- QA071 `wave clear check after queue_free` — `02_mentor/qa/QA071_wave_clear_check_after_queue_free.md`
+- QA072 `group count vs manual counter for wave clear` — `02_mentor/qa/QA072_group_count_vs_manual_counter_for_wave_clear.md`
+- QA073 `prevent duplicate wave trigger` — `02_mentor/qa/QA073_prevent_duplicate_wave_trigger.md`
+- QA074 `add_to_group before enter tree` — `02_mentor/qa/QA074_add_to_group_before_enter_tree.md`
+- QA075 `when to unlock gate after last enemy` — `02_mentor/qa/QA075_when_to_unlock_gate_after_last_enemy.md`
+- QA076 `window mode changes but visual stays same in editor` — `02_mentor/qa/QA076_window_mode_changes_but_visual_stays_same_in_editor.md`
+- QA077 `reliable fullscreen validation workflow from editor` — `02_mentor/qa/QA077_reliable_fullscreen_validation_workflow_from_editor.md`
+- QA078 `centered modal settings panel layout pattern` — `02_mentor/qa/QA078_centered_modal_settings_panel_layout_pattern.md`
+- QA079 `modal overlay input blocking and mouse filter` — `02_mentor/qa/QA079_modal_overlay_input_blocking_and_mouse_filter.md`
+- QA080 `how to verify volume without audio assets` — `02_mentor/qa/QA080_how_to_verify_volume_without_audio_assets.md`

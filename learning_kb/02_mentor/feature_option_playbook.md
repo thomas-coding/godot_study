@@ -1,6 +1,6 @@
 # Feature Option Playbook (Godot 4.6)
 
-Last Updated: 2026-02-22
+Last Updated: 2026-02-27
 Status: Working
 Version Scope: 4.6
 
@@ -1306,6 +1306,206 @@ Version Scope: 4.6
 - 缺点：交互反馈差，调试效率低。
 - 适用：历史遗留项目过渡期。
 
+## F066 - Wave spawn trigger ownership strategy
+
+### Option A (Recommended)
+- 路径：由关卡事件控制器集中处理触发与刷怪（触发器只上报事件 id）。
+- 优点：入口统一，便于做一次性去重和日志追踪。
+- 缺点：前期需要多写一层事件分发代码。
+- 适用：课程项目进入多事件阶段后的主线实现。
+
+### Option B
+- 路径：每个触发器节点自己实例化敌人并管理波次状态。
+- 优点：上手快，局部改动少。
+- 缺点：逻辑分散，后续多关卡维护成本高。
+- 适用：一次性演示或单关短流程原型。
+
+### Option C
+- 路径：数据驱动（波次表）+ 通用 wave runner 执行器。
+- 优点：扩展性最好，后续加内容快。
+- 缺点：初期抽象成本最高。
+- 适用：中后期内容量上升、希望批量配置的项目。
+
+## F067 - Enemy alive tracking strategy
+
+### Option A (Recommended)
+- 路径：敌人统一进组，使用 `get_node_count_in_group("enemies")` 判定清波。
+- 优点：实现简单，减少手写计数器漏减/负数问题。
+- 缺点：需要确保组名与入组时机统一。
+- 适用：课堂主线和绝大多数小中型波次玩法。
+
+### Option B
+- 路径：手写 `alive_enemy_count`，在 spawn/death 信号中维护计数。
+- 优点：可做更精细的统计（不同阵营、不同波次分桶）。
+- 缺点：时序复杂，容易在异常销毁路径漏减。
+- 适用：复杂战斗系统或性能极端优化场景。
+
+### Option C
+- 路径：组计数 + 关键波次手写计数的混合策略。
+- 优点：保留主线简单性，同时支持特殊关卡定制。
+- 缺点：双系统并存，规则需写清楚。
+- 适用：已有基础系统，正在向复杂关卡扩展的项目。
+
+## F068 - Gate unlock timing strategy after wave clear
+
+### Option A (Recommended)
+- 路径：敌人 `tree_exited`（或 deferred）后再判定组计数归零并开门。
+- 优点：对 `queue_free` 帧尾删除时序最稳，偶发漏开概率最低。
+- 缺点：理解成本略高，需要讲清生命周期钩子。
+- 适用：稳定性优先的课程主线实现。
+
+### Option B
+- 路径：敌人血量归零时立即判定并开门。
+- 优点：实现直观。
+- 缺点：与实际离树时序可能错位，容易出现边界误判。
+- 适用：原型验证阶段，且敌人销毁路径单一。
+
+### Option C
+- 路径：固定延迟（timer）后检查并开门。
+- 优点：视觉上可插入演出。
+- 缺点：延迟值脆弱，跨帧率和负载稳定性较差。
+- 适用：强调演出、可接受少量实现复杂度的关卡。
+
+## F069 - Duplicate wave trigger prevention strategy
+
+### Option A (Recommended)
+- 路径：业务状态去重（`wave_started` 或 `triggered_event_ids`）为主。
+- 优点：语义清晰，可读性高，调试方便。
+- 缺点：需要维护重开时清理逻辑。
+- 适用：所有课程项目，作为默认第一层防线。
+
+### Option B
+- 路径：触发后立刻关闭触发器监测（例如 `monitoring=false`）。
+- 优点：实现快，直观阻断重复触发。
+- 缺点：重置时容易遗漏恢复；对复杂复用触发器不友好。
+- 适用：一次性触发点较少的关卡。
+
+### Option C
+- 路径：组广播 + `GROUP_CALL_DEFERRED | GROUP_CALL_UNIQUE` 去重。
+- 优点：适合多节点并发触发同一方法的去重。
+- 缺点：对 flag 语义要求高，误用 `UNIQUE` 单独标志会失效。
+- 适用：多触发器协同且已使用 group orchestration 的项目。
+
+## F070 - Wave state reset strategy on restart/scene switch
+
+### Option A (Recommended)
+- 路径：波次与门控状态保持 scene-local，重开当前场景时自动回到初始。
+- 优点：与 `reload_current_scene` 语义一致，边界清晰。
+- 缺点：跨关共享进度需要额外机制。
+- 适用：课程主线与大多数单局内波次玩法。
+
+### Option B
+- 路径：把波次状态放进 AutoLoad 持久层。
+- 优点：可实现跨关连续战斗或 meta progression。
+- 缺点：状态边界复杂，重开语义更容易出错。
+- 适用：中后期需要跨场景战役状态的项目。
+
+### Option C
+- 路径：把当前波次进度写入存档并允许中途恢复。
+- 优点：玩家体验友好，可做长流程关卡中断恢复。
+- 缺点：实现与测试成本最高，需要完整容错策略。
+- 适用：中大型内容项目，不建议作为课堂首选。
+
+## F071 - Window mode validation strategy in editor workflow
+
+### Option A (Recommended)
+- 路径：课堂统一使用“独立窗口/浮动窗口”验证 `window_set_mode`，并在流程首步检查 `game_embed_mode`。
+- 优点：可直接看到 fullscreen/borderless 视觉变化，排除嵌入模式干扰。
+- 缺点：需要学员先配置编辑器运行选项。
+- 适用：所有涉及窗口模式切换的课堂与验收。
+
+### Option B
+- 路径：继续在嵌入运行下验证，只看日志与 `window_get_mode` 值。
+- 优点：无需切换编辑器配置，步骤最短。
+- 缺点：视觉不可验证，易把环境限制误判成逻辑正确。
+- 适用：临时调试，不作为最终验收口径。
+
+### Option C
+- 路径：导出可执行文件，在独立进程里验证窗口模式行为。
+- 优点：最接近玩家环境，结论最稳。
+- 缺点：耗时较高，不适合作为每次课堂默认流程。
+- 适用：发布前回归和平台差异确认。
+
+## F072 - Pause modal settings panel layout strategy
+
+### Option A (Recommended)
+- 路径：`Control` 全屏容器 + 半透明 `ColorRect` 遮罩 + 居中 `Panel` + `VBoxContainer` 内容布局。
+- 优点：结构清晰，兼顾可读性、可点击性与分辨率适配。
+- 缺点：比“直接在角落堆按钮”多一层结构。
+- 适用：设置菜单、暂停菜单、结算弹窗等模态 UI。
+
+### Option B
+- 路径：在现有 HUD 角落直接叠加设置项，不做遮罩与模态。
+- 优点：实现极快，改动小。
+- 缺点：信息干扰大，点击命中和层级冲突频发。
+- 适用：一次性原型或临时调试。
+
+### Option C
+- 路径：切到独立 `settings_scene`，通过场景切换实现“伪模态”。
+- 优点：页面职责清晰，可单独迭代设置页。
+- 缺点：切场景成本高，返回主流程状态恢复复杂。
+- 适用：中后期大型项目，多页设置系统。
+
+## F073 - Modal input blocking policy
+
+### Option A (Recommended)
+- 路径：模态打开时由遮罩拦截底层输入（`mouse_filter=STOP`），并隐藏易干扰 HUD 文本。
+- 优点：交互边界清晰，能稳定防止底层误操作。
+- 缺点：需要维护打开/关闭时的显隐恢复逻辑。
+- 适用：课堂默认模态交互方案。
+
+### Option B
+- 路径：遮罩仅视觉层（`mouse_filter=IGNORE`），输入继续透传到底层。
+- 优点：实现简单，不需要维护额外状态。
+- 缺点：用户可能在设置面板打开时误触游戏逻辑。
+- 适用：非交互演示遮罩。
+
+### Option C
+- 路径：不使用遮罩，仅靠暂停状态和脚本门控阻断输入。
+- 优点：节点最少，结构轻量。
+- 缺点：UI 点击路径和游戏输入路径容易耦合，课堂排错成本高。
+- 适用：对 UI 需求极简的原型工程。
+
+## F074 - Audio setting verification when no audio assets exist
+
+### Option A (Recommended)
+- 路径：记录 slider 线性值与 dB 值，联动保存值并做重启回放验收。
+- 优点：不依赖素材，链路可观测，可自动化。
+- 缺点：缺少“听感”直观反馈。
+- 适用：早期课程、空素材模板项目。
+
+### Option B
+- 路径：临时接入测试音频，靠听感验收。
+- 优点：用户感知直观。
+- 缺点：素材管理与音频设备差异会引入额外变量。
+- 适用：已具备稳定音频资产的阶段。
+
+### Option C
+- 路径：仅校验配置文件数值变化，不做运行时应用验证。
+- 优点：步骤最短。
+- 缺点：无法发现“存了但未生效”的运行时断链。
+- 适用：快速冒烟，不可作为最终通过标准。
+
+## F075 - Environment preflight strategy before class validation
+
+### Option A (Recommended)
+- 路径：每次课堂前执行 3 项 preflight：运行模式（嵌入/浮动）、音频可观测链路、HUD 模态显隐链路。
+- 优点：提前暴露环境类问题，降低课堂中断概率。
+- 缺点：课前多花 2-3 分钟。
+- 适用：所有需要现场演示与即时验收的课程。
+
+### Option B
+- 路径：仅在出现异常后再做环境排查。
+- 优点：启动最快。
+- 缺点：问题通常在课堂中段暴露，修复成本更高。
+- 适用：个人快速实验，不适合教学交付。
+
+### Option C
+- 路径：把 preflight 全部放到课后复盘。
+- 优点：课中不打断节奏。
+- 缺点：无法阻止当堂事故复发，学员等待成本高。
+- 适用：仅适用于非实时教学的离线演示。
+
 ## Evidence
 
 - `godot/doc/classes/Node.xml` -> `_input`, `_unhandled_input`, `_unhandled_key_input`
@@ -1335,6 +1535,8 @@ Version Scope: 4.6
 - `godot/doc/classes/SceneTree.xml` -> `paused`, `reload_current_scene`
 - `godot/doc/classes/SceneTree.xml` -> `change_scene_to_file`, `change_scene_to_packed`, `change_scene_to_node`, `scene_changed`, `root`, `current_scene`
 - `godot/doc/classes/SceneTree.xml` -> `create_timer`, `process_always`, `process_in_physics`, `ignore_time_scale`
+- `godot/doc/classes/SceneTree.xml` -> `get_nodes_in_group`, `get_node_count_in_group`, `node_removed`
+- `godot/doc/classes/Node.xml` -> `add_to_group`, `tree_exited`, `queue_free`
 - `godot/doc/classes/SceneTreeTimer.xml` -> one-shot lifecycle and frame-order note
 - `godot/doc/classes/Timer.xml` -> node-based timer usage model
 - `godot/doc/classes/Engine.xml` -> `time_scale`
@@ -1359,6 +1561,8 @@ Version Scope: 4.6
 - `godot/scene/main/viewport.cpp` -> `Viewport::set_msaa_2d`, `set_screen_space_aa`, `set_use_taa`, `set_use_debanding`
 - `godot/scene/main/viewport.cpp` -> `Viewport::_gui_call_input`, `Viewport::set_input_as_handled`
 - `godot/scene/main/node.cpp` -> `Node::can_process`, `Node::_can_process`, `Node::set_process_input`
+- `godot/scene/main/node.cpp` -> `Node::add_to_group`, `_propagate_exit_tree`, `_propagate_after_exit_tree`
+- `godot/scene/resources/packed_scene.cpp` -> `PackedScene::instantiate`
 - `godot/scene/main/viewport.cpp` -> `Viewport::push_input`, `Viewport::set_input_as_handled`
 - `godot/servers/rendering/rendering_server.h` -> `viewport_set_msaa_2d`, `viewport_set_use_taa`, `viewport_set_use_debanding`
 - `02_mentor/automated_regression_spec_v1.md` -> run profile + minimum metrics + storage convention

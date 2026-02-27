@@ -12,3 +12,4 @@
 - 2026-02-22: `01_learner/daily_reports/2026-02-22.md` (Lessons 10-11 enemy patrol/contact damage + objective gate)
 - 2026-02-24: `01_learner/daily_reports/2026-02-24.md` (Lesson 12 level transition loop + multi-level chain practice)
 - 2026-02-25: `01_learner/daily_reports/2026-02-25.md` (Lesson 13 ConfigFile save/settings foundation + persistence validation)
+- 2026-02-27: `01_learner/daily_reports/2026-02-27.md` (Lesson 14 settings menu runtime apply + persistence validation)

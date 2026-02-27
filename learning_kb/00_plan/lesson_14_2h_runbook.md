@@ -6,6 +6,12 @@
 
 `Today I will build a minimal in-game settings menu and apply runtime changes safely.`
 
+## 课堂执行格式（强制）
+
+- 本课所有教学步骤必须按原子步骤卡发布，模板：`learning_kb/04_templates/learner_atomic_step_card_template.md`。
+- 每一步发出前通过 5 项门禁：`完整性/单义性/可执行性/可验证性/可恢复性`。
+- 执行循环固定为：`发一步 -> 学员回执 -> 校验 -> 再发下一步`。
+
 ## 时间切片（120 分钟）
 
 ## 0-10 min: 启动检查
@@ -21,6 +27,7 @@
   - 音量滑条（Master）
   - 窗口模式切换（Windowed/Fullscreen）
   - 返回按钮
+- 本阶段 UI 步骤卡必须显式写出：`节点名 + 精确类型 + 父路径 + 关键属性 + 常见误选`。
 - 统一菜单显示/隐藏入口（例如在 `PAUSED` 状态进入设置）。
 
 ## 35-65 min: 运行时应用设置

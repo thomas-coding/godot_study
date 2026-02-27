@@ -1,6 +1,6 @@
 # Source Quick-Answer Map v1 (Godot 4.6)
 
-Last Updated: 2026-02-22
+Last Updated: 2026-02-27
 Status: Working
 Version Scope: 4.6
 
@@ -138,6 +138,26 @@ Version Scope: 4.6
 | SQ128 | 重复添加同一输入事件会怎样？ | InputMap duplicate guard | `action_add_event` exits early when existing event is found | `godot/core/input/input_map.cpp` |
 | SQ129 | 清空 action 事件时为什么还要释放按下态？ | Input state consistency on erase | `action_erase_events` calls `action_release` before clearing events if pressed | `godot/core/input/input_map.cpp` |
 | SQ130 | `event_is_action` 为何对松开事件有时忽略修饰键？ | Modifier matching rule | for proper release detection, non-pressed events can ignore modifiers in this check | `godot/doc/classes/InputMap.xml` |
+| SQ131 | 为什么不能依赖组内节点顺序做波次逻辑？ | Node group semantics | `add_to_group` note -> order not guaranteed by design | `godot/doc/classes/Node.xml` |
+| SQ132 | `get_nodes_in_group` 返回顺序是什么？ | SceneTree group query | `_update_group_order` -> hierarchy order array snapshot | `godot/doc/classes/SceneTree.xml`, `godot/scene/main/scene_tree.cpp` |
+| SQ133 | 组不存在时 `get_node_count_in_group` 返回什么？ | SceneTree group count | direct branch on group map lookup -> return 0 when missing | `godot/doc/classes/SceneTree.xml`, `godot/scene/main/scene_tree.cpp` |
+| SQ134 | 为什么 `add_to_group` 后立刻查不到节点？ | Node enter-tree boundary | `Node::add_to_group` registers to SceneTree only if `is_inside_tree()` | `godot/doc/classes/Node.xml`, `godot/scene/main/node.cpp` |
+| SQ135 | `GROUP_CALL_UNIQUE` 为什么没去重？ | SceneTree group call flags | unique cache path only when `GROUP_CALL_DEFERRED` is also set | `godot/doc/classes/SceneTree.xml`, `godot/scene/main/scene_tree.cpp` |
+| SQ136 | 组调用 deferred 时何时执行？ | MessageQueue timing | `call_group_flagsp` deferred branch -> `MessageQueue::push_callp` | `godot/scene/main/scene_tree.cpp` |
+| SQ137 | 刷怪后第一个稳定初始化通知点在哪里？ | PackedScene instancing | `PackedScene::instantiate` -> `NOTIFICATION_SCENE_INSTANTIATED` | `godot/doc/classes/PackedScene.xml`, `godot/scene/resources/packed_scene.cpp` |
+| SQ138 | 为什么敌人 `queue_free` 后同帧判清波会不稳？ | Node deletion timing | `queue_free` deletes at frame end after deferred calls | `godot/doc/classes/Node.xml` |
+| SQ139 | 敌人死亡后用哪个钩子做最终清波判定更稳？ | Node exit lifecycle | `_propagate_after_exit_tree` emits `tree_exited` after exit propagation | `godot/doc/classes/Node.xml`, `godot/scene/main/node.cpp` |
+| SQ140 | 如何快速定位“漏减敌人计数”问题？ | SceneTree diagnostics | monitor `node_removed` + compare against group count transitions | `godot/doc/classes/SceneTree.xml`, `godot/scene/main/node.cpp` |
+| SQ141 | 编辑器里“嵌入运行”开关由哪里决定？ | Editor run placement | `game_embed_mode` setting -> game view embed/floating branch | `godot/doc/classes/EditorSettings.xml`, `godot/editor/run/game_view_plugin.cpp` |
+| SQ142 | Play 按下后是嵌入还是浮动，底层怎么分支？ | Editor run flow | `_play_pressed` -> resolve embed/floating mode from editor settings | `godot/editor/run/game_view_plugin.cpp` |
+| SQ143 | 为什么嵌入运行时切 fullscreen 没视觉变化？ | DisplayServer embedded guard | `window_set_mode` rejects non-windowed when parent/embed is set | `godot/platform/windows/display_server_windows.cpp`, `godot/platform/linuxbsd/x11/display_server_x11.cpp` |
+| SQ144 | `window_set_mode` 进全屏后为什么变无边框？ | Window mode side effect | fullscreen path forces borderless true | `godot/doc/classes/DisplayServer.xml` |
+| SQ145 | 运行时如何确认当前窗口模式是否真的切换？ | DisplayServer runtime query | call `window_get_mode` after `window_set_mode` and verify enum | `godot/doc/classes/DisplayServer.xml` |
+| SQ146 | 模态遮罩为什么推荐 `PRESET_FULL_RECT`？ | Control anchors/presets | full-rect preset stretches anchors to parent bounds | `godot/doc/classes/Control.xml` |
+| SQ147 | `size_flags` 对弹窗布局稳定性有什么作用？ | Container layout sizing | `SIZE_FILL/EXPAND/EXPAND_FILL` controls space distribution and resize behavior | `godot/doc/classes/Control.xml` |
+| SQ148 | 遮罩要挡输入还是透传，核心参数是什么？ | GUI input filter | `mouse_filter` controls stop/pass/ignore routing | `godot/doc/classes/Control.xml` |
+| SQ149 | 线性音量接口与 dB 接口的关系？ | Audio volume API | `set_bus_volume_linear` maps through `linear_to_db` then applies db value | `godot/doc/classes/AudioServer.xml`, `godot/servers/audio/audio_server.cpp` |
+| SQ150 | 没有音频素材时如何验证音量链路？ | Runtime verification strategy | log linear/db + persisted setting replay after restart | `godot/doc/classes/AudioServer.xml`, `projects/first-game/scenes/save_manager.gd` |
 
 ## Usage Rule
 
