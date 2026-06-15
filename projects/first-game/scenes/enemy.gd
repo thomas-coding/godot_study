@@ -2,7 +2,9 @@ extends CharacterBody2D
 
 signal hit_player
 
-@export var patrol_speed := 90.0
+@export var balance_config: GameBalanceConfig = preload("res://configs/balance_default.tres")
+var patrol_speed := 90.0
+
 @export var left_bound_x := 320.0
 @export var right_bound_x := 520.0
 
@@ -12,6 +14,8 @@ var _direction := 1.0
 @onready var hitbox: Area2D = get_node_or_null("Hitbox")
 
 func _ready() -> void:
+	if balance_config != null:
+		patrol_speed = balance_config.enemy_patrol_speed
 	if hitbox != null:
 		hitbox.body_entered.connect(_on_hitbox_body_entered)
 	_update_facing()

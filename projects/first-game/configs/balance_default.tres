@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="GameBalanceConfig" format=3 uid="uid://d4hk0uee858e3"]
+
+[ext_resource type="Script" uid="uid://b2l7vfyq7x87o" path="res://configs/game_balance_config.gd" id="1_wxyfs"]
+
+[resource]
+script = ExtResource("1_wxyfs")
+metadata/_custom_type_script = "uid://b2l7vfyq7x87o"

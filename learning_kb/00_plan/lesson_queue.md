@@ -1,6 +1,6 @@
 # Lesson Queue (2h per lesson)
 
-Last Updated: 2026-02-27
+Last Updated: 2026-06-15
 Mode: 按“课次”推进（不是按自然日）
 
 ## 执行规则
@@ -43,9 +43,9 @@ Mode: 按“课次”推进（不是按自然日）
   - 脚本：`learning_kb/00_plan/lesson_13_2h_runbook.md`
 - 第14课（已完成）：设置菜单（音量/窗口/快捷键入口）
   - 脚本：`learning_kb/00_plan/lesson_14_2h_runbook.md`
-- 第15课（已备课，下一课）：数据驱动参数（Resource）
+- 第15课（已完成）：数据驱动参数（Resource）
   - 脚本：`learning_kb/00_plan/lesson_15_2h_runbook.md`
-- 第16课（已备课）：性能优化与帧预算回归（Profiler + checklist）
+- 第16课（已备课，下一课）：性能优化与帧预算回归（Profiler + checklist）
   - 脚本：`learning_kb/00_plan/lesson_16_2h_runbook.md`
 - 第17课（已备课）：敌人扩展（追踪/投射物）与战斗反馈
   - 脚本：`learning_kb/00_plan/lesson_17_2h_runbook.md`
@@ -59,5 +59,5 @@ Mode: 按“课次”推进（不是按自然日）
 
 ## 备课缓冲检查
 
-- 当前已备课缓冲：`第15课~第20课`（6 课）
+- 当前已备课缓冲：`第16课~第20课`（5 课）
 - 缓冲状态：已满足“至少提前 3 课”要求。

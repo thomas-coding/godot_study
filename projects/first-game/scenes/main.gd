@@ -1,6 +1,7 @@
 extends Node2D
 var collected_count := 0
 var hp := 3
+@export var balance_config: GameBalanceConfig = preload("res://configs/balance_default.tres")
 @export_file("*.tscn") var next_level_scene_path := ""
 
 var total_coins := 0
@@ -17,6 +18,8 @@ var game_state: GameState = GameState.WAIT_START
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	if balance_config != null:
+		hp = balance_config.player_hp
 	var player := get_node_or_null("Player")
 	if player != null:
 		# Main stays always-on for pause hotkeys; gameplay nodes must be pausable.
@@ -60,7 +63,11 @@ func _on_coin_collected() -> void:
 	remaining_coins = max(remaining_coins - 1, 0)
 	_refresh_score_label()
 	print("Collected: %d / %d" % [collected_count, total_coins])
-	if not goal_unlocked and remaining_coins == 0:
+	var required_coins := total_coins
+	if balance_config != null:
+		required_coins = min(balance_config.required_coins, total_coins)
+
+	if not goal_unlocked and collected_count >= required_coins:
 		goal_unlocked = true
 		print("Goal unlocked")
 	_refresh_objective_status()
@@ -94,7 +101,10 @@ func _refresh_state_hint() -> void:
 func _on_hazard_hit() -> void:
 	if game_state != GameState.PLAYING:
 		return
-	hp -= 1
+	var damage := 1
+	if balance_config != null:
+		damage = max(balance_config.enemy_damage, 1)
+	hp -= damage
 	_refresh_hp_label()
 	print("HP: %d" % hp)
 	if hp <= 0:
@@ -145,4 +155,7 @@ func _set_game_state(next_state: GameState) -> void:
 
 func _refresh_objective_status() -> void:
 	if hud != null and hud.has_method("set_objective_status"):
-		hud.call("set_objective_status", goal_unlocked, collected_count, total_coins)
+		var required_coins := total_coins
+		if balance_config != null:
+			required_coins = min(balance_config.required_coins, total_coins)
+		hud.call("set_objective_status", goal_unlocked, collected_count, required_coins)

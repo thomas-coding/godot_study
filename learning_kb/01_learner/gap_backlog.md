@@ -7,7 +7,7 @@
 - Understand `_process(delta)` vs `_physics_process(delta)` in practice
 - Understand `_unhandled_input` dispatch order and handled propagation in practice
 
-Reference runbook: `00_plan/lesson_15_2h_runbook.md`
+Reference runbook: `00_plan/lesson_16_2h_runbook.md`
 
 ## P1
 
@@ -26,6 +26,6 @@ Reference runbook: `00_plan/lesson_15_2h_runbook.md`
 
 ## P2
 
-- Data-driven design with `Resource`
 - Save schema evolution and backward compatibility checks
 - Export pipeline and Steam preflight checklist
+- Resource sharing/mutation boundary (`duplicate`, local-to-scene, runtime state vs config data)

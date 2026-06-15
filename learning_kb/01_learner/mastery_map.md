@@ -46,6 +46,8 @@
   - Evidence: `01_learner/daily_reports/2026-02-25.md`
 - In-game settings menu runtime apply + persistence (`audio_volume` + `window_mode`): `done`
   - Evidence: `01_learner/daily_reports/2026-02-27.md`
+- Resource-driven gameplay balance config (`Resource` + `.tres` + Inspector switching): `done`
+  - Evidence: `01_learner/daily_reports/2026-06-15.md`
 
 ## Engineering Workflow
 

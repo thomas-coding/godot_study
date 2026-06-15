@@ -2,6 +2,26 @@
 
 > 规则：每次教学前后补充 1-2 条，记录“读了什么 -> 结论是什么 -> 来源在哪里”。
 
+## 2026-06-15
+
+- Topic: 学员线第15课实作验收（Resource 数据驱动玩法参数）（Working）
+- Summary:
+  - 完成 `GameBalanceConfig` 自定义 Resource，建立 `balance_default.tres` 与 `balance_easy.tres` 两套玩法参数。
+  - `Player` 已从 Resource 读取速度与跳跃参数，`Enemy` 已从 Resource 读取巡逻速度，`Main` 已从 Resource 读取初始 HP、敌人伤害与 Goal 所需收集数。
+  - 验证了 `preload` 提供代码默认配置、`@export` 暴露 Inspector 可覆盖配置、`.tres` 保存具体参数实例的教学链路。
+  - Easy 配置与默认配置均完成运行回归：HUD、start/pause/restart、收集、Goal 解锁与胜利/切关流程未见红色报错。
+- Source:
+  - `projects/first-game/configs/game_balance_config.gd`
+  - `projects/first-game/configs/balance_default.tres`
+  - `projects/first-game/configs/balance_easy.tres`
+  - `projects/first-game/scenes/player.gd`
+  - `projects/first-game/scenes/enemy.gd`
+  - `projects/first-game/scenes/main.gd`
+  - `01_learner/daily_reports/2026-06-15.md`
+  - https://docs.godotengine.org/en/stable/tutorials/scripting/resources.html
+  - https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_exports.html
+  - https://docs.godotengine.org/en/stable/classes/class_resource.html
+
 ## 2026-02-27
 
 - Topic: 导师线自学习（第14课复盘：嵌入运行窗口模式陷阱 + 模态设置 UI）（Verified/Working）

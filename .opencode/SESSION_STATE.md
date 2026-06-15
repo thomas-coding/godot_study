@@ -1,31 +1,31 @@
 # Session State - godot_study
 
 ## Date
-- 2026-02-27
+- 2026-06-15
 
 ## Current Focus
-- 今日已收口：学员线第14课与导师线本轮沉淀均已完成并写回，等待下次 `/startday` 后按你安排进入下一步。
+- 今日已收口：学员线第15课已完成，代码与知识库正在提交并推送到 GitHub。
 
 ## Completed Today
-- 学员线第14课已完成并通过验收：设置菜单（音量/窗口）运行时应用 + 持久化回放 + UI 模态化修复。
-- 补齐第20课 runbook：新增 `learning_kb/00_plan/lesson_20_2h_runbook.md`，课次缓冲刷新为 `第15课~第20课`（6课）。
-- 新增导师模块 `M18`：嵌入运行窗口模式限制与模态设置 UI 布局。
-- 新增导师资产 `K075~K078`、`QA076~QA080`，覆盖 `game_embed_mode`、嵌入窗口限制、全屏边框副作用、模态输入策略、无音频素材验收链路。
-- 快答与方案库扩展完成：`SQ141~SQ150` 与 `F071~F075` 已入库。
-- 连续性同步完成：`lesson_queue`、`knowledge_map`、`learning_backlog`、`module/card/qa index`、`version_matrix`、`docs_digest`、`handoff_latest`、`mentor_progress_dashboard` 已刷新（总体进度 76%）。
+- 学员线第15课已完成并通过验收：Resource 数据驱动玩法参数。
+- 新增 `GameBalanceConfig` 与两套 `.tres` 配置：`balance_default` / `balance_easy`。
+- `Player` 读取 Resource 控制速度与跳跃；`Enemy` 读取 Resource 控制巡逻速度；`Main` 读取 Resource 控制初始 HP、敌人伤害、Goal 所需收集数。
+- 验证 easy 配置差异后已切回 default，并通过 start/pause/restart/HUD/collect/Goal 回归。
+- 学员已能解释 `game_balance_config.gd` 与 `.tres` 的关系，以及 `preload` 默认值和 Inspector 场景覆盖之间的关系。
+- 连续性同步完成：`lesson_queue`、`current_state`、`mastery_map`、`gap_backlog`、日报、`docs_digest`、`handoff_latest` 已刷新。
 
 ## In Progress
-- 本轮变更尚未执行 commit/push（按你明确指令再进行）。
+- 本轮变更按用户要求执行 commit/push。
 
 ## Blockers
 - None
 
 ## Next Step (First Action Tomorrow)
-- 建议动作：先运行 `/startday` 同步状态，再按当日安排选择学员线 `learning_kb/00_plan/lesson_15_2h_runbook.md` 或继续导师线任务。
+- 建议动作：进入学员线第16课 `learning_kb/00_plan/lesson_16_2h_runbook.md`，学习 Profiler 与帧预算回归。
 
 ## References
-- `learning_kb/00_plan/lesson_15_2h_runbook.md`
-- `learning_kb/00_plan/lesson_20_2h_runbook.md`
-- `learning_kb/02_mentor/modules/M18_embedded_run_window_modes_and_modal_ui_layout.md`
-- `learning_kb/02_mentor/mentor_progress_dashboard.md`
+- `learning_kb/00_plan/lesson_16_2h_runbook.md`
+- `projects/first-game/configs/game_balance_config.gd`
+- `projects/first-game/configs/balance_default.tres`
+- `projects/first-game/configs/balance_easy.tres`
 - `learning_kb/03_sessions/handoff_latest.md`

@@ -1,12 +1,12 @@
 # Current Learner State
 
-Last Updated: 2026-02-27
+Last Updated: 2026-06-15
 
 ## Snapshot
 
-- Phase: Week 01 / 第14课完成
+- Phase: Week 01 / 第15课完成
 - Per-Lesson Budget: 2h
-- Lesson Prep Buffer: Lessons 15-19 ready
+- Lesson Prep Buffer: Lessons 16-20 ready
 - Primary Goal: Build and ship a complete game with Godot on Steam
 - KB Baseline: Godot 4.6 (version migration protocol enabled)
 
@@ -38,6 +38,9 @@ Last Updated: 2026-02-27
 - Runtime settings apply works (`AudioServer` volume + `DisplayServer` window mode)
 - Settings persistence loop expanded (`audio_volume` + `window_mode`) and restart validation passed
 - Embedded-run environment caveat is understood (window-mode visual validation must use standalone window)
+- Resource-driven gameplay config works (`GameBalanceConfig` + `balance_default.tres` / `balance_easy.tres`)
+- Player speed/jump, initial HP, enemy patrol speed/damage, and required coins can be driven by `.tres`
+- Inspector-level config switching works and default/easy balance regression passed
 - Versioned KB infrastructure is ready (`registry` + `upgrade protocol` + `compatibility matrix`)
 - Mentor support assets upgraded: QA001~QA065, multi-domain checklists, source quick-answer map v1 (120 items)
 - Dual-track governance is locked (`learner line` / `mentor line`) with fixed class SOP
@@ -49,15 +52,16 @@ Last Updated: 2026-02-27
 - Multi-level chain configuration discipline (avoid loopback and keep terminal level explicit)
 - Save schema evolution discipline (field/version compatibility and fallback)
 - Keybinding rebind implementation is still placeholder-only (entry exists, rebinding flow not implemented)
+- Resource sharing/mutation boundary should be reinforced later (`Resource` data vs runtime mutable state)
 
 ## Immediate Next Session Goal
 
-Start Lesson 15 and introduce Resource-driven gameplay parameter tuning.
+Start Lesson 16 and introduce performance profiling plus frame-budget regression.
 
-Runbook: `00_plan/lesson_15_2h_runbook.md`
+Runbook: `00_plan/lesson_16_2h_runbook.md`
 
 Lesson Queue: `00_plan/lesson_queue.md`
-- Next prepared lessons: `lesson_16_2h_runbook.md`, `lesson_17_2h_runbook.md`, `lesson_18_2h_runbook.md`
+- Next prepared lessons: `lesson_17_2h_runbook.md`, `lesson_18_2h_runbook.md`, `lesson_19_2h_runbook.md`
 
 ## Teaching Preferences (Stable)
 

@@ -1,9 +1,15 @@
 # Session Handoff (Latest)
 
-Date: 2026-02-27
+Date: 2026-06-15
 
 ## What was completed
 
+- 学员线第15课已完成（2026-06-15）：Resource 数据驱动玩法参数闭环通过。
+  - 新增 `GameBalanceConfig` 自定义 Resource。
+  - 新增 `balance_default.tres` 与 `balance_easy.tres` 两套配置。
+  - `Player` 读取速度/跳跃，`Enemy` 读取巡逻速度，`Main` 读取初始 HP、敌人伤害、Goal 所需收集数。
+  - 验证 `preload` 代码默认配置 + `@export` Inspector 覆盖 + `.tres` 具体参数实例的关系。
+  - Easy 配置验证通过后已切回默认配置，回归通过：`HP: 3`、`Goal: LOCKED (0/2)`、2 coin 解锁 Goal、pause/restart/HUD 正常。
 - Day 1 done: Godot installed, project runs with `F5`, Input Map created, `jump` verified.
 - 学员线第12课已完成（2026-02-24）：`Level 1 -> Level 2` 切关闭环通过，且完成了 `Level 3` 扩展练习与终关停留语义校验（避免回环误配）。
 - 学员线第13课已完成（2026-02-25）：`ConfigFile` 存档与设置基础闭环通过，`best_score/unlocked_level` 跨重启持久化验证通过。
@@ -171,22 +177,22 @@ Date: 2026-02-27
 
 - Level: Godot beginner from zero, strong C/C++ engineering background.
 - Confirmed skills: project setup, main scene run, input action creation, debug script attach.
-- Confirmed new skills: `CharacterBody2D` movement/jump + ground collision + `Area2D` collectible/hazard/goal loop + start/pause/restart + game over/win gating + enemy patrol/contact-damage integration + objective gate unlock flow + level transition chain (`change_scene_to_file` + Inspector-configured next-level path) + ConfigFile persistence foundation.
-- Missing next: execute Lesson 15 learner implementation (Resource 参数化玩法) and stabilize config fallback strategy.
+- Confirmed new skills: `CharacterBody2D` movement/jump + ground collision + `Area2D` collectible/hazard/goal loop + start/pause/restart + game over/win gating + enemy patrol/contact-damage integration + objective gate unlock flow + level transition chain (`change_scene_to_file` + Inspector-configured next-level path) + ConfigFile persistence foundation + Resource-driven gameplay balance configs.
+- Missing next: execute Lesson 16 learner implementation (performance profiling + frame-budget regression) and reinforce Resource sharing/mutation boundaries.
 
-## 学员线下一节课计划（第15课）
+## 学员线下一节课计划（第16课）
 
-- 课程目标：把核心玩法参数从硬编码迁移到 Resource，并建立可切换配置。
-- 执行脚本：`00_plan/lesson_15_2h_runbook.md`。
+- 课程目标：使用 Profiler 与检查清单建立最小帧预算回归习惯。
+- 执行脚本：`00_plan/lesson_16_2h_runbook.md`。
 - 验收点：
-  1. 至少 1 组核心玩法参数迁移到 Resource
-  2. 至少 2 套配置可切换并可观察差异
-  3. 不破坏现有关卡链路与状态机/HUD
-- 排错模板：`04_templates/area2d_interaction_troubleshooting_checklist.md`。
+  1. 能打开并读取 Godot Profiler 的基础指标
+  2. 建立当前项目的最小帧预算记录
+  3. 完成一次 start/pause/restart/collect/Goal 回归检查
+- 排错模板：`04_templates/performance_frame_budget_checklist.md`。
 
-## Next session objective (Lesson 15 prep, 2h)
+## Next session objective (Lesson 16 prep, 2h)
 
-Convert core gameplay constants into Resource-driven configs and validate balancing switch workflow.
+Introduce performance profiling and frame-budget regression for the current playable slice.
 
 ## First files to read next time
 
@@ -214,7 +220,7 @@ Convert core gameplay constants into Resource-driven configs and validate balanc
 
 ## Suggested first action next session
 
-- Learning mode: read `lesson_queue.md`, then execute `lesson_15_2h_runbook` for Resource-driven gameplay configs.
+- Learning mode: read `lesson_queue.md`, then execute `lesson_16_2h_runbook` for performance profiling and frame-budget regression.
 - Mentor self-study mode: continue threshold-band automation and shipping decision tree assets; prepare `lesson_21_2h_runbook`.
 - Upgrade mode: execute protocol Step 1 and open migration matrix.
 

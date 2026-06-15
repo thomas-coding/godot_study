@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d1n18f7d7hqr2" path="res://scenes/coin.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://406iyw4t4q3x" path="res://scenes/hazard.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://e4ly1hnyqpjt" path="res://scenes/goal.tscn" id="5_tbgi4"]
-[ext_resource type="PackedScene" path="res://scenes/enemy.tscn" id="6_71sn6"]
+[ext_resource type="PackedScene" uid="uid://d4eqw86jp14ap" path="res://scenes/enemy.tscn" id="6_71sn6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
 size = Vector2(1311, 40)
