@@ -1,6 +1,6 @@
 # Lesson Queue (2h per lesson)
 
-Last Updated: 2026-06-15
+Last Updated: 2026-06-22
 Mode: 按“课次”推进（不是按自然日）
 
 ## 执行规则
@@ -45,9 +45,9 @@ Mode: 按“课次”推进（不是按自然日）
   - 脚本：`learning_kb/00_plan/lesson_14_2h_runbook.md`
 - 第15课（已完成）：数据驱动参数（Resource）
   - 脚本：`learning_kb/00_plan/lesson_15_2h_runbook.md`
-- 第16课（已备课，下一课）：性能优化与帧预算回归（Profiler + checklist）
+- 第16课（已完成）：性能优化与帧预算回归（Profiler + checklist）
   - 脚本：`learning_kb/00_plan/lesson_16_2h_runbook.md`
-- 第17课（已备课）：敌人扩展（追踪/投射物）与战斗反馈
+- 第17课（已备课，下一课）：敌人扩展（追踪/投射物）与战斗反馈
   - 脚本：`learning_kb/00_plan/lesson_17_2h_runbook.md`
 - 第18课（已备课）：关卡事件系统（触发器 + 一次性事件）
   - 脚本：`learning_kb/00_plan/lesson_18_2h_runbook.md`
@@ -55,9 +55,11 @@ Mode: 按“课次”推进（不是按自然日）
   - 脚本：`learning_kb/00_plan/lesson_19_2h_runbook.md`
 - 第20课（已备课）：小型 Boss 原型（阶段行为 + 受击反馈）
   - 脚本：`learning_kb/00_plan/lesson_20_2h_runbook.md`
-- 第21课（待备课）：Boss 战结算与奖励循环（掉落/结算面板）
+- 第21课（已备课）：Boss 战结算与奖励循环（掉落/结算面板）
+  - 脚本：`learning_kb/00_plan/lesson_21_2h_runbook.md`
+- 第22课（待备课）：可玩关卡整合与小型 alpha 回归
 
 ## 备课缓冲检查
 
-- 当前已备课缓冲：`第16课~第20课`（5 课）
+- 当前已备课缓冲：`第17课~第21课`（5 课）
 - 缓冲状态：已满足“至少提前 3 课”要求。

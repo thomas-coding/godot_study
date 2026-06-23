@@ -2,6 +2,33 @@
 
 > 规则：每次教学前后补充 1-2 条，记录“读了什么 -> 结论是什么 -> 来源在哪里”。
 
+## 2026-06-22
+
+- Topic: 学员线第16课实作验收（Profiler 帧预算采样与优化证据纪律）（Working）
+- Summary:
+  - 完成当前 playable slice 的 Godot Profiler 采样，建立 `60 FPS ~= 16.6ms` 帧预算口径。
+  - 学员追问并修正了关键判断：`Frame Time` 要看整条曲线和尖峰，不能只看左侧当前数值；启动阶段尖峰要和运行时压力路线分开记录。
+  - `main.gd` 新增 `debug_logs` 开关，普通日志默认不输出；该修改保留为工程清理，但不再宣称它带来稳定帧时间收益。
+  - 本次课堂结论修正为：当前项目规模下未发现真实性能瓶颈，已掌握采样、复测与“不可误归因优化收益”的方法。
+- Source:
+  - `projects/first-game/scenes/main.gd`
+  - `01_learner/daily_reports/2026-06-22.md`
+  - `04_templates/performance_frame_budget_checklist.md`
+  - `02_mentor/modules/M08_performance_monitoring_and_frame_budget.md`
+
+- Topic: 导师线备课（第21课 Boss 战结算与奖励循环）（Verified/Working）
+- Summary:
+  - 新增 `lesson_21_2h_runbook`，为第20课 Boss 原型之后补齐奖励发放、结算面板、重开恢复和切关边界。
+  - 证据锚点使用 `Control` / `CanvasLayer` / `RandomNumberGenerator` 官方类文档，以及 `BaseButton` 源码信号链路。
+  - 备课缓冲更新为第17课到第21课，共 5 课，继续满足至少提前 3 课要求。
+- Source:
+  - `godot/doc/classes/Control.xml`
+  - `godot/doc/classes/CanvasLayer.xml`
+  - `godot/doc/classes/RandomNumberGenerator.xml`
+  - `godot/scene/gui/base_button.cpp`
+  - `00_plan/lesson_21_2h_runbook.md`
+  - `00_plan/lesson_queue.md`
+
 ## 2026-06-15
 
 - Topic: 学员线第15课实作验收（Resource 数据驱动玩法参数）（Working）

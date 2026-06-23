@@ -1,31 +1,31 @@
 # Session State - godot_study
 
 ## Date
-- 2026-06-15
+- 2026-06-22
 
 ## Current Focus
-- 今日已收口：学员线第15课已完成，代码与知识库正在提交并推送到 GitHub。
+- 今日已收口：学员线第16课已完成；已切到导师线完成第21课备课并刷新连续性文件。
 
 ## Completed Today
-- 学员线第15课已完成并通过验收：Resource 数据驱动玩法参数。
-- 新增 `GameBalanceConfig` 与两套 `.tres` 配置：`balance_default` / `balance_easy`。
-- `Player` 读取 Resource 控制速度与跳跃；`Enemy` 读取 Resource 控制巡逻速度；`Main` 读取 Resource 控制初始 HP、敌人伤害、Goal 所需收集数。
-- 验证 easy 配置差异后已切回 default，并通过 start/pause/restart/HUD/collect/Goal 回归。
-- 学员已能解释 `game_balance_config.gd` 与 `.tres` 的关系，以及 `preload` 默认值和 Inspector 场景覆盖之间的关系。
-- 连续性同步完成：`lesson_queue`、`current_state`、`mastery_map`、`gap_backlog`、日报、`docs_digest`、`handoff_latest` 已刷新。
+- 学员线第16课完成：Profiler 帧预算采样与曲线解释。
+- 学员已理解 `Frame Time` 不能只看左侧当前值，要看整条曲线、尖峰、启动采样污染和运行时压力路线。
+- 修正课堂结论：`debug_logs` 是日志噪声治理，不是已证明的稳定帧时间优化；不能把不同采样窗口的 `5.36ms -> 0.90ms` 误归因。
+- 代码更新：`projects/first-game/scenes/main.gd` 新增 `debug_logs` 开关，普通日志默认通过 `_debug_log` 静默。
+- 导师线备课完成：新增 `learning_kb/00_plan/lesson_21_2h_runbook.md`。
+- 连续性同步完成：`lesson_queue`、`current_state`、`mastery_map`、`gap_backlog`、日报、`docs_digest`、`mentor_progress_dashboard`、`handoff_latest` 已刷新。
 
 ## In Progress
-- 本轮变更按用户要求执行 commit/push。
+- None
 
 ## Blockers
 - None
 
 ## Next Step (First Action Tomorrow)
-- 建议动作：进入学员线第16课 `learning_kb/00_plan/lesson_16_2h_runbook.md`，学习 Profiler 与帧预算回归。
+- 建议动作：进入学员线第17课 `learning_kb/00_plan/lesson_17_2h_runbook.md`，优先实现近距离追踪敌人并补 2 类战斗反馈。
 
 ## References
-- `learning_kb/00_plan/lesson_16_2h_runbook.md`
-- `projects/first-game/configs/game_balance_config.gd`
-- `projects/first-game/configs/balance_default.tres`
-- `projects/first-game/configs/balance_easy.tres`
+- `learning_kb/00_plan/lesson_17_2h_runbook.md`
+- `learning_kb/00_plan/lesson_21_2h_runbook.md`
+- `learning_kb/01_learner/daily_reports/2026-06-22.md`
+- `projects/first-game/scenes/main.gd`
 - `learning_kb/03_sessions/handoff_latest.md`

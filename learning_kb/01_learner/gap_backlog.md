@@ -6,14 +6,15 @@
 
 - Understand `_process(delta)` vs `_physics_process(delta)` in practice
 - Understand `_unhandled_input` dispatch order and handled propagation in practice
+- Practice Profiler domain breakdown beyond frame-time curve (`Process` / `Physics` / render) on a larger scene
 
-Reference runbook: `00_plan/lesson_16_2h_runbook.md`
+Reference runbook: `00_plan/lesson_17_2h_runbook.md`
 
 ## P1
 
 - Add `Camera2D` follow without jitter
 - Practice Camera2D jitter checklist on real project scene
-- Practice performance frame-budget checklist on current project
+- Reuse performance frame-budget checklist when enemy/Boss content increases scene pressure
 - Practice export runtime resource-loading checklist on a test export build
 - Practice Windows release preflight checklist on first playable build
 - Practice signal/GUI input propagation diagnostics on a small UI scene

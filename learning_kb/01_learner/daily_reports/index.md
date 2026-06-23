@@ -14,3 +14,4 @@
 - 2026-02-25: `01_learner/daily_reports/2026-02-25.md` (Lesson 13 ConfigFile save/settings foundation + persistence validation)
 - 2026-02-27: `01_learner/daily_reports/2026-02-27.md` (Lesson 14 settings menu runtime apply + persistence validation)
 - 2026-06-15: `01_learner/daily_reports/2026-06-15.md` (Lesson 15 Resource-driven gameplay balance configs)
+- 2026-06-22: `01_learner/daily_reports/2026-06-22.md` (Lesson 16 Profiler frame-budget sampling + corrected optimization conclusion)

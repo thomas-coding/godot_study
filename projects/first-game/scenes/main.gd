@@ -1,4 +1,7 @@
 extends Node2D
+
+@export var debug_logs := false
+
 var collected_count := 0
 var hp := 3
 @export var balance_config: GameBalanceConfig = preload("res://configs/balance_default.tres")
@@ -27,7 +30,7 @@ func _ready() -> void:
 	_refresh_score_label()
 	_refresh_hp_label()
 	if SaveManager != null:
-		print("Save snapshot: best=%d unlocked=%d volume=%.2f" % [
+		_debug_log("Save snapshot: best=%d unlocked=%d volume=%.2f" % [
 			SaveManager.best_score,
 			SaveManager.unlocked_level,
 			SaveManager.audio_volume
@@ -49,7 +52,7 @@ func _ready() -> void:
 			child.reached_goal.connect(_on_goal_reached)
 	remaining_coins = total_coins
 	goal_unlocked = remaining_coins == 0
-	print("Coins total: %d" % total_coins)
+	_debug_log("Coins total: %d" % total_coins)
 	# Start gate via state machine.
 	_set_game_state(GameState.WAIT_START)
 	_refresh_objective_status()
@@ -62,14 +65,14 @@ func _on_coin_collected() -> void:
 		SaveManager.try_update_best_score(collected_count)
 	remaining_coins = max(remaining_coins - 1, 0)
 	_refresh_score_label()
-	print("Collected: %d / %d" % [collected_count, total_coins])
+	_debug_log("Collected: %d / %d" % [collected_count, total_coins])
 	var required_coins := total_coins
 	if balance_config != null:
 		required_coins = min(balance_config.required_coins, total_coins)
 
 	if not goal_unlocked and collected_count >= required_coins:
 		goal_unlocked = true
-		print("Goal unlocked")
+		_debug_log("Goal unlocked")
 	_refresh_objective_status()
 
 func _refresh_score_label() -> void:
@@ -106,7 +109,7 @@ func _on_hazard_hit() -> void:
 		damage = max(balance_config.enemy_damage, 1)
 	hp -= damage
 	_refresh_hp_label()
-	print("HP: %d" % hp)
+	_debug_log("HP: %d" % hp)
 	if hp <= 0:
 		_set_game_state(GameState.GAME_OVER)
 
@@ -121,12 +124,12 @@ func _on_goal_reached() -> void:
 	if game_state != GameState.PLAYING:
 		return
 	if not goal_unlocked:
-		print("Goal is locked. Collect all coins first.")
+		_debug_log("Goal is locked. Collect all coins first.")
 		return
 	_set_game_state(GameState.WON)
 	if SaveManager != null:
 		SaveManager.unlock_level(unlock_level_on_win)
-	print("YOU WIN")
+	_debug_log("YOU WIN")
 	if not next_level_scene_path.is_empty():
 		call_deferred("_go_to_next_level")
 
@@ -138,7 +141,7 @@ func _go_to_next_level() -> void:
 
 func _set_game_state(next_state: GameState) -> void:
 	game_state = next_state
-	print("State -> %s" % GameState.keys()[game_state])
+	_debug_log("State -> %s" % GameState.keys()[game_state])
 	match game_state:
 		GameState.WAIT_START:
 			get_tree().paused = true
@@ -159,3 +162,7 @@ func _refresh_objective_status() -> void:
 		if balance_config != null:
 			required_coins = min(balance_config.required_coins, total_coins)
 		hud.call("set_objective_status", goal_unlocked, collected_count, required_coins)
+
+func _debug_log(message: String) -> void:
+	if debug_logs:
+		print(message)

@@ -1,9 +1,19 @@
 # Session Handoff (Latest)
 
-Date: 2026-06-15
+Date: 2026-06-22
 
 ## What was completed
 
+- 学员线第16课已完成（2026-06-22）：性能优化与帧预算回归。
+  - 完成 Godot Profiler 采样，建立 `60 FPS ~= 16.6ms` 帧预算。
+  - 学员已理解：`Frame Time` 要看整条曲线和尖峰；启动阶段尖峰要和运行时压力路线分开。
+  - `Physics Frame Time ~= 16.6ms` 已明确为 60Hz 物理步长节奏，不等于物理计算耗时。
+  - `projects/first-game/scenes/main.gd` 新增 `debug_logs`，普通 `print` 改为 `_debug_log`，默认减少输出噪声。
+  - 重要修正：本次日志门控不再宣称带来稳定帧时间优化；重新采样显示压力路线差异很小，不能误归因。
+- 导师线备课已继续完成：
+  - 新增 `learning_kb/00_plan/lesson_21_2h_runbook.md`（Boss 战结算与奖励循环：掉落 + 结算面板）。
+  - `lesson_queue` 更新为第17课下一课，备课缓冲为第17课到第21课。
+  - `docs_digest` 和导师看板已记录第16课复盘与第21课备课证据。
 - 学员线第15课已完成（2026-06-15）：Resource 数据驱动玩法参数闭环通过。
   - 新增 `GameBalanceConfig` 自定义 Resource。
   - 新增 `balance_default.tres` 与 `balance_easy.tres` 两套配置。
@@ -160,7 +170,7 @@ Date: 2026-06-15
   - 新增 `00_plan/lesson_16_2h_runbook.md`（性能优化与帧预算回归）。
   - 新增 `00_plan/lesson_17_2h_runbook.md`（敌人扩展：追踪/投射物与战斗反馈）。
   - `lesson_queue` 备课缓冲扩展为 `第10课~第17课`（8课），第10/11/12/13课完成后当前有效缓冲为 `第14课~第17课`（4课）。
-- Mentor progress dashboard is active: current progress `76%`, sprint target `77%`.
+- Mentor progress dashboard is active: current progress `77%`, sprint target reached.
 
 ## Active baseline
 
@@ -171,28 +181,29 @@ Date: 2026-06-15
   - docs channel: `https://docs.godotengine.org/en/stable/`
 - Mentor capability baseline:
   - dashboard: `02_mentor/mentor_progress_dashboard.md`
-  - current overall: `76%`
+  - current overall: `77%`
 
 ## Current learner state
 
 - Level: Godot beginner from zero, strong C/C++ engineering background.
 - Confirmed skills: project setup, main scene run, input action creation, debug script attach.
-- Confirmed new skills: `CharacterBody2D` movement/jump + ground collision + `Area2D` collectible/hazard/goal loop + start/pause/restart + game over/win gating + enemy patrol/contact-damage integration + objective gate unlock flow + level transition chain (`change_scene_to_file` + Inspector-configured next-level path) + ConfigFile persistence foundation + Resource-driven gameplay balance configs.
-- Missing next: execute Lesson 16 learner implementation (performance profiling + frame-budget regression) and reinforce Resource sharing/mutation boundaries.
+- Confirmed new skills: `CharacterBody2D` movement/jump + ground collision + `Area2D` collectible/hazard/goal loop + start/pause/restart + game over/win gating + enemy patrol/contact-damage integration + objective gate unlock flow + level transition chain (`change_scene_to_file` + Inspector-configured next-level path) + ConfigFile persistence foundation + Resource-driven gameplay balance configs + Profiler frame-budget sampling and curve interpretation.
+- Missing next: execute Lesson 17 learner implementation (enemy chase/projectile extension + combat feedback) and reinforce Resource sharing/mutation boundaries.
 
-## 学员线下一节课计划（第16课）
+## 学员线下一节课计划（第17课）
 
-- 课程目标：使用 Profiler 与检查清单建立最小帧预算回归习惯。
-- 执行脚本：`00_plan/lesson_16_2h_runbook.md`。
+- 课程目标：新增一种敌人扩展行为，并补齐清晰战斗反馈。
+- 执行脚本：`00_plan/lesson_17_2h_runbook.md`。
+- 推荐课堂选择：近距离追踪优先，因当前已有巡逻敌人和接触伤害，改动面比投射物更小。
 - 验收点：
-  1. 能打开并读取 Godot Profiler 的基础指标
-  2. 建立当前项目的最小帧预算记录
-  3. 完成一次 start/pause/restart/collect/Goal 回归检查
-- 排错模板：`04_templates/performance_frame_budget_checklist.md`。
+  1. 新敌人行为可稳定触发且可复现
+  2. 至少 2 类战斗反馈可见
+  3. 重开后敌人与反馈状态恢复
+  4. start/pause/restart/HUD/Resource 配置无回归
 
-## Next session objective (Lesson 16 prep, 2h)
+## Next session objective (Lesson 17 prep, 2h)
 
-Introduce performance profiling and frame-budget regression for the current playable slice.
+Add one advanced enemy behavior and clear combat feedback without breaking the current loop.
 
 ## First files to read next time
 
@@ -220,8 +231,8 @@ Introduce performance profiling and frame-budget regression for the current play
 
 ## Suggested first action next session
 
-- Learning mode: read `lesson_queue.md`, then execute `lesson_16_2h_runbook` for performance profiling and frame-budget regression.
-- Mentor self-study mode: continue threshold-band automation and shipping decision tree assets; prepare `lesson_21_2h_runbook`.
+- Learning mode: read `lesson_queue.md`, then execute `lesson_17_2h_runbook` for enemy behavior and combat feedback.
+- Mentor self-study mode: continue threshold-band automation and shipping decision tree assets; next prep target is `lesson_22_2h_runbook`.
 - Upgrade mode: execute protocol Step 1 and open migration matrix.
 
 ## Bootstrap Hint for new AI

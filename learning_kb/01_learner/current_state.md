@@ -1,12 +1,12 @@
 # Current Learner State
 
-Last Updated: 2026-06-15
+Last Updated: 2026-06-22
 
 ## Snapshot
 
-- Phase: Week 01 / 第15课完成
+- Phase: Week 01 / 第16课完成
 - Per-Lesson Budget: 2h
-- Lesson Prep Buffer: Lessons 16-20 ready
+- Lesson Prep Buffer: Lessons 17-21 ready
 - Primary Goal: Build and ship a complete game with Godot on Steam
 - KB Baseline: Godot 4.6 (version migration protocol enabled)
 
@@ -41,27 +41,34 @@ Last Updated: 2026-06-15
 - Resource-driven gameplay config works (`GameBalanceConfig` + `balance_default.tres` / `balance_easy.tres`)
 - Player speed/jump, initial HP, enemy patrol speed/damage, and required coins can be driven by `.tres`
 - Inspector-level config switching works and default/easy balance regression passed
+- Godot Profiler basic sampling works for the current playable slice
+- Frame budget baseline is understood (`60 FPS ~= 16.6ms`)
+- Learner can distinguish current `Frame Time` value, curve spikes, startup sampling noise, and runtime pressure-route data
+- `Physics Frame Time ~= 16.6ms` is understood as 60Hz physics cadence, not direct physics computation cost
+- Performance conclusion discipline improved: do not claim optimization gain without same-window before/after evidence
+- `main.gd` debug output is now gated by `debug_logs`, reducing default console noise without changing gameplay semantics
 - Versioned KB infrastructure is ready (`registry` + `upgrade protocol` + `compatibility matrix`)
 - Mentor support assets upgraded: QA001~QA065, multi-domain checklists, source quick-answer map v1 (120 items)
 - Dual-track governance is locked (`learner line` / `mentor line`) with fixed class SOP
 
 ## Current Gaps
 
-- `_process(delta)` vs `_physics_process(delta)` understanding is not yet stable
+- `_process(delta)` vs `_physics_process(delta)` understanding is improved but still needs practice in real feature work
 - `_unhandled_input` 分发顺序与 handled 传播机制理解尚不稳定
 - Multi-level chain configuration discipline (avoid loopback and keep terminal level explicit)
 - Save schema evolution discipline (field/version compatibility and fallback)
 - Keybinding rebind implementation is still placeholder-only (entry exists, rebinding flow not implemented)
 - Resource sharing/mutation boundary should be reinforced later (`Resource` data vs runtime mutable state)
+- Profiler domain breakdown beyond frame-time curve (`Process` vs `Physics` vs render/draw calls) needs later practice on a larger scene
 
 ## Immediate Next Session Goal
 
-Start Lesson 16 and introduce performance profiling plus frame-budget regression.
+Start Lesson 17 and add one advanced enemy behavior plus clear combat feedback.
 
-Runbook: `00_plan/lesson_16_2h_runbook.md`
+Runbook: `00_plan/lesson_17_2h_runbook.md`
 
 Lesson Queue: `00_plan/lesson_queue.md`
-- Next prepared lessons: `lesson_17_2h_runbook.md`, `lesson_18_2h_runbook.md`, `lesson_19_2h_runbook.md`
+- Next prepared lessons: `lesson_18_2h_runbook.md`, `lesson_19_2h_runbook.md`, `lesson_20_2h_runbook.md`, `lesson_21_2h_runbook.md`
 
 ## Teaching Preferences (Stable)
 
