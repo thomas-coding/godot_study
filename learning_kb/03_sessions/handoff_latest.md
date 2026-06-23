@@ -1,5 +1,49 @@
 # Session Handoff (Latest)
 
+Date: 2026-06-23
+
+## 2026-06-23 Update
+
+- 学员线第17课已完成：敌人扩展（简单投射物）与战斗反馈。
+- 新增 `Projectile(Area2D)` 可复用对象：
+  - `projects/first-game/scenes/projectile.tscn`
+  - `projects/first-game/scenes/projectile.gd`
+- 敌人发射链路完成：
+  - `Enemy` 实例化 `projectile.tscn`
+  - 调用 `setup(spawn_direction)`
+  - 发出 `fired_projectile(projectile)`
+  - `Main` 接收后 `add_child(projectile)` 并连接 `hit_player`
+- 战斗反馈完成：
+  - HUD `HIT!` 受击提示
+  - Player 精灵受击闪红
+- Resource 调参完成：
+  - `GameBalanceConfig.enemy_shoot_cooldown`
+  - `GameBalanceConfig.projectile_speed`
+  - `GameBalanceConfig.projectile_lifetime`
+  - `balance_easy.tres` 验证为更慢投射物/更长发射间隔；主场景最终恢复默认配置。
+- 学员理解确认：
+  - `projectile.tscn` 是对象模板，不是关卡。
+  - `instantiate()` 创建实例，`add_child()` 让实例进入场景树。
+  - `_physics_process(delta)` 与 `delta` 的运动/寿命计算含义。
+  - `Vector2` 出生偏移与飞行方向的区别。
+- 最终回归通过：投射物、扣血、HUD、闪红、暂停、恢复、重开均通过，无红色报错。
+
+## Next session objective (Lesson 18, 2h)
+
+Add a minimal level event system with one-shot triggers.
+
+## First files to read next time
+
+1. `learning_kb/00_plan/lesson_queue.md`
+2. `learning_kb/00_plan/lesson_18_2h_runbook.md`
+3. `learning_kb/01_learner/current_state.md`
+4. `learning_kb/01_learner/daily_reports/2026-06-23.md`
+5. `projects/first-game/scenes/main.gd`
+6. `projects/first-game/scenes/projectile.gd`
+7. `projects/first-game/scenes/enemy.gd`
+
+---
+
 Date: 2026-06-22
 
 ## What was completed
@@ -187,23 +231,23 @@ Date: 2026-06-22
 
 - Level: Godot beginner from zero, strong C/C++ engineering background.
 - Confirmed skills: project setup, main scene run, input action creation, debug script attach.
-- Confirmed new skills: `CharacterBody2D` movement/jump + ground collision + `Area2D` collectible/hazard/goal loop + start/pause/restart + game over/win gating + enemy patrol/contact-damage integration + objective gate unlock flow + level transition chain (`change_scene_to_file` + Inspector-configured next-level path) + ConfigFile persistence foundation + Resource-driven gameplay balance configs + Profiler frame-budget sampling and curve interpretation.
-- Missing next: execute Lesson 17 learner implementation (enemy chase/projectile extension + combat feedback) and reinforce Resource sharing/mutation boundaries.
+- Confirmed new skills: `CharacterBody2D` movement/jump + ground collision + `Area2D` collectible/hazard/goal loop + start/pause/restart + game over/win gating + enemy patrol/contact-damage integration + objective gate unlock flow + level transition chain (`change_scene_to_file` + Inspector-configured next-level path) + ConfigFile persistence foundation + Resource-driven gameplay balance configs + Profiler frame-budget sampling and curve interpretation + projectile instancing/combat feedback loop.
+- Missing next: execute Lesson 18 learner implementation (level event triggers + one-shot event state) and reinforce `_unhandled_input` propagation plus Resource mutation boundaries later.
 
-## 学员线下一节课计划（第17课）
+## 学员线下一节课计划（第18课）
 
-- 课程目标：新增一种敌人扩展行为，并补齐清晰战斗反馈。
-- 执行脚本：`00_plan/lesson_17_2h_runbook.md`。
-- 推荐课堂选择：近距离追踪优先，因当前已有巡逻敌人和接触伤害，改动面比投射物更小。
+- 课程目标：新增最小关卡事件系统，完成触发器 + 一次性事件闭环。
+- 执行脚本：`00_plan/lesson_18_2h_runbook.md`。
+- 推荐课堂选择：先做一个 `Area2D` 触发器驱动的单次事件，避免提前进入复杂事件总线。
 - 验收点：
-  1. 新敌人行为可稳定触发且可复现
-  2. 至少 2 类战斗反馈可见
-  3. 重开后敌人与反馈状态恢复
-  4. start/pause/restart/HUD/Resource 配置无回归
+  1. 触发器可稳定检测 Player
+  2. 事件只触发一次，重开后状态恢复
+  3. HUD 或场景元素能反馈事件结果
+  4. start/pause/restart/projectile/HUD/Resource 配置无回归
 
-## Next session objective (Lesson 17 prep, 2h)
+## Next session objective (Lesson 18, 2h)
 
-Add one advanced enemy behavior and clear combat feedback without breaking the current loop.
+Add a minimal level event system with one-shot triggers without breaking the current loop.
 
 ## First files to read next time
 
@@ -231,7 +275,7 @@ Add one advanced enemy behavior and clear combat feedback without breaking the c
 
 ## Suggested first action next session
 
-- Learning mode: read `lesson_queue.md`, then execute `lesson_17_2h_runbook` for enemy behavior and combat feedback.
+- Learning mode: read `lesson_queue.md`, then execute `lesson_18_2h_runbook` for level event triggers and one-shot event state.
 - Mentor self-study mode: continue threshold-band automation and shipping decision tree assets; next prep target is `lesson_22_2h_runbook`.
 - Upgrade mode: execute protocol Step 1 and open migration matrix.
 

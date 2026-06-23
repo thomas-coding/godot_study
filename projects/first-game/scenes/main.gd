@@ -13,6 +13,7 @@ var goal_unlocked := false
 
 
 @onready var hud: Node = get_node_or_null("HUD")
+@onready var player: Node = get_node_or_null("Player")
 
 enum GameState { WAIT_START, PLAYING, PAUSED, GAME_OVER, WON }
 var game_state: GameState = GameState.WAIT_START
@@ -23,7 +24,6 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	if balance_config != null:
 		hp = balance_config.player_hp
-	var player := get_node_or_null("Player")
 	if player != null:
 		# Main stays always-on for pause hotkeys; gameplay nodes must be pausable.
 		player.process_mode = Node.PROCESS_MODE_PAUSABLE
@@ -47,6 +47,8 @@ func _ready() -> void:
 		if child.has_signal("hit_player"):
 			child.process_mode = Node.PROCESS_MODE_PAUSABLE
 			child.hit_player.connect(_on_enemy_hit_player)
+		if child.has_signal("fired_projectile"):
+			child.fired_projectile.connect(_on_enemy_fired_projectile)
 		if child.has_signal("reached_goal"):
 			child.process_mode = Node.PROCESS_MODE_PAUSABLE
 			child.reached_goal.connect(_on_goal_reached)
@@ -109,12 +111,25 @@ func _on_hazard_hit() -> void:
 		damage = max(balance_config.enemy_damage, 1)
 	hp -= damage
 	_refresh_hp_label()
+	if hud != null and hud.has_method("show_hit_feedback"):
+		hud.call("show_hit_feedback")
+	if player != null and player.has_method("show_hit_flash"):
+		player.call("show_hit_flash")
 	_debug_log("HP: %d" % hp)
 	if hp <= 0:
 		_set_game_state(GameState.GAME_OVER)
 
 func _on_enemy_hit_player() -> void:
 	_on_hazard_hit()
+
+func _on_enemy_fired_projectile(projectile: Node) -> void:
+	if game_state != GameState.PLAYING:
+		projectile.queue_free()
+		return
+	add_child(projectile)
+	projectile.process_mode = Node.PROCESS_MODE_PAUSABLE
+	if projectile.has_signal("hit_player"):
+		projectile.hit_player.connect(_on_enemy_hit_player)
 
 func _refresh_hp_label() -> void:
 	if hud != null and hud.has_method("set_hp"):

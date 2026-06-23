@@ -7,6 +7,7 @@ extends CanvasLayer
 @onready var game_over_label: Label = get_node_or_null("GameOverLabel")
 @onready var win_label: Label = get_node_or_null("WinLabel")
 @onready var objective_label: Label = get_node_or_null("ObjectiveLabel")
+@onready var hit_feedback_label: Label = get_node_or_null("HitFeedbackLabel")
 @onready var settings_button: Button = get_node_or_null("SettingsButton")
 @onready var pause_overlay: ColorRect = get_node_or_null("PauseOverlay")
 @onready var settings_panel: Control = get_node_or_null("SettingsPanel")
@@ -35,6 +36,15 @@ func set_score(value: int) -> void:
 func set_hp(value: int) -> void:
 	if hp_label != null:
 		hp_label.text = "HP: %d" % value
+
+func show_hit_feedback() -> void:
+	if hit_feedback_label == null:
+		return
+	hit_feedback_label.visible = true
+	await get_tree().create_timer(0.35).timeout
+	if hit_feedback_label != null:
+		hit_feedback_label.visible = false
+
 func set_state_hint(state_name: String) -> void:
 	var is_wait_start := state_name == "WAIT_START"
 	var is_paused := state_name == "PAUSED"

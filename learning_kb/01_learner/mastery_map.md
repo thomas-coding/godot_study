@@ -50,6 +50,12 @@
   - Evidence: `01_learner/daily_reports/2026-06-15.md`
 - Profiler frame-budget sampling and curve interpretation: `done`
   - Evidence: `01_learner/daily_reports/2026-06-22.md`
+- Projectile scene instancing and signal-based damage integration: `done`
+  - Evidence: `01_learner/daily_reports/2026-06-23.md`
+- Combat hit feedback (`HUD` hit label + player flash): `done`
+  - Evidence: `01_learner/daily_reports/2026-06-23.md`
+- Resource-driven projectile tuning (`enemy_shoot_cooldown`, `projectile_speed`, `projectile_lifetime`): `done`
+  - Evidence: `01_learner/daily_reports/2026-06-23.md`
 
 ## Engineering Workflow
 
@@ -65,6 +71,8 @@
   - Evidence: `02_mentor/qa/QA055_input_callback_choice_for_gameplay_hotkeys.md`, `04_templates/performance_frame_budget_checklist.md`, `04_templates/gameplay_state_pause_restart_troubleshooting_checklist.md`, `02_mentor/source_quick_answer_map_v1.md`
 - Optimization evidence discipline (same route, same sampling window, no false attribution): `done`
   - Evidence: `01_learner/daily_reports/2026-06-22.md`
+- Runtime object lifecycle explanation (`tscn` template -> `instantiate` -> `add_child` -> `_ready/_physics_process`): `done`
+  - Evidence: `01_learner/daily_reports/2026-06-23.md`
 
 ## English in Technical Context
 

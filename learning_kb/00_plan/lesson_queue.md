@@ -1,6 +1,6 @@
 # Lesson Queue (2h per lesson)
 
-Last Updated: 2026-06-22
+Last Updated: 2026-06-23
 Mode: 按“课次”推进（不是按自然日）
 
 ## 执行规则
@@ -47,9 +47,9 @@ Mode: 按“课次”推进（不是按自然日）
   - 脚本：`learning_kb/00_plan/lesson_15_2h_runbook.md`
 - 第16课（已完成）：性能优化与帧预算回归（Profiler + checklist）
   - 脚本：`learning_kb/00_plan/lesson_16_2h_runbook.md`
-- 第17课（已备课，下一课）：敌人扩展（追踪/投射物）与战斗反馈
+- 第17课（已完成）：敌人扩展（追踪/投射物）与战斗反馈
   - 脚本：`learning_kb/00_plan/lesson_17_2h_runbook.md`
-- 第18课（已备课）：关卡事件系统（触发器 + 一次性事件）
+- 第18课（已备课，下一课）：关卡事件系统（触发器 + 一次性事件）
   - 脚本：`learning_kb/00_plan/lesson_18_2h_runbook.md`
 - 第19课（已备课）：敌人与事件联动（波次刷新 + 门控）
   - 脚本：`learning_kb/00_plan/lesson_19_2h_runbook.md`
@@ -61,5 +61,5 @@ Mode: 按“课次”推进（不是按自然日）
 
 ## 备课缓冲检查
 
-- 当前已备课缓冲：`第17课~第21课`（5 课）
+- 当前已备课缓冲：`第18课~第21课`（4 课）
 - 缓冲状态：已满足“至少提前 3 课”要求。

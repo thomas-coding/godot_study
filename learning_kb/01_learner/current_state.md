@@ -1,12 +1,12 @@
 # Current Learner State
 
-Last Updated: 2026-06-22
+Last Updated: 2026-06-23
 
 ## Snapshot
 
-- Phase: Week 01 / 第16课完成
+- Phase: Week 01 / 第17课完成
 - Per-Lesson Budget: 2h
-- Lesson Prep Buffer: Lessons 17-21 ready
+- Lesson Prep Buffer: Lessons 18-21 ready
 - Primary Goal: Build and ship a complete game with Godot on Steam
 - KB Baseline: Godot 4.6 (version migration protocol enabled)
 
@@ -47,13 +47,19 @@ Last Updated: 2026-06-22
 - `Physics Frame Time ~= 16.6ms` is understood as 60Hz physics cadence, not direct physics computation cost
 - Performance conclusion discipline improved: do not claim optimization gain without same-window before/after evidence
 - `main.gd` debug output is now gated by `debug_logs`, reducing default console noise without changing gameplay semantics
+- Projectile enemy extension works (`Projectile(Area2D)` scene + `projectile.gd` movement/lifetime/hit signal)
+- Enemy projectile firing loop works (`Enemy` instantiates `projectile.tscn`, emits `fired_projectile`, `Main.add_child` inserts it into the active scene)
+- Learner understands the lifecycle split: `projectile.gd` as behavior, `projectile.tscn` as reusable object template, `instantiate()` as creating runtime instances
+- Learner understands `_physics_process(delta)` as per-physics-frame update and `delta` as elapsed seconds for frame-rate-independent movement/lifetime
+- Learner understands `Vector2(20, -8)` as spawn offset, separate from projectile flight direction
+- Combat feedback loop works: HUD `HIT!` feedback and Player sprite hit flash both trigger on damage
+- Projectile tuning is Resource-driven (`enemy_shoot_cooldown`, `projectile_speed`, `projectile_lifetime`) with default/easy regression passed
 - Versioned KB infrastructure is ready (`registry` + `upgrade protocol` + `compatibility matrix`)
 - Mentor support assets upgraded: QA001~QA065, multi-domain checklists, source quick-answer map v1 (120 items)
 - Dual-track governance is locked (`learner line` / `mentor line`) with fixed class SOP
 
 ## Current Gaps
 
-- `_process(delta)` vs `_physics_process(delta)` understanding is improved but still needs practice in real feature work
 - `_unhandled_input` 分发顺序与 handled 传播机制理解尚不稳定
 - Multi-level chain configuration discipline (avoid loopback and keep terminal level explicit)
 - Save schema evolution discipline (field/version compatibility and fallback)
@@ -63,12 +69,12 @@ Last Updated: 2026-06-22
 
 ## Immediate Next Session Goal
 
-Start Lesson 17 and add one advanced enemy behavior plus clear combat feedback.
+Start Lesson 18 and add a minimal level event system with one-shot triggers.
 
-Runbook: `00_plan/lesson_17_2h_runbook.md`
+Runbook: `00_plan/lesson_18_2h_runbook.md`
 
 Lesson Queue: `00_plan/lesson_queue.md`
-- Next prepared lessons: `lesson_18_2h_runbook.md`, `lesson_19_2h_runbook.md`, `lesson_20_2h_runbook.md`, `lesson_21_2h_runbook.md`
+- Next prepared lessons: `lesson_19_2h_runbook.md`, `lesson_20_2h_runbook.md`, `lesson_21_2h_runbook.md`
 
 ## Teaching Preferences (Stable)
 

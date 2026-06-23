@@ -146,3 +146,12 @@ text = "Keybinds: coming soon"
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Back"
+
+[node name="HitFeedbackLabel" type="Label" parent="." unique_id=1019325895]
+visible = false
+offset_left = 300.0
+offset_top = 36.0
+offset_right = 370.0
+offset_bottom = 66.0
+text = "HIT!"
+horizontal_alignment = 1
