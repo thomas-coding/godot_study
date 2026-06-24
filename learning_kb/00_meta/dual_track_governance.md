@@ -1,6 +1,6 @@
 # Dual-Track Governance (Learner Line + Mentor Line)
 
-Last Updated: 2026-02-21
+Last Updated: 2026-06-24
 Status: Active
 Baseline: Godot 4.6
 
@@ -77,6 +77,7 @@ Baseline: Godot 4.6
   - 测试验证：`入口/命令 + 通过标准 + 回归范围`。
   - Git 操作：`暂存边界 + 提交意图 + 安全限制`。
 - 发出步骤前必须通过 5 项门禁：`完整性 / 单义性 / 可执行性 / 可验证性 / 可恢复性`。
+- GDScript 代码块必须独立成段，避免编号列表缩进和演示函数污染复制结果；若只是解释格式，用纯文字说明，不提供可误复制的示例函数。
 - 课堂执行必须“单步闭环”：发一步 -> 学员回执 -> 校验结果 -> 再发下一步。
 - 建立教学事故编码并持续复盘（如 `SPEC`、`PATH`、`VERIFY`、`SAFE`），复盘结论必须回写模板与协议，防止同类问题复发。
 

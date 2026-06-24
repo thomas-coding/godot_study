@@ -1,6 +1,6 @@
 # Feature Option Playbook (Godot 4.6)
 
-Last Updated: 2026-02-27
+Last Updated: 2026-06-24
 Status: Working
 Version Scope: 4.6
 
@@ -1506,6 +1506,106 @@ Version Scope: 4.6
 - 缺点：无法阻止当堂事故复发，学员等待成本高。
 - 适用：仅适用于非实时教学的离线演示。
 
+## F076 - Alpha playable-slice integration strategy
+
+### Option A (Recommended)
+- 路径：冻结功能范围，先整合一条可重复游玩的主路线，再记录 P0/P1/P2 问题。
+- 优点：回归目标清晰，能快速判断当前项目是否进入 alpha 可测状态。
+- 缺点：短期不会增加新玩法，容易感觉“不够丰富”。
+- 适用：第22课与任何准备对外测试前的小型 vertical slice。
+
+### Option B
+- 路径：继续新增玩法，同时顺手测试已有系统。
+- 优点：内容推进快。
+- 缺点：问题来源混杂，回归成本快速上升。
+- 适用：个人探索，不适合作为课堂主线。
+
+### Option C
+- 路径：先做完整自动化回归框架，再进入人工 alpha 测试。
+- 优点：长期可靠性最好。
+- 缺点：早期投入过大，可能拖慢首个可玩结果。
+- 适用：中后期、已有稳定功能边界的项目。
+
+## F077 - Level chain terminal configuration strategy
+
+### Option A (Recommended)
+- 路径：每关显式配置 `next_level_scene_path`，终关保持空路径或跳到明确结算场景。
+- 优点：链路可审计，避免误配 loopback。
+- 缺点：每个关卡都需要手动检查 Inspector 配置。
+- 适用：课程项目与小型关卡链。
+
+### Option B
+- 路径：代码中按关卡名硬编码下一关。
+- 优点：早期实现快。
+- 缺点：关卡改名/移动路径后容易断，维护成本高。
+- 适用：极短原型。
+
+### Option C
+- 路径：集中关卡表或 Resource 配置关卡链。
+- 优点：内容量上升后更容易批量维护。
+- 缺点：需要额外数据结构和编辑流程。
+- 适用：中后期多关卡项目。
+
+## F078 - Regression issue triage strategy
+
+### Option A (Recommended)
+- 路径：按 P0/P1/P2 分类，课堂只修 P0 和高影响 P1。
+- 优点：能在有限课时内保证主线可玩。
+- 缺点：低优先级问题会暂时积压。
+- 适用：2 小时课堂与 alpha 回归。
+
+### Option B
+- 路径：发现一个问题就立即修一个。
+- 优点：反馈即时。
+- 缺点：容易偏离主线，时间不可控。
+- 适用：个人自由调试。
+
+### Option C
+- 路径：只记录不修，统一留到专项修复课。
+- 优点：回归覆盖最完整。
+- 缺点：P0 阻塞可能导致无法完成路线验证。
+- 适用：非阻塞问题较多、已有稳定主线时。
+
+## F079 - Teaching code block delivery strategy
+
+### Option A (Recommended)
+- 路径：代码块独立成段，只给真实项目需要的代码，并明确替换/插入位置。
+- 优点：降低复制污染和误复制示例函数风险。
+- 缺点：解释格式时不能靠可运行示例偷懒。
+- 适用：所有 GDScript 课堂。
+
+### Option B
+- 路径：在编号步骤内嵌代码块和示例函数。
+- 优点：说明上下文紧凑。
+- 缺点：复制时容易带前导空格，示例函数可能被误粘进项目。
+- 适用：只读文档，不适合课堂执行。
+
+### Option C
+- 路径：完全不提供代码块，只描述逻辑。
+- 优点：避免复制问题。
+- 缺点：初学者实现负担高，容易拼错 API。
+- 适用：概念复盘或高级学员。
+
+## F080 - Event action dispatch growth strategy
+
+### Option A (Recommended)
+- 路径：当前阶段继续用 `match target_action` 增加少量动作分支，如 `show_message`、`spawn_wave`、`unlock_gate`。
+- 优点：直观、可教学、便于调试。
+- 缺点：动作数量增加后函数会变长。
+- 适用：第18-22课的小型项目阶段。
+
+### Option B
+- 路径：建立事件管理器字典，把 action 映射到 Callable。
+- 优点：扩展性更好，减少 match 膨胀。
+- 缺点：抽象成本更高，不适合刚理解事件系统的阶段。
+- 适用：事件类型明显增多后。
+
+### Option C
+- 路径：每种事件单独节点化，由触发器直接引用目标节点和方法。
+- 优点：编辑器可视化强。
+- 缺点：依赖路径多，批量维护和重构成本高。
+- 适用：关卡设计师可视化配置需求更高的项目。
+
 ## Evidence
 
 - `godot/doc/classes/Node.xml` -> `_input`, `_unhandled_input`, `_unhandled_key_input`
@@ -1537,6 +1637,10 @@ Version Scope: 4.6
 - `godot/doc/classes/SceneTree.xml` -> `create_timer`, `process_always`, `process_in_physics`, `ignore_time_scale`
 - `godot/doc/classes/SceneTree.xml` -> `get_nodes_in_group`, `get_node_count_in_group`, `node_removed`
 - `godot/doc/classes/Node.xml` -> `add_to_group`, `tree_exited`, `queue_free`
+- `godot/doc/classes/SceneTree.xml` -> `reload_current_scene`, `change_scene_to_file`, `scene_changed`
+- `godot/doc/classes/Area2D.xml` -> `body_entered`, trigger region semantics
+- `godot/doc/classes/Object.xml` -> `has_signal`, `has_method`
+- `learning_kb/03_sessions/session_protocol.md` -> code copy safety gate
 - `godot/doc/classes/SceneTreeTimer.xml` -> one-shot lifecycle and frame-order note
 - `godot/doc/classes/Timer.xml` -> node-based timer usage model
 - `godot/doc/classes/Engine.xml` -> `time_scale`

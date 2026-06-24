@@ -1,6 +1,6 @@
 # QA Index
 
-Last Updated: 2026-02-27
+Last Updated: 2026-06-24
 Active Baseline: 4.6
 
 Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
@@ -85,3 +85,5 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - QA078 `centered modal settings panel layout pattern` — `02_mentor/qa/QA078_centered_modal_settings_panel_layout_pattern.md`
 - QA079 `modal overlay input blocking and mouse filter` — `02_mentor/qa/QA079_modal_overlay_input_blocking_and_mouse_filter.md`
 - QA080 `how to verify volume without audio assets` — `02_mentor/qa/QA080_how_to_verify_volume_without_audio_assets.md`
+- QA081 `alpha regression before more features` — `02_mentor/qa/QA081_alpha_regression_before_more_features.md`
+- QA082 `GDScript paste indentation errors in class` — `02_mentor/qa/QA082_gdscript_paste_indent_error_in_class.md`

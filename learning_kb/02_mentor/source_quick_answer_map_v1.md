@@ -1,6 +1,6 @@
 # Source Quick-Answer Map v1 (Godot 4.6)
 
-Last Updated: 2026-02-27
+Last Updated: 2026-06-24
 Status: Working
 Version Scope: 4.6
 
@@ -158,6 +158,16 @@ Version Scope: 4.6
 | SQ148 | 遮罩要挡输入还是透传，核心参数是什么？ | GUI input filter | `mouse_filter` controls stop/pass/ignore routing | `godot/doc/classes/Control.xml` |
 | SQ149 | 线性音量接口与 dB 接口的关系？ | Audio volume API | `set_bus_volume_linear` maps through `linear_to_db` then applies db value | `godot/doc/classes/AudioServer.xml`, `godot/servers/audio/audio_server.cpp` |
 | SQ150 | 没有音频素材时如何验证音量链路？ | Runtime verification strategy | log linear/db + persisted setting replay after restart | `godot/doc/classes/AudioServer.xml`, `projects/first-game/scenes/save_manager.gd` |
+| SQ151 | `EventTrigger` 为什么适合做关卡触发器？ | Area2D trigger | `Area2D` region + `body_entered` signal + layer/mask filtering | `godot/doc/classes/Area2D.xml`, `projects/first-game/scenes/event_trigger.gd` |
+| SQ152 | 触发器为什么只发事件，不直接改 HUD/开门？ | Event architecture | trigger emits `event_id/target_action`; `Main` owns dispatch and side effects | `projects/first-game/scenes/event_trigger.gd`, `projects/first-game/scenes/main.gd` |
+| SQ153 | `has_signal` 扫描子节点的价值是什么？ | Object dynamic API | `Object.has_signal` avoids hard dependency on exact class/type | `godot/doc/classes/Object.xml`, `projects/first-game/scenes/main.gd` |
+| SQ154 | 为什么需要 `triggered_event_ids` 而不是只靠触发器本地状态？ | Event dedup scope | local `has_triggered` guards one node; scene-level dictionary deduplicates event IDs across sources | `projects/first-game/scenes/event_trigger.gd`, `projects/first-game/scenes/main.gd` |
+| SQ155 | 重开后事件为什么能重新触发？ | Scene reload state boundary | `reload_current_scene` replaces current scene with a new instance, resetting scene-local variables | `godot/doc/classes/SceneTree.xml`, `projects/first-game/scenes/main.gd` |
+| SQ156 | `match target_action` 在事件系统里承担什么职责？ | GDScript dispatch | branch action string to concrete behavior such as HUD message or wave spawn | `projects/first-game/scenes/main.gd` |
+| SQ157 | 空 `event_id` 为什么应该 warning 而不是崩溃？ | Runtime guard | validate configuration before dispatch; report via warning and return | `projects/first-game/scenes/main.gd`, `learning_kb/01_learner/daily_reports/2026-06-24.md` |
+| SQ158 | alpha 回归为什么先冻结新增功能？ | Regression strategy | fixed playable route + P0/P1/P2 triage reduces unclear regressions | `learning_kb/00_plan/lesson_22_2h_runbook.md`, `02_mentor/automated_regression_spec_v1.md` |
+| SQ159 | 终关误配回上一关如何提前发现？ | Level chain config | inspect each `next_level_scene_path`; terminal level must be empty or explicit result scene | `projects/first-game/scenes/main.gd`, `learning_kb/00_plan/lesson_22_2h_runbook.md` |
+| SQ160 | 复制 GDScript 后顶级 `func` 缩进报错优先查什么？ | Teaching delivery / GDScript syntax | chat/Markdown copy may add leading spaces; treat as code delivery format pollution first | `learning_kb/03_sessions/session_protocol.md`, `02_mentor/qa/QA082_gdscript_paste_indent_error_in_class.md` |
 
 ## Usage Rule
 

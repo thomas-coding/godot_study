@@ -7,7 +7,7 @@
 - Understand `_unhandled_input` dispatch order and handled propagation in practice
 - Practice Profiler domain breakdown beyond frame-time curve (`Process` / `Physics` / render) on a larger scene
 
-Reference runbook: `00_plan/lesson_18_2h_runbook.md`
+Reference runbook: `00_plan/lesson_19_2h_runbook.md`
 
 ## P1
 
@@ -23,6 +23,9 @@ Reference runbook: `00_plan/lesson_18_2h_runbook.md`
 - Add one enemy/hazard interaction using existing `Area2D` pattern
 - Compare `CharacterBody2D` body collision vs `Area2D` trigger hitbox with one concrete scene
 - Keep multi-level chain explicit (`01 -> 02 -> 03 -> end`) and avoid loopback misconfiguration
+- Extend the event system from `show_message` into concrete gameplay actions (`spawn_wave`, `unlock_gate`)
+- Practice event ID naming discipline and collision between duplicate event IDs
+- Practice GDScript `match` dispatch with 2-3 real action branches
 - Run first real migration rehearsal when target version changes (e.g. 4.6 -> 5.0)
 
 ## P2

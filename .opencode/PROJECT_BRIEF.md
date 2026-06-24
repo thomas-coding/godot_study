@@ -40,6 +40,7 @@
 - Pre-send quality gates (all must pass): `完整性/单义性/可执行性/可验证性/可恢复性`.
 - Classroom loop is strict single-step closed loop: issue one step, wait for learner result, then continue.
 - Incident governance: classify and record recurrent delivery failures (`SPEC/PATH/VERIFY/SAFE/...`), then feed fixes back into templates and protocols.
+- GDScript code delivery: keep code blocks independent and copy-safe; avoid list-indented code blocks and runnable demo functions that can be pasted into real project files by mistake.
 
 ## Two-File Handoff Workflow (Default)
 - Start of day: external command loads `.opencode/PROJECT_BRIEF.md` then `.opencode/SESSION_STATE.md`; AI only reads manually when context is missing.

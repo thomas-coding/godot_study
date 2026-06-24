@@ -83,6 +83,12 @@ func set_objective_status(unlocked: bool, collected: int, total: int) -> void:
 		objective_label.text = "Goal: UNLOCKED (%d/%d)" % [collected, total]
 	else:
 		objective_label.text = "Goal: LOCKED (%d/%d)" % [collected, total]
+
+func show_event_message(message: String) -> void:
+	if objective_label == null:
+		return
+	objective_label.text = message
+
 func show_settings_panel() -> void:
 	if settings_panel != null:
 		settings_panel.visible = true

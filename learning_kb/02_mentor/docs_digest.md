@@ -2,6 +2,43 @@
 
 > 规则：每次教学前后补充 1-2 条，记录“读了什么 -> 结论是什么 -> 来源在哪里”。
 
+## 2026-06-24
+
+- Topic: 学员线第18课实作验收（关卡事件系统：触发器 + 一次性事件）（Working）
+- Summary:
+  - 完成 `EventTrigger(Area2D)` 可复用触发器，使用 `body_entered` 检测 Player 后发出 `triggered(event_id, target_action)`。
+  - `Main` 通过 `has_signal("triggered")` 自动连接触发器，并用 `match target_action` 分发到 HUD 事件消息。
+  - 一次性保护分两层：触发器本地 `has_triggered` 防重复发信号，`Main.triggered_event_ids` 防同一事件 ID 重复执行。
+  - 验证通过：首次触发、重复进入、空 `event_id` warning、`R` 重开恢复、最终无红色报错。
+- Source:
+  - `projects/first-game/scenes/event_trigger.gd`
+  - `projects/first-game/scenes/event_trigger.tscn`
+  - `projects/first-game/scenes/main.gd`
+  - `projects/first-game/scenes/main.tscn`
+  - `projects/first-game/scenes/hud.gd`
+  - `godot/doc/classes/Area2D.xml`
+  - `godot/doc/classes/Object.xml`
+  - `godot/doc/classes/SceneTree.xml`
+  - `01_learner/daily_reports/2026-06-24.md`
+
+- Topic: 导师线自学习与备课（第22课 alpha 整合回归 + 教学代码交付规范）（Verified/Working）
+- Summary:
+  - 新增 `lesson_22_2h_runbook`，把 Boss 奖励后的下一课定位为“可玩关卡整合与小型 alpha 回归”。
+  - 新增 M19、K079~K080、QA081~QA082，沉淀 alpha 回归范围冻结、P0/P1/P2 triage、关卡链路终点配置，以及 GDScript 代码复制污染事故处理。
+  - source quick-answer map 从 150 扩展到 160（`SQ151~SQ160`）。
+  - feature playbook 从 F075 扩展到 F080（`F076~F080`）。
+  - 备课缓冲更新为 `第19课~第22课`（4课），继续满足至少提前 3 课要求。
+- Source:
+  - `00_plan/lesson_22_2h_runbook.md`
+  - `02_mentor/modules/M19_alpha_integration_regression_and_teaching_delivery.md`
+  - `02_mentor/cards/K079_alpha_regression_scope_should_freeze_features.md`
+  - `02_mentor/cards/K080_gdscript_code_delivery_blocks_must_be_copy_safe.md`
+  - `02_mentor/qa/QA081_alpha_regression_before_more_features.md`
+  - `02_mentor/qa/QA082_gdscript_paste_indent_error_in_class.md`
+  - `02_mentor/source_quick_answer_map_v1.md`
+  - `02_mentor/feature_option_playbook.md`
+  - `03_sessions/session_protocol.md`
+
 ## 2026-06-22
 
 - Topic: 学员线第16课实作验收（Profiler 帧预算采样与优化证据纪律）（Working）

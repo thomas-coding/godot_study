@@ -1,6 +1,6 @@
 # Version Compatibility Matrix
 
-Last Updated: 2026-02-27
+Last Updated: 2026-06-24
 Active Baseline: `4.6`
 
 ## Status Legend
@@ -34,6 +34,7 @@ Active Baseline: `4.6`
 | M16 | module | verified | not_started | 2026-02-25 | `02_mentor/modules/M16_runtime_settings_application_audio_window_inputmap.md` | Runtime settings application for audio/window/inputmap |
 | M17 | module | verified | not_started | 2026-02-27 | `02_mentor/modules/M17_enemy_event_wave_spawn_and_gate_unlock.md` | Enemy-event linkage for wave spawn and gate unlock |
 | M18 | module | verified | not_started | 2026-02-27 | `02_mentor/modules/M18_embedded_run_window_modes_and_modal_ui_layout.md` | Embedded run constraints + modal settings UI layout |
+| M19 | module | working | not_started | 2026-06-24 | `02_mentor/modules/M19_alpha_integration_regression_and_teaching_delivery.md` | Alpha integration regression + teaching delivery reliability |
 
 ## Cards
 
@@ -117,6 +118,8 @@ Active Baseline: `4.6`
 | K076 | card | verified | not_started | 2026-02-27 | `02_mentor/cards/K076_embedded_windows_only_support_windowed_mode.md` | embedded windows only support windowed mode |
 | K077 | card | verified | not_started | 2026-02-27 | `02_mentor/cards/K077_fullscreen_sets_borderless_true_on_enter.md` | fullscreen sets borderless true on enter |
 | K078 | card | verified | not_started | 2026-02-27 | `02_mentor/cards/K078_modal_overlay_layout_with_full_rect_and_size_flags.md` | modal overlay layout with full-rect and size flags |
+| K079 | card | working | not_started | 2026-06-24 | `02_mentor/cards/K079_alpha_regression_scope_should_freeze_features.md` | alpha regression scope should freeze feature expansion |
+| K080 | card | working | not_started | 2026-06-24 | `02_mentor/cards/K080_gdscript_code_delivery_blocks_must_be_copy_safe.md` | GDScript code delivery blocks must be copy-safe |
 
 ## QA
 
@@ -202,6 +205,8 @@ Active Baseline: `4.6`
 | QA078 | qa | verified | not_started | 2026-02-27 | `02_mentor/qa/QA078_centered_modal_settings_panel_layout_pattern.md` | centered modal settings panel layout pattern |
 | QA079 | qa | verified | not_started | 2026-02-27 | `02_mentor/qa/QA079_modal_overlay_input_blocking_and_mouse_filter.md` | modal overlay input blocking and mouse_filter triage |
 | QA080 | qa | verified | not_started | 2026-02-27 | `02_mentor/qa/QA080_how_to_verify_volume_without_audio_assets.md` | verify volume chain without audio assets |
+| QA081 | qa | working | not_started | 2026-06-24 | `02_mentor/qa/QA081_alpha_regression_before_more_features.md` | alpha regression before more features |
+| QA082 | qa | working | not_started | 2026-06-24 | `02_mentor/qa/QA082_gdscript_paste_indent_error_in_class.md` | GDScript paste indentation errors in class |
 
 ## Update Rule
 

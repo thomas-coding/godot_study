@@ -1,6 +1,6 @@
 # Card Index
 
-Last Updated: 2026-02-27
+Last Updated: 2026-06-24
 Active Baseline: 4.6
 
 Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
@@ -83,3 +83,5 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - K076 `embedded windows only support windowed mode` — `Verified` — `02_mentor/cards/K076_embedded_windows_only_support_windowed_mode.md`
 - K077 `fullscreen sets borderless true on enter` — `Verified` — `02_mentor/cards/K077_fullscreen_sets_borderless_true_on_enter.md`
 - K078 `modal overlay layout with full-rect and size flags` — `Verified` — `02_mentor/cards/K078_modal_overlay_layout_with_full_rect_and_size_flags.md`
+- K079 `alpha regression scope should freeze feature expansion` — `Working` — `02_mentor/cards/K079_alpha_regression_scope_should_freeze_features.md`
+- K080 `GDScript code delivery blocks must be copy-safe` — `Working` — `02_mentor/cards/K080_gdscript_code_delivery_blocks_must_be_copy_safe.md`

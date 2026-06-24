@@ -11,6 +11,7 @@ var total_coins := 0
 var remaining_coins := 0
 var goal_unlocked := false
 
+var triggered_event_ids := {}
 
 @onready var hud: Node = get_node_or_null("HUD")
 @onready var player: Node = get_node_or_null("Player")
@@ -52,6 +53,9 @@ func _ready() -> void:
 		if child.has_signal("reached_goal"):
 			child.process_mode = Node.PROCESS_MODE_PAUSABLE
 			child.reached_goal.connect(_on_goal_reached)
+		if child.has_signal("triggered"):
+			child.process_mode = Node.PROCESS_MODE_PAUSABLE
+			child.triggered.connect(_on_event_triggered)
 	remaining_coins = total_coins
 	goal_unlocked = remaining_coins == 0
 	_debug_log("Coins total: %d" % total_coins)
@@ -181,3 +185,29 @@ func _refresh_objective_status() -> void:
 func _debug_log(message: String) -> void:
 	if debug_logs:
 		print(message)
+
+# New event setup template:
+# 1. Add an event_trigger.tscn instance under the level root.
+# 2. Set a unique event_id, for example: intro_message.
+# 3. Set target_action to one of the actions handled below.
+# 4. Run the scene and verify: first trigger works, repeated trigger is ignored,
+#    restart reloads the event state.
+func _on_event_triggered(event_id: String, target_action: String) -> void:
+	if game_state != GameState.PLAYING:
+		return
+	if event_id.is_empty():
+		push_warning("Event trigger ignored: empty event_id")
+		return
+	if triggered_event_ids.has(event_id):
+		_debug_log("Event already triggered: %s" % event_id)
+		return
+
+	triggered_event_ids[event_id] = true
+	_debug_log("Event triggered: %s -> %s" % [event_id, target_action])
+
+	match target_action:
+		"show_message":
+			if hud != null and hud.has_method("show_event_message"):
+				hud.call("show_event_message", "Event: %s" % event_id)
+		_:
+			push_warning("Unknown target_action: %s" % target_action)

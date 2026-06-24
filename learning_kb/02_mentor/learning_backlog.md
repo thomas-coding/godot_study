@@ -28,10 +28,10 @@
 - Save/load baseline pattern (`ConfigFile` vs JSON) for this project
 - Prepare first cross-version migration drill (`4.6` -> target) using `version_upgrade_protocol.md`
 - [done] Build feature option playbook (for each common feature: 2-3 implementation paths + trade-off)
-  - Current: F001~F075
+  - Current: F001~F080
   - Output: `02_mentor/feature_option_playbook.md`
 - [done] Build source quick-answer map (question -> class -> function chain -> evidence)
-  - Output: `02_mentor/source_quick_answer_map_v1.md` (150 高频问题)
+  - Output: `02_mentor/source_quick_answer_map_v1.md` (160 高频问题)
 - [done] Build performance/export troubleshooting checklists
   - Output: `04_templates/performance_frame_budget_checklist.md` + `04_templates/export_runtime_resource_loading_checklist.md`
 - [done] Build performance casebook baseline
@@ -98,6 +98,15 @@
 
 - [done] Refill prep buffer after learner reached Lesson 14
   - Output: `00_plan/lesson_20_2h_runbook.md`, updated `00_plan/lesson_queue.md`
+
+- [done] Refill prep buffer after learner reached Lesson 18
+  - Output: `00_plan/lesson_22_2h_runbook.md`, updated `00_plan/lesson_queue.md`
+
+- [done] Build alpha integration regression and teaching delivery reliability assets
+  - Output: `02_mentor/modules/M19_alpha_integration_regression_and_teaching_delivery.md`, `02_mentor/cards/K079~K080`, `02_mentor/qa/QA081~QA082`
+
+- [done] Expand quick-answer map to 160 and playbook to F080
+  - Output: `02_mentor/source_quick_answer_map_v1.md` (`SQ151~SQ160`), `02_mentor/feature_option_playbook.md` (`F076~F080`)
 
 ## P2 (mid term)
 

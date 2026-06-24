@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://406iyw4t4q3x" path="res://scenes/hazard.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://e4ly1hnyqpjt" path="res://scenes/goal.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://d4eqw86jp14ap" path="res://scenes/enemy.tscn" id="6_71sn6"]
+[ext_resource type="PackedScene" uid="uid://b50vv4ndvambl" path="res://scenes/event_trigger.tscn" id="8_tipki"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
 size = Vector2(1311, 40)
@@ -55,3 +56,7 @@ right_bound_x = 540.0
 
 [node name="Goal" parent="." unique_id=357092830 instance=ExtResource("5_tbgi4")]
 position = Vector2(588, 44)
+
+[node name="IntroEventTrigger" parent="." unique_id=1329260571 instance=ExtResource("8_tipki")]
+position = Vector2(250, 105)
+event_id = "intro_message"

@@ -1,12 +1,12 @@
 # Current Learner State
 
-Last Updated: 2026-06-23
+Last Updated: 2026-06-24
 
 ## Snapshot
 
-- Phase: Week 01 / 第17课完成
+- Phase: Week 01 / 第18课完成
 - Per-Lesson Budget: 2h
-- Lesson Prep Buffer: Lessons 18-21 ready
+- Lesson Prep Buffer: Lessons 19-22 ready
 - Primary Goal: Build and ship a complete game with Godot on Steam
 - KB Baseline: Godot 4.6 (version migration protocol enabled)
 
@@ -54,6 +54,14 @@ Last Updated: 2026-06-23
 - Learner understands `Vector2(20, -8)` as spawn offset, separate from projectile flight direction
 - Combat feedback loop works: HUD `HIT!` feedback and Player sprite hit flash both trigger on damage
 - Projectile tuning is Resource-driven (`enemy_shoot_cooldown`, `projectile_speed`, `projectile_lifetime`) with default/easy regression passed
+- Minimal trigger-based event system works (`EventTrigger(Area2D)` + `triggered(event_id, target_action)` signal)
+- `Main/IntroEventTrigger` can drive HUD feedback through `target_action=show_message`
+- One-shot event protection works at two levels: local `has_triggered` on the trigger and scene-level `triggered_event_ids` in `Main`
+- Empty `event_id` protection works and surfaces as a yellow Debugger warning without crashing gameplay
+- Restart validation passed: `R` reloads the scene and restores event trigger state
+- Learner understands the split: `main.tscn` places/configures the trigger, while `main.gd` handles the received event action
+- Learner understands `match` as GDScript action dispatch similar to `switch/case`
+- Teaching delivery issue identified: pasted GDScript snippets from chat may carry unwanted leading spaces; learner will self-correct when needed, and future code blocks should stay independent and clean
 - Versioned KB infrastructure is ready (`registry` + `upgrade protocol` + `compatibility matrix`)
 - Mentor support assets upgraded: QA001~QA065, multi-domain checklists, source quick-answer map v1 (120 items)
 - Dual-track governance is locked (`learner line` / `mentor line`) with fixed class SOP
@@ -66,15 +74,16 @@ Last Updated: 2026-06-23
 - Keybinding rebind implementation is still placeholder-only (entry exists, rebinding flow not implemented)
 - Resource sharing/mutation boundary should be reinforced later (`Resource` data vs runtime mutable state)
 - Profiler domain breakdown beyond frame-time curve (`Process` vs `Physics` vs render/draw calls) needs later practice on a larger scene
+- Event system will need escalation from single HUD message to gameplay actions: wave spawning, gate unlock, and clear-state validation
 
 ## Immediate Next Session Goal
 
-Start Lesson 18 and add a minimal level event system with one-shot triggers.
+Start Lesson 19 and link trigger events with enemy wave spawning and gate unlock logic.
 
-Runbook: `00_plan/lesson_18_2h_runbook.md`
+Runbook: `00_plan/lesson_19_2h_runbook.md`
 
 Lesson Queue: `00_plan/lesson_queue.md`
-- Next prepared lessons: `lesson_19_2h_runbook.md`, `lesson_20_2h_runbook.md`, `lesson_21_2h_runbook.md`
+- Next prepared lessons: `lesson_20_2h_runbook.md`, `lesson_21_2h_runbook.md`, `lesson_22_2h_runbook.md`
 
 ## Teaching Preferences (Stable)
 

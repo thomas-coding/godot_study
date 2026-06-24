@@ -56,6 +56,10 @@
   - Evidence: `01_learner/daily_reports/2026-06-23.md`
 - Resource-driven projectile tuning (`enemy_shoot_cooldown`, `projectile_speed`, `projectile_lifetime`): `done`
   - Evidence: `01_learner/daily_reports/2026-06-23.md`
+- Trigger-based level event system (`Area2D` trigger + custom signal + `Main` action dispatch): `done`
+  - Evidence: `01_learner/daily_reports/2026-06-24.md`
+- One-shot event deduplication and restart reset (`has_triggered` + `triggered_event_ids` + `reload_current_scene`): `done`
+  - Evidence: `01_learner/daily_reports/2026-06-24.md`
 
 ## Engineering Workflow
 
@@ -73,6 +77,8 @@
   - Evidence: `01_learner/daily_reports/2026-06-22.md`
 - Runtime object lifecycle explanation (`tscn` template -> `instantiate` -> `add_child` -> `_ready/_physics_process`): `done`
   - Evidence: `01_learner/daily_reports/2026-06-23.md`
+- Scene instance configuration vs script handling boundary (`main.tscn` places/configures, `main.gd` handles behavior): `done`
+  - Evidence: `01_learner/daily_reports/2026-06-24.md`
 
 ## English in Technical Context
 

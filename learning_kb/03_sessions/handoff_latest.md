@@ -1,5 +1,59 @@
 # Session Handoff (Latest)
 
+Date: 2026-06-24
+
+## 2026-06-24 Update
+
+- 学员线第18课已完成：关卡事件系统（触发器 + 一次性事件）。
+- 新增 `EventTrigger(Area2D)` 可复用触发器：
+  - `projects/first-game/scenes/event_trigger.tscn`
+  - `projects/first-game/scenes/event_trigger.gd`
+- 事件链路完成：
+  - `EventTrigger` 检测 Player 进入后发出 `triggered(event_id, target_action)`。
+  - `Main` 扫描子节点 `has_signal("triggered")` 并连接 `_on_event_triggered`。
+  - `match target_action` 当前支持 `show_message`，通过 HUD 显示 `Event: intro_message`。
+  - `triggered_event_ids` 做关卡级事件去重。
+- 验证通过：
+  - 首次触发显示事件消息。
+  - 同局重复进入不重复执行关键效果。
+  - 空 `event_id` 只产生黄色 warning，不崩溃。
+  - `R` 重开后触发器恢复初始可触发。
+  - 最终无红色 error。
+- 学员理解确认：
+  - `main.tscn` 放置和配置触发器实例。
+  - `main.gd` 处理事件行为。
+  - `has_triggered` 是本地保险，`triggered_event_ids` 是全局保险。
+  - `match` 是 GDScript 分支关键词。
+- 教学交付事故复盘：
+  - 聊天代码块复制到 Godot 可能带前导空格或误复制演示函数。
+  - 学员不需要后续反复提醒缩进修正。
+  - 已把 GDScript 代码交付规则写回 `session_protocol`、`dual_track_governance`、`AGENTS.md` 和导师 QA/卡片。
+- 导师线已完成：
+  - 新增 `lesson_22_2h_runbook.md`（可玩关卡整合与小型 alpha 回归）。
+  - 新增 M19、K079~K080、QA081~QA082。
+  - quick-answer map 扩展到 `SQ160`，feature playbook 扩展到 `F080`。
+  - 导师进度看板更新到 `78%`。
+- 课程序列已更新：
+  - 第18课：已完成
+  - 第19课：下一课
+  - 备课缓冲：第19课~第22课（4课）
+
+## Next session objective (Lesson 19, 2h)
+
+Link trigger events with enemy wave spawning and gate unlock logic.
+
+## First files to read next time
+
+1. `learning_kb/00_plan/lesson_queue.md`
+2. `learning_kb/00_plan/lesson_19_2h_runbook.md`
+3. `learning_kb/01_learner/current_state.md`
+4. `learning_kb/01_learner/daily_reports/2026-06-24.md`
+5. `projects/first-game/scenes/main.gd`
+6. `projects/first-game/scenes/event_trigger.gd`
+7. `projects/first-game/scenes/enemy.gd`
+
+---
+
 Date: 2026-06-23
 
 ## 2026-06-23 Update
@@ -225,29 +279,30 @@ Date: 2026-06-22
   - docs channel: `https://docs.godotengine.org/en/stable/`
 - Mentor capability baseline:
   - dashboard: `02_mentor/mentor_progress_dashboard.md`
-  - current overall: `77%`
+  - current overall: `78%`
 
 ## Current learner state
 
 - Level: Godot beginner from zero, strong C/C++ engineering background.
 - Confirmed skills: project setup, main scene run, input action creation, debug script attach.
-- Confirmed new skills: `CharacterBody2D` movement/jump + ground collision + `Area2D` collectible/hazard/goal loop + start/pause/restart + game over/win gating + enemy patrol/contact-damage integration + objective gate unlock flow + level transition chain (`change_scene_to_file` + Inspector-configured next-level path) + ConfigFile persistence foundation + Resource-driven gameplay balance configs + Profiler frame-budget sampling and curve interpretation + projectile instancing/combat feedback loop.
-- Missing next: execute Lesson 18 learner implementation (level event triggers + one-shot event state) and reinforce `_unhandled_input` propagation plus Resource mutation boundaries later.
+- Confirmed new skills: `CharacterBody2D` movement/jump + ground collision + `Area2D` collectible/hazard/goal loop + start/pause/restart + game over/win gating + enemy patrol/contact-damage integration + objective gate unlock flow + level transition chain (`change_scene_to_file` + Inspector-configured next-level path) + ConfigFile persistence foundation + Resource-driven gameplay balance configs + Profiler frame-budget sampling and curve interpretation + projectile instancing/combat feedback loop + trigger-based level event system with one-shot dedup.
+- Missing next: execute Lesson 19 learner implementation (event-driven enemy wave spawn + gate unlock) and reinforce `_unhandled_input` propagation plus Resource mutation boundaries later.
 
-## 学员线下一节课计划（第18课）
+## 学员线下一节课计划（第19课）
 
-- 课程目标：新增最小关卡事件系统，完成触发器 + 一次性事件闭环。
-- 执行脚本：`00_plan/lesson_18_2h_runbook.md`。
-- 推荐课堂选择：先做一个 `Area2D` 触发器驱动的单次事件，避免提前进入复杂事件总线。
+- 课程目标：把第18课事件系统用于敌人波次刷新与清波门控。
+- 执行脚本：`00_plan/lesson_19_2h_runbook.md`。
+- 推荐课堂选择：先做一个 `spawn_wave` action 分支，刷出一波敌人，清波后执行开门/解锁反馈。
 - 验收点：
-  1. 触发器可稳定检测 Player
-  2. 事件只触发一次，重开后状态恢复
-  3. HUD 或场景元素能反馈事件结果
-  4. start/pause/restart/projectile/HUD/Resource 配置无回归
+  1. 触发器只刷一次波次
+  2. 敌人加入统一组并可被清波判定
+  3. 清波后门控动作只执行一次
+  4. `R` 重开后波次和门控恢复初始
+  5. start/pause/restart/event/projectile/HUD/Resource 配置无回归
 
-## Next session objective (Lesson 18, 2h)
+## Next session objective (Lesson 19, 2h)
 
-Add a minimal level event system with one-shot triggers without breaking the current loop.
+Link trigger events with enemy wave spawning and gate unlock logic without breaking restart or scene flow.
 
 ## First files to read next time
 
@@ -275,8 +330,8 @@ Add a minimal level event system with one-shot triggers without breaking the cur
 
 ## Suggested first action next session
 
-- Learning mode: read `lesson_queue.md`, then execute `lesson_18_2h_runbook` for level event triggers and one-shot event state.
-- Mentor self-study mode: continue threshold-band automation and shipping decision tree assets; next prep target is `lesson_22_2h_runbook`.
+- Learning mode: read `lesson_queue.md`, then execute `lesson_19_2h_runbook` for event-driven enemy wave spawn and gate unlock.
+- Mentor self-study mode: continue threshold-band automation and shipping decision tree assets; next prep target is `lesson_23_2h_runbook`.
 - Upgrade mode: execute protocol Step 1 and open migration matrix.
 
 ## Bootstrap Hint for new AI

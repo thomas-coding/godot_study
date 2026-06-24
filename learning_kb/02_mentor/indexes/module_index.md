@@ -1,6 +1,6 @@
 # Module Index
 
-Last Updated: 2026-02-27
+Last Updated: 2026-06-24
 Active Baseline: 4.6
 
 Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
@@ -23,3 +23,4 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - M16 `runtime settings application (audio/window/inputmap)` — `done` — `02_mentor/modules/M16_runtime_settings_application_audio_window_inputmap.md`
 - M17 `enemy-event linkage for wave spawn and gate unlock` — `done` — `02_mentor/modules/M17_enemy_event_wave_spawn_and_gate_unlock.md`
 - M18 `embedded run constraints and modal settings UI layout` — `done` — `02_mentor/modules/M18_embedded_run_window_modes_and_modal_ui_layout.md`
+- M19 `alpha integration regression and teaching delivery reliability` — `done` — `02_mentor/modules/M19_alpha_integration_regression_and_teaching_delivery.md`
