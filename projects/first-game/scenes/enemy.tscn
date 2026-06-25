@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d4eqw86jp14ap"]
 
 [ext_resource type="Script" uid="uid://bhunq6qoidv6q" path="res://scenes/enemy.gd" id="1_ujfui"]
-[ext_resource type="Texture2D" uid="uid://bf7xuic8ol2j8" path="res://assets/enemy/enemy.png" id="2_ol3et"]
+[ext_resource type="Texture2D" path="res://assets/training/enemy_drone.png" id="2_ol3et"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtiyo"]
 size = Vector2(24, 28)
@@ -19,7 +19,7 @@ shape = SubResource("RectangleShape2D_mtiyo")
 
 [node name="Visual" type="Sprite2D" parent="." unique_id=1689863292]
 position = Vector2(0, 2)
-scale = Vector2(0.055, 0.055)
+scale = Vector2(0.74, 0.74)
 texture = ExtResource("2_ol3et")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1188091226]

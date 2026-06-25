@@ -7,6 +7,7 @@ extends CanvasLayer
 @onready var game_over_label: Label = get_node_or_null("GameOverLabel")
 @onready var win_label: Label = get_node_or_null("WinLabel")
 @onready var objective_label: Label = get_node_or_null("ObjectiveLabel")
+@onready var event_label: Label = get_node_or_null("EventLabel")
 @onready var hit_feedback_label: Label = get_node_or_null("HitFeedbackLabel")
 @onready var settings_button: Button = get_node_or_null("SettingsButton")
 @onready var pause_overlay: ColorRect = get_node_or_null("PauseOverlay")
@@ -85,9 +86,13 @@ func set_objective_status(unlocked: bool, collected: int, total: int) -> void:
 		objective_label.text = "Goal: LOCKED (%d/%d)" % [collected, total]
 
 func show_event_message(message: String) -> void:
-	if objective_label == null:
+	if event_label == null:
 		return
-	objective_label.text = message
+	event_label.text = message
+	event_label.visible = true
+	await get_tree().create_timer(1.4).timeout
+	if event_label != null:
+		event_label.visible = false
 
 func show_settings_panel() -> void:
 	if settings_panel != null:
@@ -118,6 +123,8 @@ func _set_runtime_labels_visible(is_visible: bool) -> void:
 		hp_label.visible = is_visible
 	if objective_label != null:
 		objective_label.visible = is_visible
+	if event_label != null:
+		event_label.visible = is_visible and event_label.visible
 	if restart_label != null:
 		restart_label.visible = is_visible
 

@@ -8,6 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://e4ly1hnyqpjt" path="res://scenes/goal.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://d4eqw86jp14ap" path="res://scenes/enemy.tscn" id="6_71sn6"]
 [ext_resource type="PackedScene" uid="uid://b50vv4ndvambl" path="res://scenes/event_trigger.tscn" id="8_tipki"]
+[ext_resource type="Texture2D" path="res://assets/training/training_bg.png" id="9_bg"]
+[ext_resource type="Texture2D" path="res://assets/training/floor_lab.png" id="10_floor"]
+[ext_resource type="Texture2D" path="res://assets/training/trigger_pad.png" id="11_pad"]
+[ext_resource type="Texture2D" path="res://assets/training/gate_barrier.png" id="12_gate"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
 size = Vector2(1311, 40)
@@ -20,6 +24,12 @@ script = ExtResource("1_o5qli")
 next_level_scene_path = "res://scenes/level_02.tscn"
 unlock_level_on_win = 2
 
+[node name="Background" type="Sprite2D" parent="." unique_id=1908575101]
+z_index = -20
+position = Vector2(500, 160)
+scale = Vector2(2.2, 1.35)
+texture = ExtResource("9_bg")
+
 [node name="Ground" type="StaticBody2D" parent="." unique_id=1432951872]
 collision_layer = 2
 
@@ -27,11 +37,9 @@ collision_layer = 2
 position = Vector2(-73.5, 163)
 shape = SubResource("RectangleShape2D_sugp2")
 
-[node name="Polygon2D" type="Polygon2D" parent="Ground" unique_id=252043894]
-position = Vector2(-252.00002, 165)
-scale = Vector2(1.595, 1)
-color = Color(0.74587727, 0.61068213, 0.18152583, 1)
-polygon = PackedVector2Array(-300, -20, 300, -20, 522.88403, -20, 522.2571, 19, 300, 20, -300, 20)
+[node name="FloorVisual" type="Sprite2D" parent="Ground" unique_id=252043894]
+position = Vector2(-73.5, 163)
+texture = ExtResource("10_floor")
 
 [node name="HUD" parent="." unique_id=281953342 instance=ExtResource("2_tefeu")]
 
@@ -64,10 +72,22 @@ position = Vector2(588, 44)
 position = Vector2(250, 105)
 event_id = "intro_message"
 
+[node name="Visual" type="Sprite2D" parent="IntroEventTrigger" unique_id=1978441904]
+z_index = -1
+position = Vector2(0, 38)
+scale = Vector2(0.72, 0.72)
+texture = ExtResource("11_pad")
+
 [node name="WaveEventTrigger" parent="." unique_id=680345665 instance=ExtResource("8_tipki")]
 position = Vector2(330, 105)
 event_id = "wave_01"
 target_action = "spawn_wave"
+
+[node name="Visual" type="Sprite2D" parent="WaveEventTrigger" unique_id=677344821]
+z_index = -1
+position = Vector2(0, 38)
+scale = Vector2(0.72, 0.72)
+texture = ExtResource("11_pad")
 
 [node name="WaveGate" type="StaticBody2D" parent="." unique_id=1695072400]
 position = Vector2(545, 105)
@@ -75,3 +95,8 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaveGate" unique_id=1656059817]
 shape = SubResource("RectangleShape2D_tipki")
+
+[node name="Visual" type="Sprite2D" parent="WaveGate" unique_id=1286620458]
+position = Vector2(0, 0)
+scale = Vector2(0.72, 0.88)
+texture = ExtResource("12_gate")
