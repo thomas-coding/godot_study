@@ -36,6 +36,11 @@ func _physics_process(_delta: float) -> void:
 	velocity = Vector2(_direction * patrol_speed, 0.0)
 	move_and_slide()
 
+	if is_on_wall():
+		_direction *= -1.0
+		_update_facing()
+		return
+
 	if global_position.x <= left_bound_x:
 		global_position.x = left_bound_x
 		_direction = 1.0
@@ -52,6 +57,9 @@ func _physics_process(_delta: float) -> void:
 
 func _on_hitbox_body_entered(body: Node) -> void:
 	if body.name != "Player":
+		return
+	if body is CharacterBody2D and body.velocity.y > 0.0 and body.global_position.y < global_position.y:
+		queue_free()
 		return
 	hit_player.emit()
 

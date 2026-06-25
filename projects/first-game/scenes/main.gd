@@ -12,6 +12,21 @@ var remaining_coins := 0
 var goal_unlocked := false
 
 var triggered_event_ids := {}
+@export var wave_enemy_scene: PackedScene = preload("res://scenes/enemy.tscn")
+
+var wave_started := {}
+var wave_cleared := {}
+
+var wave_configs := {
+	"wave_01": {
+		"enemy_scene": wave_enemy_scene,
+		"spawn_points": [
+			Vector2(360, 129),
+			Vector2(480, 129)
+		],
+		"unlock_target": "WaveGate"
+	}
+}
 
 @onready var hud: Node = get_node_or_null("HUD")
 @onready var player: Node = get_node_or_null("Player")
@@ -209,5 +224,63 @@ func _on_event_triggered(event_id: String, target_action: String) -> void:
 		"show_message":
 			if hud != null and hud.has_method("show_event_message"):
 				hud.call("show_event_message", "Event: %s" % event_id)
+		"spawn_wave":
+			call_deferred("_spawn_wave", event_id)
 		_:
 			push_warning("Unknown target_action: %s" % target_action)
+
+
+func _spawn_wave(wave_id: String) -> void:
+	if not wave_configs.has(wave_id):
+		push_warning("Wave config missing: %s" % wave_id)
+		return
+	if wave_started.has(wave_id):
+		_debug_log("Wave already started: %s" % wave_id)
+		return
+
+	var config: Dictionary = wave_configs[wave_id]
+	var enemy_scene: PackedScene = config.get("enemy_scene")
+	if enemy_scene == null:
+		push_warning("Wave enemy scene missing: %s" % wave_id)
+		return
+
+	wave_started[wave_id] = true
+	for spawn_point: Vector2 in config.get("spawn_points", []):
+		var enemy := enemy_scene.instantiate()
+		enemy.global_position = spawn_point
+		enemy.process_mode = Node.PROCESS_MODE_PAUSABLE
+		enemy.add_to_group("enemies")
+		add_child(enemy)
+
+		if enemy.has_signal("hit_player"):
+			enemy.hit_player.connect(_on_enemy_hit_player)
+		if enemy.has_signal("fired_projectile"):
+			enemy.fired_projectile.connect(_on_enemy_fired_projectile)
+		enemy.tree_exited.connect(_on_wave_enemy_exited.bind(wave_id))
+
+	_debug_log("Wave spawned: %s" % wave_id)
+
+func _on_wave_enemy_exited(wave_id: String) -> void:
+	call_deferred("_check_wave_cleared", wave_id)
+
+
+func _check_wave_cleared(wave_id: String) -> void:
+	if not wave_started.has(wave_id):
+		return
+	if wave_cleared.has(wave_id):
+		return
+	if get_tree().get_node_count_in_group("enemies") > 0:
+		return
+
+	wave_cleared[wave_id] = true
+
+	var config: Dictionary = wave_configs.get(wave_id, {})
+	var unlock_target_name: String = config.get("unlock_target", "")
+	var unlock_target := get_node_or_null(unlock_target_name)
+	if unlock_target != null:
+		unlock_target.queue_free()
+
+	if hud != null and hud.has_method("show_event_message"):
+		hud.call("show_event_message", "Wave cleared: %s" % wave_id)
+
+	_debug_log("Wave cleared: %s" % wave_id)

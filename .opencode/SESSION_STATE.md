@@ -1,79 +1,51 @@
 # Session State - godot_study
 
 ## Date
-- 2026-06-24
+- 2026-06-25
 
 ## Current Focus
-- 今日已收口：学员线第18课已完成；导师线已完成第18课课后沉淀、第22课备课缓冲补齐、M19 alpha 回归与教学交付可靠性资产建设。
+- 学员线第19课已完成：敌人与事件联动（波次刷新 + 清波门控）。
+- 当前停在学员线收口后；用户已要求整理、提交并推送到 GitHub。
 
 ## Completed Today
 
 ### Learner Line
 
-- 第18课完成：关卡事件系统（触发器 + 一次性事件）。
-- 新增可复用触发器：
-  - `projects/first-game/scenes/event_trigger.tscn`
-  - `projects/first-game/scenes/event_trigger.gd`
-- `EventTrigger(Area2D)` 支持：
-  - `event_id`
-  - `target_action`
-  - `trigger_once`
-  - `triggered(event_id, target_action)` 信号
-- `main.tscn` 新增 `Main/IntroEventTrigger`：
-  - `Event Id = intro_message`
-  - `Target Action = show_message`
-  - `Trigger Once = On`
-- `main.gd` 新增事件接入：
-  - 扫描子节点 `has_signal("triggered")`
-  - 连接 `_on_event_triggered(event_id, target_action)`
-  - 使用 `triggered_event_ids` 做场景级去重
-  - `match target_action` 分发 `show_message`
-- `hud.gd` 新增 `show_event_message(message)`。
+- 第19课完成：事件触发刷怪与清波开门。
+- `projects/first-game/scenes/main.gd` 新增：
+  - `wave_enemy_scene`
+  - `wave_started`
+  - `wave_cleared`
+  - `wave_configs`
+  - `spawn_wave` 事件分支
+  - `_spawn_wave(wave_id)`
+  - `_on_wave_enemy_exited(wave_id)`
+  - `_check_wave_cleared(wave_id)`
+- `projects/first-game/scenes/main.tscn` 新增：
+  - `Main/WaveEventTrigger`
+    - `event_id = wave_01`
+    - `target_action = spawn_wave`
+  - `Main/WaveGate(StaticBody2D)` + `CollisionShape2D`
+- `projects/first-game/scenes/enemy.gd` 新增：
+  - 玩家从上方落到敌人身上时敌人 `queue_free()`
+  - 敌人碰到墙/门时通过 `is_on_wall()` 反向
+- 课堂修复：
+  - `Area2D.body_entered` 期间直接刷怪触发 `flushing queries` 红错，已改为 `call_deferred("_spawn_wave", event_id)`。
+  - `WaveGate/CollisionShape2D` 初始位置和 shape 尺寸误设导致门显示为小方块，已修正。
+  - 敌人碰到 `WaveGate` 卡住，已通过撞墙反向修复。
 - 验证通过：
-  - 首次进入触发器显示 `Event: intro_message`
-  - 同局重复进入不刷屏、不报红错
-  - 空 `event_id` 在 Debugger 中出现黄色 warning，不崩溃
-  - `R` 重开后事件可重新触发
-  - 最终回归无红色 error
-- 学员理解已确认：
-  - `EventTrigger` 是 `Area2D` 区域，Player 进入后发事件数据。
-  - `main.tscn` 负责放置实例和配置 `event_id/target_action`。
-  - `main.gd` 负责收到事件后的行为分发。
-  - `match` 是 GDScript 的分支关键词，类似 switch/case。
-  - `has_triggered` 是触发器本地保险，`triggered_event_ids` 是关卡事件系统全局保险。
+  - `WaveEventTrigger` 一局只刷一次 `wave_01`
+  - 波次刷出 2 个敌人
+  - 第 1 个敌人消失后门仍在
+  - 第 2 个敌人消失后 `WaveGate` 被移除并显示 `Wave cleared: wave_01`
+  - `R` 重开恢复触发器、波次状态和门
+  - coin 解锁 Goal 与旧胜利/切关流程无红色 error
 
-### Teaching Delivery Incident
+### Learner Understanding
 
-- 课堂发现：从聊天复制 GDScript 代码到 Godot 时可能带多余前导空格，导致顶级 `func` 报缩进错误。
-- 学员明确表示：后续不需要每次提醒手动修正缩进。
-- 已写回规则：
-  - `learning_kb/03_sessions/session_protocol.md`
-  - `learning_kb/00_meta/dual_track_governance.md`
-  - `AGENTS.md`
-  - `02_mentor/cards/K080_gdscript_code_delivery_blocks_must_be_copy_safe.md`
-  - `02_mentor/qa/QA082_gdscript_paste_indent_error_in_class.md`
-
-### Mentor Line
-
-- 新增第22课 runbook：
-  - `learning_kb/00_plan/lesson_22_2h_runbook.md`
-  - 主题：可玩关卡整合与小型 alpha 回归
-- `lesson_queue` 已更新：
-  - 第18课：已完成
-  - 第19课：已备课，下一课
-  - 当前备课缓冲：第19课~第22课（4课）
-- 新增导师资产：
-  - `02_mentor/modules/M19_alpha_integration_regression_and_teaching_delivery.md`
-  - `02_mentor/cards/K079_alpha_regression_scope_should_freeze_features.md`
-  - `02_mentor/cards/K080_gdscript_code_delivery_blocks_must_be_copy_safe.md`
-  - `02_mentor/qa/QA081_alpha_regression_before_more_features.md`
-  - `02_mentor/qa/QA082_gdscript_paste_indent_error_in_class.md`
-- 扩展导师索引：
-  - source quick-answer map: `SQ151~SQ160`
-  - feature option playbook: `F076~F080`
-  - version matrix 已加入 M19/K079/K080/QA081/QA082
-- 导师看板已更新：
-  - Overall Progress: `78%`
+- 学员已理解 `_spawn_wave()` 的职责：按 `wave_id` 查配置、实例化敌人、加入场景和组、连接运行时信号。
+- 学员已理解 `WaveGate` 是 `main.tscn` 初始节点，不是代码创建；代码通过配置里的 `"unlock_target": "WaveGate"` 找到并 `queue_free()`。
+- 学员已理解 `tree_exited` + deferred group-count check 的清波判定链路。
 
 ## In Progress
 - None
@@ -82,34 +54,31 @@
 - None
 
 ## Next Step
-- 学员线下一课：第19课 `learning_kb/00_plan/lesson_19_2h_runbook.md`
-- 目标：把第18课事件系统用于敌人波次刷新与清波门控。
+- 学员线下一课：第20课 `learning_kb/00_plan/lesson_20_2h_runbook.md`
+- 目标：完成小型 Boss 原型（HP、阶段切换、受击反馈、无敌窗口、重开稳定）。
 
-## 学员线下一节课计划（第19课）
+## 学员线下一节课计划（第20课）
 
-- 目标：`Today I will link trigger events with enemy wave spawning and gate unlock logic in a restart-safe way.`
+- 目标：`Today I will build a small boss prototype with phase switching and hit feedback, while keeping restart behavior stable.`
 - 主要步骤：
-  1. 运行第18课基线，确认触发器和 HUD 事件消息正常。
-  2. 为事件系统增加 `spawn_wave` 动作分支。
-  3. 使用 `PackedScene.instantiate()` 刷出一波敌人。
-  4. 让敌人加入统一组，例如 `enemies`。
-  5. 清波后执行门控动作：开门、移除障碍或显示解锁反馈。
-  6. 验证重复触发不会重复刷怪，`R` 重开恢复初始状态。
+  1. 运行第19课基线，确认事件刷怪与清波门控正常。
+  2. 创建最小 Boss 场景/脚本。
+  3. 增加 Boss HP、阶段字段和阶段切换阈值。
+  4. 接入受击扣血与可见反馈。
+  5. 增加短暂无敌窗口，避免重复扣血。
+  6. 验证 Boss 阶段切换、击败、`R` 重开恢复。
 - 验收点：
-  - 至少 1 个触发器刷出 1 波敌人。
-  - 同一波次只刷一次。
-  - 清空敌人后门控动作执行一次。
-  - 重开后波次和门控恢复初始。
-  - Output/Debugger 无红色 error。
+  - Boss 可受击并扣血。
+  - HP 低于阈值后只切一次阶段。
+  - 受击反馈可见。
+  - 无敌窗口有效。
+  - 重开后 Boss 状态恢复初始，无红色 error。
 
 ## References
 - `learning_kb/00_plan/lesson_queue.md`
-- `learning_kb/00_plan/lesson_19_2h_runbook.md`
-- `learning_kb/00_plan/lesson_22_2h_runbook.md`
+- `learning_kb/00_plan/lesson_20_2h_runbook.md`
 - `learning_kb/01_learner/current_state.md`
-- `learning_kb/01_learner/daily_reports/2026-06-24.md`
-- `learning_kb/02_mentor/mentor_progress_dashboard.md`
-- `learning_kb/02_mentor/modules/M19_alpha_integration_regression_and_teaching_delivery.md`
-- `projects/first-game/scenes/event_trigger.gd`
+- `learning_kb/01_learner/daily_reports/2026-06-25.md`
 - `projects/first-game/scenes/main.gd`
-- `projects/first-game/scenes/hud.gd`
+- `projects/first-game/scenes/main.tscn`
+- `projects/first-game/scenes/enemy.gd`

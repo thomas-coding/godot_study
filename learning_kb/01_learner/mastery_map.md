@@ -60,6 +60,12 @@
   - Evidence: `01_learner/daily_reports/2026-06-24.md`
 - One-shot event deduplication and restart reset (`has_triggered` + `triggered_event_ids` + `reload_current_scene`): `done`
   - Evidence: `01_learner/daily_reports/2026-06-24.md`
+- Event-driven wave spawning (`spawn_wave` action + `PackedScene.instantiate()` + runtime signal wiring): `done`
+  - Evidence: `01_learner/daily_reports/2026-06-25.md`
+- Group-based clear-wave gate unlock (`enemies` group + `tree_exited` + deferred clear check): `done`
+  - Evidence: `01_learner/daily_reports/2026-06-25.md`
+- Physics callback timing guard (`call_deferred` when spawning from `Area2D.body_entered`): `done`
+  - Evidence: `01_learner/daily_reports/2026-06-25.md`
 
 ## Engineering Workflow
 
@@ -79,6 +85,8 @@
   - Evidence: `01_learner/daily_reports/2026-06-23.md`
 - Scene instance configuration vs script handling boundary (`main.tscn` places/configures, `main.gd` handles behavior): `done`
   - Evidence: `01_learner/daily_reports/2026-06-24.md`
+- Runtime scene node lifecycle for gates (`main.tscn` initial node -> runtime `queue_free` -> reload restores): `done`
+  - Evidence: `01_learner/daily_reports/2026-06-25.md`
 
 ## English in Technical Context
 

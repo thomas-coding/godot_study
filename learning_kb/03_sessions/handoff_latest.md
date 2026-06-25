@@ -1,5 +1,42 @@
 # Session Handoff (Latest)
 
+Date: 2026-06-25
+
+## 2026-06-25 Update
+
+- 学员线第19课已完成：敌人与事件联动（波次刷新 + 清波门控）。
+- 功能链路完成：
+  - `Main/WaveEventTrigger` 触发 `event_id = wave_01`、`target_action = spawn_wave`。
+  - `_on_event_triggered()` 使用 `call_deferred("_spawn_wave", event_id)` 延迟刷怪，避免 `Area2D.body_entered` 查询刷新期间修改碰撞状态。
+  - `_spawn_wave(wave_id)` 按 `wave_configs` 取敌人模板和刷新点，`instantiate()` 后 `add_child()` 到场景。
+  - 运行时敌人加入 `enemies` 组并连接 `hit_player`、`fired_projectile`、`tree_exited`。
+  - 敌人 `tree_exited` 后 deferred 调用 `_check_wave_cleared()`。
+  - `get_tree().get_node_count_in_group("enemies") == 0` 时标记 `wave_cleared`，并 `queue_free()` 配置里的 `unlock_target`。
+- 场景新增：
+  - `projects/first-game/scenes/main.tscn`
+  - `Main/WaveEventTrigger`
+  - `Main/WaveGate(StaticBody2D)` + `CollisionShape2D`
+- 敌人行为新增：
+  - 玩家从上方落到敌人身上时敌人消失。
+  - 敌人碰到 `WaveGate` 或墙体时通过 `is_on_wall()` 反向，避免卡住。
+- 验证通过：同一局只刷一次、清空 2 个波次敌人后开门、`R` 重开恢复、原 coin/Goal/切关流程无红色 error。
+- 学员理解确认：`_spawn_wave()` 职责边界、`WaveGate` 初始节点与运行时 `queue_free()`、`tree_exited` + deferred group-count check 的清波时序。
+
+## Next session objective (Lesson 20, 2h)
+
+Build a small Boss prototype with phase switching, hit feedback, and restart-stable state.
+
+## First files to read next time
+
+1. `learning_kb/00_plan/lesson_queue.md`
+2. `learning_kb/00_plan/lesson_20_2h_runbook.md`
+3. `learning_kb/01_learner/current_state.md`
+4. `learning_kb/01_learner/daily_reports/2026-06-25.md`
+5. `projects/first-game/scenes/main.gd`
+6. `projects/first-game/scenes/enemy.gd`
+7. `projects/first-game/scenes/main.tscn`
+---
+
 Date: 2026-06-24
 
 ## 2026-06-24 Update

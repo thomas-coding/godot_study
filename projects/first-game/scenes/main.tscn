@@ -12,6 +12,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
 size = Vector2(1311, 40)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tipki"]
+size = Vector2(28, 105)
+
 [node name="Main" type="Node2D" unique_id=77717777]
 script = ExtResource("1_o5qli")
 next_level_scene_path = "res://scenes/level_02.tscn"
@@ -60,3 +63,15 @@ position = Vector2(588, 44)
 [node name="IntroEventTrigger" parent="." unique_id=1329260571 instance=ExtResource("8_tipki")]
 position = Vector2(250, 105)
 event_id = "intro_message"
+
+[node name="WaveEventTrigger" parent="." unique_id=680345665 instance=ExtResource("8_tipki")]
+position = Vector2(330, 105)
+event_id = "wave_01"
+target_action = "spawn_wave"
+
+[node name="WaveGate" type="StaticBody2D" parent="." unique_id=1695072400]
+position = Vector2(545, 105)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaveGate" unique_id=1656059817]
+shape = SubResource("RectangleShape2D_tipki")
