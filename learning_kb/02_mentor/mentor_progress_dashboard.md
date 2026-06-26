@@ -1,8 +1,8 @@
 # Mentor Progress Dashboard
 
-Last Updated: 2026-06-24
+Last Updated: 2026-06-26
 Active Baseline: Godot 4.6 stable
-Overall Progress: 78%
+Overall Progress: 79%
 
 ## 评分模型（5 维度）
 
@@ -11,11 +11,11 @@ Overall Progress: 78%
 
 | Dimension | Score | Weight | Contribution | Current Evidence | Main Gap |
 | --- | --- | --- | --- | --- | --- |
-| D1 Runtime & Core API Mastery | 100 | 20% | 20.0 | M01-M18、K001-K078、QA001-QA080 | 需继续扩展到渲染深水区与工程边界案例 |
-| D2 Feature Solution Design | 95 | 20% | 19.0 | playbook 扩展到 F001~F075 | 需补跨平台/发布链路决策树 |
-| D3 Source-level Q&A Speed | 100 | 20% | 20.0 | quick-answer map v1 已扩展到 150 问题 | 需补渲染源码链路的答复模板化 |
+| D1 Runtime & Core API Mastery | 100 | 20% | 20.0 | M01-M20、K001-K082、QA001-QA084 | 需继续扩展到渲染深水区与工程边界案例 |
+| D2 Feature Solution Design | 96 | 20% | 19.2 | playbook 扩展到 F001~F085，新增导出 dry-run/资源包含/问题分级/构建身份策略 | 需补跨平台/Steam 发布链路决策树 |
+| D3 Source-level Q&A Speed | 100 | 20% | 20.0 | quick-answer map v1 已扩展到 165 问题 | 需补渲染源码链路的答复模板化 |
 | D4 Engineering Reliability | 52 | 20% | 10.4 | 排错清单 + 性能案例库 + 自动回归规范 + 阈值带样本 + 第16课 Profiler 证据纪律复盘 + 第22课 alpha 回归 runbook | 缺自动化执行样本与阈值调优 |
-| D5 Shipping & Version Governance | 42 | 20% | 8.4 | 版本治理 + preflight + 风险矩阵 + 阈值证据链 + 第21课结算/奖励闭环备课 + alpha 可测路线与 P0/P1/P2 triage | 缺 Steam 上线前端到端演练与指标闭环 |
+| D5 Shipping & Version Governance | 48 | 20% | 9.6 | 版本治理 + preflight + 风险矩阵 + 阈值证据链 + 第23课 Windows 导出干跑 runbook + M20 导出验证资产 | 缺 Steam 上线前端到端演练与指标闭环 |
 
 ## 等级解释
 
@@ -31,10 +31,11 @@ Governance Update:
 - 双轨长期治理协议已固化（学员线/导师线判定 + 固定课堂 SOP + 原子步骤卡门禁）。
 - 学员线第16课已完成：Profiler 帧预算采样 + 曲线尖峰解释 + 优化证据纪律复盘。
 - 学员线第18课已完成：触发器事件系统 + 一次性去重 + 重开恢复。
-- 学员线下一课切换为：`lesson_19_2h_runbook`（敌人与事件联动：波次刷新 + 门控）。
-- 本轮导师学习聚焦“第18课事件系统收尾 + 第22课 alpha 整合回归备课 + 教学代码交付事故复盘”。
-- 备课缓冲已更新为 `第19课~第22课`（4课），第22课 runbook 已补齐。
-- 本轮新增/更新导师资产：`M19`、`K079~K080`、`QA081~QA082`、`SQ151~SQ160`、`F076~F080`、`lesson_22_2h_runbook`。
+- 学员线第20课已完成：小型 Boss 原型（HP、阶段切换、受击反馈、无敌窗口、击败、重开稳定）。
+- 学员线下一课切换为：`lesson_21_2h_runbook`（Boss 战结算与奖励循环）。
+- 本轮导师学习聚焦“第20课收口 + 第23课 Windows 导出干跑备课 + 发布前最小验证资产”。
+- 备课缓冲已更新为 `第21课~第23课`（3课），第23课 runbook 已补齐。
+- 本轮新增/更新导师资产：`M20`、`K081~K082`、`QA083~QA084`、`SQ161~SQ165`、`F081~F085`、`lesson_23_2h_runbook`。
 
 ## 自动更新规则（每次“你自己学习”后执行）
 
@@ -166,11 +167,17 @@ Governance Update:
   - [done] M19 + QA081~QA082 + K079~K080 + lesson_22 runbook
 - W16 progress: `3/3 completed`
 
+- W17 deliverables:
+  - [done] quick-answer map 扩展到 165 问题（SQ161~SQ165）
+  - [done] playbook 扩展到 F085
+  - [done] M20 + QA083~QA084 + K081~K082 + lesson_23 runbook
+- W17 progress: `3/3 completed`
+
 ## 当前两周冲刺（Now)
 
-- Sprint Goal: `77% -> 78%`
+- Sprint Goal: `78% -> 79%`
 - Must Deliver:
   1. [in_progress] 将阈值带接入自动化执行（脚本化判定 pass/fail）
-  2. [in_progress] 为发布链路补跨平台决策树（窗口/输入/导出配置分支）
-  3. [done] 备课第22课 runbook，保持 >=3 课缓冲
-  4. [done] 补齐教学代码交付事故复盘规则，避免 GDScript 复制缩进问题反复打断课堂
+  2. [in_progress] 为 Steam 发布链路补跨平台决策树（窗口/输入/导出配置分支）
+  3. [done] 备课第23课 runbook，保持 >=3 课缓冲
+  4. [done] 补齐 Windows 导出 dry-run 教学资产与发布前最小验证口径

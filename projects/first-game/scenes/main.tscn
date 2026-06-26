@@ -8,10 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://e4ly1hnyqpjt" path="res://scenes/goal.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://d4eqw86jp14ap" path="res://scenes/enemy.tscn" id="6_71sn6"]
 [ext_resource type="PackedScene" uid="uid://b50vv4ndvambl" path="res://scenes/event_trigger.tscn" id="8_tipki"]
-[ext_resource type="Texture2D" path="res://assets/training/training_bg.png" id="9_bg"]
-[ext_resource type="Texture2D" path="res://assets/training/floor_lab.png" id="10_floor"]
-[ext_resource type="Texture2D" path="res://assets/training/trigger_pad.png" id="11_pad"]
-[ext_resource type="Texture2D" path="res://assets/training/gate_barrier.png" id="12_gate"]
+[ext_resource type="Texture2D" uid="uid://bgtm7irgqp6c8" path="res://assets/training/training_bg.png" id="9_bg"]
+[ext_resource type="Texture2D" uid="uid://cvs7e1kbt3vax" path="res://assets/training/floor_lab.png" id="10_floor"]
+[ext_resource type="Texture2D" uid="uid://cpx1mgppsqg3b" path="res://assets/training/trigger_pad.png" id="11_pad"]
+[ext_resource type="Texture2D" uid="uid://5q0o2jsuqvru" path="res://assets/training/gate_barrier.png" id="12_gate"]
+[ext_resource type="PackedScene" uid="uid://df20pg553jplt" path="res://scenes/boss.tscn" id="13_trceg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
 size = Vector2(1311, 40)
@@ -97,6 +98,8 @@ collision_layer = 2
 shape = SubResource("RectangleShape2D_tipki")
 
 [node name="Visual" type="Sprite2D" parent="WaveGate" unique_id=1286620458]
-position = Vector2(0, 0)
 scale = Vector2(0.72, 0.88)
 texture = ExtResource("12_gate")
+
+[node name="Boss" parent="." unique_id=1565713952 instance=ExtResource("13_trceg")]
+position = Vector2(260, 129)

@@ -1,6 +1,6 @@
 # Mentor Knowledge Map
 
-Last Updated: 2026-06-24
+Last Updated: 2026-06-26
 Active Baseline: Godot 4.6
 
 ## Fast Read Order (new AI)
@@ -42,6 +42,10 @@ Active Baseline: Godot 4.6
   - Status: `done` (baseline)
   - Modules: M08
 
+- Shipping and Release Preflight
+  - Status: `in_progress`
+  - Modules: M20
+
 - Graphics Fundamentals (2D/3D/math)
   - Status: `planned`
   - Plan: `02_mentor/graphics_foundations.md`
@@ -81,8 +85,8 @@ Active Baseline: Godot 4.6
 
 ## Current Priority (next sessions)
 
-1. 继续扩展 source quick-answer map（v1 已完成 160 问题，下一步补到 170+）
-2. 继续扩展 feature option playbook（当前 F001~F080，下一步目标 >=85）
+1. 继续扩展 source quick-answer map（v1 已完成 165 问题，下一步补到 170+）
+2. 继续扩展 feature option playbook（当前 F001~F085，下一步目标 >=90）
 3. 扩展性能与发布链路资产（已完成案例库/回归清单/风险矩阵/样本阈值带，当前重点是自动化执行）
 4. 维护版本兼容矩阵（为未来 5.0 迁移预置状态）
-5. 每次导师自学习后刷新能力看板（当前 78%，下一目标 79%）
+5. 每次导师自学习后刷新能力看板（当前 79%，下一目标 80%）

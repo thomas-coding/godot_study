@@ -2,6 +2,46 @@
 
 > 规则：每次教学前后补充 1-2 条，记录“读了什么 -> 结论是什么 -> 来源在哪里”。
 
+## 2026-06-26
+
+- Topic: 学员线第20课实作验收（小型 Boss 原型：阶段行为 + 受击反馈）（Working）
+- Summary:
+  - 新增 `boss.tscn` 与 `boss.gd`，建立 `Boss(CharacterBody2D)` + `Hitbox(Area2D)` + `Visual(Sprite2D)` 的最小 Boss 场景。
+  - Boss 支持 HP、受击扣血、短暂无敌窗口、可见受击变红反馈、二阶段一次性切换、阶段速度差异、击败后 `queue_free()`。
+  - 修正课堂发现的开始门控问题：Boss 默认继承处理模式导致按 `Enter` 前移动，已在 `_ready()` 设置 `process_mode = Node.PROCESS_MODE_PAUSABLE`。
+  - 验证通过：Boss 从 6 HP 开始，3 HP 进入二阶段，0 HP 消失；`R` 重开恢复 HP/阶段/位置/可见性；第19课波次门控和 Goal 流程无回归。
+- Source:
+  - `projects/first-game/scenes/boss.gd`
+  - `projects/first-game/scenes/boss.tscn`
+  - `projects/first-game/scenes/main.tscn`
+  - `learning_kb/01_learner/daily_reports/2026-06-26.md`
+  - `godot/doc/classes/CharacterBody2D.xml`
+  - `godot/doc/classes/Area2D.xml`
+  - `godot/doc/classes/Node.xml`
+  - `godot/doc/classes/SceneTree.xml`
+
+- Topic: 导师线自学习与备课（第23课 Windows 导出干跑 + 发布前最小验证）（Verified/Working）
+- Summary:
+  - 新增 `lesson_23_2h_runbook`，把第22课 alpha 回归后的下一步定位为 Windows 导出 dry run，而不是直接 Steam 发布。
+  - 新增 M20、K081~K082、QA083~QA084，沉淀“编辑器运行不等于导出包验证”、debug export 优先、导出模板缺失 fallback、导出记录字段等发布前口径。
+  - source quick-answer map 从 160 扩展到 165（`SQ161~SQ165`）。
+  - feature playbook 从 F080 扩展到 F085（`F081~F085`）。
+  - 备课缓冲更新为 `第21课~第23课`（3课），继续满足至少提前 3 课要求。
+- Source:
+  - `learning_kb/00_plan/lesson_23_2h_runbook.md`
+  - `learning_kb/02_mentor/modules/M20_windows_export_dry_run_and_release_preflight.md`
+  - `learning_kb/02_mentor/cards/K081_export_package_needs_real_smoke_test.md`
+  - `learning_kb/02_mentor/cards/K082_debug_export_first_for_classroom_release_dry_run.md`
+  - `learning_kb/02_mentor/qa/QA083_editor_run_passes_but_export_fails.md`
+  - `learning_kb/02_mentor/qa/QA084_what_to_record_for_first_windows_dry_run.md`
+  - `learning_kb/02_mentor/source_quick_answer_map_v1.md`
+  - `learning_kb/02_mentor/feature_option_playbook.md`
+  - `learning_kb/04_templates/windows_release_preflight_checklist.md`
+  - `learning_kb/04_templates/export_runtime_resource_loading_checklist.md`
+  - `godot/doc/classes/EditorExportPlatform.xml`
+  - `godot/doc/classes/EditorExportPlatformPC.xml`
+  - `godot/editor/export/project_export.cpp`
+
 ## 2026-06-24
 
 - Topic: 学员线第18课实作验收（关卡事件系统：触发器 + 一次性事件）（Working）

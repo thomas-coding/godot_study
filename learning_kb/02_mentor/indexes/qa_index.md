@@ -87,3 +87,5 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - QA080 `how to verify volume without audio assets` — `02_mentor/qa/QA080_how_to_verify_volume_without_audio_assets.md`
 - QA081 `alpha regression before more features` — `02_mentor/qa/QA081_alpha_regression_before_more_features.md`
 - QA082 `GDScript paste indentation errors in class` — `02_mentor/qa/QA082_gdscript_paste_indent_error_in_class.md`
+- QA083 `editor run passes but export fails` — `02_mentor/qa/QA083_editor_run_passes_but_export_fails.md`
+- QA084 `first Windows dry-run record fields` — `02_mentor/qa/QA084_what_to_record_for_first_windows_dry_run.md`

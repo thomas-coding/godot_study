@@ -1,5 +1,48 @@
 # Session Handoff (Latest)
 
+Date: 2026-06-26
+
+## 2026-06-26 Update
+
+- 学员线第20课已完成：小型 Boss 原型（阶段行为 + 受击反馈）。
+- 功能链路完成：
+  - 新增 `projects/first-game/scenes/boss.tscn`，结构为 `Boss(CharacterBody2D)` + `CollisionShape2D` + `Visual(Sprite2D)` + `Hitbox(Area2D)`。
+  - 新增 `projects/first-game/scenes/boss.gd`，包含 HP、phase、invulnerability、defeat 等 scene-local 状态。
+  - Boss 通过 `Hitbox.body_entered` 检测玩家从上方踩踏并扣 HP。
+  - 受击后 `Visual.modulate` 变红，`invulnerable_time = 0.45` 阻止即时重复扣血。
+  - HP 到 `3 / 6` 时只切一次 `PHASE_2`，Boss 变大并提高巡逻速度。
+  - HP 到 0 时打印 `Boss defeated` 并 `queue_free()`。
+- 场景新增：
+  - `projects/first-game/scenes/main.tscn`
+  - `Main/Boss` 实例，课堂测试位置 `Vector2(260, 129)`。
+- 课堂修复：
+  - Boss 初始放置位置不便于踩踏测试，已临时移到玩家附近。
+  - Boss 未按 `Enter` 前就移动，原因是处理模式继承；已设置 `process_mode = Node.PROCESS_MODE_PAUSABLE`。
+  - `boss.gd` 多余缩进已整理，行为不变。
+- 验证通过：Boss 6 HP 初始、3 HP 二阶段、0 HP 击败、`R` 重开恢复；第19课波次门控和 Goal 流程无红色 error。
+- 学员理解确认：Boss 状态由场景重建重置、`process_mode` 影响暂停/开始门控、无敌窗口是逻辑门控、阶段切换需要 guard。
+- 导师线整理与备课已完成：
+  - 更新第20课日报、current_state、mastery_map、gap_backlog。
+  - 新增 `learning_kb/00_plan/lesson_23_2h_runbook.md`。
+  - `lesson_queue` 更新为第21课下一课，缓冲第21课~第23课。
+  - 新增 M20、K081~K082、QA083~QA084；快答图谱扩到 SQ165；playbook 扩到 F085；导师看板更新到 79%。
+
+## Next session objective (Lesson 21, 2h)
+
+Add a boss defeat reward and a clear result panel without breaking restart or scene flow.
+
+## First files to read next time
+
+1. `learning_kb/00_plan/lesson_queue.md`
+2. `learning_kb/00_plan/lesson_21_2h_runbook.md`
+3. `learning_kb/01_learner/current_state.md`
+4. `learning_kb/01_learner/daily_reports/2026-06-26.md`
+5. `projects/first-game/scenes/boss.gd`
+6. `projects/first-game/scenes/boss.tscn`
+7. `projects/first-game/scenes/main.tscn`
+
+---
+
 Date: 2026-06-25
 
 ## 2026-06-25 Update

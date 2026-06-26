@@ -18,3 +18,4 @@
 - 2026-06-23: `01_learner/daily_reports/2026-06-23.md` (Lesson 17 projectile enemy extension + combat feedback)
 - 2026-06-24: `01_learner/daily_reports/2026-06-24.md` (Lesson 18 trigger-based level event system + one-shot dedup)
 - 2026-06-25: `01_learner/daily_reports/2026-06-25.md` (Lesson 19 event-driven wave spawning + gate unlock)
+- 2026-06-26: `01_learner/daily_reports/2026-06-26.md` (Lesson 20 small Boss prototype + phase switch + hit feedback)

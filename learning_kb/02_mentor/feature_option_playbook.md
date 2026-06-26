@@ -1606,6 +1606,106 @@ Version Scope: 4.6
 - 缺点：依赖路径多，批量维护和重构成本高。
 - 适用：关卡设计师可视化配置需求更高的项目。
 
+## F081 - First Windows export validation strategy
+
+### Option A (Recommended)
+- 路径：先做 debug Windows export dry run，再运行导出 `.exe` 做 smoke test。
+- 优点：诊断信息充足，能尽早发现资源、输入、存档与窗口问题。
+- 缺点：不是最终 release 包性能结果。
+- 适用：第23课首次导出与发布前最小验证。
+
+### Option B
+- 路径：直接做 release export 并跑完整回归。
+- 优点：更接近最终发布形态。
+- 缺点：早期问题诊断成本更高，日志可见性更低。
+- 适用：debug dry run 已稳定后。
+
+### Option C
+- 路径：继续只在编辑器 `F5` 验证。
+- 优点：速度快。
+- 缺点：不能覆盖导出模板、资源打包、`user://` 路径和模板运行差异。
+- 适用：尚未进入导出准备前的普通开发课。
+
+## F082 - Export resource inclusion strategy
+
+### Option A (Recommended)
+- 路径：首次导出使用“导出全部项目资源”，先验证完整 playable route。
+- 优点：减少漏资源导致的误判，适合初次 dry run。
+- 缺点：包体可能更大。
+- 适用：首个 Windows 测试包。
+
+### Option B
+- 路径：只导出选中场景和依赖。
+- 优点：包体更小。
+- 缺点：容易漏动态加载资源或未来关卡资源。
+- 适用：资源依赖已审计清楚后。
+
+### Option C
+- 路径：手动 include/exclude 资源。
+- 优点：控制最精细。
+- 缺点：维护成本高，初学阶段容易误配。
+- 适用：发布前包体控制阶段。
+
+## F083 - Export dry-run issue triage strategy
+
+### Option A (Recommended)
+- 路径：按 P0/P1/P2 记录，课堂只修 P0 和高影响 P1。
+- 优点：能保住导出验证主线，不被低优先级问题拖散。
+- 缺点：非阻塞问题会进入 backlog。
+- 适用：第23课 2 小时窗口。
+
+### Option B
+- 路径：导出后发现一个问题就立即修一个。
+- 优点：问题反馈即时。
+- 缺点：容易失去完整 smoke test 覆盖。
+- 适用：课后自由调试。
+
+### Option C
+- 路径：只记录，不做任何修复。
+- 优点：测试覆盖最完整。
+- 缺点：P0 会阻断后续路线。
+- 适用：已有稳定包、只做审计时。
+
+## F084 - Build identity logging strategy
+
+### Option A (Recommended)
+- 路径：最小记录 `OS.has_feature("template")`、`OS.is_debug_build()`、导出 preset 和路径。
+- 优点：成本低，足够区分编辑器/模板/debug 形态。
+- 缺点：不包含完整构建哈希。
+- 适用：首次课堂 dry run。
+
+### Option B
+- 路径：记录可执行文件哈希、Godot 版本、命令参数、指标快照。
+- 优点：可复核性强，适合长期回归。
+- 缺点：需要额外脚本或手工步骤。
+- 适用：进入 alpha/beta 持续测试后。
+
+### Option C
+- 路径：只截图导出成功窗口。
+- 优点：最快。
+- 缺点：无法证明运行形态和测试路线。
+- 适用：不推荐。
+
+## F085 - Export template missing fallback strategy
+
+### Option A (Recommended)
+- 路径：把缺失 export templates 记录为阻塞，转为配置检查 + preflight 清单演练。
+- 优点：课堂仍有产出，不会伪造“已导出”结论。
+- 缺点：无法完成真实 `.exe` smoke test。
+- 适用：模板未安装或当前机器无导出能力时。
+
+### Option B
+- 路径：现场安装模板后继续导出。
+- 优点：若网络/安装顺利，可完成原目标。
+- 缺点：时间不可控，容易压缩验证环节。
+- 适用：用户明确允许等待并处理安装时。
+
+### Option C
+- 路径：跳过导出，继续做新玩法。
+- 优点：功能推进快。
+- 缺点：发布链路风险继续积累。
+- 适用：不推荐作为第23课默认选择。
+
 ## Evidence
 
 - `godot/doc/classes/Node.xml` -> `_input`, `_unhandled_input`, `_unhandled_key_input`
@@ -1640,7 +1740,11 @@ Version Scope: 4.6
 - `godot/doc/classes/SceneTree.xml` -> `reload_current_scene`, `change_scene_to_file`, `scene_changed`
 - `godot/doc/classes/Area2D.xml` -> `body_entered`, trigger region semantics
 - `godot/doc/classes/Object.xml` -> `has_signal`, `has_method`
+- `godot/doc/classes/EditorExportPlatform.xml` -> export template lookup and default template command-line arguments
+- `godot/doc/classes/EditorExportPlatformPC.xml` -> PC export platform and Windows export docs link
 - `learning_kb/03_sessions/session_protocol.md` -> code copy safety gate
+- `learning_kb/04_templates/windows_release_preflight_checklist.md` -> Windows build smoke test baseline
+- `learning_kb/04_templates/export_runtime_resource_loading_checklist.md` -> exported resource loading checks
 - `godot/doc/classes/SceneTreeTimer.xml` -> one-shot lifecycle and frame-order note
 - `godot/doc/classes/Timer.xml` -> node-based timer usage model
 - `godot/doc/classes/Engine.xml` -> `time_scale`

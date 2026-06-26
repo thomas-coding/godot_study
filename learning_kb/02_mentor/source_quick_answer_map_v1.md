@@ -168,6 +168,11 @@ Version Scope: 4.6
 | SQ158 | alpha 回归为什么先冻结新增功能？ | Regression strategy | fixed playable route + P0/P1/P2 triage reduces unclear regressions | `learning_kb/00_plan/lesson_22_2h_runbook.md`, `02_mentor/automated_regression_spec_v1.md` |
 | SQ159 | 终关误配回上一关如何提前发现？ | Level chain config | inspect each `next_level_scene_path`; terminal level must be empty or explicit result scene | `projects/first-game/scenes/main.gd`, `learning_kb/00_plan/lesson_22_2h_runbook.md` |
 | SQ160 | 复制 GDScript 后顶级 `func` 缩进报错优先查什么？ | Teaching delivery / GDScript syntax | chat/Markdown copy may add leading spaces; treat as code delivery format pollution first | `learning_kb/03_sessions/session_protocol.md`, `02_mentor/qa/QA082_gdscript_paste_indent_error_in_class.md` |
+| SQ161 | 编辑器 `F5` 通过后为什么还要导出包测试？ | Export validation | editor run and exported template runtime have different resource/package/user data boundaries | `learning_kb/04_templates/windows_release_preflight_checklist.md`, `godot/doc/classes/OS.xml`, `godot/doc/classes/ResourceLoader.xml` |
+| SQ162 | 第一次 Windows 导出为什么推荐 debug export？ | Export diagnostics | debug export keeps diagnosis easier; record `OS.is_debug_build()` and smoke-test route before release export | `learning_kb/00_plan/lesson_23_2h_runbook.md`, `godot/doc/classes/OS.xml` |
+| SQ163 | export templates 缺失时课堂怎么处理？ | Export setup | record missing templates as blocker; fallback to export config check + preflight rehearsal | `godot/doc/classes/EditorExportPlatform.xml`, `godot/editor/export/project_export.cpp` |
+| SQ164 | 导出包资源缺失优先查哪里？ | Export/resource loading | check export filter, `res://` paths, `convert_text_resources_to_binary`, `PackedScene.can_instantiate()` | `godot/doc/classes/ProjectSettings.xml`, `godot/doc/classes/ResourceLoader.xml`, `godot/doc/classes/PackedScene.xml` |
+| SQ165 | Windows dry run 最小记录字段是什么？ | Release preflight record | preset, debug/release, export path, route, pass/fail, P0/P1/P2, next fix | `learning_kb/02_mentor/automated_regression_spec_v1.md`, `learning_kb/00_plan/lesson_23_2h_runbook.md` |
 
 ## Usage Rule
 

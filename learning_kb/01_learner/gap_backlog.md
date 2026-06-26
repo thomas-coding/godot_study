@@ -7,7 +7,7 @@
 - Understand `_unhandled_input` dispatch order and handled propagation in practice
 - Practice Profiler domain breakdown beyond frame-time curve (`Process` / `Physics` / render) on a larger scene
 
-Reference runbook: `00_plan/lesson_20_2h_runbook.md`
+Reference runbook: `00_plan/lesson_21_2h_runbook.md`
 
 ## P1
 
@@ -24,8 +24,8 @@ Reference runbook: `00_plan/lesson_20_2h_runbook.md`
 - Compare `CharacterBody2D` body collision vs `Area2D` trigger hitbox with one concrete scene
 - Keep multi-level chain explicit (`01 -> 02 -> 03 -> end`) and avoid loopback misconfiguration
 - Practice event ID naming discipline and collision between duplicate event IDs
-- Practice Boss HP/phase state modeling with a small explicit state machine
-- Practice hit feedback and invulnerability windows without duplicate same-frame damage
+- Practice Boss defeat reward/result flow with one-time reward gating and restart-safe UI state
+- Practice pause/continue behavior around result panels and combat terminal states
 - Run first real migration rehearsal when target version changes (e.g. 4.6 -> 5.0)
 
 ## P2

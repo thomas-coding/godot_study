@@ -28,10 +28,10 @@
 - Save/load baseline pattern (`ConfigFile` vs JSON) for this project
 - Prepare first cross-version migration drill (`4.6` -> target) using `version_upgrade_protocol.md`
 - [done] Build feature option playbook (for each common feature: 2-3 implementation paths + trade-off)
-  - Current: F001~F080
+  - Current: F001~F085
   - Output: `02_mentor/feature_option_playbook.md`
 - [done] Build source quick-answer map (question -> class -> function chain -> evidence)
-  - Output: `02_mentor/source_quick_answer_map_v1.md` (160 高频问题)
+  - Output: `02_mentor/source_quick_answer_map_v1.md` (165 高频问题)
 - [done] Build performance/export troubleshooting checklists
   - Output: `04_templates/performance_frame_budget_checklist.md` + `04_templates/export_runtime_resource_loading_checklist.md`
 - [done] Build performance casebook baseline
@@ -107,6 +107,12 @@
 
 - [done] Expand quick-answer map to 160 and playbook to F080
   - Output: `02_mentor/source_quick_answer_map_v1.md` (`SQ151~SQ160`), `02_mentor/feature_option_playbook.md` (`F076~F080`)
+
+- [done] Build Windows export dry-run teaching assets and refill prep buffer after Lesson 20
+  - Output: `02_mentor/modules/M20_windows_export_dry_run_and_release_preflight.md`, `02_mentor/cards/K081~K082`, `02_mentor/qa/QA083~QA084`, `00_plan/lesson_23_2h_runbook.md`
+
+- [done] Expand quick-answer map to 165 and playbook to F085
+  - Output: `02_mentor/source_quick_answer_map_v1.md` (`SQ161~SQ165`), `02_mentor/feature_option_playbook.md` (`F081~F085`)
 
 ## P2 (mid term)
 

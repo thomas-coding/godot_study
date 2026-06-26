@@ -1,6 +1,6 @@
 # Lesson Queue (2h per lesson)
 
-Last Updated: 2026-06-25
+Last Updated: 2026-06-26
 Mode: 按“课次”推进（不是按自然日）
 
 ## 执行规则
@@ -53,14 +53,16 @@ Mode: 按“课次”推进（不是按自然日）
   - 脚本：`learning_kb/00_plan/lesson_18_2h_runbook.md`
 - 第19课（已完成）：敌人与事件联动（波次刷新 + 门控）
   - 脚本：`learning_kb/00_plan/lesson_19_2h_runbook.md`
-- 第20课（已备课，下一课）：小型 Boss 原型（阶段行为 + 受击反馈）
+- 第20课（已完成）：小型 Boss 原型（阶段行为 + 受击反馈）
   - 脚本：`learning_kb/00_plan/lesson_20_2h_runbook.md`
-- 第21课（已备课）：Boss 战结算与奖励循环（掉落/结算面板）
+- 第21课（已备课，下一课）：Boss 战结算与奖励循环（掉落/结算面板）
   - 脚本：`learning_kb/00_plan/lesson_21_2h_runbook.md`
 - 第22课（已备课）：可玩关卡整合与小型 alpha 回归
   - 脚本：`learning_kb/00_plan/lesson_22_2h_runbook.md`
+- 第23课（已备课）：Windows 导出干跑 + 发布前最小验证
+  - 脚本：`learning_kb/00_plan/lesson_23_2h_runbook.md`
 
 ## 备课缓冲检查
 
-- 当前已备课缓冲：`第20课~第22课`（3 课）
+- 当前已备课缓冲：`第21课~第23课`（3 课）
 - 缓冲状态：已满足“至少提前 3 课”要求。

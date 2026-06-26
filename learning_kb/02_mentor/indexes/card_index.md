@@ -85,3 +85,5 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - K078 `modal overlay layout with full-rect and size flags` — `Verified` — `02_mentor/cards/K078_modal_overlay_layout_with_full_rect_and_size_flags.md`
 - K079 `alpha regression scope should freeze feature expansion` — `Working` — `02_mentor/cards/K079_alpha_regression_scope_should_freeze_features.md`
 - K080 `GDScript code delivery blocks must be copy-safe` — `Working` — `02_mentor/cards/K080_gdscript_code_delivery_blocks_must_be_copy_safe.md`
+- K081 `export package needs real smoke test` — `Working` — `02_mentor/cards/K081_export_package_needs_real_smoke_test.md`
+- K082 `debug export first for classroom release dry run` — `Working` — `02_mentor/cards/K082_debug_export_first_for_classroom_release_dry_run.md`

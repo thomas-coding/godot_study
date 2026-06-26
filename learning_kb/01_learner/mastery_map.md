@@ -66,6 +66,14 @@
   - Evidence: `01_learner/daily_reports/2026-06-25.md`
 - Physics callback timing guard (`call_deferred` when spawning from `Area2D.body_entered`): `done`
   - Evidence: `01_learner/daily_reports/2026-06-25.md`
+- Boss HP/phase state modeling (`hp_current`, `BossPhase`, threshold switch): `done`
+  - Evidence: `01_learner/daily_reports/2026-06-26.md`
+- Boss hit feedback and invulnerability window: `done`
+  - Evidence: `01_learner/daily_reports/2026-06-26.md`
+- Boss defeat and restart-stable scene-local state: `done`
+  - Evidence: `01_learner/daily_reports/2026-06-26.md`
+- Pause/start gate processing discipline for gameplay nodes: `done`
+  - Evidence: `01_learner/daily_reports/2026-06-26.md`
 
 ## Engineering Workflow
 
@@ -87,6 +95,8 @@
   - Evidence: `01_learner/daily_reports/2026-06-24.md`
 - Runtime scene node lifecycle for gates (`main.tscn` initial node -> runtime `queue_free` -> reload restores): `done`
   - Evidence: `01_learner/daily_reports/2026-06-25.md`
+- Scene-local combat state reset (`Boss` HP/phase/defeated -> `reload_current_scene`): `done`
+  - Evidence: `01_learner/daily_reports/2026-06-26.md`
 
 ## English in Technical Context
 

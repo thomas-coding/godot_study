@@ -4,7 +4,7 @@ Last Updated: 2026-06-25
 
 ## Snapshot
 
-- Phase: Week 01 / 第19课完成
+- Phase: Week 01 / 第20课完成
 - Per-Lesson Budget: 2h
 - Lesson Prep Buffer: Lessons 20-22 ready
 - Primary Goal: Build and ship a complete game with Godot on Steam
@@ -68,6 +68,17 @@ Last Updated: 2026-06-25
 - Enemy defeat by top-down stomp works for the current prototype, while side contact still damages the Player
 - Enemy wall/gate collision reversal works through `is_on_wall()`
 - Learner understands why `call_deferred()` is needed when spawning from an `Area2D.body_entered` callback
+- Small Boss prototype works (`Boss(CharacterBody2D)` + `Hitbox(Area2D)` + `Visual(Sprite2D)`)
+- Boss HP state works (`hp_max`, `hp_current`) and can be reduced by player stomp hits
+- Boss hit feedback works through temporary `Visual.modulate`
+- Boss invulnerability window works and prevents immediate repeated damage
+- Boss phase switch works once at `hp_current <= phase2_hp_threshold`
+- Boss phase behavior differs visibly: `PHASE_2` is larger and moves faster than `PHASE_1`
+- Boss defeat state works (`Boss defeated` -> `queue_free()`)
+- Boss respects the start gate through `process_mode = Node.PROCESS_MODE_PAUSABLE`
+- Boss restart validation passed: `R` restores HP, phase, position, visibility, and start-gate pause behavior
+- Learner understands that Boss state is scene-local and reset by `reload_current_scene()`
+- Learner understands that `process_mode` inheritance can make gameplay nodes move while the tree is paused if not set deliberately
 - Teaching delivery issue identified: pasted GDScript snippets from chat may carry unwanted leading spaces; learner will self-correct when needed, and future code blocks should stay independent and clean
 - Versioned KB infrastructure is ready (`registry` + `upgrade protocol` + `compatibility matrix`)
 - Mentor support assets upgraded: QA001~QA065, multi-domain checklists, source quick-answer map v1 (120 items)
@@ -81,16 +92,16 @@ Last Updated: 2026-06-25
 - Keybinding rebind implementation is still placeholder-only (entry exists, rebinding flow not implemented)
 - Resource sharing/mutation boundary should be reinforced later (`Resource` data vs runtime mutable state)
 - Profiler domain breakdown beyond frame-time curve (`Process` vs `Physics` vs render/draw calls) needs later practice on a larger scene
-- Boss combat state modeling is not implemented yet (HP, phase switch, hit feedback, invulnerability window)
+- Boss reward/result flow is not implemented yet (defeated signal, one-time reward, result panel, restart/pause consistency)
 
 ## Immediate Next Session Goal
 
-Start Lesson 20 and build a small Boss prototype with phase switching and hit feedback.
+Start Lesson 21 and add a Boss defeat reward plus result panel.
 
-Runbook: `00_plan/lesson_20_2h_runbook.md`
+Runbook: `00_plan/lesson_21_2h_runbook.md`
 
 Lesson Queue: `00_plan/lesson_queue.md`
-- Next prepared lessons: `lesson_20_2h_runbook.md`, `lesson_21_2h_runbook.md`, `lesson_22_2h_runbook.md`
+- Next prepared lessons: `lesson_21_2h_runbook.md`, `lesson_22_2h_runbook.md`, `lesson_23_2h_runbook.md`
 
 ## Teaching Preferences (Stable)
 

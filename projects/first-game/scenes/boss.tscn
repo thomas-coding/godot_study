@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://df20pg553jplt"]
+
+[ext_resource type="Texture2D" uid="uid://f1jvrb4mud5y" path="res://assets/training/enemy_drone.png" id="1_dlmty"]
+[ext_resource type="Script" uid="uid://bcej4c0f26xdp" path="res://scenes/boss.gd" id="1_neq0i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xd8r6"]
+size = Vector2(36, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dlmty"]
+size = Vector2(46, 48)
+
+[node name="Boss" type="CharacterBody2D" unique_id=1565713952]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_neq0i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=128974633]
+shape = SubResource("RectangleShape2D_xd8r6")
+
+[node name="Visual" type="Sprite2D" parent="." unique_id=1923271583]
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("1_dlmty")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=316172597]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1956908053]
+shape = SubResource("RectangleShape2D_dlmty")
