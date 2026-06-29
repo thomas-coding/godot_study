@@ -1,12 +1,12 @@
 # Current Learner State
 
-Last Updated: 2026-06-25
+Last Updated: 2026-06-29
 
 ## Snapshot
 
-- Phase: Week 01 / 第20课完成
+- Phase: Week 01 / 第21课完成
 - Per-Lesson Budget: 2h
-- Lesson Prep Buffer: Lessons 20-22 ready
+- Lesson Prep Buffer: Lessons 22-24 ready
 - Primary Goal: Build and ship a complete game with Godot on Steam
 - KB Baseline: Godot 4.6 (version migration protocol enabled)
 
@@ -79,9 +79,18 @@ Last Updated: 2026-06-25
 - Boss restart validation passed: `R` restores HP, phase, position, visibility, and start-gate pause behavior
 - Learner understands that Boss state is scene-local and reset by `reload_current_scene()`
 - Learner understands that `process_mode` inheritance can make gameplay nodes move while the tree is paused if not set deliberately
+- Boss defeat signal works (`defeated(boss_position: Vector2)` -> `Main._on_boss_defeated`)
+- Boss one-time reward works (`boss_reward_granted` prevents repeated `+5`)
+- Boss reward updates the shared score and can unlock Goal without directly completing the level
+- HUD result feedback works as a temporary `Boss Reward / Reward +5` popup
+- Score HUD wording now reflects mixed score sources (`Score`, not only `Collected`)
+- Scene layout was corrected so Boss, wave gate, and Goal no longer all overlap in the same small space
+- Ground collision and visual floor now cover the moved Boss/Goal route
+- Learner understands the ownership split: Boss emits event, Main owns rules/state, HUD owns display
+- Learner identified and corrected a design conflict: Boss reward should not bypass the existing Goal completion flow
 - Teaching delivery issue identified: pasted GDScript snippets from chat may carry unwanted leading spaces; learner will self-correct when needed, and future code blocks should stay independent and clean
 - Versioned KB infrastructure is ready (`registry` + `upgrade protocol` + `compatibility matrix`)
-- Mentor support assets upgraded: QA001~QA065, multi-domain checklists, source quick-answer map v1 (120 items)
+- Mentor support assets upgraded: QA001~QA086, multi-domain checklists, source quick-answer map v1 (165 items)
 - Dual-track governance is locked (`learner line` / `mentor line`) with fixed class SOP
 
 ## Current Gaps
@@ -92,16 +101,18 @@ Last Updated: 2026-06-25
 - Keybinding rebind implementation is still placeholder-only (entry exists, rebinding flow not implemented)
 - Resource sharing/mutation boundary should be reinforced later (`Resource` data vs runtime mutable state)
 - Profiler domain breakdown beyond frame-time curve (`Process` vs `Physics` vs render/draw calls) needs later practice on a larger scene
-- Boss reward/result flow is not implemented yet (defeated signal, one-time reward, result panel, restart/pause consistency)
+- Level readability needs alpha regression now that wave, Boss, reward, and Goal coexist in one route
+- Boss is still not a full combat threat: no side-contact damage, projectile pattern, Boss-zone activation, or exit gate yet
+- Temporary reward popup vs terminal win/game-over UI should be reinforced during future UI/state lessons
 
 ## Immediate Next Session Goal
 
-Start Lesson 21 and add a Boss defeat reward plus result panel.
+Start Lesson 22 and run playable level integration plus a small alpha regression pass.
 
-Runbook: `00_plan/lesson_21_2h_runbook.md`
+Runbook: `00_plan/lesson_22_2h_runbook.md`
 
 Lesson Queue: `00_plan/lesson_queue.md`
-- Next prepared lessons: `lesson_21_2h_runbook.md`, `lesson_22_2h_runbook.md`, `lesson_23_2h_runbook.md`
+- Next prepared lessons: `lesson_22_2h_runbook.md`, `lesson_23_2h_runbook.md`, `lesson_24_2h_runbook.md`
 
 ## Teaching Preferences (Stable)
 

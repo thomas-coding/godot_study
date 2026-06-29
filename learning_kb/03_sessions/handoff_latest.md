@@ -1,5 +1,54 @@
 # Session Handoff (Latest)
 
+Date: 2026-06-29
+
+## 2026-06-29 Update
+
+- 学员线第21课已完成：Boss 击败奖励、HUD 奖励提示、Goal 解锁归属修正。
+- 功能链路完成：
+  - `projects/first-game/scenes/boss.gd` 新增 `defeated(boss_position: Vector2)` 信号。
+  - Boss `_defeat()` 发出信号后 `queue_free()`，Boss 不直接改分数/UI/胜利状态。
+  - `projects/first-game/scenes/main.gd` 连接 Boss `defeated`，新增 `boss_reward_granted` 等字段，保证奖励只发一次。
+  - Boss 奖励为 `+5`，加入共享 score，并刷新 Goal 解锁。
+  - `projects/first-game/scenes/hud.gd` / `hud.tscn` 新增 `Boss Reward / Reward +5` 短提示。
+  - `ScoreLabel` 文案从 `Collected` 改为 `Score`，适配 coin 与 Boss reward 混合分数。
+- 课堂设计修正：
+  - 初始实现让 Boss 击败后直接 `WON`，用户指出这与原本 “得分/收集 -> Goal 解锁 -> 到达 Goal 通关” 冲突。
+  - 已修正为 Boss 击败只奖励并可解锁 Goal；Goal 仍然是最终胜利/切关入口。
+  - 明确当前 Boss 仍不是完整威胁：缺接触伤害、二阶段攻击、Boss 区域门控、出口解锁。
+- 场景布局修正：
+  - Boss 从玩家附近移到右侧独立区域 `Vector2(700, 129)`，巡逻边界 `640..780`。
+  - Goal 移到 `Vector2(900, 44)`。
+  - 地面碰撞扩展到 `Vector2(1900, 40)`，地面视觉同步扩展。
+  - 波次区域、Boss 区域和 Goal 不再挤在同一段平台。
+- 验证：
+  - 课堂手动验证通过：Boss reward 一次性、popup、P/R、Goal 归属。
+  - CLI 验证通过：
+    - `Godot_v4.6-stable_win64.exe --headless --path . --quit`
+    - `Godot_v4.6-stable_win64.exe --headless --path . --scene res://scenes/main.tscn --quit-after 120`
+    - `git diff --check`
+- 导师线整理与备课已完成：
+  - 更新第21课日报、current_state、mastery_map、gap_backlog。
+  - 新增 `learning_kb/00_plan/lesson_24_2h_runbook.md`。
+  - `lesson_queue` 更新为第22课下一课，缓冲第22课~第24课。
+  - 新增 M21、K083~K084、QA085~QA086。
+
+## Next session objective (Lesson 22, 2h)
+
+Integrate the playable level chain and run a small alpha regression pass with a clear fix list.
+
+## First files to read next time
+
+1. `learning_kb/00_plan/lesson_queue.md`
+2. `learning_kb/00_plan/lesson_22_2h_runbook.md`
+3. `learning_kb/01_learner/current_state.md`
+4. `learning_kb/01_learner/daily_reports/2026-06-29.md`
+5. `projects/first-game/scenes/main.gd`
+6. `projects/first-game/scenes/main.tscn`
+7. `projects/first-game/scenes/hud.gd`
+
+---
+
 Date: 2026-06-26
 
 ## 2026-06-26 Update

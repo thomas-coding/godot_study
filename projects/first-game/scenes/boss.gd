@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal defeated(boss_position: Vector2)
+
 enum BossPhase { PHASE_1, PHASE_2 }
 
 @export var hp_max := 6
@@ -103,4 +105,5 @@ func _update_facing() -> void:
 func _defeat() -> void:
 	is_defeated = true
 	print("Boss defeated")
+	defeated.emit(global_position)
 	queue_free()

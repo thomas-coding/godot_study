@@ -1,6 +1,6 @@
 # Module Index
 
-Last Updated: 2026-06-26
+Last Updated: 2026-06-29
 Active Baseline: 4.6
 
 Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
@@ -25,3 +25,4 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - M18 `embedded run constraints and modal settings UI layout` — `done` — `02_mentor/modules/M18_embedded_run_window_modes_and_modal_ui_layout.md`
 - M19 `alpha integration regression and teaching delivery reliability` — `done` — `02_mentor/modules/M19_alpha_integration_regression_and_teaching_delivery.md`
 - M20 `Windows export dry run and release preflight` — `done` — `02_mentor/modules/M20_windows_export_dry_run_and_release_preflight.md`
+- M21 `Boss encounter design and gate boundaries` — `done` — `02_mentor/modules/M21_boss_encounter_design_and_gate_boundaries.md`

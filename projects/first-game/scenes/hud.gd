@@ -16,6 +16,9 @@ extends CanvasLayer
 @onready var volume_slider: HSlider = get_node_or_null("SettingsPanel/Panel/VBox/VolumeSlider")
 @onready var window_mode_option: OptionButton = get_node_or_null("SettingsPanel/Panel/VBox/WindowModeOption")
 
+@onready var result_panel: Panel = get_node_or_null("ResultPanel")
+@onready var result_reward_label: Label = get_node_or_null("ResultPanel/RewardLabel")
+
 func _ready() -> void:
 	if settings_panel != null:
 		settings_panel.visible = false
@@ -33,7 +36,7 @@ func _ready() -> void:
 		window_mode_option.item_selected.connect(_on_window_mode_option_item_selected)
 func set_score(value: int) -> void:
 	if score_label != null:
-		score_label.text = "Collected: %d" % value
+		score_label.text = "Score: %d" % value
 func set_hp(value: int) -> void:
 	if hp_label != null:
 		hp_label.text = "HP: %d" % value
@@ -84,6 +87,15 @@ func set_objective_status(unlocked: bool, collected: int, total: int) -> void:
 		objective_label.text = "Goal: UNLOCKED (%d/%d)" % [collected, total]
 	else:
 		objective_label.text = "Goal: LOCKED (%d/%d)" % [collected, total]
+
+func show_boss_result(reward_amount: int) -> void:
+	if result_panel != null:
+		result_panel.visible = true
+	if result_reward_label != null:
+		result_reward_label.text = "Reward +%d" % reward_amount
+	await get_tree().create_timer(1.6).timeout
+	if result_panel != null:
+		result_panel.visible = false
 
 func show_event_message(message: String) -> void:
 	if event_label == null:

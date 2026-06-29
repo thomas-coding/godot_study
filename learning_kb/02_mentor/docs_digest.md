@@ -2,6 +2,41 @@
 
 > 规则：每次教学前后补充 1-2 条，记录“读了什么 -> 结论是什么 -> 来源在哪里”。
 
+## 2026-06-29
+
+- Topic: 学员线第21课实作验收（Boss 奖励、HUD 反馈与 Goal 归属修正）（Working）
+- Summary:
+  - Boss 新增 `defeated(boss_position)` 信号，击败时只发事件，不直接改分数、HUD 或切关。
+  - `Main` 接收 Boss 击败事件，使用 `boss_reward_granted` 保证 `+5` 奖励只发一次，并刷新分数与 Goal 解锁。
+  - 课堂答疑中发现设计冲突：Boss 击败直接 `WON` 会绕过原来的 Goal 通关规则；已修正为 Boss 奖励推动 Goal，玩家仍需到达 Goal 才通关。
+  - HUD 新增短暂 `Boss Reward / Reward +5` 提示，避免把奖励 popup 误当终局结算。
+  - 场景布局修正：Boss 移到右侧独立区域，Goal 继续右移，地面碰撞/视觉扩展，减少波次、Boss、Goal 挤压。
+- Source:
+  - `projects/first-game/scenes/boss.gd`
+  - `projects/first-game/scenes/main.gd`
+  - `projects/first-game/scenes/hud.gd`
+  - `projects/first-game/scenes/main.tscn`
+  - `learning_kb/01_learner/daily_reports/2026-06-29.md`
+  - `godot/doc/classes/Object.xml`
+  - `godot/doc/classes/Node.xml`
+  - `godot/doc/classes/SceneTree.xml`
+
+- Topic: 导师线备课（第24课 Boss 战能力补齐与区域门控）（Working）
+- Summary:
+  - 新增 `lesson_24_2h_runbook`，把第21课暴露的 Boss 设计缺口拆成接触伤害、Boss 区域门控、出口解锁、可选二阶段投射物。
+  - 新增 M21、K083~K084、QA085~QA086，固化“Boss defeat event / Main rules / HUD display / Goal completion”的职责边界。
+  - 备课缓冲更新为 `第22课~第24课`（3课），继续满足至少提前 3 课要求。
+- Source:
+  - `learning_kb/00_plan/lesson_24_2h_runbook.md`
+  - `learning_kb/02_mentor/modules/M21_boss_encounter_design_and_gate_boundaries.md`
+  - `learning_kb/02_mentor/cards/K083_boss_defeat_should_not_own_level_win_by_default.md`
+  - `learning_kb/02_mentor/cards/K084_reward_popup_is_not_completion_state.md`
+  - `learning_kb/02_mentor/qa/QA085_should_boss_defeat_directly_win_the_level.md`
+  - `learning_kb/02_mentor/qa/QA086_how_to_turn_reward_boss_into_real_encounter.md`
+  - `godot/doc/classes/Area2D.xml`
+  - `godot/doc/classes/CharacterBody2D.xml`
+  - `godot/doc/classes/Node.xml`
+
 ## 2026-06-26
 
 - Topic: 学员线第20课实作验收（小型 Boss 原型：阶段行为 + 受击反馈）（Working）

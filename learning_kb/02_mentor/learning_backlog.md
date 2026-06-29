@@ -114,6 +114,9 @@
 - [done] Expand quick-answer map to 165 and playbook to F085
   - Output: `02_mentor/source_quick_answer_map_v1.md` (`SQ161~SQ165`), `02_mentor/feature_option_playbook.md` (`F081~F085`)
 
+- [done] Build Boss encounter boundary teaching assets and refill prep buffer after Lesson 21
+  - Output: `02_mentor/modules/M21_boss_encounter_design_and_gate_boundaries.md`, `02_mentor/cards/K083~K084`, `02_mentor/qa/QA085~QA086`, `00_plan/lesson_24_2h_runbook.md`
+
 ## P2 (mid term)
 
 - 2D graphics and math fundamentals for gameplay programming

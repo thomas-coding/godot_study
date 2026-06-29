@@ -17,6 +17,11 @@ var triggered_event_ids := {}
 var wave_started := {}
 var wave_cleared := {}
 
+var boss_defeated := false
+var boss_reward_count := 0
+var boss_reward_granted := false
+@export var boss_reward_amount := 5
+
 var wave_configs := {
 	"wave_01": {
 		"enemy_scene": wave_enemy_scene,
@@ -71,12 +76,34 @@ func _ready() -> void:
 		if child.has_signal("triggered"):
 			child.process_mode = Node.PROCESS_MODE_PAUSABLE
 			child.triggered.connect(_on_event_triggered)
+		if child.has_signal("defeated"):
+			child.process_mode = Node.PROCESS_MODE_PAUSABLE
+			child.defeated.connect(_on_boss_defeated)
 	remaining_coins = total_coins
 	goal_unlocked = remaining_coins == 0
 	_debug_log("Coins total: %d" % total_coins)
 	# Start gate via state machine.
 	_set_game_state(GameState.WAIT_START)
 	_refresh_objective_status()
+
+func _on_boss_defeated(boss_position: Vector2) -> void:
+	if game_state != GameState.PLAYING:
+		return
+	if boss_reward_granted:
+		return
+
+	boss_defeated = true
+	boss_reward_granted = true
+	boss_reward_count += boss_reward_amount
+	collected_count += boss_reward_amount
+	if SaveManager != null:
+		SaveManager.try_update_best_score(collected_count)
+	_refresh_score_label()
+	_refresh_goal_unlock()
+	_refresh_objective_status()
+	if hud != null and hud.has_method("show_boss_result"):
+		hud.call("show_boss_result", boss_reward_amount)
+	print("Boss reward granted: +%d at %s" % [boss_reward_amount, boss_position])
 
 func _on_coin_collected() -> void:
 	if game_state != GameState.PLAYING:
@@ -87,13 +114,7 @@ func _on_coin_collected() -> void:
 	remaining_coins = max(remaining_coins - 1, 0)
 	_refresh_score_label()
 	_debug_log("Collected: %d / %d" % [collected_count, total_coins])
-	var required_coins := total_coins
-	if balance_config != null:
-		required_coins = min(balance_config.required_coins, total_coins)
-
-	if not goal_unlocked and collected_count >= required_coins:
-		goal_unlocked = true
-		_debug_log("Goal unlocked")
+	_refresh_goal_unlock()
 	_refresh_objective_status()
 
 func _refresh_score_label() -> void:
@@ -154,6 +175,21 @@ func _refresh_hp_label() -> void:
 	if hud != null and hud.has_method("set_hp"):
 		hud.call("set_hp", hp)
 
+func _get_required_score() -> int:
+	var required_score := total_coins
+	if balance_config != null:
+		required_score = min(balance_config.required_coins, total_coins)
+	return required_score
+
+func _refresh_goal_unlock() -> void:
+	if goal_unlocked:
+		return
+	if collected_count < _get_required_score():
+		return
+
+	goal_unlocked = true
+	_debug_log("Goal unlocked")
+
 func _on_goal_reached() -> void:
 	if game_state != GameState.PLAYING:
 		return
@@ -192,10 +228,7 @@ func _set_game_state(next_state: GameState) -> void:
 
 func _refresh_objective_status() -> void:
 	if hud != null and hud.has_method("set_objective_status"):
-		var required_coins := total_coins
-		if balance_config != null:
-			required_coins = min(balance_config.required_coins, total_coins)
-		hud.call("set_objective_status", goal_unlocked, collected_count, required_coins)
+		hud.call("set_objective_status", goal_unlocked, collected_count, _get_required_score())
 
 func _debug_log(message: String) -> void:
 	if debug_logs:

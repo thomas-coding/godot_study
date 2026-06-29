@@ -1,85 +1,79 @@
 # Session State - godot_study
 
 ## Date
-- 2026-06-26
+- 2026-06-29
 
 ## Current Focus
-- 学员线第20课已完成：小型 Boss 原型（阶段行为 + 受击反馈）。
-- 用户已明确切换到导师线，课后整理与备课已完成。
-- 下一次学员线应进入第21课：Boss 战结算与奖励循环。
+- 学员线第21课已完成：Boss 击败奖励、HUD 奖励提示、Goal 解锁归属修正。
+- 用户已明确切换到导师线，课后整理与备课正在完成。
+- 下一次学员线应进入第22课：可玩关卡整合与小型 alpha 回归。
 
 ## Completed Today
 
 ### Learner Line
 
-- 第20课完成：小型 Boss 原型。
-- `projects/first-game/scenes/boss.gd` 新增：
-  - `BossPhase { PHASE_1, PHASE_2 }`
-  - `hp_max`
-  - `hp_current`
-  - `phase2_hp_threshold`
-  - `invulnerable_time`
-  - `phase_1_speed`
-  - `phase_2_speed`
-  - `left_bound_x`
-  - `right_bound_x`
-  - `is_invulnerable`
-  - `is_defeated`
-  - stomp 受击入口 `_on_hitbox_body_entered(body)`
-  - `_take_damage(amount)`
-  - `_check_phase_change()`
-  - `_update_facing()`
-  - `_defeat()`
-- `projects/first-game/scenes/boss.tscn` 新增：
-  - `Boss(CharacterBody2D)`
-  - `CollisionShape2D`
-  - `Visual(Sprite2D)`
-  - `Hitbox(Area2D)`
-  - `Hitbox/CollisionShape2D`
-- `projects/first-game/scenes/main.tscn` 新增 `Main/Boss` 实例，课堂测试位置 `Vector2(260, 129)`。
-- 课堂修复：
-  - Boss 初始放在右侧，玩家难以踩踏测试；改为临时靠近玩家的位置。
-  - Boss 未按 `Enter` 前就移动；已在 `boss.gd` 的 `_ready()` 设置 `process_mode = Node.PROCESS_MODE_PAUSABLE`。
-  - 整理 `boss.gd` 多余缩进，行为不变。
+- 第21课完成：Boss 战结算与奖励循环。
+- `projects/first-game/scenes/boss.gd` 新增 `defeated(boss_position: Vector2)` 信号，Boss 击败时 emit 后 `queue_free()`。
+- `projects/first-game/scenes/main.gd` 新增/调整：
+  - 扫描子节点并连接 `defeated` 信号到 `_on_boss_defeated`。
+  - `boss_defeated`
+  - `boss_reward_count`
+  - `boss_reward_granted`
+  - `boss_reward_amount = 5`
+  - Boss 奖励只发一次，并加入 `collected_count`。
+  - Boss 奖励后刷新分数、Goal 解锁和目标 HUD。
+  - 设计修正：Boss 击败不再直接 `_set_game_state(GameState.WON)`；仍由 Goal 触发胜利/切关。
+- `projects/first-game/scenes/hud.gd` / `hud.tscn` 新增：
+  - `ResultPanel`
+  - `TitleLabel`
+  - `RewardLabel`
+  - `show_boss_result(reward_amount)`
+  - 奖励提示为短暂 `Boss Reward / Reward +5`，1.6 秒后自动隐藏。
+  - 分数文案从 `Collected` 改为 `Score`。
+- `projects/first-game/scenes/main.tscn` 布局修正：
+  - Boss 移到右侧独立区域：`Vector2(700, 129)`，巡逻边界 `640..780`。
+  - Goal 移到更右：`Vector2(900, 44)`。
+  - 地面碰撞扩展到 `Vector2(1900, 40)`，视觉地板同步扩展。
+  - 波次敌人区域与 Boss/Goal 分离，减少视觉和机制堆叠。
 - 验证通过：
-  - Boss 初始 HP 为 6。
-  - 玩家从上方踩 Boss 可扣 1 HP。
-  - 受击变红反馈可见。
-  - `0.45s` 无敌窗口阻止即时重复扣血。
-  - HP 到 `3 / 6` 时只切一次 `PHASE_2`。
-  - `PHASE_2` 体型变大、移动更快。
-  - HP 到 0 后打印 `Boss defeated` 并消失。
-  - `R` 重开恢复 Boss HP、阶段、位置、可见性和开始门控。
-  - 第19课波次门控、`WaveGate`、coin Goal 解锁无回归，无红色 error。
+  - Boss defeat signal reaches Main.
+  - Boss reward `+5` only once.
+  - Reward popup displays correctly and does not imply level completion.
+  - `R` reload restores Boss/reward/HUD state.
+  - Boss reward can unlock Goal, but reaching Goal remains the win condition.
+  - Godot headless scene load/run passes:
+    - `Godot_v4.6-stable_win64.exe --headless --path . --quit`
+    - `Godot_v4.6-stable_win64.exe --headless --path . --scene res://scenes/main.tscn --quit-after 120`
+    - `git diff --check`
 
 ### Learner Understanding
 
-- 学员已理解 Boss 状态是 scene-local，`reload_current_scene()` 会恢复 HP/phase/defeated 状态。
-- 学员已理解 `process_mode` 会影响暂停/开始门控；Boss 这类 gameplay 节点应设为 `PROCESS_MODE_PAUSABLE`。
-- 学员已理解 `Hitbox(Area2D)` 负责接触检测，`CharacterBody2D` 负责移动/碰撞。
-- 学员已理解无敌窗口是逻辑门控，不只是视觉反馈。
-- 学员已理解阶段切换必须用状态 guard，避免重复触发。
+- 学员已理解第21课核心链路：`Boss defeated signal -> Main reward/rules -> HUD display`。
+- 学员主动识别设计问题：
+  - Boss 与波次/Goal 画面挤在一起。
+  - Boss 死亡直接 `WON` 与原 Goal 流程冲突。
+  - Boss 当前仍是奖励目标，不是真正威胁。
+- 已修正设计口径：Boss 奖励推动 Goal 解锁，Goal 仍是最终通关入口。
+- 待后续补齐：Boss 接触伤害、二阶段攻击、Boss 区域门控、出口解锁。
 
 ### Mentor Line
 
-- 完成第20课课后整理：
-  - `learning_kb/01_learner/daily_reports/2026-06-26.md`
+- 完成第21课课后整理：
+  - `learning_kb/01_learner/daily_reports/2026-06-29.md`
   - `learning_kb/01_learner/daily_reports/index.md`
   - `learning_kb/01_learner/current_state.md`
   - `learning_kb/01_learner/mastery_map.md`
   - `learning_kb/01_learner/gap_backlog.md`
-- 补齐第23课备课缓冲：
-  - 新增 `learning_kb/00_plan/lesson_23_2h_runbook.md`
+- 补齐第24课备课缓冲：
+  - 新增 `learning_kb/00_plan/lesson_24_2h_runbook.md`
   - 更新 `learning_kb/00_plan/lesson_queue.md`
-  - 当前备课缓冲：第21课~第23课（3课）
+  - 当前备课缓冲：第22课~第24课（3课）
 - 新增导师资产：
-  - `learning_kb/02_mentor/modules/M20_windows_export_dry_run_and_release_preflight.md`
-  - `learning_kb/02_mentor/cards/K081_export_package_needs_real_smoke_test.md`
-  - `learning_kb/02_mentor/cards/K082_debug_export_first_for_classroom_release_dry_run.md`
-  - `learning_kb/02_mentor/qa/QA083_editor_run_passes_but_export_fails.md`
-  - `learning_kb/02_mentor/qa/QA084_what_to_record_for_first_windows_dry_run.md`
-  - `learning_kb/02_mentor/source_quick_answer_map_v1.md` 扩展到 `SQ165`
-  - `learning_kb/02_mentor/feature_option_playbook.md` 扩展到 `F085`
+  - `learning_kb/02_mentor/modules/M21_boss_encounter_design_and_gate_boundaries.md`
+  - `learning_kb/02_mentor/cards/K083_boss_defeat_should_not_own_level_win_by_default.md`
+  - `learning_kb/02_mentor/cards/K084_reward_popup_is_not_completion_state.md`
+  - `learning_kb/02_mentor/qa/QA085_should_boss_defeat_directly_win_the_level.md`
+  - `learning_kb/02_mentor/qa/QA086_how_to_turn_reward_boss_into_real_encounter.md`
 - 更新导师索引/看板：
   - `learning_kb/02_mentor/indexes/module_index.md`
   - `learning_kb/02_mentor/indexes/card_index.md`
@@ -89,7 +83,7 @@
   - `learning_kb/02_mentor/learning_backlog.md`
   - `learning_kb/02_mentor/docs_digest.md`
   - `learning_kb/02_mentor/mentor_progress_dashboard.md`
-- 导师进度更新：Overall Progress `79%`。
+- 导师进度保持：Overall Progress `79%`。
 
 ## In Progress
 - None
@@ -98,33 +92,34 @@
 - None
 
 ## Next Step
-- 学员线下一课：第21课 `learning_kb/00_plan/lesson_21_2h_runbook.md`
-- 目标：完成 Boss 击败奖励与结算面板，保证奖励只发一次，`R` 重开恢复，暂停/切关不污染状态。
+- 学员线下一课：第22课 `learning_kb/00_plan/lesson_22_2h_runbook.md`
+- 目标：完成可玩关卡整合与小型 alpha 回归，记录 P0/P1/P2 fix list，先稳住现有 vertical slice。
 
-## 学员线下一节课计划（第21课）
+## 学员线下一节课计划（第22课）
 
-- 目标：`Today I will add a boss defeat reward and a clear result panel without breaking restart or scene flow.`
+- 目标：`Today I will integrate the playable level chain and run a small alpha regression pass with a clear fix list.`
 - 主要步骤：
-  1. 运行第20课基线，确认 Boss HP/阶段/击败/重开正常。
-  2. 在 Boss 中新增 `defeated` 信号。
-  3. 在 `Main` 中连接 Boss 击败信号。
-  4. 实现一次性奖励字段与奖励发放。
-  5. 在 HUD 中新增最小结算面板。
-  6. 验证 Boss 击败、奖励、结算面板、暂停、重开和切关边界。
+  1. 运行第21课基线，确认 Boss reward、Goal 解锁、R 重开、P 暂停无红色 error。
+  2. 冻结 alpha 范围，不新增 Boss 攻击等新 feature。
+  3. 检查关卡路线：出生区 -> coin/hazard -> event/wave -> Boss reward -> Goal。
+  4. 建立 alpha 回归清单。
+  5. 执行固定路线并记录 P0/P1/P2。
+  6. 只修 P0 和高影响 P1。
 - 验收点：
-  - Boss 击败后奖励只发一次。
-  - 结算面板可见且内容正确。
-  - `R` 重开后 Boss、奖励、面板状态恢复初始。
-  - 暂停/继续不破坏结算状态。
-  - 无红色 error。
+  - 至少一条从开始到 Goal 的路线通过。
+  - Boss 奖励不会直接通关。
+  - Goal 仍是最终通关入口。
+  - pause/restart/event/wave/Boss/reward/Goal 无红色 error。
+  - 有清晰 fix list。
 
 ## References
 - `learning_kb/00_plan/lesson_queue.md`
-- `learning_kb/00_plan/lesson_21_2h_runbook.md`
-- `learning_kb/00_plan/lesson_23_2h_runbook.md`
+- `learning_kb/00_plan/lesson_22_2h_runbook.md`
+- `learning_kb/00_plan/lesson_24_2h_runbook.md`
 - `learning_kb/01_learner/current_state.md`
-- `learning_kb/01_learner/daily_reports/2026-06-26.md`
-- `learning_kb/02_mentor/mentor_progress_dashboard.md`
+- `learning_kb/01_learner/daily_reports/2026-06-29.md`
+- `learning_kb/02_mentor/modules/M21_boss_encounter_design_and_gate_boundaries.md`
 - `projects/first-game/scenes/boss.gd`
-- `projects/first-game/scenes/boss.tscn`
+- `projects/first-game/scenes/main.gd`
+- `projects/first-game/scenes/hud.gd`
 - `projects/first-game/scenes/main.tscn`

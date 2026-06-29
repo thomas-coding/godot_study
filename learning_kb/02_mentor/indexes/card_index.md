@@ -1,6 +1,6 @@
 # Card Index
 
-Last Updated: 2026-06-24
+Last Updated: 2026-06-29
 Active Baseline: 4.6
 
 Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
@@ -87,3 +87,5 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - K080 `GDScript code delivery blocks must be copy-safe` — `Working` — `02_mentor/cards/K080_gdscript_code_delivery_blocks_must_be_copy_safe.md`
 - K081 `export package needs real smoke test` — `Working` — `02_mentor/cards/K081_export_package_needs_real_smoke_test.md`
 - K082 `debug export first for classroom release dry run` — `Working` — `02_mentor/cards/K082_debug_export_first_for_classroom_release_dry_run.md`
+- K083 `Boss defeat should not own level win by default` — `Working` — `02_mentor/cards/K083_boss_defeat_should_not_own_level_win_by_default.md`
+- K084 `Reward popup is not completion state` — `Working` — `02_mentor/cards/K084_reward_popup_is_not_completion_state.md`

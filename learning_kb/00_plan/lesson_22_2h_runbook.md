@@ -13,7 +13,7 @@
 - 打开并确认：
   - `learning_kb/01_learner/current_state.md`
   - `learning_kb/01_learner/gap_backlog.md`
-- 运行项目：确认第21课 Boss 结算与奖励循环基线可用。
+- 运行项目：确认第21课 Boss reward、Goal 解锁归属和 HUD 短提示基线可用。
 - 快速回归：
   - start
   - pause/resume
@@ -58,7 +58,7 @@
   - Goal gate：未满足目标不能通关，满足后可通关
   - Event trigger：一次性事件有效，重开恢复
   - Wave/Boss：敌人生成、伤害、清空/击败逻辑有效
-  - Reward/result：奖励只发一次，结算面板显示
+  - Reward/result：奖励只发一次，Boss reward 短提示显示，Goal 仍负责通关
   - Pause：P 暂停/恢复不破坏 UI
   - Restart：R 重开恢复场景本地状态
   - Scene transition：切关不污染上一关状态

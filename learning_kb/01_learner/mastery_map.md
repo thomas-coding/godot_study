@@ -74,6 +74,12 @@
   - Evidence: `01_learner/daily_reports/2026-06-26.md`
 - Pause/start gate processing discipline for gameplay nodes: `done`
   - Evidence: `01_learner/daily_reports/2026-06-26.md`
+- Boss defeated signal and one-time reward handling: `done`
+  - Evidence: `01_learner/daily_reports/2026-06-29.md`
+- HUD reward popup as display-only feedback: `done`
+  - Evidence: `01_learner/daily_reports/2026-06-29.md`
+- Boss reward vs Goal completion ownership boundary: `done`
+  - Evidence: `01_learner/daily_reports/2026-06-29.md`
 
 ## Engineering Workflow
 
@@ -97,6 +103,8 @@
   - Evidence: `01_learner/daily_reports/2026-06-25.md`
 - Scene-local combat state reset (`Boss` HP/phase/defeated -> `reload_current_scene`): `done`
   - Evidence: `01_learner/daily_reports/2026-06-26.md`
+- Gameplay event ownership split (`Boss` emits, `Main` decides, `HUD` displays): `done`
+  - Evidence: `01_learner/daily_reports/2026-06-29.md`
 
 ## English in Technical Context
 

@@ -1,6 +1,6 @@
 # QA Index
 
-Last Updated: 2026-06-24
+Last Updated: 2026-06-29
 Active Baseline: 4.6
 
 Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
@@ -89,3 +89,5 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - QA082 `GDScript paste indentation errors in class` — `02_mentor/qa/QA082_gdscript_paste_indent_error_in_class.md`
 - QA083 `editor run passes but export fails` — `02_mentor/qa/QA083_editor_run_passes_but_export_fails.md`
 - QA084 `first Windows dry-run record fields` — `02_mentor/qa/QA084_what_to_record_for_first_windows_dry_run.md`
+- QA085 `should Boss defeat directly win the level` — `02_mentor/qa/QA085_should_boss_defeat_directly_win_the_level.md`
+- QA086 `turn reward Boss into real encounter` — `02_mentor/qa/QA086_how_to_turn_reward_boss_into_real_encounter.md`
