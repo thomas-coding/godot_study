@@ -7,7 +7,7 @@
 - Understand `_unhandled_input` dispatch order and handled propagation in practice
 - Practice Profiler domain breakdown beyond frame-time curve (`Process` / `Physics` / render) on a larger scene
 
-Reference runbook: `00_plan/lesson_22_2h_runbook.md`
+Reference runbook: `00_plan/lesson_24_2h_runbook.md`
 
 ## P1
 
@@ -15,8 +15,8 @@ Reference runbook: `00_plan/lesson_22_2h_runbook.md`
 - Practice Camera2D jitter checklist on real project scene
 - Reuse performance frame-budget checklist when enemy/Boss content increases scene pressure
 - Practice `_process(delta)` vs `_physics_process(delta)` again when adding event/timer logic
-- Practice export runtime resource-loading checklist on a test export build
-- Practice Windows release preflight checklist on first playable build
+- Practice export runtime resource-loading checklist on a fuller gameplay route
+- Practice Windows release preflight checklist on a non-debug playable build later
 - Practice signal/GUI input propagation diagnostics on a small UI scene
 - Implement real keybinding rebind flow (`InputMap` update + persistence), replacing current placeholder hint
 - Apply release risk matrix to first playable build and mark top 5 risks
@@ -24,7 +24,7 @@ Reference runbook: `00_plan/lesson_22_2h_runbook.md`
 - Compare `CharacterBody2D` body collision vs `Area2D` trigger hitbox with one concrete scene
 - Keep multi-level chain explicit (`01 -> 02 -> 03 -> end`) and avoid loopback misconfiguration
 - Practice event ID naming discipline and collision between duplicate event IDs
-- Practice level readability and route spacing after several systems accumulate in one scene
+- Continue monitoring level readability and route spacing as future systems accumulate in one scene
 - Practice Boss encounter hardening: side-contact damage, optional projectile attack, Boss-zone gate, and exit unlock
 - Practice pause/continue behavior around temporary reward popups and real terminal states
 - Run first real migration rehearsal when target version changes (e.g. 4.6 -> 5.0)
@@ -32,5 +32,5 @@ Reference runbook: `00_plan/lesson_22_2h_runbook.md`
 ## P2
 
 - Save schema evolution and backward compatibility checks
-- Export pipeline and Steam preflight checklist
+- Export pipeline release/debug differences and build identity checks
 - Resource sharing/mutation boundary (`duplicate`, local-to-scene, runtime state vs config data)

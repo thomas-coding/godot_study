@@ -1,6 +1,6 @@
 # Card Index
 
-Last Updated: 2026-06-29
+Last Updated: 2026-06-30
 Active Baseline: 4.6
 
 Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
@@ -89,3 +89,6 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - K082 `debug export first for classroom release dry run` — `Working` — `02_mentor/cards/K082_debug_export_first_for_classroom_release_dry_run.md`
 - K083 `Boss defeat should not own level win by default` — `Working` — `02_mentor/cards/K083_boss_defeat_should_not_own_level_win_by_default.md`
 - K084 `Reward popup is not completion state` — `Working` — `02_mentor/cards/K084_reward_popup_is_not_completion_state.md`
+- K085 `Learning goal controls lesson scope` — `Working` — `02_mentor/cards/K085_learning_goal_controls_lesson_scope.md`
+- K086 `Input rebind needs runtime and persistence layers` — `Working` — `02_mentor/cards/K086_input_rebind_needs_runtime_and_persistence_layers.md`
+- K087 `UI state must match game state` — `Working` — `02_mentor/cards/K087_ui_state_must_match_game_state.md`

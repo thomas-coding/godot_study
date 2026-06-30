@@ -1,6 +1,6 @@
 # Version Compatibility Matrix
 
-Last Updated: 2026-06-29
+Last Updated: 2026-06-30
 Active Baseline: `4.6`
 
 ## Status Legend
@@ -37,6 +37,7 @@ Active Baseline: `4.6`
 | M19 | module | working | not_started | 2026-06-24 | `02_mentor/modules/M19_alpha_integration_regression_and_teaching_delivery.md` | Alpha integration regression + teaching delivery reliability |
 | M20 | module | working | not_started | 2026-06-26 | `02_mentor/modules/M20_windows_export_dry_run_and_release_preflight.md` | Windows export dry run + release preflight |
 | M21 | module | working | not_started | 2026-06-29 | `02_mentor/modules/M21_boss_encounter_design_and_gate_boundaries.md` | Boss encounter design + gate boundaries |
+| M22 | module | working | not_started | 2026-06-30 | `02_mentor/modules/M22_learning_first_local_godot_curriculum.md` | Learning-first local Godot curriculum |
 
 ## Cards
 
@@ -126,6 +127,9 @@ Active Baseline: `4.6`
 | K082 | card | working | not_started | 2026-06-26 | `02_mentor/cards/K082_debug_export_first_for_classroom_release_dry_run.md` | Debug export first for classroom release dry run |
 | K083 | card | working | not_started | 2026-06-29 | `02_mentor/cards/K083_boss_defeat_should_not_own_level_win_by_default.md` | Boss defeat should not own level win by default |
 | K084 | card | working | not_started | 2026-06-29 | `02_mentor/cards/K084_reward_popup_is_not_completion_state.md` | Reward popup is not completion state |
+| K085 | card | working | not_started | 2026-06-30 | `02_mentor/cards/K085_learning_goal_controls_lesson_scope.md` | Learning goal controls lesson scope |
+| K086 | card | working | not_started | 2026-06-30 | `02_mentor/cards/K086_input_rebind_needs_runtime_and_persistence_layers.md` | Input rebind needs runtime and persistence layers |
+| K087 | card | working | not_started | 2026-06-30 | `02_mentor/cards/K087_ui_state_must_match_game_state.md` | UI state must match game state |
 
 ## QA
 
@@ -217,6 +221,9 @@ Active Baseline: `4.6`
 | QA084 | qa | working | not_started | 2026-06-26 | `02_mentor/qa/QA084_what_to_record_for_first_windows_dry_run.md` | first Windows dry-run record fields |
 | QA085 | qa | working | not_started | 2026-06-29 | `02_mentor/qa/QA085_should_boss_defeat_directly_win_the_level.md` | should Boss defeat directly win the level |
 | QA086 | qa | working | not_started | 2026-06-29 | `02_mentor/qa/QA086_how_to_turn_reward_boss_into_real_encounter.md` | turn reward Boss into real encounter |
+| QA087 | qa | working | not_started | 2026-06-30 | `02_mentor/qa/QA087_why_plan_lessons_by_learning_capability.md` | why plan lessons by learning capability |
+| QA088 | qa | working | not_started | 2026-06-30 | `02_mentor/qa/QA088_why_runtime_rebind_does_not_persist.md` | why runtime rebind does not persist automatically |
+| QA089 | qa | working | not_started | 2026-06-30 | `02_mentor/qa/QA089_how_to_prevent_ui_from_confusing_game_state.md` | prevent UI from confusing game state |
 
 ## Update Rule
 

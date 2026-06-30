@@ -173,6 +173,11 @@ Version Scope: 4.6
 | SQ163 | export templates 缺失时课堂怎么处理？ | Export setup | record missing templates as blocker; fallback to export config check + preflight rehearsal | `godot/doc/classes/EditorExportPlatform.xml`, `godot/editor/export/project_export.cpp` |
 | SQ164 | 导出包资源缺失优先查哪里？ | Export/resource loading | check export filter, `res://` paths, `convert_text_resources_to_binary`, `PackedScene.can_instantiate()` | `godot/doc/classes/ProjectSettings.xml`, `godot/doc/classes/ResourceLoader.xml`, `godot/doc/classes/PackedScene.xml` |
 | SQ165 | Windows dry run 最小记录字段是什么？ | Release preflight record | preset, debug/release, export path, route, pass/fail, P0/P1/P2, next fix | `learning_kb/02_mentor/automated_regression_spec_v1.md`, `learning_kb/00_plan/lesson_23_2h_runbook.md` |
+| SQ166 | 为什么第25课以后按学习能力而不是游戏内容规划？ | Curriculum scope | feature is a carrier; transferable Godot capability is the lesson objective | `learning_kb/00_plan/local_godot_learning_curriculum_after_lesson24.md`, `learning_kb/02_mentor/modules/M22_learning_first_local_godot_curriculum.md` |
+| SQ167 | Boss 复杂对象最容易混淆哪三层？ | Boss object boundaries | Boss owns internal state, Main owns rules/progression, HUD owns display feedback | `learning_kb/00_plan/lesson_25_2h_runbook.md`, `learning_kb/02_mentor/modules/M21_boss_encounter_design_and_gate_boundaries.md` |
+| SQ168 | 运行时改键为什么重启后丢失？ | InputMap persistence boundary | runtime InputMap mutation is not persisted; save selected events to user data and replay at startup | `godot/doc/classes/InputMap.xml`, `learning_kb/02_mentor/cards/K086_input_rebind_needs_runtime_and_persistence_layers.md` |
+| SQ169 | UI 状态表最少应该记录什么？ | UI state flow | state, visible UI, allowed input, exit path, restart expectation | `learning_kb/00_plan/lesson_27_2h_runbook.md`, `learning_kb/02_mentor/cards/K087_ui_state_must_match_game_state.md` |
+| SQ170 | 临时奖励提示和终态 UI 为什么必须分开？ | UI ownership | temporary feedback should not imply WON/GAME_OVER or own game-state transition | `learning_kb/02_mentor/cards/K084_reward_popup_is_not_completion_state.md`, `learning_kb/02_mentor/qa/QA089_how_to_prevent_ui_from_confusing_game_state.md` |
 
 ## Usage Rule
 

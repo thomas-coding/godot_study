@@ -1,13 +1,13 @@
 # Current Learner State
 
-Last Updated: 2026-06-29
+Last Updated: 2026-06-30
 
 ## Snapshot
 
-- Phase: Week 01 / 第21课完成
+- Phase: Week 01 / 第23课完成
 - Per-Lesson Budget: 2h
-- Lesson Prep Buffer: Lessons 22-24 ready
-- Primary Goal: Build and ship a complete game with Godot on Steam
+- Lesson Prep Buffer: Lesson 24 ready (导师线下次需补齐第25课到第27课以恢复 3 课缓冲)
+- Primary Goal: Learn local Godot game creation through a complete small 2D project
 - KB Baseline: Godot 4.6 (version migration protocol enabled)
 
 ## What Is Solid
@@ -88,6 +88,11 @@ Last Updated: 2026-06-29
 - Ground collision and visual floor now cover the moved Boss/Goal route
 - Learner understands the ownership split: Boss emits event, Main owns rules/state, HUD owns display
 - Learner identified and corrected a design conflict: Boss reward should not bypass the existing Goal completion flow
+- Current vertical slice alpha regression passed: Start, movement/jump, collectible, Goal gate, event trigger, wave/enemy, Boss reward, Goal completion, pause, and restart form a playable main route with no observed red error
+- Learner understands Lesson 22 as a current-version complete main-chain alpha regression, not final full-game testing or new feature work
+- Windows export templates for Godot 4.6 were installed successfully after an initial missing-template blocker
+- First Windows debug test build exported successfully to `projects/first-game/builds/windows_test/`
+- Exported package smoke test passed: `first_game.exe` launches and supports cold start, start gate, movement/jump, coin collection, pause/resume, and restart
 - Teaching delivery issue identified: pasted GDScript snippets from chat may carry unwanted leading spaces; learner will self-correct when needed, and future code blocks should stay independent and clean
 - Versioned KB infrastructure is ready (`registry` + `upgrade protocol` + `compatibility matrix`)
 - Mentor support assets upgraded: QA001~QA086, multi-domain checklists, source quick-answer map v1 (165 items)
@@ -101,18 +106,18 @@ Last Updated: 2026-06-29
 - Keybinding rebind implementation is still placeholder-only (entry exists, rebinding flow not implemented)
 - Resource sharing/mutation boundary should be reinforced later (`Resource` data vs runtime mutable state)
 - Profiler domain breakdown beyond frame-time curve (`Process` vs `Physics` vs render/draw calls) needs later practice on a larger scene
-- Level readability needs alpha regression now that wave, Boss, reward, and Goal coexist in one route
+- Level readability should continue to be monitored as more systems accumulate in one route
 - Boss is still not a full combat threat: no side-contact damage, projectile pattern, Boss-zone activation, or exit gate yet
 - Temporary reward popup vs terminal win/game-over UI should be reinforced during future UI/state lessons
 
 ## Immediate Next Session Goal
 
-Start Lesson 22 and run playable level integration plus a small alpha regression pass.
+Start Lesson 24 and implement Boss encounter hardening with ability completion and zone gating.
 
-Runbook: `00_plan/lesson_22_2h_runbook.md`
+Runbook: `00_plan/lesson_24_2h_runbook.md`
 
 Lesson Queue: `00_plan/lesson_queue.md`
-- Next prepared lessons: `lesson_22_2h_runbook.md`, `lesson_23_2h_runbook.md`, `lesson_24_2h_runbook.md`
+- Next prepared lessons: `lesson_24_2h_runbook.md`
 
 ## Teaching Preferences (Stable)
 

@@ -117,9 +117,14 @@
 - [done] Build Boss encounter boundary teaching assets and refill prep buffer after Lesson 21
   - Output: `02_mentor/modules/M21_boss_encounter_design_and_gate_boundaries.md`, `02_mentor/cards/K083~K084`, `02_mentor/qa/QA085~QA086`, `00_plan/lesson_24_2h_runbook.md`
 
+- [done] Refill local learning curriculum buffer after Lesson 23
+  - Output: `00_plan/lesson_25_2h_runbook.md`, `00_plan/lesson_26_2h_runbook.md`, `00_plan/lesson_27_2h_runbook.md`
+  - Output: `02_mentor/modules/M22_learning_first_local_godot_curriculum.md`, `02_mentor/cards/K085~K087`, `02_mentor/qa/QA087~QA089`
+  - Output: `02_mentor/source_quick_answer_map_v1.md` (`SQ166~SQ170`)
+
 ## P2 (mid term)
 
 - 2D graphics and math fundamentals for gameplay programming
 - Performance profiling and frame-time budgeting in Godot
-- Steam release engineering checklist with validation steps
+- Local export/debug-release validation and build identity checks
 - Source-level map for rendering and resource pipeline

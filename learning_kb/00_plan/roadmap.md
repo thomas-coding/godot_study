@@ -1,6 +1,6 @@
-# Roadmap (Godot 4.x -> Steam)
+# Roadmap (Godot 4.x)
 
-目标：从零开始，做出可发布到 Steam 的完整游戏（首作以小体量 2D 为主）。
+目标：从零开始，系统学习 Godot 本地 2D 游戏制作能力；Steam 发布不再作为当前主线目标。
 
 ## 阶段划分
 
@@ -25,8 +25,15 @@
 ## Phase 3 - 发布准备（第 15-20 周）
 
 - 性能与稳定性修复、输入适配、分辨率与窗口策略。
-- 导出与分发流程（Windows 优先）、崩溃日志与回归清单。
-- Steam 商店素材与上线流程演练。
+- 本地导出与运行包验证（Windows 优先）、崩溃日志与回归清单。
+- Steam 商店素材与上线流程降级为远期可选，不纳入当前必修主线。
+
+## 第24课后本地学习路线
+
+- 规划文件：`learning_kb/00_plan/local_godot_learning_curriculum_after_lesson24.md`
+- 必修：第25课到第36课，覆盖 Boss 复杂对象、输入、UI、Animation/Tween/Timer、音频、Resource 深化、场景复用、存档设置、调试、性能、本地导出、小项目收口。
+- 选修：第37课到第42课，覆盖 Shader、TileMap、手柄输入、简单 AI/寻路、自动化/半自动回归、Godot 插件/Editor 工具脚本。
+- 规划原则：按学习能力覆盖组织课程，不按游戏内容堆料。
 
 ## 双轨长期规划（学员线 + 导师线）
 

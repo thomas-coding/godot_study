@@ -936,3 +936,15 @@
 3. `godot/doc/classes/SceneTree.xml`
 4. `godot/core/input/input_map.cpp` 深读事件匹配细节
 5. `godot/scene/2d/physics/character_body_2d.cpp` 运动求解细节
+
+- Topic: 第24课后本地学习路线（Working）
+- Summary:
+  - 长期目标已调整为本地 Godot 游戏制作学习，不以 Steam 发布为当前主线。
+  - 第25课以后按学习能力覆盖组织：复杂对象、输入边界、UI 状态流、Resource、调试、性能、本地导出和项目收口。
+  - 已补齐第25课~第27课 runbook，备课缓冲恢复为第24课~第27课。
+- Source:
+  - `learning_kb/00_plan/local_godot_learning_curriculum_after_lesson24.md`
+  - `learning_kb/00_plan/lesson_25_2h_runbook.md`
+  - `learning_kb/00_plan/lesson_26_2h_runbook.md`
+  - `learning_kb/00_plan/lesson_27_2h_runbook.md`
+  - `learning_kb/02_mentor/modules/M22_learning_first_local_godot_curriculum.md`

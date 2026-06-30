@@ -1,6 +1,6 @@
 # QA Index
 
-Last Updated: 2026-06-29
+Last Updated: 2026-06-30
 Active Baseline: 4.6
 
 Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
@@ -91,3 +91,6 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - QA084 `first Windows dry-run record fields` — `02_mentor/qa/QA084_what_to_record_for_first_windows_dry_run.md`
 - QA085 `should Boss defeat directly win the level` — `02_mentor/qa/QA085_should_boss_defeat_directly_win_the_level.md`
 - QA086 `turn reward Boss into real encounter` — `02_mentor/qa/QA086_how_to_turn_reward_boss_into_real_encounter.md`
+- QA087 `why plan lessons by learning capability` — `02_mentor/qa/QA087_why_plan_lessons_by_learning_capability.md`
+- QA088 `why runtime rebind does not persist automatically` — `02_mentor/qa/QA088_why_runtime_rebind_does_not_persist.md`
+- QA089 `prevent UI from confusing game state` — `02_mentor/qa/QA089_how_to_prevent_ui_from_confusing_game_state.md`

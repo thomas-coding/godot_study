@@ -105,6 +105,10 @@
   - Evidence: `01_learner/daily_reports/2026-06-26.md`
 - Gameplay event ownership split (`Boss` emits, `Main` decides, `HUD` displays): `done`
   - Evidence: `01_learner/daily_reports/2026-06-29.md`
+- Playable vertical slice alpha regression (main route + pause/restart + no red error): `done`
+  - Evidence: `01_learner/daily_reports/2026-06-30.md`
+- Windows export dry run and exported package smoke test: `done`
+  - Evidence: `01_learner/daily_reports/2026-06-30.md`
 
 ## English in Technical Context
 

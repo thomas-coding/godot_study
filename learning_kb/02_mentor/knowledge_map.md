@@ -1,6 +1,6 @@
 # Mentor Knowledge Map
 
-Last Updated: 2026-06-29
+Last Updated: 2026-06-30
 Active Baseline: Godot 4.6
 
 ## Fast Read Order (new AI)
@@ -24,7 +24,7 @@ Active Baseline: Godot 4.6
 
 - Godot Core Runtime
   - Status: `in_progress`
-  - Modules: M01, M02, M03, M09, M10, M11, M12, M13, M14, M15, M16, M17, M18, M19, M21
+  - Modules: M01, M02, M03, M09, M10, M11, M12, M13, M14, M15, M16, M17, M18, M19, M21, M22
 
 - Input and Control
   - Status: `done` (baseline)
@@ -45,6 +45,10 @@ Active Baseline: Godot 4.6
 - Shipping and Release Preflight
   - Status: `in_progress`
   - Modules: M20
+
+- Learning-First Curriculum Planning
+  - Status: `in_progress`
+  - Modules: M22
 
 - Graphics Fundamentals (2D/3D/math)
   - Status: `planned`
@@ -85,8 +89,8 @@ Active Baseline: Godot 4.6
 
 ## Current Priority (next sessions)
 
-1. 继续扩展 source quick-answer map（v1 已完成 165 问题，下一步补到 170+）
+1. 继续补齐第28课~第30课 runbook（Animation/Tween/Timer、音频、Resource 深化）
 2. 继续扩展 feature option playbook（当前 F001~F085，下一步目标 >=90）
-3. 扩展 Boss encounter/alpha integration 设计资产，支撑第24课 Boss 伤害与区域门控
+3. 继续扩展 source quick-answer map（v1 已完成 170 问题，下一步补到 175+）
 4. 维护版本兼容矩阵（为未来 5.0 迁移预置状态）
-5. 每次导师自学习后刷新能力看板（当前 79%，下一目标 80%）
+5. 每次导师自学习后刷新能力看板（当前 80%，下一目标 81%）
