@@ -1,6 +1,6 @@
 # Lesson Queue (2h per lesson)
 
-Last Updated: 2026-06-30
+Last Updated: 2026-07-01
 Mode: 按“课次”推进（不是按自然日）
 
 ## 执行规则
@@ -61,18 +61,24 @@ Mode: 按“课次”推进（不是按自然日）
   - 脚本：`learning_kb/00_plan/lesson_22_2h_runbook.md`
 - 第23课（已完成）：Windows 导出干跑 + 发布前最小验证
   - 脚本：`learning_kb/00_plan/lesson_23_2h_runbook.md`
-- 第24课（已备课，下一课）：Boss 战能力补齐与区域门控
+- 第24课（已完成）：Boss 战能力补齐与区域门控
   - 脚本：`learning_kb/00_plan/lesson_24_2h_runbook.md`
-- 第25课（已备课）：复杂 Boss 对象组织与战斗威胁
+- 第25课（已完成）：复杂 Boss 对象组织与战斗威胁
   - 脚本：`learning_kb/00_plan/lesson_25_2h_runbook.md`
-- 第26课（已备课）：输入与交互系统整理
+- 第26课（已完成）：输入与交互系统整理
   - 脚本：`learning_kb/00_plan/lesson_26_2h_runbook.md`
-- 第27课（已备课）：UI/菜单系统与状态流
+- 第27课（已备课，下一课）：UI/菜单系统与状态流
   - 脚本：`learning_kb/00_plan/lesson_27_2h_runbook.md`
+- 第28课（已备课）：Animation / Tween / Timer 反馈系统
+  - 脚本：`learning_kb/00_plan/lesson_28_2h_runbook.md`
+- 第29课（已备课）：音频系统基础
+  - 脚本：`learning_kb/00_plan/lesson_29_2h_runbook.md`
+- 第30课（已备课）：Resource 与数据驱动深化
+  - 脚本：`learning_kb/00_plan/lesson_30_2h_runbook.md`
 
 ## 备课缓冲检查
 
-- 当前已备课缓冲：`第24课~第27课`（4 课）
+- 当前已备课缓冲：`第27课~第30课`（4 课）
 - 缓冲状态：已满足“至少提前 3 课”要求。
 
 ## 第24课后课程规划参考（未备课）
@@ -81,5 +87,5 @@ Mode: 按“课次”推进（不是按自然日）
 - 主线目标：本地 Godot 游戏制作学习，不以 Steam 发布为目标。
 - 必修建议：第25课~第36课。
 - 选修建议：第37课~第42课。
-- 备课规则：第25课~第27课已生成正式 runbook；第28课以后仍为规划参考。
-- 下次导师线优先级：继续补第28课~第30课 runbook，保持至少 3 课备课缓冲。
+- 备课规则：第25课~第30课已生成正式 runbook；第31课以后仍为规划参考。
+- 下次导师线优先级：继续补第31课~第33课 runbook，保持至少 3 课备课缓冲。

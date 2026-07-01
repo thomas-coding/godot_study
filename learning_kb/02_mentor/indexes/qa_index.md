@@ -1,6 +1,6 @@
 # QA Index
 
-Last Updated: 2026-06-30
+Last Updated: 2026-07-01
 Active Baseline: 4.6
 
 Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
@@ -94,3 +94,6 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - QA087 `why plan lessons by learning capability` — `02_mentor/qa/QA087_why_plan_lessons_by_learning_capability.md`
 - QA088 `why runtime rebind does not persist automatically` — `02_mentor/qa/QA088_why_runtime_rebind_does_not_persist.md`
 - QA089 `prevent UI from confusing game state` — `02_mentor/qa/QA089_how_to_prevent_ui_from_confusing_game_state.md`
+- QA090 `when to use Tween, Timer, SceneTreeTimer, or AnimationPlayer` — `02_mentor/qa/QA090_when_to_use_tween_timer_or_animationplayer.md`
+- QA091 `where should sound effects be triggered` — `02_mentor/qa/QA091_where_should_sound_effects_be_triggered.md`
+- QA092 `why not store current HP in a Resource` — `02_mentor/qa/QA092_why_not_store_current_hp_in_resource.md`

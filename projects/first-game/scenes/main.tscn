@@ -106,3 +106,14 @@ texture = ExtResource("12_gate")
 position = Vector2(700, 129)
 left_bound_x = 640.0
 right_bound_x = 780.0
+
+[node name="BossExitGate" type="StaticBody2D" parent="."]
+position = Vector2(835, 105)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossExitGate"]
+shape = SubResource("RectangleShape2D_tipki")
+
+[node name="Visual" type="Sprite2D" parent="BossExitGate"]
+scale = Vector2(0.72, 0.88)
+texture = ExtResource("12_gate")

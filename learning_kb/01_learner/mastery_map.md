@@ -110,6 +110,15 @@
 - Windows export dry run and exported package smoke test: `done`
   - Evidence: `01_learner/daily_reports/2026-06-30.md`
 
+- Boss encounter hardening: side-contact damage, exit unlock, one-shot reward, and restart recovery: `done`
+  - Evidence: `01_learner/daily_reports/2026-07-01.md`
+- Complex Boss object ownership boundary (`Boss` state / `Main` rules / `HUD` display): `done`
+  - Evidence: `01_learner/daily_reports/2026-07-01.md`
+- Input boundary organization (`InputMap` action/key split, pause gate, UI input, rebind persistence boundary): `done`
+  - Evidence: `01_learner/daily_reports/2026-07-01.md`
+- Runtime gate ownership (`GameState` controls `SceneTree.paused`; gameplay nodes use `PROCESS_MODE_PAUSABLE`): `done`
+  - Evidence: `01_learner/daily_reports/2026-07-01.md`
+
 ## English in Technical Context
 
 - Read simple setup instructions: `in_progress`

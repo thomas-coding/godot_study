@@ -1,6 +1,6 @@
 # Module Index
 
-Last Updated: 2026-06-30
+Last Updated: 2026-07-01
 Active Baseline: 4.6
 
 Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
@@ -27,3 +27,4 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - M20 `Windows export dry run and release preflight` — `done` — `02_mentor/modules/M20_windows_export_dry_run_and_release_preflight.md`
 - M21 `Boss encounter design and gate boundaries` — `done` — `02_mentor/modules/M21_boss_encounter_design_and_gate_boundaries.md`
 - M22 `learning-first local Godot curriculum` — `done` — `02_mentor/modules/M22_learning_first_local_godot_curriculum.md`
+- M23 `feedback, audio, and data-driven boundaries` — `done` — `02_mentor/modules/M23_feedback_audio_and_data_driven_boundaries.md`

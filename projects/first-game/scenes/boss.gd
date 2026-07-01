@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal defeated(boss_position: Vector2)
+signal hit_player
 
 enum BossPhase { PHASE_1, PHASE_2 }
 
@@ -55,13 +56,25 @@ func _physics_process(_delta: float) -> void:
 
 func _on_hitbox_body_entered(body: Node) -> void:
 	if is_defeated:
-		return
-	if is_invulnerable:
-		return
+			return
 	if body.name != "Player":
-		return
-	if body is CharacterBody2D and body.velocity.y > 0.0 and body.global_position.y < global_position.y:
-		_take_damage(1)
+			return
+
+	if _is_player_stomp(body):
+			if not is_invulnerable:
+					_take_damage(1)
+			return
+
+	hit_player.emit()
+
+func _is_player_stomp(body: Node) -> bool:
+	var player_body := body as CharacterBody2D
+	if player_body == null:
+			return false
+
+	var is_falling := player_body.velocity.y > 0.0
+	var is_above_boss := player_body.global_position.y < global_position.y
+	return is_falling and is_above_boss
 
 func _take_damage(amount: int) -> void:
 	if is_invulnerable:

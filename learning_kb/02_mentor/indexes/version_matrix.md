@@ -1,6 +1,6 @@
 # Version Compatibility Matrix
 
-Last Updated: 2026-06-30
+Last Updated: 2026-07-01
 Active Baseline: `4.6`
 
 ## Status Legend
@@ -38,6 +38,7 @@ Active Baseline: `4.6`
 | M20 | module | working | not_started | 2026-06-26 | `02_mentor/modules/M20_windows_export_dry_run_and_release_preflight.md` | Windows export dry run + release preflight |
 | M21 | module | working | not_started | 2026-06-29 | `02_mentor/modules/M21_boss_encounter_design_and_gate_boundaries.md` | Boss encounter design + gate boundaries |
 | M22 | module | working | not_started | 2026-06-30 | `02_mentor/modules/M22_learning_first_local_godot_curriculum.md` | Learning-first local Godot curriculum |
+| M23 | module | working | not_started | 2026-07-01 | `02_mentor/modules/M23_feedback_audio_and_data_driven_boundaries.md` | Feedback, audio, and Resource runtime boundaries |
 
 ## Cards
 
@@ -130,6 +131,9 @@ Active Baseline: `4.6`
 | K085 | card | working | not_started | 2026-06-30 | `02_mentor/cards/K085_learning_goal_controls_lesson_scope.md` | Learning goal controls lesson scope |
 | K086 | card | working | not_started | 2026-06-30 | `02_mentor/cards/K086_input_rebind_needs_runtime_and_persistence_layers.md` | Input rebind needs runtime and persistence layers |
 | K087 | card | working | not_started | 2026-06-30 | `02_mentor/cards/K087_ui_state_must_match_game_state.md` | UI state must match game state |
+| K088 | card | working | not_started | 2026-07-01 | `02_mentor/cards/K088_feedback_tool_should_match_timing_job.md` | Feedback timing tool choice |
+| K089 | card | working | not_started | 2026-07-01 | `02_mentor/cards/K089_audio_feedback_should_follow_confirmed_events.md` | Audio should trigger after confirmed gameplay events |
+| K090 | card | working | not_started | 2026-07-01 | `02_mentor/cards/K090_resource_config_is_not_runtime_state.md` | Resource config is not runtime mutable state |
 
 ## QA
 
@@ -224,6 +228,9 @@ Active Baseline: `4.6`
 | QA087 | qa | working | not_started | 2026-06-30 | `02_mentor/qa/QA087_why_plan_lessons_by_learning_capability.md` | why plan lessons by learning capability |
 | QA088 | qa | working | not_started | 2026-06-30 | `02_mentor/qa/QA088_why_runtime_rebind_does_not_persist.md` | why runtime rebind does not persist automatically |
 | QA089 | qa | working | not_started | 2026-06-30 | `02_mentor/qa/QA089_how_to_prevent_ui_from_confusing_game_state.md` | prevent UI from confusing game state |
+| QA090 | qa | working | not_started | 2026-07-01 | `02_mentor/qa/QA090_when_to_use_tween_timer_or_animationplayer.md` | Tween, Timer, SceneTreeTimer, AnimationPlayer choice |
+| QA091 | qa | working | not_started | 2026-07-01 | `02_mentor/qa/QA091_where_should_sound_effects_be_triggered.md` | sound effect trigger ownership |
+| QA092 | qa | working | not_started | 2026-07-01 | `02_mentor/qa/QA092_why_not_store_current_hp_in_resource.md` | current HP should not live in shared Resource |
 
 ## Update Rule
 

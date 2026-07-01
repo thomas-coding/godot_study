@@ -1,6 +1,6 @@
 # Card Index
 
-Last Updated: 2026-06-30
+Last Updated: 2026-07-01
 Active Baseline: 4.6
 
 Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
@@ -92,3 +92,6 @@ Compatibility Matrix: `02_mentor/indexes/version_matrix.md`
 - K085 `Learning goal controls lesson scope` — `Working` — `02_mentor/cards/K085_learning_goal_controls_lesson_scope.md`
 - K086 `Input rebind needs runtime and persistence layers` — `Working` — `02_mentor/cards/K086_input_rebind_needs_runtime_and_persistence_layers.md`
 - K087 `UI state must match game state` — `Working` — `02_mentor/cards/K087_ui_state_must_match_game_state.md`
+- K088 `Feedback tool should match timing job` — `Working` — `02_mentor/cards/K088_feedback_tool_should_match_timing_job.md`
+- K089 `Audio feedback should follow confirmed events` — `Working` — `02_mentor/cards/K089_audio_feedback_should_follow_confirmed_events.md`
+- K090 `Resource config is not runtime state` — `Working` — `02_mentor/cards/K090_resource_config_is_not_runtime_state.md`

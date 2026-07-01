@@ -122,6 +122,11 @@
   - Output: `02_mentor/modules/M22_learning_first_local_godot_curriculum.md`, `02_mentor/cards/K085~K087`, `02_mentor/qa/QA087~QA089`
   - Output: `02_mentor/source_quick_answer_map_v1.md` (`SQ166~SQ170`)
 
+- [done] Refill prep buffer after learner reached Lesson 26
+  - Output: `00_plan/lesson_28_2h_runbook.md`, `00_plan/lesson_29_2h_runbook.md`, `00_plan/lesson_30_2h_runbook.md`
+  - Output: `02_mentor/modules/M23_feedback_audio_and_data_driven_boundaries.md`
+  - Output: `02_mentor/cards/K088~K090`, `02_mentor/qa/QA090~QA092`
+
 ## P2 (mid term)
 
 - 2D graphics and math fundamentals for gameplay programming

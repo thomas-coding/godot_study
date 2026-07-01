@@ -94,6 +94,9 @@ func _on_boss_defeated(boss_position: Vector2) -> void:
 
 	boss_defeated = true
 	boss_reward_granted = true
+	var boss_exit_gate := get_node_or_null("BossExitGate")
+	if boss_exit_gate != null:
+		boss_exit_gate.queue_free()
 	boss_reward_count += boss_reward_amount
 	collected_count += boss_reward_amount
 	if SaveManager != null:

@@ -1,5 +1,41 @@
 # Docs Digest
 
+## 2026-07-01
+
+- Topic: 学员线第24-26课实作验收（Boss encounter、复杂对象边界、输入边界）（Working）
+- Summary:
+  - 第24课完成 Boss 侧碰伤害与 `BossExitGate` 出口解锁；Boss 奖励仍是一次性分数反馈，Goal 仍是最终通关入口。
+  - 第25课完成 Boss/Main/HUD 职责边界梳理，并把 Boss 接触判定整理为 `_is_player_stomp(body)` helper。
+  - 第26课完成输入边界学习：`InputMap` action 与 key 解耦，`GameState -> SceneTree.paused -> PROCESS_MODE_PAUSABLE` 控制 gameplay 输入，UI input 与改键持久化边界已确认。
+- Source:
+  - `projects/first-game/scenes/boss.gd`
+  - `projects/first-game/scenes/main.gd`
+  - `projects/first-game/scenes/main.tscn`
+  - `learning_kb/01_learner/daily_reports/2026-07-01.md`
+
+- Topic: 导师线备课（第28-30课反馈、音频、Resource 深化）（Working）
+- Summary:
+  - 新增第28课 `Animation / Tween / Timer`、第29课音频系统基础、第30课 Resource 与数据驱动深化 runbook。
+  - 新增 M23、K088~K090、QA090~QA092，固化反馈时序工具选择、音频触发所有权、Resource 配置与运行时状态边界。
+  - 课程序列更新为第27课下一课，备课缓冲恢复为第27课~第30课（4课）。
+- Source:
+  - `learning_kb/00_plan/lesson_28_2h_runbook.md`
+  - `learning_kb/00_plan/lesson_29_2h_runbook.md`
+  - `learning_kb/00_plan/lesson_30_2h_runbook.md`
+  - `learning_kb/02_mentor/modules/M23_feedback_audio_and_data_driven_boundaries.md`
+  - `learning_kb/02_mentor/cards/K088_feedback_tool_should_match_timing_job.md`
+  - `learning_kb/02_mentor/cards/K089_audio_feedback_should_follow_confirmed_events.md`
+  - `learning_kb/02_mentor/cards/K090_resource_config_is_not_runtime_state.md`
+  - `learning_kb/02_mentor/qa/QA090_when_to_use_tween_timer_or_animationplayer.md`
+  - `learning_kb/02_mentor/qa/QA091_where_should_sound_effects_be_triggered.md`
+  - `learning_kb/02_mentor/qa/QA092_why_not_store_current_hp_in_resource.md`
+  - `godot/doc/classes/SceneTree.xml`
+  - `godot/doc/classes/Timer.xml`
+  - `godot/doc/classes/Tween.xml`
+  - `godot/doc/classes/AnimationPlayer.xml`
+  - `godot/doc/classes/AudioServer.xml`
+  - `godot/doc/classes/Resource.xml`
+
 > 规则：每次教学前后补充 1-2 条，记录“读了什么 -> 结论是什么 -> 来源在哪里”。
 
 ## 2026-06-29

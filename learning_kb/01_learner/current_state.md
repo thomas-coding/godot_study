@@ -1,12 +1,12 @@
 # Current Learner State
 
-Last Updated: 2026-06-30
+Last Updated: 2026-07-01
 
 ## Snapshot
 
-- Phase: Week 01 / 第23课完成
+- Phase: Week 01 / 第26课完成
 - Per-Lesson Budget: 2h
-- Lesson Prep Buffer: Lesson 24 ready (导师线下次需补齐第25课到第27课以恢复 3 课缓冲)
+- Lesson Prep Buffer: Lessons 27-30 ready
 - Primary Goal: Learn local Godot game creation through a complete small 2D project
 - KB Baseline: Godot 4.6 (version migration protocol enabled)
 
@@ -93,6 +93,13 @@ Last Updated: 2026-06-30
 - Windows export templates for Godot 4.6 were installed successfully after an initial missing-template blocker
 - First Windows debug test build exported successfully to `projects/first-game/builds/windows_test/`
 - Exported package smoke test passed: `first_game.exe` launches and supports cold start, start gate, movement/jump, coin collection, pause/resume, and restart
+- Boss encounter hardening works: side contact damages Player, stomp damages Boss, Boss defeat opens `BossExitGate`, reward is one-shot, and Goal remains the final completion entry
+- Learner can explain Boss/Main/HUD ownership boundary: Boss owns internal state and emits signals, Main owns gameplay rules, HUD displays feedback
+- Boss contact logic has been organized through `_is_player_stomp(body)` helper
+- Learner understands `InputMap` action names are decoupled from physical key bindings
+- Learner understands `GameState -> SceneTree.paused -> PROCESS_MODE_PAUSABLE` as the current input gating chain
+- Learner understands Player reads gameplay actions, Main owns state/global hotkeys, and HUD/Control handles UI input without owning gameplay rules
+- Learner understands runtime `InputMap` rebinding and persisted keybinding require separate layers
 - Teaching delivery issue identified: pasted GDScript snippets from chat may carry unwanted leading spaces; learner will self-correct when needed, and future code blocks should stay independent and clean
 - Versioned KB infrastructure is ready (`registry` + `upgrade protocol` + `compatibility matrix`)
 - Mentor support assets upgraded: QA001~QA086, multi-domain checklists, source quick-answer map v1 (165 items)
@@ -100,24 +107,24 @@ Last Updated: 2026-06-30
 
 ## Current Gaps
 
-- `_unhandled_input` 分发顺序与 handled 传播机制理解尚不稳定
+- `_unhandled_input` 分发顺序与 handled 传播机制理解已有改善，但还需要在 UI 状态流课继续强化
 - Multi-level chain configuration discipline (avoid loopback and keep terminal level explicit)
 - Save schema evolution discipline (field/version compatibility and fallback)
 - Keybinding rebind implementation is still placeholder-only (entry exists, rebinding flow not implemented)
 - Resource sharing/mutation boundary should be reinforced later (`Resource` data vs runtime mutable state)
 - Profiler domain breakdown beyond frame-time curve (`Process` vs `Physics` vs render/draw calls) needs later practice on a larger scene
 - Level readability should continue to be monitored as more systems accumulate in one route
-- Boss is still not a full combat threat: no side-contact damage, projectile pattern, Boss-zone activation, or exit gate yet
-- Temporary reward popup vs terminal win/game-over UI should be reinforced during future UI/state lessons
+- Boss is still not a full combat threat: side-contact damage and exit gate are done, but projectile pattern and Boss-zone activation remain optional future work
+- Temporary reward popup vs terminal win/game-over UI should be reinforced during Lesson 27 UI/state flow
 
 ## Immediate Next Session Goal
 
-Start Lesson 24 and implement Boss encounter hardening with ability completion and zone gating.
+Start Lesson 27 and organize UI/menu state flow around HUD, settings, temporary feedback, and terminal states.
 
-Runbook: `00_plan/lesson_24_2h_runbook.md`
+Runbook: `00_plan/lesson_27_2h_runbook.md`
 
 Lesson Queue: `00_plan/lesson_queue.md`
-- Next prepared lessons: `lesson_24_2h_runbook.md`
+- Next prepared lessons: `lesson_27_2h_runbook.md`, `lesson_28_2h_runbook.md`, `lesson_29_2h_runbook.md`, `lesson_30_2h_runbook.md`
 
 ## Teaching Preferences (Stable)
 

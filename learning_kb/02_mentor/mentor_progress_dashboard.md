@@ -1,8 +1,8 @@
 # Mentor Progress Dashboard
 
-Last Updated: 2026-06-30
+Last Updated: 2026-07-01
 Active Baseline: Godot 4.6 stable
-Overall Progress: 80%
+Overall Progress: 81%
 
 ## 评分模型（5 维度）
 
@@ -12,9 +12,9 @@ Overall Progress: 80%
 | Dimension | Score | Weight | Contribution | Current Evidence | Main Gap |
 | --- | --- | --- | --- | --- | --- |
 | D1 Runtime & Core API Mastery | 100 | 20% | 20.0 | M01-M20、K001-K082、QA001-QA084 | 需继续扩展到渲染深水区与工程边界案例 |
-| D2 Feature Solution Design | 98 | 20% | 19.6 | playbook 扩展到 F001~F085；新增学习型课程规划与第25~27课能力覆盖 runbook | 需补第28~30课 learning-first runbook |
+| D2 Feature Solution Design | 100 | 20% | 20.0 | playbook 扩展到 F001~F085；新增学习型课程规划与第25~30课能力覆盖 runbook | 需补第31~33课 learning-first runbook |
 | D3 Source-level Q&A Speed | 100 | 20% | 20.0 | quick-answer map v1 已扩展到 170 问题 | 需补渲染源码链路的答复模板化 |
-| D4 Engineering Reliability | 54 | 20% | 10.8 | 排错清单 + 性能案例库 + 自动回归规范 + 阈值带样本 + 第16课 Profiler 证据纪律复盘 + 第22课 alpha 回归 runbook + 第25~27课学习边界 runbook | 缺自动化执行样本与阈值调优 |
+| D4 Engineering Reliability | 55 | 20% | 11.0 | 排错清单 + 性能案例库 + 自动回归规范 + 阈值带样本 + 第16课 Profiler 证据纪律复盘 + 第22课 alpha 回归 runbook + 第25~30课学习边界 runbook | 缺自动化执行样本与阈值调优 |
 | D5 Shipping & Version Governance | 48 | 20% | 9.6 | 版本治理 + preflight + 风险矩阵 + 阈值证据链 + 第23课 Windows 导出干跑 runbook + M20 导出验证资产 | 缺 Steam 上线前端到端演练与指标闭环 |
 
 ## 等级解释
@@ -35,10 +35,13 @@ Governance Update:
 - 学员线第21课已完成：Boss 击败信号、一次性奖励、HUD 奖励提示、Goal 解锁归属修正。
 - 学员线第22课已完成：当前版本完整主链路 alpha 回归测试通过。
 - 学员线第23课已完成：Windows 导出干跑 + 导出包 smoke test 通过。
-- 学员线下一课切换为：`lesson_24_2h_runbook`（Boss 战能力补齐与区域门控）。
-- 本轮导师学习聚焦“本地 Godot 学习路线 + 第25~27课备课缓冲恢复”。
-- 备课缓冲已更新为 `第24课~第27课`（4课），满足至少提前 3 课要求。
-- 本轮新增/更新导师资产：`M22`、`K085~K087`、`QA087~QA089`、`lesson_25~27_2h_runbook`、`SQ166~SQ170`。
+- 学员线第24课已完成：Boss 战能力补齐与区域门控。
+- 学员线第25课已完成：复杂 Boss 对象组织与战斗威胁。
+- 学员线第26课已完成：输入与交互系统整理。
+- 学员线下一课切换为：`lesson_27_2h_runbook`（UI/菜单系统与状态流）。
+- 本轮导师学习聚焦“第28~30课备课缓冲恢复 + 反馈/音频/Resource 边界资产”。
+- 备课缓冲已更新为 `第27课~第30课`（4课），满足至少提前 3 课要求。
+- 本轮新增/更新导师资产：`M23`、`K088~K090`、`QA090~QA092`、`lesson_28~30_2h_runbook`。
 
 ## 自动更新规则（每次“你自己学习”后执行）
 
@@ -185,14 +188,15 @@ Governance Update:
 - W19 deliverables:
   - [done] M22 + QA087~QA089 + K085~K087（本地学习型课程规划）
   - [done] lesson_25~lesson_27 runbook，恢复第24~27课备课缓冲
-  - [pending] 第28~30课 runbook（Animation/Tween/Timer、音频、Resource 深化）
-- W19 progress: `2/3 completed`
+  - [done] 第28~30课 runbook（Animation/Tween/Timer、音频、Resource 深化）
+- W19 progress: `3/3 completed`
 
 ## 当前两周冲刺（Now)
 
-- Sprint Goal: `79% -> 80%`
+- Sprint Goal: `80% -> 81%`
 - Must Deliver:
   1. [in_progress] 将阈值带接入自动化执行（脚本化判定 pass/fail）
   2. [done] 将长期目标调整为本地 Godot 学习路线，并降级 Steam 发布主线
   3. [done] 补齐第25课~第27课 runbook，恢复 >=3 课缓冲
   4. [done] 补齐 M22/K085~K087/QA087~QA089 与 SQ166~SQ170
+  5. [done] 补齐第28课~第30课 runbook 与 M23/K088~K090/QA090~QA092

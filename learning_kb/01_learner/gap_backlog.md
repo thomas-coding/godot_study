@@ -4,10 +4,9 @@
 
 ## P0
 
-- Understand `_unhandled_input` dispatch order and handled propagation in practice
 - Practice Profiler domain breakdown beyond frame-time curve (`Process` / `Physics` / render) on a larger scene
 
-Reference runbook: `00_plan/lesson_24_2h_runbook.md`
+Reference runbook: `00_plan/lesson_27_2h_runbook.md`
 
 ## P1
 
@@ -25,8 +24,9 @@ Reference runbook: `00_plan/lesson_24_2h_runbook.md`
 - Keep multi-level chain explicit (`01 -> 02 -> 03 -> end`) and avoid loopback misconfiguration
 - Practice event ID naming discipline and collision between duplicate event IDs
 - Continue monitoring level readability and route spacing as future systems accumulate in one scene
-- Practice Boss encounter hardening: side-contact damage, optional projectile attack, Boss-zone gate, and exit unlock
+- Practice Boss-zone activation and optional projectile attack after basic side-contact damage and exit unlock are stable
 - Practice pause/continue behavior around temporary reward popups and real terminal states
+- Reinforce `_unhandled_input` dispatch order and handled propagation during UI/menu state flow
 - Run first real migration rehearsal when target version changes (e.g. 4.6 -> 5.0)
 
 ## P2

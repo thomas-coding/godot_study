@@ -1,5 +1,47 @@
 # Session Handoff (Latest)
 
+Date: 2026-07-01
+
+## 2026-07-01 Update
+
+- 学员线第24课已完成：Boss 战能力补齐与区域门控。
+  - `projects/first-game/scenes/boss.gd` 新增/确认 `hit_player` 信号。
+  - Boss 接触判定区分踩踏与侧碰：踩踏扣 Boss HP，侧碰让 Player 扣 HP。
+  - `projects/first-game/scenes/main.tscn` 新增 `BossExitGate`。
+  - `projects/first-game/scenes/main.gd` 在 Boss 击败后移除 `BossExitGate`。
+  - 回归通过：Boss reward 一次性、Goal 仍是最终通关入口、`R` 重开恢复 Boss/门/奖励/HUD，无红色 error。
+- 学员线第25课已完成：复杂 Boss 对象组织与战斗威胁。
+  - 学员能解释 Boss/Main/HUD 职责边界。
+  - `boss.gd` 接触判定整理为 `_is_player_stomp(body)` helper。
+  - 回归通过：踩踏、侧碰、Boss reward、Goal、restart 都稳定。
+- 学员线第26课已完成：输入与交互系统整理。
+  - 学员理解 InputMap action 与 key 解耦。
+  - 学员理解 `GameState -> SceneTree.paused -> PROCESS_MODE_PAUSABLE` 门控链。
+  - 学员理解 HUD/Control 输入与 gameplay 规则边界，以及 runtime rebind 与 persistence 的分层。
+- 导师线整理与备课已完成：
+  - 新增 `learning_kb/01_learner/daily_reports/2026-07-01.md`。
+  - 更新 `current_state`、`mastery_map`、`gap_backlog`、`lesson_queue`。
+  - 新增第28课~第30课 runbook，备课缓冲为第27课~第30课。
+  - 新增 M23、K088~K090、QA090~QA092。
+  - 更新 docs_digest、learning_backlog、导师索引、version_matrix、mentor_progress_dashboard。
+  - `.opencode/SESSION_STATE.md` 已刷新到第26课完成、第27课下一课。
+
+## Next session objective (Lesson 27, 2h)
+
+Organize UI/menu state flow so HUD, settings, temporary feedback, and terminal screens each map to clear gameplay states.
+
+## First files to read next time
+
+1. `learning_kb/00_plan/lesson_queue.md`
+2. `learning_kb/00_plan/lesson_27_2h_runbook.md`
+3. `learning_kb/01_learner/current_state.md`
+4. `learning_kb/01_learner/daily_reports/2026-07-01.md`
+5. `projects/first-game/scenes/hud.gd`
+6. `projects/first-game/scenes/hud.tscn`
+7. `projects/first-game/scenes/main.gd`
+
+---
+
 Date: 2026-06-29
 
 ## 2026-06-29 Update

@@ -1,6 +1,6 @@
 # Local Godot Learning Curriculum After Lesson 24
 
-Last Updated: 2026-06-30
+Last Updated: 2026-07-01
 Scope: 本地 Godot 游戏制作学习，不以 Steam 发布为目标
 Status: Planning reference for future mentor prep
 
@@ -13,10 +13,10 @@ Status: Planning reference for future mentor prep
 
 ## 当前基线
 
-- 第1课到第22课已完成：Godot 2D 核心系统、vertical slice 主链路与 alpha 回归。
-- 第23课已备课：Windows 导出干跑 + 发布前最小验证。
-- 第24课已备课：Boss 战能力补齐与区域门控。
-- 第25课以后尚未生成正式 runbook。
+- 第1课到第26课已完成：Godot 2D 核心系统、vertical slice 主链路、Boss encounter、输入边界。
+- 第27课已备课：UI/菜单系统与状态流。
+- 第28课到第30课已备课：反馈时序、音频系统、Resource 深化。
+- 第31课以后尚未生成正式 runbook。
 
 ## 必修课程规划（第25课到第36课）
 
@@ -125,4 +125,4 @@ Status: Planning reference for future mentor prep
 
 - 必修建议做到第36课左右，覆盖本地 Godot 游戏制作关键能力。
 - 加上选修后，到第42课可以形成较完整的 Godot 2D 学习闭环。
-- 后续导师线备课应优先把第25课到第27课生成正式 runbook，并保持至少 3 课缓冲。
+- 后续导师线备课应优先把第31课到第33课生成正式 runbook，并保持至少 3 课缓冲。
