@@ -1,13 +1,13 @@
 # Current Learner State
 
-Last Updated: 2026-07-01
+Last Updated: 2026-07-02
 
 ## Snapshot
 
-- Phase: Week 01 / 第26课完成
+- Phase: Week 01 / 第30课完成
 - Per-Lesson Budget: 2h
-- Lesson Prep Buffer: Lessons 27-30 ready
-- Primary Goal: Learn local Godot game creation through a complete small 2D project
+- Lesson Prep Buffer: Lessons 27-30 completed; Lesson 31+ need new prep if continuing this track
+- Primary Goal: Learn local Godot game creation and transition lessons toward the real standalone project `computer_from_scratch`
 - KB Baseline: Godot 4.6 (version migration protocol enabled)
 
 ## What Is Solid
@@ -100,6 +100,12 @@ Last Updated: 2026-07-01
 - Learner understands `GameState -> SceneTree.paused -> PROCESS_MODE_PAUSABLE` as the current input gating chain
 - Learner understands Player reads gameplay actions, Main owns state/global hotkeys, and HUD/Control handles UI input without owning gameplay rules
 - Learner understands runtime `InputMap` rebinding and persisted keybinding require separate layers
+- Learner can classify UI surfaces: HUD as continuous status display, Pause/Settings as menu or mode panel, Boss Reward as temporary event feedback, Game Over/You Win as terminal state.
+- Learner understands feedback timing tool boundaries at a high level: short delayed feedback, cooldown windows, temporary popups, and persistent states should use different timing/animation tools.
+- Basic generated audio SFX integration works in `first-game`: coin collection, player hit, and Boss reward each play a dedicated `AudioStreamPlayer` from confirmed gameplay event handlers.
+- Learner understands audio volume settings are application settings through Master bus control, not gameplay rules.
+- Learner confirmed Resource config vs runtime mutable state boundary; `player_hp/player_speed/required_coins` are config-style data, while `hp/hp_current/collected_count` are runtime state.
+- Real project direction selected: `computer_from_scratch` will be a standalone publishable Godot 2D/2.5D game project under `D:\workspace\code\computer_from_scratch`, not a `godot_study` submodule.
 - Teaching delivery issue identified: pasted GDScript snippets from chat may carry unwanted leading spaces; learner will self-correct when needed, and future code blocks should stay independent and clean
 - Versioned KB infrastructure is ready (`registry` + `upgrade protocol` + `compatibility matrix`)
 - Mentor support assets upgraded: QA001~QA086, multi-domain checklists, source quick-answer map v1 (165 items)
@@ -107,24 +113,23 @@ Last Updated: 2026-07-01
 
 ## Current Gaps
 
-- `_unhandled_input` 分发顺序与 handled 传播机制理解已有改善，但还需要在 UI 状态流课继续强化
 - Multi-level chain configuration discipline (avoid loopback and keep terminal level explicit)
 - Save schema evolution discipline (field/version compatibility and fallback)
 - Keybinding rebind implementation is still placeholder-only (entry exists, rebinding flow not implemented)
-- Resource sharing/mutation boundary should be reinforced later (`Resource` data vs runtime mutable state)
 - Profiler domain breakdown beyond frame-time curve (`Process` vs `Physics` vs render/draw calls) needs later practice on a larger scene
 - Level readability should continue to be monitored as more systems accumulate in one route
 - Boss is still not a full combat threat: side-contact damage and exit gate are done, but projectile pattern and Boss-zone activation remain optional future work
-- Temporary reward popup vs terminal win/game-over UI should be reinforced during Lesson 27 UI/state flow
+- Resource sharing/mutation boundary should still be reinforced in real project data design (`Resource` data vs runtime mutable state)
 
 ## Immediate Next Session Goal
 
-Start Lesson 27 and organize UI/menu state flow around HUD, settings, temporary feedback, and terminal states.
+`godot_study` learner line has completed Lesson 27-30. If continuing this track, mentor prep must create Lesson 31+ runbooks.
 
-Runbook: `00_plan/lesson_27_2h_runbook.md`
+The user is now preparing to work in the standalone real project:
 
-Lesson Queue: `00_plan/lesson_queue.md`
-- Next prepared lessons: `lesson_27_2h_runbook.md`, `lesson_28_2h_runbook.md`, `lesson_29_2h_runbook.md`, `lesson_30_2h_runbook.md`
+`D:\workspace\code\computer_from_scratch`
+
+First real project slice: `NAND gate -> half adder -> automated test passes`.
 
 ## Teaching Preferences (Stable)
 

@@ -35,6 +35,9 @@ var wave_configs := {
 
 @onready var hud: Node = get_node_or_null("HUD")
 @onready var player: Node = get_node_or_null("Player")
+@onready var coin_audio: AudioStreamPlayer = get_node_or_null("CoinAudio")
+@onready var hit_audio: AudioStreamPlayer = get_node_or_null("HitAudio")
+@onready var reward_audio: AudioStreamPlayer = get_node_or_null("RewardAudio")
 
 enum GameState { WAIT_START, PLAYING, PAUSED, GAME_OVER, WON }
 var game_state: GameState = GameState.WAIT_START
@@ -106,6 +109,7 @@ func _on_boss_defeated(boss_position: Vector2) -> void:
 	_refresh_objective_status()
 	if hud != null and hud.has_method("show_boss_result"):
 		hud.call("show_boss_result", boss_reward_amount)
+	_play_audio(reward_audio)
 	print("Boss reward granted: +%d at %s" % [boss_reward_amount, boss_position])
 
 func _on_coin_collected() -> void:
@@ -116,6 +120,7 @@ func _on_coin_collected() -> void:
 		SaveManager.try_update_best_score(collected_count)
 	remaining_coins = max(remaining_coins - 1, 0)
 	_refresh_score_label()
+	_play_audio(coin_audio)
 	_debug_log("Collected: %d / %d" % [collected_count, total_coins])
 	_refresh_goal_unlock()
 	_refresh_objective_status()
@@ -158,6 +163,7 @@ func _on_hazard_hit() -> void:
 		hud.call("show_hit_feedback")
 	if player != null and player.has_method("show_hit_flash"):
 		player.call("show_hit_flash")
+	_play_audio(hit_audio)
 	_debug_log("HP: %d" % hp)
 	if hp <= 0:
 		_set_game_state(GameState.GAME_OVER)
@@ -236,6 +242,12 @@ func _refresh_objective_status() -> void:
 func _debug_log(message: String) -> void:
 	if debug_logs:
 		print(message)
+
+func _play_audio(audio_player: AudioStreamPlayer) -> void:
+	if audio_player == null:
+		return
+	audio_player.stop()
+	audio_player.play()
 
 # New event setup template:
 # 1. Add an event_trigger.tscn instance under the level root.

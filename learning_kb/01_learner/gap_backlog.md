@@ -26,8 +26,8 @@ Reference runbook: `00_plan/lesson_27_2h_runbook.md`
 - Continue monitoring level readability and route spacing as future systems accumulate in one scene
 - Practice Boss-zone activation and optional projectile attack after basic side-contact damage and exit unlock are stable
 - Practice pause/continue behavior around temporary reward popups and real terminal states
-- Reinforce `_unhandled_input` dispatch order and handled propagation during UI/menu state flow
 - Run first real migration rehearsal when target version changes (e.g. 4.6 -> 5.0)
+- Design first real-project circuit simulation slice in `computer_from_scratch`
 
 ## P2
 

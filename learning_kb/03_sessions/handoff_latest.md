@@ -1,5 +1,37 @@
 # Session Handoff (Latest)
 
+Date: 2026-07-02
+
+## 2026-07-02 Update
+
+- 学员线第27课已完成：UI/菜单系统与状态流。
+  - 启动回归通过。
+  - 学员能区分 HUD 持续状态、Pause/Settings 菜单面板、Boss Reward 临时反馈、Game Over/You Win 终态。
+  - 本课压缩验收通过，未改代码。
+- 学员线第28课已完成：Animation / Tween / Timer 反馈系统。
+  - 学员确认反馈时序工具边界已理解。
+  - 本课压缩验收通过，未改代码。
+- 学员线第29课已完成：音频系统基础。
+  - 新增 `projects/first-game/assets/audio/sfx_coin.wav`、`sfx_hit.wav`、`sfx_reward.wav`。
+  - `main.tscn` 新增 `CoinAudio`、`HitAudio`、`RewardAudio`。
+  - `main.gd` 在 coin collected、player hit、Boss reward granted 后播放对应音效。
+  - 运行验收通过：音效、Master Volume slider、pause/restart 无红色 error。
+- 学员线第30课已完成：Resource 与数据驱动深化。
+  - 启动回归通过。
+  - 学员确认 Resource 配置与运行时状态边界已掌握。
+- 项目方向切换：
+  - 用户创建独立真实项目仓库 `https://github.com/thomas-coding/computer_from_scratch`。
+  - 最终决策：`computer_from_scratch` 作为独立项目放在 `D:\workspace\code\computer_from_scratch`，不作为 `godot_study` submodule。
+  - 真实项目目标：2D/2.5D Godot 游戏，从原材料到 MOSFET、逻辑门、CPU、汇编、C、OS。
+  - 第一垂直切片：`NAND gate -> half adder -> automated test passes`。
+
+## Next
+
+- 若继续 `godot_study` 学习路线：导师线需要先补第31课~第33课 runbook。
+- 若进入真实项目：从 `D:\workspace\code\computer_from_scratch` 开始，先读该仓库 `AGENTS.md` 和 `temp/HANDOFF_FOR_NEW_AI.md`。
+
+---
+
 Date: 2026-07-01
 
 ## 2026-07-01 Update

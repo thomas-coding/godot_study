@@ -13,6 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://cpx1mgppsqg3b" path="res://assets/training/trigger_pad.png" id="11_pad"]
 [ext_resource type="Texture2D" uid="uid://5q0o2jsuqvru" path="res://assets/training/gate_barrier.png" id="12_gate"]
 [ext_resource type="PackedScene" uid="uid://df20pg553jplt" path="res://scenes/boss.tscn" id="13_trceg"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx_coin.wav" id="14_coin"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx_hit.wav" id="15_hit"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx_reward.wav" id="16_reward"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
 size = Vector2(1900, 40)
@@ -117,3 +120,12 @@ shape = SubResource("RectangleShape2D_tipki")
 [node name="Visual" type="Sprite2D" parent="BossExitGate"]
 scale = Vector2(0.72, 0.88)
 texture = ExtResource("12_gate")
+
+[node name="CoinAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_coin")
+
+[node name="HitAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_hit")
+
+[node name="RewardAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_reward")

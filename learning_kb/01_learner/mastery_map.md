@@ -118,6 +118,16 @@
   - Evidence: `01_learner/daily_reports/2026-07-01.md`
 - Runtime gate ownership (`GameState` controls `SceneTree.paused`; gameplay nodes use `PROCESS_MODE_PAUSABLE`): `done`
   - Evidence: `01_learner/daily_reports/2026-07-01.md`
+- UI/menu state classification (`HUD` / Pause / Settings / temporary feedback / terminal state): `done`
+  - Evidence: `01_learner/daily_reports/2026-07-02.md`
+- Feedback timing boundary (`Timer` / `Tween` / `AnimationPlayer` concept selection): `done`
+  - Evidence: `01_learner/daily_reports/2026-07-02.md`
+- Basic audio feedback integration (`AudioStreamPlayer` SFX on confirmed events): `done`
+  - Evidence: `01_learner/daily_reports/2026-07-02.md`
+- Audio settings boundary (Master volume setting vs gameplay rules): `done`
+  - Evidence: `01_learner/daily_reports/2026-07-02.md`
+- Resource config vs runtime mutable state boundary: `done`
+  - Evidence: `01_learner/daily_reports/2026-07-02.md`
 
 ## English in Technical Context
 
